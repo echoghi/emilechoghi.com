@@ -1,0 +1,400 @@
+$icomoon-font-path: "../fonts" !default;
+
+$icon-pacman: "\e916";
+$icon-spades: "\e917";
+$icon-clubs: "\e918";
+$icon-diamonds: "\e919";
+$icon-files-empty: "\e925";
+$icon-file-text2: "\e926";
+$icon-location: "\e947";
+$icon-user-tie: "\e976";
+$icon-equalizer: "\e992";
+$icon-cog: "\e994";
+$icon-leaf: "\e9a4";
+$icon-rocket: "\e9a5";
+$icon-fire: "\e9a9";
+$icon-lab: "\e9aa";
+$icon-power: "\e9b5";
+$icon-download2: "\e9c5";
+$icon-link: "\e9cb";
+$icon-star-empty: "\e9d7";
+$icon-star-full: "\e9d9";
+$icon-man: "\e9dc";
+$icon-happy: "\e9df";
+$icon-smile: "\e9e1";
+$icon-tongue: "\e9e3";
+$icon-sad: "\e9e5";
+$icon-wink: "\e9e7";
+$icon-grin: "\e9e9";
+$icon-confused: "\e9f5";
+$icon-neutral: "\e9f7";
+$icon-hipster: "\e9f9";
+$icon-sleepy: "\e9fd";
+$icon-crying: "\ea01";
+$icon-warning: "\ea07";
+$icon-cancel-circle: "\ea0d";
+$icon-loop2: "\ea2e";
+$icon-arrow-up2: "\ea3a";
+$icon-arrow-right2: "\ea3c";
+$icon-arrow-down2: "\ea3e";
+$icon-arrow-left2: "\ea40";
+$icon-circle-up: "\ea41";
+$icon-circle-right: "\ea42";
+$icon-circle-down: "\ea43";
+$icon-circle-left: "\ea44";
+$icon-embed2: "\ea80";
+$icon-terminal: "\ea81";
+$icon-mail2: "\ea84";
+$icon-mail3: "\ea85";
+$icon-facebook: "\ea90";
+$icon-instagram: "\ea92";
+$icon-twitter: "\ea96";
+$icon-rss: "\ea9b";
+$icon-github: "\eab0";
+$icon-reddit: "\eac6";
+$icon-linkedin: "\eac9";
+$icon-linkedin2: "\eaca";
+$icon-chrome: "\ead9";
+$icon-firefox: "\eada";
+$icon-IE: "\eadb";
+$icon-edge: "\eadc";
+$icon-safari: "\eadd";
+$icon-opera: "\eade";
+$icon-file-pdf: "\eadf";
+
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('#{$icomoon-font-path}/icomoon.eot?52hnwh');
+    src:  url('#{$icomoon-font-path}/icomoon.eot?52hnwh#iefix') format('embedded-opentype'),
+        url('#{$icomoon-font-path}/icomoon.woff2?52hnwh') format('woff2'),
+        url('#{$icomoon-font-path}/icomoon.ttf?52hnwh') format('truetype'),
+        url('#{$icomoon-font-path}/icomoon.woff?52hnwh') format('woff'),
+        url('#{$icomoon-font-path}/icomoon.svg?52hnwh#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    /* stylelint-disable */
+    font-family: 'icomoon' !important;
+    /* stylelint-enable */
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* stylelint-disable */
+.icon-pacman {
+  &:before {
+    content: $icon-pacman;
+  }
+}
+.icon-spades {
+  &:before {
+    content: $icon-spades;
+  }
+}
+.icon-clubs {
+  &:before {
+    content: $icon-clubs;
+  }
+}
+.icon-diamonds {
+  &:before {
+    content: $icon-diamonds;
+  }
+}
+.icon-files-empty {
+  &:before {
+    content: $icon-files-empty;
+  }
+}
+.icon-file-text2 {
+  &:before {
+    content: $icon-file-text2;
+  }
+}
+.icon-location {
+  &:before {
+    content: $icon-location;
+  }
+}
+.icon-user-tie {
+  &:before {
+    content: $icon-user-tie;
+  }
+}
+.icon-equalizer {
+  &:before {
+    content: $icon-equalizer;
+  }
+}
+.icon-cog {
+  &:before {
+    content: $icon-cog;
+  }
+}
+.icon-leaf {
+  &:before {
+    content: $icon-leaf;
+  }
+}
+.icon-rocket {
+  &:before {
+    content: $icon-rocket;
+  }
+}
+.icon-fire {
+  &:before {
+    content: $icon-fire;
+  }
+}
+.icon-lab {
+  &:before {
+    content: $icon-lab;
+  }
+}
+.icon-power {
+  &:before {
+    content: $icon-power;
+  }
+}
+.icon-download2 {
+  &:before {
+    content: $icon-download2;
+  }
+}
+.icon-link {
+  &:before {
+    content: $icon-link;
+  }
+}
+.icon-star-empty {
+  &:before {
+    content: $icon-star-empty;
+  }
+}
+.icon-star-full {
+  &:before {
+    content: $icon-star-full;
+  }
+}
+.icon-man {
+  &:before {
+    content: $icon-man;
+  }
+}
+.icon-happy {
+  &:before {
+    content: $icon-happy;
+  }
+}
+.icon-smile {
+  &:before {
+    content: $icon-smile;
+  }
+}
+.icon-tongue {
+  &:before {
+    content: $icon-tongue;
+  }
+}
+.icon-sad {
+  &:before {
+    content: $icon-sad;
+  }
+}
+.icon-wink {
+  &:before {
+    content: $icon-wink;
+  }
+}
+.icon-grin {
+  &:before {
+    content: $icon-grin;
+  }
+}
+.icon-confused {
+  &:before {
+    content: $icon-confused;
+  }
+}
+.icon-neutral {
+  &:before {
+    content: $icon-neutral;
+  }
+}
+.icon-hipster {
+  &:before {
+    content: $icon-hipster;
+  }
+}
+.icon-sleepy {
+  &:before {
+    content: $icon-sleepy;
+  }
+}
+.icon-crying {
+  &:before {
+    content: $icon-crying;
+  }
+}
+.icon-warning {
+  &:before {
+    content: $icon-warning;
+  }
+}
+.icon-cancel-circle {
+  &:before {
+    content: $icon-cancel-circle;
+  }
+}
+.icon-loop2 {
+  &:before {
+    content: $icon-loop2;
+  }
+}
+.icon-arrow-up2 {
+  &:before {
+    content: $icon-arrow-up2;
+  }
+}
+.icon-arrow-right2 {
+  &:before {
+    content: $icon-arrow-right2;
+  }
+}
+.icon-arrow-down2 {
+  &:before {
+    content: $icon-arrow-down2;
+  }
+}
+.icon-arrow-left2 {
+  &:before {
+    content: $icon-arrow-left2;
+  }
+}
+.icon-circle-up {
+  &:before {
+    content: $icon-circle-up;
+  }
+}
+.icon-circle-right {
+  &:before {
+    content: $icon-circle-right;
+  }
+}
+.icon-circle-down {
+  &:before {
+    content: $icon-circle-down;
+  }
+}
+.icon-circle-left {
+  &:before {
+    content: $icon-circle-left;
+  }
+}
+.icon-embed2 {
+  &:before {
+    content: $icon-embed2;
+  }
+}
+.icon-terminal {
+  &:before {
+    content: $icon-terminal;
+  }
+}
+.icon-mail2 {
+  &:before {
+    content: $icon-mail2;
+  }
+}
+.icon-mail3 {
+  &:before {
+    content: $icon-mail3;
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook;
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram;
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter;
+  }
+}
+.icon-rss {
+  &:before {
+    content: $icon-rss;
+  }
+}
+.icon-github {
+  &:before {
+    content: $icon-github;
+  }
+}
+.icon-reddit {
+  &:before {
+    content: $icon-reddit;
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin;
+  }
+}
+.icon-linkedin2 {
+  &:before {
+    content: $icon-linkedin2;
+  }
+}
+.icon-chrome {
+  &:before {
+    content: $icon-chrome;
+  }
+}
+.icon-firefox {
+  &:before {
+    content: $icon-firefox;
+  }
+}
+.icon-IE {
+  &:before {
+    content: $icon-IE;
+  }
+}
+.icon-edge {
+  &:before {
+    content: $icon-edge;
+  }
+}
+.icon-safari {
+  &:before {
+    content: $icon-safari;
+  }
+}
+.icon-opera {
+  &:before {
+    content: $icon-opera;
+  }
+}
+.icon-file-pdf {
+  &:before {
+    content: $icon-file-pdf;
+  }
+}
+

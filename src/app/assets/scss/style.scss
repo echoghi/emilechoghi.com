@@ -1,0 +1,16 @@
+// This file is for imports only
+// Variables
+@import "variables";
+// Mixins
+@import "mixins/breakpoints";
+@import "mixins/loading-spinner";
+// Main
+@import "main";
+// Partials
+@import "navbar";
+@import "home";
+@import "about";
+@import "portfolio";
+@import "contact";
+@import "animations";
+@import "fonts";

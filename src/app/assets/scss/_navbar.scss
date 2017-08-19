@@ -1,0 +1,40 @@
+.navbar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    width: 100%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    &__brand {
+        font-family: 'portfolio';
+        width: 50px;
+        display: inline-block;
+        float: left;
+        padding: 30px;
+    }
+
+    &__menu {
+        list-style: none;
+        float: right;
+        padding: 15px;
+        font-weight: bold;
+
+        li {
+            display: inline-block;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: opacity .2s;
+
+            &.active {
+                color: $curious-blue;
+            }
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+}
