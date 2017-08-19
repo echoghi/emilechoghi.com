@@ -17,6 +17,9 @@ class About extends React.Component {
 			<div>
 				<NavBar />
 				<div className="about">
+
+					<div className="clearfix" />
+					
 					About
 				</div>
 			</div>

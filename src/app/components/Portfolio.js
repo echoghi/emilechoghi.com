@@ -17,6 +17,9 @@ class Portfolio extends React.Component {
 			<div>
 				<NavBar />
 				<div className="portfolio">
+
+					<div className="clearfix" />
+					
 					Portfolio
 				</div>
 			</div>

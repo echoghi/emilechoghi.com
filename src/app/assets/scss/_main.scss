@@ -17,3 +17,9 @@ a {
 .contact {
     margin-top: 80px;
 }
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
