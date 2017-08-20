@@ -28,7 +28,7 @@ class Contact extends React.Component {
 		};
 
 		this.onChange = this.onChange.bind(this);
-        //this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrorClass = this.handleErrorClass.bind(this);
 	}
 
@@ -104,6 +104,31 @@ class Contact extends React.Component {
         return className;
     }
 
+    /**
+     * Handle Submit Event
+     *
+     * @param event - DOM event info
+     * @state - Send validation status to state and make scan request
+     */
+    handleSubmit(event) {
+        event.preventDefault();
+
+        if (this.validateInputs()) {
+            
+        } else {
+            // create a shallow copy of the state to mutate
+            let obj = Object.assign({}, this.state);
+            // If there is an invalid input, mark all as dirty on submit to alert the user
+            for (let attr in this.state) {
+                if (obj['validation'][attr]) {
+                    obj['validation'][attr]['dirty'] = true;
+                }
+            }
+
+            this.setState(obj);
+        }
+    }
+
 	render() {
 		return (
 			<div>
@@ -133,6 +158,11 @@ class Contact extends React.Component {
 								<div className={this.handleErrorClass('message')}>This field is required</div>
 							</div>
 						</div>
+
+						<button onClick={this.handleSubmit} className="form-button">
+		                    <span className="form-button__text">Send</span>
+		                </button>
+
 					</form>
 
 				</div>
