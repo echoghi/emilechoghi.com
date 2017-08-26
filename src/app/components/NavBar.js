@@ -79,6 +79,22 @@ class NavBar extends React.Component {
         return className;
     }
 
+    handleMenuClass() {
+    	let className;
+
+    	if(this.state.width < 1024) {
+	        if (this.state.menuOpen) {
+	            className = 'navbar__menu active';
+	        } else {
+	        	className = 'navbar__menu';
+        	}
+        } else {
+        	className = 'navbar__menu lg';
+        }
+
+        return className;
+    }
+
 	componentDidMount() {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
@@ -96,7 +112,7 @@ class NavBar extends React.Component {
 		return (
 			<div className="navbar">
 			{this.renderBrand()}
-				<ul className="navbar__menu">
+				<ul className={this.handleMenuClass()}>
 					<li className={this.handleNavClass('home')} onClick={() => { this.navigate('home'); }}>Home</li>
 					<li className={this.handleNavClass('about')} onClick={() => { this.navigate('about'); }}>About</li>
 					<li className={this.handleNavClass('portfolio')} onClick={() => { this.navigate('portfolio'); }}>Portfolio</li>
