@@ -1,10 +1,15 @@
 form {
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 70px;
     width: 80%;
 
+    @include less-than-ipad {
+        margin-top: 30px;
+        width: 80%;
+    }
+
     h4 {
-        font-size: 22px;
+        font-size: 30px;
         font-weight: bold;
     }
 
@@ -39,6 +44,7 @@ form {
 
         input,
         textarea {
+            font-family: 'Rubik', sans-serif;
             appearance: none;
             -moz-appearance: none;
             -webkit-appearance: none;
@@ -54,6 +60,7 @@ form {
             font: inherit;
             font-size: 18px;
             border-radius: 0;
+            transition: opacity .2s;  
 
             &.invalid {
                 border: 1px solid $punch;
@@ -93,13 +100,14 @@ form {
     button {
         outline: 0;
         transition: background-color .2s, border .2s;
+        font-family: 'Eczar', serif;
 
         &.form-button {
             display: block;
             float: left;
             height: 40px;
             width: 150px;
-            font-size: 16px;
+            font-size: 22px;
             font-weight: 900;
             border-radius: 2px;
             background-color: $curious-blue;

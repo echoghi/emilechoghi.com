@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Eczar');
 
 .navbar {
     font-family: 'Eczar', serif;
+    background: $white;
     display: block;
     position: fixed;
     top: 0;
@@ -15,7 +15,6 @@
         font-size: 50px;
         color: $curious-blue;
         cursor: pointer;
-        font-family: 'portfolio';
         width: 50px;
         display: inline-block;
         float: left;
@@ -37,7 +36,7 @@
         float: right;
         padding: 15px;
         font-weight: bold;
-        transition: opacity .2s;   
+        transition: all 200ms ease-out;   
 
         &.active,
         &.lg {

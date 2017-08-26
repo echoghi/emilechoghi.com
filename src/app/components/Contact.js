@@ -143,19 +143,19 @@ class Contact extends React.Component {
 							<div className="form__item">
 								<label className={this.handleErrorClass('name')}>Your Name</label>
 								<input type="text" name="name" maxLength="100" onChange={this.onChange} className={this.handleErrorClass('name')} />
-								<div className={this.handleErrorClass('name')}>This field is required</div>
+								<div className={this.handleErrorClass('name')}>required*</div>
 							</div>
 							<div className="form__item">
 								<label className={this.handleErrorClass('email')}>Email Address</label>
 								<input type="text" name="email" maxLength="254" onChange={this.onChange} className={this.handleErrorClass('email')} />
-								<div className={this.handleErrorClass('email')}>Please enter a valid email address</div>
+								<div className={this.handleErrorClass('email')}>invalid*</div>
 							</div>
 						</div>
 						<div className="form__row">
 							<div className="form__item-lg">
 								<label className={this.handleErrorClass('message')}>Your Message</label>
 								<textarea maxLength="6000" name="message" onChange={this.onChange} className={this.handleErrorClass('message')} />
-								<div className={this.handleErrorClass('message')}>This field is required</div>
+								<div className={this.handleErrorClass('message')}>required*</div>
 							</div>
 						</div>
 
