@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { handleNav } from './actions';
 
 const mapStateToProps = state => ({
+	width: 0,
     data: state.portfolioState.data,
     home: state.navigationState.home,
     about: state.navigationState.about,
@@ -20,10 +21,17 @@ class NavBar extends React.Component {
 
 		this.state = {
       		loading : true,
-      		error   : null
+      		error   : null,
+      		menuOpen: false
 		};
 
 		this.navigate = this.navigate.bind(this);
+		this.handleMenu = this.handleMenu.bind(this);
+		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+	}
+
+	handleMenu() {
+		this.setState({ menuOpen : !this.state.menuOpen });
 	}
 
 	navigate(page) {
@@ -32,6 +40,18 @@ class NavBar extends React.Component {
 		if(!this.props[page]) {
 	    	this.props.handleNav(page);
 	    }
+	}
+
+	handleBrandClass() {
+		let className;
+
+        if (this.state.menuOpen) {
+            className = 'navbar__brand active';
+        } else {
+        	className = 'navbar__brand';
+        }
+
+        return className;
 	}
 
 	handleNavClass(name) {
@@ -46,11 +66,24 @@ class NavBar extends React.Component {
         return className;
     }
 
+	componentDidMount() {
+		this.updateWindowDimensions();
+		window.addEventListener('resize', this.updateWindowDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	updateWindowDimensions() {
+		this.setState({ width: window.innerWidth});
+	}
+
 	render() {
 		return (
 			<div className="navbar">
-			<div className="navbar__brand">
-				<span className="icon-terminal" />
+			<div onClick={this.handleMenu} className={this.handleBrandClass()}>
+				EC
 			</div>
 				<ul className="navbar__menu">
 					<li className={this.handleNavClass('home')} onClick={() => { this.navigate('home'); }}>Home</li>

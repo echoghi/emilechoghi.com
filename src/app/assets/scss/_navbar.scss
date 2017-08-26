@@ -9,11 +9,20 @@
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 
     &__brand {
+        cursor: pointer;
         font-family: 'portfolio';
         width: 50px;
         display: inline-block;
         float: left;
         padding: 30px;
+
+        &.active {
+            color: $punch;
+        }
+
+        @include less-than-ipad {
+            width: 100%;
+        }
     }
 
     &__menu {
@@ -21,6 +30,11 @@
         float: right;
         padding: 15px;
         font-weight: bold;
+
+        @include less-than-ipad {
+            float: none;
+            background: $white;
+        }
 
         li {
             display: inline-block;
@@ -35,6 +49,10 @@
             &:hover {
                 opacity: .8;
             }
+
+            @include less-than-ipad {
+                display: block;
+                padding: 20px;            }
         }
     }
 }
