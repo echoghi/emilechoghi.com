@@ -59,6 +59,17 @@ export function portfolioState(
                 error: false
             });
 
+        case 'FORM_SUCCESS':
+            return Object.assign({}, state, {
+                loading: false,
+                success: true
+            });
+        case 'FORM_ERROR':
+            return Object.assign({}, state, {
+                loading: false,
+                error: true
+            });
+
         default:
             return state || '';
     }

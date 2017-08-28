@@ -12,7 +12,7 @@ import Styles from './app/assets/scss/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import 'whatwg-fetch';
@@ -35,7 +35,7 @@ export const store = compose(applyMiddleware(thunk))(createStore)(portfolioApp);
 
 ReactDOM.render(
      <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
             <Route path={'/'} component={Home} />
             <Route path={'/about'} component={About} />
             <Route path={'/portfolio'} component={Portfolio} />

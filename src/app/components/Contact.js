@@ -1,6 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { postForm, resetError } from './actions';
 // Components
 import NavBar from './NavBar';
+import Loading from './Loading';
+import FormError from './Error';
+
+const mapStateToProps = state => ({
+    success: state.portfolioState.success,
+    loading: state.portfolioState.loading,
+    error: state.portfolioState.error
+});
+
+const mapDispatchToProps = dispatch => ({
+    postForm: data => dispatch(postForm(data)),
+    resetError: () => dispatch(resetError())
+});
 
 // Email validation RegExp
 const validateEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -31,6 +46,19 @@ class Contact extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrorClass = this.handleErrorClass.bind(this);
 	}
+
+	/**
+     * Loading Spinner
+     *
+     * @return LoadingSpinner component
+     */
+    renderLoading() {
+    	if(this.props.loading) {
+    		return <Loading />;
+    	} else if(this.props.error) {
+    		return <FormError close={this.props.resetError} />;
+    	}
+    }
 
 	/**
      * Validate Inputs
@@ -111,10 +139,11 @@ class Contact extends React.Component {
      * @state - Send validation status to state and make scan request
      */
     handleSubmit(event) {
+    	let { name, email, message } = this.state;
         event.preventDefault();
 
         if (this.validateInputs()) {
-            
+            this.props.postForm({ name, email, message });
         } else {
             // create a shallow copy of the state to mutate
             let obj = Object.assign({}, this.state);
@@ -165,11 +194,12 @@ class Contact extends React.Component {
 
 					</form>
 
+					{this.renderLoading()}
+
 				</div>
 			</div>
 		);
 	}
-
 };
 
-export default Contact;
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

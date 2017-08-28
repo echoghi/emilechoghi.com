@@ -3,11 +3,9 @@
   "version": "2.0.2",
   "description": "Portfolio Site",
   "scripts": {
-    "cleanModules": "rimraf node_modules",
-    "dev": "npm install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "kill": "killall -9 node",
-    "prod": "NODE_ENV=production webpack-dev-server --env.prod=true",
-    "build": "rm -rf build && NODE_ENV=production webpack --env.prod=true",
+    "dev": "yarn install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "prod": "cross-env NODE_ENV=production webpack-dev-server --env.prod=true",
+    "build": "cross-env NODE_ENV=production webpack --env.prod=true",
     "server": "node app"
   },
   "repository": {
@@ -20,12 +18,15 @@
     "es6-promise": "^4.0.5",
     "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
+    "nodemailer": "^4.0.1",
+    "nodemailer-smtp-transport": "^2.7.4",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
     "react-redux": "5.0.3",
     "react-router": "^3.0.2",
     "redux": "3.6.0",
-    "redux-thunk": "2.2.0"
+    "redux-thunk": "2.2.0",
+    "xoauth2": "^1.2.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

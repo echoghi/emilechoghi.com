@@ -55,7 +55,7 @@ module.exports = function(env) {
                 }
             }),
             new ExtractTextPlugin(
-                isProd ? '../css/styles.scantool-lite.css' : 'styles.css'
+                isProd ? 'styles.css' : 'styles.css'
             )
         );
     } else {

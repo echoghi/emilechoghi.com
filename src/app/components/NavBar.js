@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { handleNav } from './actions';
 
 const mapStateToProps = state => ({
-	width: 0,
     data: state.portfolioState.data,
     home: state.navigationState.home,
     about: state.navigationState.about,
@@ -20,10 +19,9 @@ class NavBar extends React.Component {
 		super();
 
 		this.state = {
-      		loading : true,
-      		error   : null,
+			width   : 0,
       		menuOpen: false,
-      		mobile: false
+      		mobile  : false
 		};
 
 		this.navigate = this.navigate.bind(this);

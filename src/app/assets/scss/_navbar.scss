@@ -44,6 +44,7 @@
         }
 
         @include less-than-ipad {
+            height: 100vh;
             float: none;
             background: $white;
 
