@@ -95,9 +95,12 @@ export function postForm(data) {
                 data: data
             }
         )
-            .then(response => response.json())
-            .then(json => {
-                console.log(json);
+            .then(response => {
+                if(response.status === 200) {
+                    dispatch(formSuccess());
+                } else {
+                    dispatch(formError());
+                }
             })
             .catch(error => {
                 dispatch(formError());

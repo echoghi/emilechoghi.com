@@ -139,8 +139,8 @@ class Contact extends React.Component {
      * @state - Send validation status to state and make scan request
      */
     handleSubmit(event) {
-    	let { name, email, message } = this.state;
         event.preventDefault();
+        let { name, email, message } = this.state;
 
         if (this.validateInputs()) {
             this.props.postForm({ name, email, message });

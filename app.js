@@ -18,12 +18,13 @@ var generator = require('xoauth2').createXOAuth2Generator({
     refreshToken: "1/rh4PjNbgiZ8T0dwK0vjsFoArnXDHpG8xb22LQ9CPbbhmDQcxQDzou3OiRsMAxOgv"
 });
 
-var transporter = nodemailer.createTransport(smtpTransport({
+var transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-        XOAuth2: generator
+        user: "echoghi@gmail.com",
+        pass: "echoghipotac877"
     }
-}));
+});
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -62,13 +63,14 @@ app.post('/api/postForm', function(req, res) {
 
         transporter.sendMail({
            from: 'echoghi@gmail.com',
-           to: 'echoghi@gmail.com',
+           to: 'emchoghi@gmail.com',
            subject: 'Message from ' + req.body.name,
            text: 'Message:' + req.body.message
         }, function(err, info) {
           if(err) {
             console.log(chalk.red(err));
           } else {
+            res.status(200).json({'message': 'Email Sent', 'details' : info});
             console.log(chalk.green('Message Sent: ' + info.response));
           }
         });
