@@ -1,7 +1,7 @@
 form {
     margin: 0 auto;
     margin-top: 70px;
-    width: 80%;
+    width: 60%;
 
     @include less-than-ipad {
         height: 100vh;
@@ -12,6 +12,11 @@ form {
     h4 {
         font-size: 30px;
         font-weight: bold;
+        margin: 100px 0;
+
+        @include less-than-ipad {
+            margin: 40px 0;
+        }
     }
 
     .form__row {
