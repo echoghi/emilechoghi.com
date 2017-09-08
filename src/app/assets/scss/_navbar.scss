@@ -25,7 +25,25 @@
         }
 
         @include less-than-ipad {
-            width: 100%;
+            width: 20%;
+        }
+    }
+
+    .hamburger {
+        display: none;
+        float: right;
+        width: 30px;
+        padding: 20px 30px;
+
+        @include less-than-ipad { 
+            display: block;
+        }
+
+        div {
+            margin: 7px 0;
+            height: 3px;
+            background: $curious-blue;
+            border-radius: 5px;
         }
     }
 
@@ -41,6 +59,10 @@
         &.active,
         &.lg {
             display: block;
+        }
+
+        &.active {
+            text-align: center;
         }
 
         @include less-than-ipad {

@@ -92,7 +92,7 @@ export function postForm(data) {
             '/api/postForm',
             {
                 method: 'POST',
-                data: data
+                data: JSON.stringify(data)
             }
         )
             .then(response => {

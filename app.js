@@ -59,13 +59,13 @@ app.get('/', function(req, res){
 
 app.post('/api/postForm', function(req, res) {
     try {
-        console.log(chalk.green('Sending email...'));
+        console.log(chalk.green('Sending email...'), req.body);
 
         transporter.sendMail({
            from: 'echoghi@gmail.com',
            to: 'emchoghi@gmail.com',
-           subject: 'Message from ' + req.body.name,
-           text: 'Message:' + req.body.message
+           subject: 'Message from ' + req.body.name + ' - ' + req.body.email,
+           text: 'Message:\n' + req.body.message
         }, function(err, info) {
           if(err) {
             console.log(chalk.red(err));

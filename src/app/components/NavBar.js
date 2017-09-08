@@ -41,25 +41,13 @@ class NavBar extends React.Component {
 	    }
 	}
 
-	renderBrand() {
-		if(this.state.width < 1024) {
-			return (<div onClick={this.handleMenu} className={this.handleBrandClass()}>
-				EC
-			</div>);
-		} else {
-			return (<div className={this.handleBrandClass()}>
-				EC
-			</div>);
-		}
-	}
-
-	handleBrandClass() {
+	handleHamburgerClass() {
 		let className;
 
         if (this.state.menuOpen) {
-            className = 'navbar__brand active';
+            className = 'hamburger active';
         } else {
-        	className = 'navbar__brand';
+        	className = 'hamburger';
         }
 
         return className;
@@ -80,7 +68,7 @@ class NavBar extends React.Component {
     handleMenuClass() {
     	let className;
 
-    	if(this.state.width < 1024) {
+    	if(this.state.width < 768) {
 	        if (this.state.menuOpen) {
 	            className = 'navbar__menu active';
 	        } else {
@@ -109,7 +97,14 @@ class NavBar extends React.Component {
 	render() {
 		return (
 			<div className="navbar">
-			{this.renderBrand()}
+				<div className="navbar__brand">
+					EC
+				</div>
+				<div className={this.handleHamburgerClass()} onClick={this.handleMenu}>
+					<div />
+					<div />
+					<div />
+				</div>
 				<ul className={this.handleMenuClass()}>
 					<li className={this.handleNavClass('home')} onClick={() => { this.navigate('home'); }}>Home</li>
 					<li className={this.handleNavClass('about')} onClick={() => { this.navigate('about'); }}>About</li>
