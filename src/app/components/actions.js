@@ -92,7 +92,8 @@ export function postForm(data) {
             '/api/postForm',
             {
                 method: 'POST',
-                data: JSON.stringify(data)
+                body: JSON.stringify(data),
+                headers: {'Content-Type': 'application/json; charset=utf-8'}
             }
         )
             .then(response => {
