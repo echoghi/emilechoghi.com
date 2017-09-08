@@ -30,8 +30,9 @@
     }
 
     .hamburger {
+        position: absolute;
         display: none;
-        float: right;
+        right: 0;
         width: 30px;
         padding: 20px 30px;
 
@@ -40,10 +41,31 @@
         }
 
         div {
+            position: relative;
             margin: 7px 0;
             height: 3px;
             background: $curious-blue;
             border-radius: 5px;
+            transition: all 200ms ease-out;
+        }
+
+        &.active div {
+            transition: all 200ms ease-out;
+
+            &:first-child {
+                top: 7px;
+                transform: rotate(315deg);
+            }
+
+            &:nth-child(2) {
+                display: none;
+            }
+
+            &:last-child {
+                top: 7px;
+                transform: rotate(-315deg) translateY(-14px);
+                right: 10px;
+            }
         }
     }
 
@@ -54,7 +76,7 @@
         float: right;
         padding: 15px;
         font-weight: bold;
-        transition: all 200ms ease-out;   
+        transition: height 200ms ease-out;   
 
         &.active,
         &.lg {
@@ -63,6 +85,7 @@
 
         &.active {
             text-align: center;
+            transition: height 304ms ease-out;
         }
 
         @include less-than-ipad {
@@ -72,7 +95,7 @@
 
             li {
                 &:first-child {
-                    margin-top: 20px;
+                    margin-top: 50px;
                     padding: 30px 20px;
                     border-bottom: 1px solid $catskill-white
                 }
