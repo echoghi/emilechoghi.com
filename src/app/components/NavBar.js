@@ -72,7 +72,7 @@ class NavBar extends React.Component {
 	        if (this.state.menuOpen) {
 	            className = 'navbar__menu active';
 	        } else {
-	        	className = 'navbar__menu';
+	        	className = 'navbar__menu collapsed';
         	}
         } else {
         	className = 'navbar__menu lg';

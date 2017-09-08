@@ -12,6 +12,7 @@
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 
     &__brand {
+        position: absolute;
         font-size: 50px;
         color: $curious-blue;
         cursor: pointer;
@@ -26,6 +27,7 @@
 
         @include less-than-ipad {
             width: 20%;
+            z-index: 2;
         }
     }
 
@@ -38,6 +40,7 @@
 
         @include less-than-ipad { 
             display: block;
+            z-index: 2;
         }
 
         div {
@@ -70,22 +73,26 @@
     }
 
     &__menu {
-        display: none;
+        display: block;
         list-style: none;
         font-size: 18px;
         float: right;
         padding: 15px;
         font-weight: bold;
-        transition: height 200ms ease-out;   
 
-        &.active,
-        &.lg {
-            display: block;
+        &.collapsed {
+            text-align: center;
+            transform: scaleY(0);
+            transition: transform .3s cubic-bezier(0.71, 0.02, 0.9, 0.23), opacity .1s;
+            transform-origin: top; 
         }
 
         &.active {
             text-align: center;
-            transition: height 304ms ease-out;
+            opacity: 1;
+            transform: scaleY(1);
+            transition: transform .3s cubic-bezier(0.01, 0.03, 0.29, 1.17), opacity .2s;
+            transform-origin: top;
         }
 
         @include less-than-ipad {
