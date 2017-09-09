@@ -3,10 +3,15 @@ form {
     margin-top: 70px;
     width: 60%;
 
-    @include less-than-ipad {
+    @include less-than-tab-land {
         height: 100vh;
         margin-top: 30px;
         width: 80%;
+    }
+
+    @include mobile-small {
+        height: 115vh;
+        width: 85%;
     }
 
     h4 {

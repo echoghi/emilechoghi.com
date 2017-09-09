@@ -163,4 +163,13 @@
     }
 }
 
+@mixin mobile-small {
+
+    // < 370px
+
+    @media (max-width: #{370px}) {
+        @content;
+    }
+}
+
 /* stylelint-enable */
