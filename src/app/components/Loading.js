@@ -1,17 +1,18 @@
 import React from 'react';
+import Dialog, {
+  DialogContent,
+  DialogTitle
+} from 'material-ui/Dialog';
 
 class Loading extends React.Component {
     render() {
         return (
-            <div className="loading">
-                <div className="loading__wrapper">
+            <Dialog open={true} >
+                <DialogTitle>Sending...</DialogTitle>
+                <DialogContent>
                     <div className="loading__spinner" />
-
-                    <h4 className="loading__spinner--text">
-                        Sending...
-                    </h4>
-                </div>
-            </div>
+                </DialogContent>
+            </Dialog>
         );
     }
 }

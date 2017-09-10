@@ -26,6 +26,7 @@
         }
 
         @include less-than-ipad {
+            padding: 30px 20px;
             width: 20%;
             z-index: 2;
         }
@@ -36,7 +37,7 @@
         display: none;
         right: 0;
         width: 30px;
-        padding: 20px 30px;
+        padding: 20px;
 
         @include less-than-ipad { 
             display: block;

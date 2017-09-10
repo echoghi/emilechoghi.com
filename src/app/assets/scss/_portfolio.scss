@@ -1,0 +1,19 @@
+.portfolio {
+    &__header {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 30px 70px;
+
+        @include less-than-ipad {
+            padding: 10px 20px;
+        }
+    }
+
+    &__row {
+        display: block;
+    }
+
+    &__item {
+        display: inline-block;
+    }
+}

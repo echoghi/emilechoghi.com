@@ -1,20 +1,4 @@
 .loading {
-    min-height: 500px;
-    width: 100%;
-
-    &__wrapper {
-        background: $white;
-        padding: 50px;
-        border-radius: 4px;
-        position: absolute;
-        text-align: center;
-        font: $primary-font;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%)
-    }
 
     &__spinner {
         margin: 0 auto;
@@ -22,21 +6,12 @@
         height: 70px;
         font-size: 10px;
         border-radius: 50%;
-        border-top: .5px solid $punch;
+        border-top: .5px solid $curious-blue;
         border-right: .5px solid $geyser;
         border-bottom: .5px solid $geyser;
         border-left: .5px solid $geyser;
 
         @include loading-spinner;
-
-        &--text {
-            margin: 15px auto;
-            font: inherit;
-            font-size: 40px;
-            font-weight: 300;
-            line-height: 1.5;
-            color: $curious-blue
-        }
 
         &:after {
             border-radius: 50%;

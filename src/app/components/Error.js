@@ -1,19 +1,28 @@
 import React from 'react';
+import Dialog, {
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
+} from 'material-ui/Dialog';
+import Button from 'material-ui/Button';
 
 class FormError extends React.Component {
     render() {
         return (
-            <div className="error">
-                <div className="error__wrapper">
-                    <h4 className="error__text">
+            <Dialog open={true} onRequestClose={this.props.close}>
+                <DialogTitle>Oops, your message wasn't sent</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
                         An error occurred, please try again
-                    </h4>
-                    <button onClick={this.props.close} className="form-button">
-                        <span className="form-button__text">Back</span>
-                    </button>
-                </div>
-                <div className="error__overlay" />
-            </div>
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={this.props.close} color="accent">
+                        Ok
+                    </Button>
+                </DialogActions>
+            </Dialog>
         );
     }
 }

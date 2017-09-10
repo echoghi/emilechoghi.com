@@ -5,6 +5,7 @@ import { postForm, resetError } from './actions';
 import NavBar from './NavBar';
 import Loading from './Loading';
 import FormError from './Error';
+import Button from 'material-ui/Button';
 
 const mapStateToProps = state => ({
     success: state.portfolioState.success,
@@ -166,31 +167,31 @@ class Contact extends React.Component {
 
 					<div className="clearfix" />
 
-					<form>
+					<form id="contact-me">
 						<h4> Contact Me </h4>
 						<div className="form__row">
 							<div className="form__item">
 								<label className={this.handleErrorClass('name')}>Your Name</label>
-								<input type="text" name="name" maxLength="100" onChange={this.onChange} className={this.handleErrorClass('name')} />
+								<input type="text" name="name" value={this.state.name} maxLength="100" onChange={this.onChange} className={this.handleErrorClass('name')} />
 								<div className={this.handleErrorClass('name')}>required*</div>
 							</div>
 							<div className="form__item">
 								<label className={this.handleErrorClass('email')}>Email Address</label>
-								<input type="text" name="email" maxLength="254" onChange={this.onChange} className={this.handleErrorClass('email')} />
+								<input type="text" name="email" value={this.state.email} maxLength="254" onChange={this.onChange} className={this.handleErrorClass('email')} />
 								<div className={this.handleErrorClass('email')}>invalid*</div>
 							</div>
 						</div>
 						<div className="form__row">
 							<div className="form__item-lg">
 								<label className={this.handleErrorClass('message')}>Your Message</label>
-								<textarea maxLength="6000" name="message" onChange={this.onChange} className={this.handleErrorClass('message')} />
+								<textarea maxLength="6000" name="message" value={this.state.message} onChange={this.onChange} className={this.handleErrorClass('message')} />
 								<div className={this.handleErrorClass('message')}>required*</div>
 							</div>
 						</div>
 
-						<button onClick={this.handleSubmit} className="form-button">
-		                    <span className="form-button__text">Send</span>
-		                </button>
+						<Button onClick={this.handleSubmit} className="form-button">
+                            <span className="form-button__text">Send</span>
+                        </Button>
 
 					</form>
 

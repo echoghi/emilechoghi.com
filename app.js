@@ -53,6 +53,12 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/build'));
 
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
@@ -81,13 +87,6 @@ app.post('/api/postForm', function(req, res) {
 
     transporter.close();
 });
-
-app.get('*.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
-});
-
 
 // Start the server
 server.listen(port, function() {

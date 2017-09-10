@@ -20,7 +20,9 @@ class Portfolio extends React.Component {
 
 					<div className="clearfix" />
 					
-					Portfolio
+					<h4 className="portfolio__header">
+						Some Recent Projects
+					</h4>
 				</div>
 			</div>
 		);
