@@ -51,6 +51,12 @@ export function portfolioState(
                 error: false
             });
 
+        case 'RESET_FORM':
+            return Object.assign({}, state, {
+                error: null,
+                success: null
+            });
+
         case 'RECEIVE_DATA':
             return Object.assign({}, state, {
                 data: action.data,

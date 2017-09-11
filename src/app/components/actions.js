@@ -3,6 +3,7 @@ export const LOADING_DATA = 'LOADING_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const DATA_ERROR = 'DATA_ERROR';
 export const RESET_ERROR = 'RESET_ERROR';
+export const RESET_FORM = 'RESET_FORM';
 export const FORM_SUCCESS = 'FORM_SUCCESS';
 export const FORM_ERROR = 'FORM_ERROR';
 
@@ -28,6 +29,12 @@ export function dataError() {
 export function resetError() {
     return {
         type: RESET_ERROR
+    };
+}
+
+export function resetForm() {
+    return {
+        type: RESET_FORM
     };
 }
 
@@ -99,6 +106,9 @@ export function postForm(data) {
             .then(response => {
                 if(response.status === 200) {
                     dispatch(formSuccess());
+                    setTimeout(function() { 
+                        dispatch(resetForm());
+                    }, 3000);
                 } else {
                     dispatch(formError());
                 }

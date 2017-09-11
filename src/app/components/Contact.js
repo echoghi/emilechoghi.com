@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Loading from './Loading';
 import FormError from './Error';
 import Button from 'material-ui/Button';
+import Snackbar from 'material-ui/Snackbar';
 
 const mapStateToProps = state => ({
     success: state.portfolioState.success,
@@ -54,11 +55,39 @@ class Contact extends React.Component {
      * @return LoadingSpinner component
      */
     renderLoading() {
-    	if(this.props.loading) {
+        let { loading, error, success } = this.props;
+
+    	if(loading) {
     		return <Loading />;
-    	} else if(this.props.error) {
+    	} else if(error) {
     		return <FormError close={this.props.resetError} />;
-    	}
+    	} if(success) {
+            if(this.state.name) {
+                this.resetForm();
+            }
+        }
+    }
+
+    /**
+     * Reset Form Data
+     *
+     * @state - entire state
+     */
+    resetForm() {
+        // create a shallow copy of the state to mutate
+        let obj = Object.assign({}, this.state);
+        // Reset Form Data
+        for (let key in obj) {
+            if(key === 'validation') {
+                obj[key].name = new validationObj();
+                obj[key].email = new validationObj();
+                obj[key].message = new validationObj();
+            } else {
+                obj[key] = '';
+            }
+        }
+        
+        this.setState(obj);       
     }
 
 	/**
@@ -190,12 +219,19 @@ class Contact extends React.Component {
 						</div>
 
 						<Button onClick={this.handleSubmit} className="form-button">
-                            <span className="form-button__text">Send</span>
+                            Send
                         </Button>
 
 					</form>
 
 					{this.renderLoading()}
+
+                    <Snackbar
+                      open={this.props.success}
+                      message="Your message was sent successfully"
+                      autoHideDuration={4000}
+                      onRequestClose={this.handleRequestClose}
+                    />
 
 				</div>
 			</div>
