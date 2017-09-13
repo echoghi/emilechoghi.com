@@ -15,15 +15,25 @@ class Portfolio extends React.Component {
       				title: 'PiDash',
       				date: 'July 2nd, 2017',
       				text: 'A dashboard app for Raspberry Pi using React',
-      				tech: ['React', 'Webpack', 'SCSS'],
-      				key: 1
+      				tech: [
+      					{key: 0, label: 'React'},
+      					{key: 1, label: 'Webpack'},
+      					{key: 2, label: 'SCSS'},
+      					{key: 3, label: 'Node'}
+      				],
+      				key: 0
       			},
       			{
       				title: 'Ninety Music',
       				date: 'July 2nd, 2017',
       				text: 'A music player powered by the SoundCloud API',
-      				tech: ['React', 'Webpack', 'SCSS'],
-      				key: 2
+      				tech: [
+      					{key: 0, label: 'React'},
+      					{key: 1, label: 'Webpack'},
+      					{key: 2, label: 'SCSS'},
+      					{key: 3, label: 'Node'}
+      				],
+      				key: 1
       			}
       		]
 		};
@@ -53,7 +63,9 @@ class Portfolio extends React.Component {
 						Some Recent Projects
 					</h4>
 
-					{this.renderProjects()}
+					<div className="project__wrapper">
+						{this.renderProjects()}
+					</div>
 				</div>
 			</div>
 		);

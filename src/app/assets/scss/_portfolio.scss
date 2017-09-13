@@ -45,7 +45,10 @@
 
                 &.chips {
                     display: inline-flex;
-                    padding-top: 0;
+
+                    div {
+                        padding: 0;
+                    }
                 }
             }
         }

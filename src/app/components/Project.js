@@ -8,11 +8,10 @@ class Project extends React.Component {
 			margin: 4
 		};
 
-		this.props.chips.map(function(c, i) {
-			console.log(c);
+		this.props.chips.map(function(chip) {
 			chips.push(
-				<Chip style={styles} key={i}>
-		          {c}
+				<Chip style={styles} key={chip.key}>
+		          {chip.label}
 		        </Chip>
 			);
 		});
