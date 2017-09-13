@@ -6,12 +6,11 @@ form {
     @include less-than-tab-land {
         height: 100vh;
         margin-top: 30px;
-        width: 80%;
+        width: 85%;
     }
 
     @include mobile-small {
         height: 115vh;
-        width: 85%;
     }
 
     h4 {

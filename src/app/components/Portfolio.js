@@ -34,6 +34,28 @@ class Portfolio extends React.Component {
       					{key: 3, label: 'Node'}
       				],
       				key: 1
+      			},
+      			{
+      				title: 'Choghi Wedding',
+      				date: 'July 2nd, 2017',
+      				text: 'A wedding site for my brother\'s wedding',
+      				tech: [
+      					{key: 0, label: 'Angular'},
+      					{key: 1, label: 'SCSS'},
+      					{key: 2, label: 'Node'}
+      				],
+      				key: 2
+      			},
+      			{
+      				title: 'Choghi Wedding',
+      				date: 'July 2nd, 2017',
+      				text: 'A wedding site for my brother\'s wedding',
+      				tech: [
+      					{key: 0, label: 'Angular'},
+      					{key: 1, label: 'SCSS'},
+      					{key: 2, label: 'Node'}
+      				],
+      				key: 3
       			}
       		]
 		};
@@ -63,7 +85,7 @@ class Portfolio extends React.Component {
 						Some Recent Projects
 					</h4>
 
-					<div className="project__wrapper">
+					<div className="portfolio__wrapper">
 						{this.renderProjects()}
 					</div>
 				</div>
