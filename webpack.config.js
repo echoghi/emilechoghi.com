@@ -186,7 +186,7 @@ module.exports = function(env) {
                             loader: 'url-loader',
                             options: {
                                 query: {
-                                    name: 'assets/[name].[ext]'
+                                    name: 'app/assets/images/[name].[ext]'
                                 }
                             }
                         },

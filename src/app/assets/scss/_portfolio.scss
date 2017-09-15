@@ -58,6 +58,24 @@
             height: 275px;
             width: 100%;
             background: $curious-blue;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            z-index: 1;
+
+            &:hover {
+                background: $black;
+                opacity: .6;
+            }
+
+            a {
+                display: inline-block;
+                height: 100%;
+            }
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
         }
 
         &--info {
@@ -74,7 +92,14 @@
                     display: inline-flex;
 
                     div {
+                        margin: 4px;
                         padding: 0;
+                        transition: .3s all;
+
+                        &:first-child {
+                            margin-left: 0;
+                            font-weight: normal;
+                        }
                     }
                 }
             }

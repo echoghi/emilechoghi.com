@@ -4,15 +4,10 @@ import Chip from 'material-ui/Chip';
 class Project extends React.Component {
 	renderChips() {
 		let chips = [];
-		let styles = {
-			margin: 4
-		};
 
 		this.props.chips.map(function(chip) {
 			chips.push(
-				<Chip style={styles} key={chip.key}>
-		          {chip.label}
-		        </Chip>
+				<Chip key={chip.key} label={chip.label} />
 			);
 		});
 
@@ -20,14 +15,19 @@ class Project extends React.Component {
 	}
 
 	render() {
+		let { title, image, date, description, link } = this.props;
+
 		return (
 			<div className="portfolio__item">
 				<div className="portfolio__item--preview">
+					<a href={link} target="_blank">
+						<img src={image} />
+					</a>
 				</div>
 				<div className="portfolio__item--info">
-					<div>{this.props.title}</div>
-					<div>{this.props.date}</div>
-					<div>{this.props.description}</div>
+					<div>{title}</div>
+					<div>{date}</div>
+					<div>{description}</div>
 					<div className="chips">
 						{this.renderChips()}
 					</div>

@@ -50,8 +50,10 @@ class Portfolio extends React.Component {
       				title: 'Choghi Wedding',
       				date: 'July 2nd, 2017',
       				text: 'A wedding site for my brother\'s wedding',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
+      				link: 'http://choghiwedding.com',
       				tech: [
-      					{key: 0, label: 'Angular'},
+      					{key: 0, label: 'Angular', color: '#de3641'},
       					{key: 1, label: 'SCSS'},
       					{key: 2, label: 'Node'}
       				],
@@ -66,7 +68,7 @@ class Portfolio extends React.Component {
 
 		this.state.projects.map(function(p) {
 			portfolio.push(
-				<Project title={p.title} date={p.date} description={p.text} key={p.key} chips={p.tech}/>
+				<Project title={p.title} date={p.date} description={p.text} key={p.key} chips={p.tech} image={p.image} link={p.link} />
 			);
 		});
 
