@@ -42,7 +42,7 @@ class Portfolio extends React.Component {
       			{
       				title: 'Choghi Wedding',
       				date: 'July 2nd, 2017',
-      				text: 'A wedding site for my brother\'s wedding',
+      				text: 'A wedding site for my brother\'s union',
       				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
       				link: 'http://choghiwedding.com',
       				tech: [
@@ -53,15 +53,13 @@ class Portfolio extends React.Component {
       				key: 2
       			},
       			{
-      				title: 'Choghi Wedding',
-      				date: 'July 2nd, 2017',
-      				text: 'A wedding site for my brother\'s wedding',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
-      				link: 'http://choghiwedding.com',
+      				title: 'Slavebot',
+      				date: 'May 24th, 2016',
+      				text: 'A simple Reddit bot',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505455976/reddit_xm2nbz.png',
+      				link: 'https://github.com/echoghi/slavebot',
       				tech: [
-      					{key: 0, label: 'Angular.js'},
-      					{key: 1, label: 'SCSS'},
-      					{key: 2, label: 'Node.js'}
+      					{key: 0, label: 'Node.js'}
       				],
       				key: 3
       			}
