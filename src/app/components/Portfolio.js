@@ -15,11 +15,13 @@ class Portfolio extends React.Component {
       				title: 'PiDash',
       				date: 'July 2nd, 2017',
       				text: 'A dashboard app for Raspberry Pi using React',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505453477/pidash_zh6t7v.png',
+      				link: 'https://github.com/echoghi/PiDash',
       				tech: [
-      					{key: 0, label: 'React'},
+      					{key: 0, label: 'React.js'},
       					{key: 1, label: 'Webpack'},
       					{key: 2, label: 'SCSS'},
-      					{key: 3, label: 'Node'}
+      					{key: 3, label: 'Node.js'}
       				],
       				key: 0
       			},
@@ -27,11 +29,13 @@ class Portfolio extends React.Component {
       				title: 'Ninety Music',
       				date: 'July 2nd, 2017',
       				text: 'A music player powered by the SoundCloud API',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505451711/ninety_jryvwc.png',
+      				link: 'http://echoghi.github.io/ClomMafMedia/',
       				tech: [
-      					{key: 0, label: 'React'},
+      					{key: 0, label: 'React.js'},
       					{key: 1, label: 'Webpack'},
       					{key: 2, label: 'SCSS'},
-      					{key: 3, label: 'Node'}
+      					{key: 3, label: 'Node.js'}
       				],
       				key: 1
       			},
@@ -39,10 +43,12 @@ class Portfolio extends React.Component {
       				title: 'Choghi Wedding',
       				date: 'July 2nd, 2017',
       				text: 'A wedding site for my brother\'s wedding',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
+      				link: 'http://choghiwedding.com',
       				tech: [
-      					{key: 0, label: 'Angular'},
+      					{key: 0, label: 'Angular.js'},
       					{key: 1, label: 'SCSS'},
-      					{key: 2, label: 'Node'}
+      					{key: 2, label: 'Node.js'}
       				],
       				key: 2
       			},
@@ -53,9 +59,9 @@ class Portfolio extends React.Component {
       				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
       				link: 'http://choghiwedding.com',
       				tech: [
-      					{key: 0, label: 'Angular', color: '#de3641'},
+      					{key: 0, label: 'Angular.js'},
       					{key: 1, label: 'SCSS'},
-      					{key: 2, label: 'Node'}
+      					{key: 2, label: 'Node.js'}
       				],
       				key: 3
       			}

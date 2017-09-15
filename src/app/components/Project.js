@@ -22,6 +22,7 @@ class Project extends React.Component {
 				<div className="portfolio__item--preview">
 					<a href={link} target="_blank">
 						<img src={image} />
+						<i className="icon-redo2"/>
 					</a>
 				</div>
 				<div className="portfolio__item--info">
