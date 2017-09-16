@@ -88,7 +88,7 @@ class Portfolio extends React.Component {
 					<div className="clearfix" />
 					
 					<h4 className="portfolio__header">
-						Some Recent Projects
+						Recent Projects
 					</h4>
 
 					<div className="portfolio__wrapper">

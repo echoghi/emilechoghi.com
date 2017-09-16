@@ -1,0 +1,44 @@
+.about {
+    .jumbotron {
+        background: $alabaster;
+        padding: 100px 0;
+
+        @include less-than-ipad {
+            padding: 50px 0;
+        }
+
+        &__container {
+            width: 60%;
+            margin: 0 auto;
+
+            @include less-than-ipad {
+                width: 85%
+            }
+        }
+
+        &__content {
+            width: 60%;
+
+            @include less-than-ipad {
+                width: 100%;
+            }
+
+            h1 {
+                padding-bottom: 20px;
+            }
+
+            p {
+                font-family: Roboto,sans-serif;
+                line-height: 33px;
+                font-size: 15px;
+                letter-spacing: 0;
+            }
+        }
+    }
+
+    .skills {
+        width: 60%;
+        margin: 0 auto;
+        padding: 100px 0;
+    }
+}

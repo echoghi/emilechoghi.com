@@ -1,0 +1,15 @@
+.home {
+    .jumbotron {
+        background: $alabaster;
+        padding: 100px 0;
+
+        &__content {
+            width: 40%;
+            margin: 0 auto;
+
+            h1 {
+                padding-bottom: 20px;
+            }
+        }
+    }
+}

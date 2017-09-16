@@ -11,7 +11,7 @@ class FormError extends React.Component {
     render() {
         return (
             <Dialog open={true} onRequestClose={this.props.close}>
-                <DialogTitle>Oops, your message wasn't sent</DialogTitle>
+                <DialogTitle>Oops, your message wasn't sent <i className="icon-tongue" /></DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         An error occurred, please try again
