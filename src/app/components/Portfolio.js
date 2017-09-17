@@ -11,17 +11,16 @@ class Portfolio extends React.Component {
       		loading  : true,
       		error    : null,
       		projects : [
-      			{
-      				title: 'PiDash',
+      		{
+      				title: 'Choghi Wedding',
       				date: 'July 2nd, 2017',
-      				text: 'A dashboard app for Raspberry Pi using React',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505453477/pidash_zh6t7v.png',
-      				link: 'https://github.com/echoghi/PiDash',
+      				text: 'A wedding site for my brother\'s union',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
+      				link: 'http://choghiwedding.com',
       				tech: [
-      					{key: 0, label: 'React.js'},
-      					{key: 1, label: 'Webpack'},
-      					{key: 2, label: 'SCSS'},
-      					{key: 3, label: 'Node.js'}
+      					{key: 0, label: 'Angular.js', class: 'icon-angular'},
+      					{key: 1, label: 'SCSS', class: 'icon-SCSS'},
+      					{key: 2, label: 'Node.js', class: 'icon-node'}
       				],
       				key: 0
       			},
@@ -29,26 +28,25 @@ class Portfolio extends React.Component {
       				title: 'Ninety Music',
       				date: 'July 2nd, 2017',
       				text: 'A music player powered by the SoundCloud API',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505451711/ninety_jryvwc.png',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505610531/ninety_oktikp.png',
       				link: 'http://echoghi.github.io/ClomMafMedia/',
       				tech: [
-      					{key: 0, label: 'React.js'},
-      					{key: 1, label: 'Webpack'},
-      					{key: 2, label: 'SCSS'},
-      					{key: 3, label: 'Node.js'}
+      					{key: 0, label: 'Angular.js', class: 'icon-angular'},
+      					{key: 1, label: 'SCSS', class: 'icon-SCSS'}
       				],
       				key: 1
       			},
       			{
-      				title: 'Choghi Wedding',
+      				title: 'PiDash',
       				date: 'July 2nd, 2017',
-      				text: 'A wedding site for my brother\'s union',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
-      				link: 'http://choghiwedding.com',
+      				text: 'A dashboard app for Raspberry Pi using React',
+      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505617148/pidash_rlnojn.png',
+      				link: 'https://github.com/echoghi/PiDash',
       				tech: [
-      					{key: 0, label: 'Angular.js'},
-      					{key: 1, label: 'SCSS'},
-      					{key: 2, label: 'Node.js'}
+      					{key: 0, label: 'React.js', class: 'icon-react'},
+      					{key: 1, label: 'Webpack', class: 'icon-webpack'},
+      					{key: 2, label: 'SCSS', class: 'icon-SCSS' , size: 30}, 
+      					{key: 3, label: 'Node.js', class: 'icon-node'}
       				],
       				key: 2
       			},
@@ -59,7 +57,7 @@ class Portfolio extends React.Component {
       				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505455976/reddit_xm2nbz.png',
       				link: 'https://github.com/echoghi/slavebot',
       				tech: [
-      					{key: 0, label: 'Node.js'}
+      					{key: 0, label: 'Node.js', class: 'icon-node'}
       				],
       				key: 3
       			}

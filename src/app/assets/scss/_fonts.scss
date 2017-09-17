@@ -1,7 +1,21 @@
 /* stylelint-disable */
 $icomoon-font-path: "../fonts" !default;
 
-$icon-pacman: "\e916";
+$icon-angular-path1: "\e90a";
+$icon-angular-path2: "\e90b";
+$icon-angular-path3: "\e90c";
+$icon-angular-path4: "\e90d";
+$icon-angular-path5: "\e90e";
+$icon-gulp-path1: "\e900";
+$icon-gulp-path2: "\e901";
+$icon-gulp-path3: "\e902";
+$icon-gulp-path4: "\e903";
+$icon-node: "\e904";
+$icon-react: "\e905";
+$icon-scss: "\e906";
+$icon-webpack-path1: "\e907";
+$icon-webpack-path2: "\e908";
+$icon-webpack-path3: "\e909";
 $icon-files-empty: "\e925";
 $icon-file-text2: "\e926";
 $icon-location: "\e947";
@@ -11,9 +25,7 @@ $icon-cog: "\e994";
 $icon-leaf: "\e9a4";
 $icon-rocket: "\e9a5";
 $icon-fire: "\e9a9";
-$icon-lab: "\e9aa";
 $icon-power: "\e9b5";
-$icon-download2: "\e9c5";
 $icon-link: "\e9cb";
 $icon-star-empty: "\e9d7";
 $icon-star-full: "\e9d9";
@@ -42,320 +54,378 @@ $icon-circle-down: "\ea43";
 $icon-circle-left: "\ea44";
 $icon-embed2: "\ea80";
 $icon-terminal: "\ea81";
-$icon-mail2: "\ea84";
-$icon-mail3: "\ea85";
 $icon-facebook: "\ea90";
 $icon-instagram: "\ea92";
 $icon-twitter: "\ea96";
 $icon-rss: "\ea9b";
 $icon-github: "\eab0";
-$icon-reddit: "\eac6";
 $icon-linkedin: "\eac9";
 $icon-linkedin2: "\eaca";
-$icon-safari: "\eadd";
-$icon-opera: "\eade";
-$icon-file-pdf: "\eadf";
 $icon-redo2: "\e968";
-
-
-@font-face {
-    font-family: 'icomoon';
-    src:  url('#{$icomoon-font-path}/icomoon.eot?7flssc');
-    src:  url('#{$icomoon-font-path}/icomoon.eot?7flssc#iefix') format('embedded-opentype'),
-        url('#{$icomoon-font-path}/icomoon.ttf?7flssc') format('truetype'),
-        url('#{$icomoon-font-path}/icomoon.woff?7flssc') format('woff'),
-        url('#{$icomoon-font-path}/icomoon.svg?7flssc#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
+$icon-html5: "\eae5";
+$icon-css3: "\eae6";
+ont-face {
+  font-family: 'icomoon';
+  src:  url('#{$icomoon-font-path}/icomoon.eot?c12jwa');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?c12jwa#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?c12jwa') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?c12jwa') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?c12jwa#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-pacman {
-    &:before {
-        content: $icon-pacman;
-    }
+.icon-angular .path1 {
+  &:before {
+    content: $icon-angular-path1;  
+    color: rgb(179, 179, 179);
+  }
+}
+.icon-angular .path2 {
+  &:before {
+    content: $icon-angular-path2;  
+    margin-left: -0.9482421875em;  
+    color: rgb(166, 18, 13);
+  }
+}
+.icon-angular .path3 {
+  &:before {
+    content: $icon-angular-path3;  
+    margin-left: -0.9482421875em;  
+    color: rgb(221, 27, 22);
+  }
+}
+.icon-angular .path4 {
+  &:before {
+    content: $icon-angular-path4;  
+    margin-left: -0.9482421875em;  
+    color: rgb(242, 242, 242);
+  }
+}
+.icon-angular .path5 {
+  &:before {
+    content: $icon-angular-path5;  
+    margin-left: -0.9482421875em;  
+    color: rgb(179, 179, 179);
+  }
+}
+.icon-gulp .path1 {
+  &:before {
+    content: $icon-gulp-path1;  
+    color: rgb(207, 69, 71);
+  }
+}
+.icon-gulp .path2 {
+  &:before {
+    content: $icon-gulp-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-gulp .path3 {
+  &:before {
+    content: $icon-gulp-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-gulp .path4 {
+  &:before {
+    content: $icon-gulp-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-node {
+  &:before {
+    content: $icon-node;
+    color: $node-green;
+  }
+}
+.icon-react {
+  &:before {
+    content: $icon-react;
+    color: $react-blue;
+    font-size: 30px;
+  }
+}
+.icon-scss {
+  &:before {
+    content: $icon-scss;
+  }
+}
+.icon-webpack .path1 {
+  &:before {
+    content: $icon-webpack-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-webpack .path2 {
+  &:before {
+    content: $icon-webpack-path2;  
+    margin-left: -1em;  
+    color: rgb(142, 214, 251);
+  }
+}
+.icon-webpack .path3 {
+  &:before {
+    content: $icon-webpack-path3;  
+    margin-left: -1em;  
+    color: rgb(28, 120, 192);
+  }
 }
 .icon-files-empty {
-    &:before {
-        content: $icon-files-empty;
-    }
+  &:before {
+    content: $icon-files-empty;
+  }
 }
 .icon-file-text2 {
-    &:before {
-        content: $icon-file-text2;
-    }
+  &:before {
+    content: $icon-file-text2;
+  }
 }
 .icon-location {
-    &:before {
-        content: $icon-location;
-    }
+  &:before {
+    content: $icon-location;
+  }
 }
 .icon-user-tie {
-    &:before {
-        content: $icon-user-tie;
-    }
+  &:before {
+    content: $icon-user-tie;
+  }
 }
 .icon-equalizer {
-    &:before {
-        content: $icon-equalizer;
-    }
+  &:before {
+    content: $icon-equalizer;
+  }
 }
 .icon-cog {
-    &:before {
-        content: $icon-cog;
-    }
+  &:before {
+    content: $icon-cog;
+  }
 }
 .icon-leaf {
-    &:before {
-        content: $icon-leaf;
-    }
+  &:before {
+    content: $icon-leaf;
+  }
 }
 .icon-rocket {
-    &:before {
-        content: $icon-rocket;
-    }
+  &:before {
+    content: $icon-rocket;
+  }
 }
 .icon-fire {
-    &:before {
-        content: $icon-fire;
-    }
-}
-.icon-lab {
-    &:before {
-        content: $icon-lab;
-    }
+  &:before {
+    content: $icon-fire;
+  }
 }
 .icon-power {
-    &:before {
-        content: $icon-power;
-    }
-}
-.icon-download2 {
-    &:before {
-        content: $icon-download2;
-    }
+  &:before {
+    content: $icon-power;
+  }
 }
 .icon-link {
-    &:before {
-        content: $icon-link;
-    }
+  &:before {
+    content: $icon-link;
+  }
 }
 .icon-star-empty {
-    &:before {
-        content: $icon-star-empty;
-    }
+  &:before {
+    content: $icon-star-empty;
+  }
 }
 .icon-star-full {
-    &:before {
-        content: $icon-star-full;
-    }
+  &:before {
+    content: $icon-star-full;
+  }
 }
 .icon-man {
-    &:before {
-        content: $icon-man;
-    }
+  &:before {
+    content: $icon-man;
+  }
 }
 .icon-happy {
-    &:before {
-        content: $icon-happy;
-    }
+  &:before {
+    content: $icon-happy;
+  }
 }
 .icon-smile {
-    &:before {
-        content: $icon-smile;
-    }
+  &:before {
+    content: $icon-smile;
+  }
 }
 .icon-tongue {
-    &:before {
-        content: $icon-tongue;
-    }
+  &:before {
+    content: $icon-tongue;
+  }
 }
 .icon-sad {
-    &:before {
-        content: $icon-sad;
-    }
+  &:before {
+    content: $icon-sad;
+  }
 }
 .icon-wink {
-    &:before {
-        content: $icon-wink;
-    }
+  &:before {
+    content: $icon-wink;
+  }
 }
 .icon-grin {
-    &:before {
-        content: $icon-grin;
-    }
+  &:before {
+    content: $icon-grin;
+  }
 }
 .icon-confused {
-    &:before {
-        content: $icon-confused;
-    }
+  &:before {
+    content: $icon-confused;
+  }
 }
 .icon-neutral {
-    &:before {
-        content: $icon-neutral;
-    }
+  &:before {
+    content: $icon-neutral;
+  }
 }
 .icon-hipster {
-    &:before {
-        content: $icon-hipster;
-    }
+  &:before {
+    content: $icon-hipster;
+  }
 }
 .icon-sleepy {
-    &:before {
-        content: $icon-sleepy;
-    }
+  &:before {
+    content: $icon-sleepy;
+  }
 }
 .icon-crying {
-    &:before {
-        content: $icon-crying;
-    }
+  &:before {
+    content: $icon-crying;
+  }
 }
 .icon-warning {
-    &:before {
-        content: $icon-warning;
-    }
+  &:before {
+    content: $icon-warning;
+  }
 }
 .icon-cancel-circle {
-    &:before {
-        content: $icon-cancel-circle;
-    }
+  &:before {
+    content: $icon-cancel-circle;
+  }
 }
 .icon-loop2 {
-    &:before {
-        content: $icon-loop2;
-    }
+  &:before {
+    content: $icon-loop2;
+  }
 }
 .icon-arrow-up2 {
-    &:before {
-        content: $icon-arrow-up2;
-    }
+  &:before {
+    content: $icon-arrow-up2;
+  }
 }
 .icon-arrow-right2 {
-    &:before {
-        content: $icon-arrow-right2;
-    }
+  &:before {
+    content: $icon-arrow-right2;
+  }
 }
 .icon-arrow-down2 {
-    &:before {
-        content: $icon-arrow-down2;
-    }
+  &:before {
+    content: $icon-arrow-down2;
+  }
 }
 .icon-arrow-left2 {
-    &:before {
-        content: $icon-arrow-left2;
-    }
+  &:before {
+    content: $icon-arrow-left2;
+  }
 }
 .icon-circle-up {
-    &:before {
-        content: $icon-circle-up;
-    }
+  &:before {
+    content: $icon-circle-up;
+  }
 }
 .icon-circle-right {
-    &:before {
-        content: $icon-circle-right;
-    }
+  &:before {
+    content: $icon-circle-right;
+  }
 }
 .icon-circle-down {
-    &:before {
-        content: $icon-circle-down;
-    }
+  &:before {
+    content: $icon-circle-down;
+  }
 }
 .icon-circle-left {
-    &:before {
-        content: $icon-circle-left;
-    }
+  &:before {
+    content: $icon-circle-left;
+  }
 }
 .icon-embed2 {
-    &:before {
-        content: $icon-embed2;
-    }
+  &:before {
+    content: $icon-embed2;
+  }
 }
 .icon-terminal {
-    &:before {
-        content: $icon-terminal;
-    }
-}
-.icon-mail2 {
-    &:before {
-        content: $icon-mail2;
-    }
-}
-.icon-mail3 {
-    &:before {
-        content: $icon-mail3;
-    }
+  &:before {
+    content: $icon-terminal;
+  }
 }
 .icon-facebook {
-    &:before {
-        content: $icon-facebook;
-    }
+  &:before {
+    content: $icon-facebook;
+  }
 }
 .icon-instagram {
-    &:before {
-        content: $icon-instagram;
-    }
+  &:before {
+    content: $icon-instagram;
+  }
 }
 .icon-twitter {
-    &:before {
-        content: $icon-twitter;
-    }
+  &:before {
+    content: $icon-twitter;
+  }
 }
 .icon-rss {
-    &:before {
-        content: $icon-rss;
-    }
+  &:before {
+    content: $icon-rss;
+  }
 }
 .icon-github {
-    &:before {
-        content: $icon-github;
-    }
-}
-.icon-reddit {
-    &:before {
-        content: $icon-reddit;
-    }
+  &:before {
+    content: $icon-github;
+  }
 }
 .icon-linkedin {
-    &:before {
-        content: $icon-linkedin;
-    }
+  &:before {
+    content: $icon-linkedin;
+  }
 }
 .icon-linkedin2 {
-    &:before {
-        content: $icon-linkedin2;
-    }
-}
-.icon-safari {
-    &:before {
-        content: $icon-safari;
-    }
-}
-.icon-opera {
-    &:before {
-        content: $icon-opera;
-    }
-}
-.icon-file-pdf {
-    &:before {
-        content: $icon-file-pdf;
-    }
+  &:before {
+    content: $icon-linkedin2;
+  }
 }
 .icon-redo2 {
-    &:before {
-        content: $icon-redo2;
-    }
+  &:before {
+    content: $icon-redo2;
+  }
+}
+.icon-html5 {
+  &:before {
+    content: $icon-html5;
+  }
+}
+.icon-css3 {
+  &:before {
+    content: $icon-css3;
+  }
 }

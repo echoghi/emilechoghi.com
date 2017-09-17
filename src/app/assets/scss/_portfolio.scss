@@ -33,9 +33,14 @@
         display: inline-block;
         border-radius: 2px;
         margin: 0 0 35px 35px;
-        height: 450px;
+        height: 500px;
         width: 375px;
         background: $aqua-haze;
+
+        &:before {
+            opacity: .4;
+            transform: translate(0,80px);
+        }
 
         &:first-child {
             margin: 0;
@@ -116,9 +121,11 @@
 
                 &.chips {
                     display: inline-flex;
+                    flex-wrap: wrap;
 
                     div {
-                        margin: 4px;
+                        height: 35px;
+                        margin: 7.5px 5px;
                         padding: 0;
                         transition: .3s all;
 
@@ -126,9 +133,21 @@
                             margin-left: 0;
                             font-weight: normal;
                         }
+
+                        div {
+                            margin: 0;
+                            height: 35px;
+                            width: 35px;
+                        }
                     }
                 }
             }
         }
     }
+}
+// Material UI avatar override
+/* stylelint-disable */
+.MuiChip-avatarChildren-5.icon-react {
+    height: 30px;
+    width: 30px;
 }

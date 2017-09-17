@@ -1,5 +1,6 @@
 import React from 'react';
 import Chip from 'material-ui/Chip';
+import Avatar from 'material-ui/Avatar';
 
 class Project extends React.Component {
 	renderChips() {
@@ -7,7 +8,7 @@ class Project extends React.Component {
 
 		this.props.chips.map(function(chip) {
 			chips.push(
-				<Chip key={chip.key} label={chip.label} />
+				<Chip key={chip.key} label={chip.label} avatar={<Avatar><i className={chip.class}/></Avatar>} />
 			);
 		});
 

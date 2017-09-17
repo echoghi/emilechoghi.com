@@ -8,7 +8,7 @@
         }
 
         &__container {
-            width: 60%;
+            width: 65%;
             margin: 0 auto;
 
             @include less-than-ipad {
@@ -37,8 +37,77 @@
     }
 
     .skills {
-        width: 60%;
+        width: 65%;
         margin: 0 auto;
         padding: 100px 0;
+
+        h1 {
+            padding-bottom: 75px;
+
+            @include less-than-ipad {
+                padding-bottom: 20px;
+            }
+        }
+
+        &__container .skill {
+            margin: 15px auto;
+            height: 250px;
+
+            @include less-than-ipad {
+                display: inline-block;
+                height: auto;
+            }
+
+            .skill__content {
+                width: 45%;
+                display: inline-block;
+                vertical-align: top;
+
+                @include less-than-ipad {
+                    width: 100%;
+                    display: block;
+                }
+
+                p {
+                    font-size: 15px;
+                    letter-spacing: 0;
+                    line-height: 20px;
+                }
+            }
+
+            img {
+                display: inline-block;
+                height: auto;
+                float: right;
+
+                @include less-than-ipad {
+                    display: block;
+                    margin: 20px auto;
+                    float: none;
+
+                    &:nth-child(2) {
+                        float: none;
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                img {
+                    float: left;
+
+                    @include less-than-ipad {
+                        float: none;
+                    }
+                }
+                .skill__content {
+                    float: right;
+                }
+            }
+        }
+
+        @include less-than-ipad {
+            width: 85%;
+            padding: 50px 0;
+        }
     }
 }
