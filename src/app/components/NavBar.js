@@ -68,7 +68,7 @@ class NavBar extends React.Component {
     handleMenuClass() {
     	let className;
 
-    	if(this.state.width < 768) {
+    	if(this.state.width < 760) {
 	        if (this.state.menuOpen) {
 	            className = 'navbar__menu active';
 	        } else {

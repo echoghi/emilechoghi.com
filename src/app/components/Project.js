@@ -19,22 +19,24 @@ class Project extends React.Component {
 		let { title, image, date, description, link } = this.props;
 
 		return (
-			<div className="portfolio__item">
-				<div className="portfolio__item--preview">
-					<a href={link} target="_blank">
-						<img src={image} />
-						<i className="icon-redo2"/>
-					</a>
-				</div>
-				<div className="portfolio__item--info">
-					<div>{title}</div>
-					<div>{date}</div>
-					<div>{description}</div>
-					<div className="chips">
-						{this.renderChips()}
+			<li>
+				<div className="portfolio__item">
+					<div className="portfolio__item--preview">
+						<a href={link} target="_blank">
+							<img src={image} />
+							<i className="icon-redo2"/>
+						</a>
+					</div>
+					<div className="portfolio__item--info">
+						<div>{title}</div>
+						<div>{date}</div>
+						<div>{description}</div>
+						<div className="chips">
+							{this.renderChips()}
+						</div>
 					</div>
 				</div>
-			</div>
+			</li>
 		);
 	}
 

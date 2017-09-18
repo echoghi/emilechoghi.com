@@ -10,6 +10,7 @@
     height: 80px;
     width: 100%;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    z-index: 99;
 
     &__brand {
         position: absolute;
@@ -134,7 +135,8 @@
 
             @include less-than-ipad {
                 display: block;
-                padding: 20px;            }
+                padding: 20px;            
+            }
         }
     }
 }

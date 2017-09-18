@@ -10,6 +10,10 @@
         font-weight: bold;
         padding: 30px 0;
 
+        @include less-than-tab-land {
+            padding: 25px;
+        }
+
         @include less-than-ipad {
             padding: 10px 25px;
         }
@@ -18,6 +22,40 @@
     &__wrapper {
         display: flex;
         justify-content: space-between;
+
+        li {
+            box-sizing: border-box;
+            list-style: none;
+            padding: 0 0 35px 35px;
+            width: 25%;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            @include sm-desktop {
+                display: inline-flex;
+                width: 50%;
+                padding: 0 0 25px 25px;
+            }
+
+            @include less-than-tab-land {
+                display: inline-flex;
+                width: 50%;
+                padding: 0 0 25px 25px;
+
+                &:first-child,
+                &:nth-child(3) {
+                    padding-left: 0;
+                }
+            }
+
+            @include less-than-ipad {
+                display: flex;
+                padding: 10px 0;
+                width: 100%;
+            }
+        }
 
         @include less-than-tab-land {
             display: block;
@@ -32,9 +70,8 @@
     &__item {
         display: inline-block;
         border-radius: 2px;
-        margin: 0 0 35px 35px;
         height: 500px;
-        width: 375px;
+        width: auto;
         background: $aqua-haze;
 
         &:before {
@@ -47,16 +84,7 @@
         }
 
         @include less-than-tab-land {
-            margin: 10px auto;
-            margin-bottom: 30px;
-            display: block;
-            height: auto;
-            width: 100%;
-
-            &:first-child {
-                margin: 10px auto;
-                margin-bottom: 30px;
-            }
+            display: inline-block;
         }
 
         &--preview {
