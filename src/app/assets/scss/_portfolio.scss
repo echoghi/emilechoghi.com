@@ -1,6 +1,10 @@
 .portfolio {
     padding: 0 70px;
 
+    @include sm-desktop {
+        padding: 0 30px;
+    }
+
     @include less-than-tab-land {
         padding: 0;
     }
@@ -23,6 +27,15 @@
         display: flex;
         justify-content: space-between;
 
+        @include sm-desktop {
+            display: block;
+        }
+
+        @include less-than-tab-land {
+            display: block;
+            padding: 0 25px;
+        }
+
         li {
             box-sizing: border-box;
             list-style: none;
@@ -36,7 +49,11 @@
             @include sm-desktop {
                 display: inline-flex;
                 width: 50%;
-                padding: 0 0 25px 25px;
+                padding: 0 0 35px 35px;
+
+                &:nth-child(3) {
+                    padding-left: 0;
+                }
             }
 
             @include less-than-tab-land {
@@ -56,11 +73,6 @@
                 width: 100%;
             }
         }
-
-        @include less-than-tab-land {
-            display: block;
-            padding: 0 25px;
-        }
     }
 
     &__row {
@@ -70,7 +82,7 @@
     &__item {
         display: inline-block;
         border-radius: 2px;
-        height: 500px;
+        height: auto;
         width: auto;
         background: $aqua-haze;
 

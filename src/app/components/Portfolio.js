@@ -27,7 +27,7 @@ class Portfolio extends React.Component {
       			{
       				title: 'Ninety Music',
       				date: 'July 2nd, 2017',
-      				text: 'A music player powered by the SoundCloud API',
+      				text: 'A music player powered by SoundCloud',
       				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505610531/ninety_oktikp.png',
       				link: 'http://echoghi.github.io/ClomMafMedia/',
       				tech: [
@@ -39,7 +39,7 @@ class Portfolio extends React.Component {
       			{
       				title: 'PiDash',
       				date: 'July 2nd, 2017',
-      				text: 'A dashboard app for Raspberry Pi using React',
+      				text: 'A dashboard app for Raspberry Pi',
       				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505617148/pidash_rlnojn.png',
       				link: 'https://github.com/echoghi/PiDash',
       				tech: [
