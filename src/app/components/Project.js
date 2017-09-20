@@ -1,5 +1,6 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
+import ReactTooltip from 'react-tooltip';
 
 class Project extends React.Component {
 	renderChips() {
@@ -7,7 +8,12 @@ class Project extends React.Component {
 
 		this.props.chips.map(function(chip) {
 			chips.push(
-				<Avatar key={chip.key}><i className={chip.class}/></Avatar>
+				<Avatar key={chip.key} data-for={chip.class} data-tip='tooltip'>
+					<i className={chip.class}/>
+					<ReactTooltip class='chip__tip' type='info' id={chip.class}>
+						<span>{chip.label}</span>
+					</ReactTooltip>
+				</Avatar>
 			);
 		});
 

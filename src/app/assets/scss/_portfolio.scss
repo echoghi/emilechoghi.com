@@ -166,18 +166,25 @@
                     div {
                         height: 35px;
                         margin: 7.5px 5px;
+                        background: $grey800;
                         padding: 0;
                         transition: .3s all;
+
+                        &.chip__tip {
+                            margin: 0;
+                            height: 20px;
+                            transition: opacity 0.3s ease-out;
+                            padding: 7.5px;
+                            background: $curious-blue;
+
+                            &:after {
+                                border-top-color: $curious-blue
+                            }
+                        }
 
                         &:first-child {
                             margin-left: 0;
                             font-weight: normal;
-                        }
-
-                        div {
-                            margin: 0;
-                            height: 35px;
-                            width: 35px;
                         }
                     }
                 }
