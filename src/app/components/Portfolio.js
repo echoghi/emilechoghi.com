@@ -65,6 +65,10 @@ class Portfolio extends React.Component {
 		};
 	}
 
+	componentWillMount() {
+		window.scrollTo(0, 0);
+	}
+
 	renderProjects() {
 		let portfolio = [];
 

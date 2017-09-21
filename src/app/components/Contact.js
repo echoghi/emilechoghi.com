@@ -49,6 +49,10 @@ class Contact extends React.Component {
         this.handleErrorClass = this.handleErrorClass.bind(this);
 	}
 
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
+
 	/**
      * Loading Spinner
      *

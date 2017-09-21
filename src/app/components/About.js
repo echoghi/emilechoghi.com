@@ -39,6 +39,10 @@ class About extends React.Component {
 		};
 	}
 
+	componentWillMount() {
+		window.scrollTo(0, 0);
+	}
+
 	renderSkills() {
 		let skills = [];
 
