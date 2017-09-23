@@ -5,11 +5,31 @@ import ReactTooltip from 'react-tooltip';
 class Project extends React.Component {
 	renderChips() {
 		let chips = [];
+		let customChip;
 
 		this.props.chips.map(function(chip) {
+			// Handle multipath icons
+			if(chip.class === 'icon-angular') {
+				customChip = (<span className={chip.class}>
+						<span className='path1' />
+						<span className='path2' />
+						<span className='path3' />
+						<span className='path4' />
+						<span className='path5' />
+					</span>);
+			} else if (chip.class === 'icon-webpack') {
+				customChip = (<span className={chip.class}>
+						<span className='path1' />
+						<span className='path2' />
+						<span className='path3' />
+					</span>);
+			} else {
+				customChip = <i className={chip.class}/>;
+			}
+
 			chips.push(
 				<Avatar key={chip.key} data-for={chip.class} data-tip='tooltip'>
-					<i className={chip.class}/>
+					{customChip}
 					<ReactTooltip class='chip__tip' type='info' id={chip.class}>
 						<span>{chip.label}</span>
 					</ReactTooltip>

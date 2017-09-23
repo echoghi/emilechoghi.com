@@ -167,6 +167,7 @@ ont-face {
 .icon-scss {
   &:before {
     content: $icon-scss;
+    color: $scss-pink;
   }
 }
 .icon-webpack .path1 {

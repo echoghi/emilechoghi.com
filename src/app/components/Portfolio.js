@@ -19,7 +19,7 @@ class Portfolio extends React.Component {
       				link: 'http://choghiwedding.com',
       				tech: [
       					{key: 0, label: 'Angular.js', class: 'icon-angular'},
-      					{key: 1, label: 'SCSS', class: 'icon-SCSS'},
+      					{key: 1, label: 'SCSS', class: 'icon-scss'},
       					{key: 2, label: 'Node.js', class: 'icon-node'}
       				],
       				key: 0
@@ -32,7 +32,7 @@ class Portfolio extends React.Component {
       				link: 'http://echoghi.github.io/ClomMafMedia/',
       				tech: [
       					{key: 0, label: 'Angular.js', class: 'icon-angular'},
-      					{key: 1, label: 'SCSS', class: 'icon-SCSS'}
+      					{key: 1, label: 'SCSS', class: 'icon-scss'}
       				],
       				key: 1
       			},
@@ -45,7 +45,7 @@ class Portfolio extends React.Component {
       				tech: [
       					{key: 0, label: 'React.js', class: 'icon-react'},
       					{key: 1, label: 'Webpack', class: 'icon-webpack'},
-      					{key: 2, label: 'SCSS', class: 'icon-SCSS' , size: 30}, 
+      					{key: 2, label: 'SCSS', class: 'icon-scss' , size: 30}, 
       					{key: 3, label: 'Node.js', class: 'icon-node'}
       				],
       				key: 2
