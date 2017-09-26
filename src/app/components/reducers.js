@@ -10,13 +10,25 @@ export function navigationState(
     switch (action.type) {
         case 'NAVIGATE':
             let temp = Object.assign({}, state, {
-                home: false,
-                about: false,
-                portfolio: false,
-                contact: false
-            });
+                    home: false,
+                    about: false,
+                    portfolio: false,
+                    contact: false
+                });
 
             return Object.assign({}, temp, {
+                [action.data]: true
+            });
+
+        case 'ACTIVATE_PAGE':
+            let temp2 = Object.assign({}, state, {
+                    home: false,
+                    about: false,
+                    portfolio: false,
+                    contact: false
+                });
+
+            return Object.assign({}, temp2, {
                 [action.data]: true
             });
 

@@ -6,6 +6,7 @@ export const RESET_ERROR = 'RESET_ERROR';
 export const RESET_FORM = 'RESET_FORM';
 export const FORM_SUCCESS = 'FORM_SUCCESS';
 export const FORM_ERROR = 'FORM_ERROR';
+export const ACTIVATE_PAGE = 'ACTIVATE_PAGE';
 
 export function receiveData(data) {
     return {
@@ -47,6 +48,13 @@ export function formSuccess() {
 export function formError() {
     return {
         type: FORM_ERROR
+    };
+}
+
+export function activatePage(page) {
+    return {
+        type: ACTIVATE_PAGE,
+        data: page
     };
 }
 

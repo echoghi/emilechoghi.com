@@ -34,8 +34,6 @@ class NavBar extends React.Component {
 	}
 
 	navigate(page) {
-		// dispatch navigation if the page isn't already active
-		// @TODO: detect active page on component mount
 		if(!this.props[page]) {
 	    	this.props.handleNav(page);
 	    }

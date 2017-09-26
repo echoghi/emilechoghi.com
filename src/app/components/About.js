@@ -1,7 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
 import Skill from './Skill';
+
+const mapStateToProps = state => ({
+    portfolio: state.navigationState.about
+});
+
+const mapDispatchToProps = dispatch => ({
+    activatePage: page => dispatch(activatePage(page))
+});
 
 class About extends React.Component {
 	constructor() {
@@ -40,7 +50,12 @@ class About extends React.Component {
 	}
 
 	componentWillMount() {
+		let { about, activatePage } = this.props;
 		window.scrollTo(0, 0);
+
+		if(!about) {
+			activatePage('about');
+		}
 	}
 
 	renderSkills() {
@@ -86,4 +101,4 @@ class About extends React.Component {
 
 };
 
-export default About;
+export default connect(mapStateToProps, mapDispatchToProps)(About);

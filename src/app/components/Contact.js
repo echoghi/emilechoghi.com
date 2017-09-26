@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { postForm, resetError } from './actions';
+import { postForm, resetError, activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
 import Loading from './Loading';
@@ -11,12 +11,14 @@ import Snackbar from 'material-ui/Snackbar';
 const mapStateToProps = state => ({
     success: state.portfolioState.success,
     loading: state.portfolioState.loading,
-    error: state.portfolioState.error
+    error: state.portfolioState.error,
+    contact: state.navigationState.contact
 });
 
 const mapDispatchToProps = dispatch => ({
     postForm: data => dispatch(postForm(data)),
-    resetError: () => dispatch(resetError())
+    resetError: () => dispatch(resetError()),
+    activatePage: page => dispatch(activatePage(page))
 });
 
 // Email validation RegExp
@@ -50,7 +52,12 @@ class Contact extends React.Component {
 	}
 
   componentWillMount() {
+    let { contact, activatePage } = this.props;
     window.scrollTo(0, 0);
+
+    if(!contact) {
+      activatePage('contact');
+    }
   }
 
 	/**

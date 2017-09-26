@@ -1,7 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
 import Project from './Project';
+
+const mapStateToProps = state => ({
+    portfolio: state.navigationState.portfolio
+});
+
+const mapDispatchToProps = dispatch => ({
+    activatePage: page => dispatch(activatePage(page))
+});
 
 class Portfolio extends React.Component {
 	constructor() {
@@ -66,7 +76,12 @@ class Portfolio extends React.Component {
 	}
 
 	componentWillMount() {
+		let { portfolio, activatePage } = this.props;
 		window.scrollTo(0, 0);
+
+		if(!portfolio) {
+			activatePage('portfolio');
+		}
 	}
 
 	renderProjects() {
@@ -103,4 +118,4 @@ class Portfolio extends React.Component {
 
 };
 
-export default Portfolio;
+export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);
