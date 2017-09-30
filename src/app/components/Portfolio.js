@@ -4,6 +4,11 @@ import { activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
 import Project from './Project';
+// Images
+import weddingImg from '../assets/images/wedding.png';
+import ninetyImg from '../assets/images/ninety.png';
+import pidashImg from '../assets/images/pidash.png';
+import slavebotImg from '../assets/images/reddit.png';
 
 const mapStateToProps = state => ({
     portfolio: state.navigationState.portfolio
@@ -25,7 +30,7 @@ class Portfolio extends React.Component {
       				title: 'Choghi Wedding',
       				date: 'July 2nd, 2017',
       				text: 'A wedding site for my brother\'s union',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505440846/website.png',
+      				image: weddingImg,
       				link: 'http://choghiwedding.com',
       				tech: [
       					{key: 0, label: 'Angular.js', class: 'icon-angular'},
@@ -38,7 +43,7 @@ class Portfolio extends React.Component {
       				title: 'Ninety Music',
       				date: 'July 2nd, 2017',
       				text: 'A music player powered by SoundCloud',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505610531/ninety_oktikp.png',
+      				image: ninetyImg,
       				link: 'http://echoghi.github.io/ClomMafMedia/',
       				tech: [
       					{key: 0, label: 'Angular.js', class: 'icon-angular'},
@@ -50,7 +55,7 @@ class Portfolio extends React.Component {
       				title: 'PiDash',
       				date: 'July 2nd, 2017',
       				text: 'A dashboard app for Raspberry Pi',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505617148/pidash_rlnojn.png',
+      				image: pidashImg,
       				link: 'https://github.com/echoghi/PiDash',
       				tech: [
       					{key: 0, label: 'React.js', class: 'icon-react'},
@@ -64,7 +69,7 @@ class Portfolio extends React.Component {
       				title: 'Slavebot',
       				date: 'May 24th, 2016',
       				text: 'A simple Reddit bot',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505455976/reddit_xm2nbz.png',
+      				image: slavebotImg,
       				link: 'https://github.com/echoghi/slavebot',
       				tech: [
       					{key: 0, label: 'Node.js', class: 'icon-node'}

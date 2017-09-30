@@ -64,7 +64,7 @@ $icon-linkedin2: "\eaca";
 $icon-redo2: "\e968";
 $icon-html5: "\eae5";
 $icon-css3: "\eae6";
-ont-face {
+@font-face {
   font-family: 'icomoon';
   src:  url('#{$icomoon-font-path}/icomoon.eot?c12jwa');
   src:  url('#{$icomoon-font-path}/icomoon.eot?c12jwa#iefix') format('embedded-opentype'),
