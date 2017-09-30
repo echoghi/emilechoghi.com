@@ -10,6 +10,8 @@ module.exports = {
 
     extends: ['plugin:react/recommended', 'prettier'],
 
+    parser: 'babel-eslint',
+
     parserOptions: {
         sourceType: 'module',
         ecmaFeatures: {
@@ -26,7 +28,6 @@ module.exports = {
         eqeqeq: ['error', 'always'],
         'no-multiple-empty-lines': [2, { max: 1 }],
         'no-multi-spaces': [2],
-        'id-blacklist': ['warn', 'poop', 'fuck', 'shit'],
         'react/prop-types': 0,
         'react/no-unescaped-entities': 0,
         //we need to fix this at some stage but for now just leave it off

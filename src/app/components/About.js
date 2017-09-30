@@ -14,40 +14,36 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class About extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-      		loading : true,
-      		error   : null,
-      		skills: [
-      			{
-      				name: 'Responsive Development',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505621946/responsive_nsielw.png',
-      				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. ',
-      				key: 0
-      			},
-      			{
-      				name: 'Fast Build Cycle',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505622031/timer_oud6ys.png',
-      				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
-      				key: 1
-      			},
-      			{
-      				name: 'Organized Approach',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505622030/plan_dx2unc.png',
-      				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
-      				key: 2
-      			},
-      			{
-      				name: '24/7 Maintenance',
-      				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505622030/keyboard_cueiq1.png',
-      				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
-      				key: 3
-      			}
-      		]
-		};
-	}
+	state = {
+  		loading : true,
+  		error   : null,
+  		skills: [
+  			{
+  				name: 'Responsive Development',
+  				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505621946/responsive_nsielw.png',
+  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. ',
+  				key: 0
+  			},
+  			{
+  				name: 'Fast Build Cycle',
+  				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505622031/timer_oud6ys.png',
+  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
+  				key: 1
+  			},
+  			{
+  				name: 'Organized Approach',
+  				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505622030/plan_dx2unc.png',
+  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
+  				key: 2
+  			},
+  			{
+  				name: '24/7 Maintenance',
+  				image: 'http://res.cloudinary.com/dp7726gkk/raw/upload/v1505622030/keyboard_cueiq1.png',
+  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
+  				key: 3
+  			}
+  		]
+	};
 
 	componentWillMount() {
 		let { about, activatePage } = this.props;

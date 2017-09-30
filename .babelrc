@@ -1,4 +1,15 @@
 {
-  "presets": [["es2015", { "modules": false }], "react", "stage-0"],
-  "plugins": ["react-hot-loader/babel"]
+  "presets": [
+    "react",
+    ["env", {
+      "targets" :{
+        "browsers": "last 2 versions"
+      },
+      "loose": true,
+      "modules": false
+    }]
+  ],
+  "plugins": [
+    "babel-plugin-transform-class-properties"
+  ]
 }

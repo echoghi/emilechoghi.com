@@ -15,25 +15,17 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class NavBar extends React.Component {
-	constructor() {
-		super();
+	state = {
+		width   : 0,
+  		menuOpen: false,
+  		mobile  : false
+	};
 
-		this.state = {
-			width   : 0,
-      		menuOpen: false,
-      		mobile  : false
-		};
-
-		this.navigate = this.navigate.bind(this);
-		this.handleMenu = this.handleMenu.bind(this);
-		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-	}
-
-	handleMenu() {
+	handleMenu = () => {
 		this.setState({ menuOpen : !this.state.menuOpen });
 	}
 
-	navigate(page) {
+	navigate = (page) => {
 		if(!this.props[page]) {
 	    	this.props.handleNav(page);
 	    }
@@ -88,7 +80,7 @@ class NavBar extends React.Component {
 		window.removeEventListener('resize', this.updateWindowDimensions);
 	}
 
-	updateWindowDimensions() {
+	updateWindowDimensions = () => {
 		this.setState({ width: window.innerWidth});
 	}
 

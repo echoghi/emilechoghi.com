@@ -13,14 +13,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Home extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-      		loading : true,
-      		error   : null
-		};
-	}
+	state = {
+  		loading : true,
+  		error   : null
+	};
 
 	componentWillMount() {
 		let { home, activatePage } = this.props;

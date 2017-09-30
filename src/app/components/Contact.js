@@ -30,26 +30,18 @@ let validationObj = function() {
 };
 
 class Contact extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-      		loading : true,
-      		error   : null,
-      		name: '',
-            email: '',
-            message: '',
-            validation: {
-                name: new validationObj(),
-                email: new validationObj(),
-                message: new validationObj()
-            }
-		};
-
-		this.onChange = this.onChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleErrorClass = this.handleErrorClass.bind(this);
-	}
+	state = {
+        loading : true,
+        error   : null,
+        name: '',
+          email: '',
+          message: '',
+          validation: {
+              name: new validationObj(),
+              email: new validationObj(),
+              message: new validationObj()
+          }
+  };
 
   componentWillMount() {
     let { contact, activatePage } = this.props;
@@ -124,7 +116,7 @@ class Contact extends React.Component {
      * @param event - DOM event info
      * @state - Send validation status to state
      */
-    onChange(event) {
+    onChange = (event) => {
         // create a shallow copy of the state to mutate
         let obj = Object.assign({}, this.state);
         // Set value in obj to eventually send to the state
@@ -158,7 +150,7 @@ class Contact extends React.Component {
      * @param name - Input name
      * @return className - return class depending on validation status
      */
-    handleErrorClass(name) {
+    handleErrorClass = (name) => {
         let className;
         let validation = this.state.validation;
 
@@ -179,7 +171,7 @@ class Contact extends React.Component {
      * @param event - DOM event info
      * @state - Send validation status to state and make scan request
      */
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         let { name, email, message } = this.state;
 
