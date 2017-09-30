@@ -71,7 +71,7 @@
 
         &__container .skill {
             position: relative;
-            margin: 15px auto;
+            margin: 0 auto;
             height: 250px;
 
             @include less-than-ipad {
@@ -117,15 +117,12 @@
                 @include less-than-ipad {
                     position: relative;
                     width: 100%;
+                    left: 0;
                     right: 0;
                     display: block;
-                    margin: 20px auto;
-                    float: none;
-
-                    &:nth-child(even) {
-                        float: none;
-                        left: 0;
-                    }
+                    margin: 30px auto;
+                    float: right;
+                    transform: translateX(-10px);
                 }
             }
 
@@ -141,14 +138,15 @@
                     @include less-than-tab-land {
                         left: 0;
                     }
-
-                    @include less-than-ipad {
-                        float: none;
-                    }
                 }
                 .skill__content {
                     float: right;
                 }
+            }
+
+            &:last-child img {
+                transform: none;
+                margin-bottom: 0;
             }
         }
     }
