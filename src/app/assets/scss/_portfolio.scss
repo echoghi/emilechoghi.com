@@ -86,11 +86,6 @@
         width: auto;
         background: $aqua-haze;
 
-        &:before {
-            opacity: .4;
-            transform: translate(0,80px);
-        }
-
         &:first-child {
             margin: 0;
         }

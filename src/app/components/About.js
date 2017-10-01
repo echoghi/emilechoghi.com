@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
+import Footer from './Footer';
 import Skill from './Skill';
 // Images
 import responsiveImg from '../assets/images/responsive.png';
@@ -95,6 +96,8 @@ class About extends React.Component {
 							{this.renderSkills()}
 						</div>
 					</div>
+
+					<Footer />
 				</div>
 			</div>
 		);

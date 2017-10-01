@@ -1,0 +1,77 @@
+.footer {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    &__wrapper {
+        width: 70%;
+        height: 100%;
+        position: relative;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0 30px;
+
+        @include sm-desktop {
+            width: 80%;
+        }
+
+        @include less-than-tab-land {
+            width: 85%;
+            height: 75px;
+        }
+    }
+
+    &__text,
+    .social-links {
+        position: absolute;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 20px 0;
+        width: 50%;
+        top: 0; 
+        right: 0;
+        line-height: 40px;
+    }
+
+    &__text {
+        font-weight: bold;
+        font-size: 16px;
+        text-align: left;
+        float: left;
+        left: 0;
+    }
+
+    .social-links {
+        text-align: right;
+        float: right;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li {
+            padding: 0 10px;
+            list-style: none;
+            display: inline-block;
+            vertical-align: text-top;
+
+            @include less-than-tab-land {
+                padding: 0 7.5px;
+            }
+
+            i {
+                font-size: 20px;
+                cursor: pointer;
+                transition: opacity .2s;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+}

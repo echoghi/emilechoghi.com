@@ -160,23 +160,15 @@ module.exports = function(env) {
                     ]
                 },
                 {
-                    test: /\.woff$/,
-                    loader: 'url-loader',
-                    options: {
-                        limit: 50000
-                    }
-                },
-                {
                     test: /\.svg$/,
                     loader: 'raw-loader'
                 },
                 {
-                    test: /\.woff(2)?(\?[a-z0-9]+)?$/,
-                    loader: "url-loader?limit=10000&mimetype=application/font-woff"
-                }, 
-                {
-                    test: /\.(ttf|eot|svg)(\?[a-z0-9]+)?$/,
-                    loader: "file-loader"
+                    test: /\.(ttf|eot|svg|woff|woff2)(\?[a-z0-9]+)?$/,
+                    loader: "file-loader",
+                    options: {
+                        name: 'app/assets/fonts/[name].[ext]',
+                      }
                 },
                 {
                     test: /\.(png|jpg)$/,
