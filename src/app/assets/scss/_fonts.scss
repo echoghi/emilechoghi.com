@@ -55,6 +55,7 @@ $icon-circle-left: "\ea44";
 $icon-embed2: "\ea80";
 $icon-terminal: "\ea81";
 $icon-facebook: "\ea90";
+$icon-facebook2: "\ea91";
 $icon-instagram: "\ea92";
 $icon-twitter: "\ea96";
 $icon-rss: "\ea9b";
@@ -64,13 +65,14 @@ $icon-linkedin2: "\eaca";
 $icon-redo2: "\e968";
 $icon-html5: "\eae5";
 $icon-css3: "\eae6";
+
 @font-face {
   font-family: 'icomoon';
-  src:  url('#{$icomoon-font-path}/icomoon.eot?c12jwa');
-  src:  url('#{$icomoon-font-path}/icomoon.eot?c12jwa#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/icomoon.ttf?c12jwa') format('truetype'),
-    url('#{$icomoon-font-path}/icomoon.woff?c12jwa') format('woff'),
-    url('#{$icomoon-font-path}/icomoon.svg?c12jwa#icomoon') format('svg');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?u8220h');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?u8220h#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?u8220h') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?u8220h') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?u8220h#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -383,6 +385,12 @@ $icon-css3: "\eae6";
 .icon-facebook {
   &:before {
     content: $icon-facebook;
+    color: #3b5998;
+  }
+}
+.icon-facebook2 {
+  &:before {
+    content: $icon-facebook2;
     color: #3b5998;
   }
 }

@@ -160,15 +160,8 @@ module.exports = function(env) {
                     ]
                 },
                 {
-                    test: /\.svg$/,
-                    loader: 'raw-loader'
-                },
-                {
                     test: /\.(ttf|eot|svg|woff|woff2)(\?[a-z0-9]+)?$/,
-                    loader: "file-loader",
-                    options: {
-                        name: 'app/assets/fonts/[name].[ext]',
-                      }
+                    loader: "file-loader"
                 },
                 {
                     test: /\.(png|jpg)$/,
