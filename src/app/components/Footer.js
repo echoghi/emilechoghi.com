@@ -21,7 +21,7 @@ class Footer extends React.Component {
 						</li>
 						<li>
 							<a href="https://www.facebook.com/emile.choghi">
-								<i className="icon-facebook2" />
+								<i className="icon-facebook" />
 							</a>
 						</li>
 					</div>

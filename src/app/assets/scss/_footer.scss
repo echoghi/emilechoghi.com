@@ -30,7 +30,7 @@
         display: inline-block;
         box-sizing: border-box;
         padding: 20px 0;
-        width: 50%;
+        width: fit-content;
         top: 0; 
         right: 0;
         line-height: 40px;
@@ -47,6 +47,10 @@
     .social-links {
         text-align: right;
         float: right;
+
+        @include less-than-tab-land {
+            padding: 17.5px 0;
+        }
 
         a {
             text-decoration: none;

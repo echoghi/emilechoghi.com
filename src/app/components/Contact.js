@@ -230,10 +230,10 @@ class Contact extends React.Component {
 					{this.renderLoading()}
 
                     <Snackbar
-                      open={this.props.success || false}
-                      message="Your message was sent successfully"
-                      autoHideDuration={4000}
-                      onRequestClose={this.handleRequestClose}
+                        open={this.props.success || false}
+                        message="Your message was sent successfully"
+                        autoHideDuration={4000}
+                        onRequestClose={this.handleRequestClose}
                     />
 
 				</div>
