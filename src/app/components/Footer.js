@@ -1,9 +1,17 @@
 import React from 'react';
 
 class Footer extends React.Component {
+	renderFooterClass() {
+		if(this.props.fixed) {
+			return 'footer fixed';
+		} else {
+			return 'footer';
+		}
+	}
+
 	render() {
 		return (
-			<div className="footer">
+			<div className={this.renderFooterClass()}>
 				<div className="footer__wrapper">
 					<div className="footer__text">
 					 	© 2017 Emile Choghi

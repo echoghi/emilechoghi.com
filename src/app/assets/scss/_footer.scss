@@ -6,6 +6,14 @@
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 
+    &.fixed {
+        position: absolute;
+
+        @include less-than-ipad {
+            position: relative;
+        }
+    }
+
     &__wrapper {
         width: 70%;
         height: 100%;

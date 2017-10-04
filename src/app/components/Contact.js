@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { postForm, resetError, activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
+import Footer from './Footer';
 import Loading from './Loading';
 import FormError from './Error';
 import Button from 'material-ui/Button';
@@ -237,6 +238,8 @@ class Contact extends React.Component {
                     />
 
 				</div>
+
+                <Footer fixed />
 			</div>
 		);
 	}

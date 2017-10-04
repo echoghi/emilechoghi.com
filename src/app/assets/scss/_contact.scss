@@ -3,20 +3,39 @@ form {
     margin-top: 70px;
     width: 60%;
 
+    @include sm-desktop {
+        width: 70%;
+    }
+
     @include less-than-tab-land {
-        height: 100vh;
         margin-top: 30px;
         width: 85%;
     }
 
+    @include less-than-ipad {
+        height: 185vh;
+    }
+
+    @include mobile-lg {
+        height: 100vh;
+    }
+
+    @include mobile {
+        height: 105vh;
+    }
+
     @include mobile-small {
-        height: 115vh;
+        height: 120vh;
     }
 
     h4 {
         font-size: 30px;
         font-weight: bold;
         margin: 100px 0;
+
+        @include sm-desktop {
+            margin: 50px 0;
+        }
 
         @include less-than-ipad {
             margin: 40px 0;
