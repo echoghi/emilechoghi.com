@@ -84,9 +84,9 @@ class About extends React.Component {
 								<h1>Web Developer based in Palo Alto</h1>
 								<p>As a professional web and app developer from the Bay Area, 
 								I’ve spent the last 2 years exploring the boundaries of web development 
-								to make sure I deliver solutions with impact. With an outstanding bandwidth 
-								of experience across the board - from small agencies to global corporations – 
-								I approach each new project with a toolkit of ideas and a fresh approach to your needs.</p>
+								to make sure I can deliver websites that are fast, well designed, and responsive. By day, I'm a frontend
+								engineer at <a className="jumbotron__link" href="https://www.doctor.com">Doctor.com</a>, but in my free time I enjoy building sites for clients using the most up to date software
+								available, approaching each new project with a custom toolkit of ideas and a fresh approach built to match your needs.</p>
 							</div>
 						</div>
 					</div>
