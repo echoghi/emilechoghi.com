@@ -15,7 +15,7 @@
         padding: 30px 25px;
 
         @include sm-desktop {
-            padding: 30px 15px;
+            padding: 30px 15px 15px 15px;
         }
 
         @include less-than-tab-land {
@@ -23,7 +23,7 @@
         }
 
         @include less-than-ipad {
-            padding: 10px 25px;
+            padding: 20px;
         }
     }
 
@@ -59,12 +59,40 @@
             @include less-than-tab-land {
                 display: inline-flex;
                 width: 50%;
-                padding: 15px
+                padding: 0 20px 20px 20px;
+
+                &:nth-child(even) {
+                    padding-left: 10px;
+                }
+
+                &:nth-child(odd) {
+                    padding-right: 10px;
+                }
             }
 
             @include less-than-ipad {
+                display: inline-flex;
+                width: 50%;
+            }
+
+            @include mobile-lg {
                 display: flex;
                 width: 100%;
+
+                &:nth-child(even),
+                &:nth-child(odd) {
+                    padding: 0 20px 20px 20px;
+                }
+            }
+
+            @include mobile {
+                display: flex;
+                width: 100%;
+
+                &:nth-child(even),
+                &:nth-child(odd) {
+                    padding: 0 20px 20px 20px;
+                }
             }
         }
     }
