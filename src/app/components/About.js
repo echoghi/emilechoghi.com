@@ -86,7 +86,7 @@ class About extends React.Component {
 								I’ve spent the last 2 years exploring the boundaries of web development 
 								to make sure I can deliver websites that are fast, well designed, and responsive. By day, I'm a frontend
 								engineer at <a className="jumbotron__link" href="https://www.doctor.com">Doctor.com</a>, but in my free time I enjoy building sites for clients using the most up to date software
-								available, approaching each new project with a custom toolkit of ideas and a fresh approach built to match your needs.</p>
+								available, kicking off each new project with a custom toolkit of ideas and a fresh approach built to match your needs.</p>
 							</div>
 						</div>
 					</div>
