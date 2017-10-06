@@ -7,7 +7,7 @@
     overflow: hidden;
 
     &.fixed {
-        position: absolute;
+        position: fixed;
 
         @include less-than-ipad {
             position: relative;
