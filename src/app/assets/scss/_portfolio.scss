@@ -14,6 +14,10 @@
         font-weight: bold;
         padding: 30px 25px;
 
+        @include sm-desktop {
+            padding: 30px 15px;
+        }
+
         @include less-than-tab-land {
             padding: 25px;
         }
@@ -32,6 +36,10 @@
         }
 
         @include less-than-tab-land {
+            display: block;
+        }
+
+        @include less-than-ipad {
             flex-direction: column;
             padding: 0;
         }
@@ -45,22 +53,17 @@
             @include sm-desktop {
                 display: inline-flex;
                 width: 50%;
-                padding: 0 0 35px 35px;
-
-                &:nth-child(3) {
-                    padding-left: 0;
-                }
+                padding: 15px;
             }
 
             @include less-than-tab-land {
                 display: inline-flex;
                 width: 50%;
-                padding: 20px
+                padding: 15px
             }
 
             @include less-than-ipad {
                 display: flex;
-                padding: 15px;
                 width: 100%;
             }
         }
