@@ -54,9 +54,32 @@ module.exports = function(env) {
                     comments: false
                 }
             }),
-            new ExtractTextPlugin(
-                isProd ? 'styles.css' : 'styles.css'
-            )
+            new webpack.optimize.AggressiveMergingPlugin(),
+            new CompressionPlugin({
+                asset: '[path].gz[query]',
+                algorithm: 'gzip',
+                test: /\.js$|\.css$|\.html$/,
+                threshold: 10240,
+                minRatio: 0.9,
+                deleteOriginalAssets: true
+            }),
+            new webpack.BannerPlugin({
+                banner:
+                    `Emile Choghi's Portfolio ` +
+                    `Version: ` +
+                    PACKAGE.version +
+                    ` Date: ` +
+                    parseInt(new Date().getMonth() + 1) +
+                    `/` +
+                    new Date().getDate() +
+                    `/` +
+                    new Date().getFullYear() +
+                    ` @ ` +
+                    new Date().getHours() +
+                    `:` +
+                    new Date().getMinutes()
+            }),
+            new ExtractTextPlugin('styles.css')
         );
     } else {
         plugins.push(

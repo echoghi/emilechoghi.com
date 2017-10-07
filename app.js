@@ -9,7 +9,8 @@ var express       = require('express'),
 	app 	      = express(), 
 	server 	      = require('http').createServer(app),
     nodemailer    = require('nodemailer'),
-    smtpTransport = require('nodemailer-smtp-transport');
+    smtpTransport = require('nodemailer-smtp-transport'),
+    expressStaticGzip = require("express-static-gzip");
 
 var generator = require('xoauth2').createXOAuth2Generator({
     user: "echoghi@gmail.com",
@@ -51,12 +52,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname));
-app.use(express.static(__dirname + '/build'));
+app.use(expressStaticGzip(__dirname + '/build'));
 
-app.get('*.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
+app.get('*.js', function(req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Type', 'text/javascript');
+    res.set('Content-Encoding', 'gzip');
+    next();
+});
+
+app.get('*.css', function(req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Type', 'text/css');
+    res.set('Content-Encoding', 'gzip');
+    next();
 });
 
 app.get('/', function(req, res){
