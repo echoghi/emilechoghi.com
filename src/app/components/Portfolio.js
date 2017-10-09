@@ -27,7 +27,7 @@ class Portfolio extends React.Component {
   		{
   				title: 'Choghi Wedding',
   				date: 'October 5th, 2016',
-  				text: 'A wedding site for my brother\'s union',
+  				text: 'A site for my brother\'s wedding, featuring an itinerary, photos, and guestbook.',
   				image: weddingImg,
   				link: 'http://choghiwedding.com',
   				tech: [
@@ -40,7 +40,7 @@ class Portfolio extends React.Component {
   			{
   				title: 'Ninety Music',
   				date: 'April 3rd, 2016',
-  				text: 'A music player powered by SoundCloud',
+  				text: 'A music player made to promote my friends\' group, using the SoundCloud API.',
   				image: ninetyImg,
   				link: 'http://echoghi.github.io/ClomMafMedia/',
   				tech: [
@@ -52,7 +52,7 @@ class Portfolio extends React.Component {
   			{
   				title: 'PiDash',
   				date: 'July 2nd, 2017',
-  				text: 'A dashboard app for Raspberry Pi',
+  				text: 'A dashboard app meant to serve as a kiosk display running on my Raspberry Pi.',
   				image: pidashImg,
   				link: 'https://github.com/echoghi/PiDash',
   				tech: [
@@ -66,7 +66,7 @@ class Portfolio extends React.Component {
   			{
   				title: 'Slavebot',
   				date: 'May 24th, 2016',
-  				text: 'A simple Reddit bot',
+  				text: 'A simple Reddit bot that upvotes any content posted by the username it\'s given.',
   				image: slavebotImg,
   				link: 'https://github.com/echoghi/slavebot',
   				tech: [
