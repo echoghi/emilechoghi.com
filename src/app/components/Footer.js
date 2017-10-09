@@ -3,7 +3,11 @@ import React from 'react';
 class Footer extends React.Component {
 	renderFooterClass() {
 		if(this.props.fixed) {
-			return 'footer fixed';
+			if(this.props.type === 'portfolio') {
+				return 'footer footer__portfolio fixed';
+			} else {
+				return 'footer fixed';
+			}
 		} else {
 			return 'footer';
 		}

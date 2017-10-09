@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
+import Footer from './Footer';
 import Project from './Project';
 // Images
 import weddingImg from '../assets/images/wedding.png';
@@ -113,6 +114,7 @@ class Portfolio extends React.Component {
 						{this.renderProjects()}
 					</div>
 				</div>
+				<Footer fixed type="portfolio"/>
 			</div>
 		);
 	}

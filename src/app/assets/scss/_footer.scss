@@ -9,6 +9,15 @@
     &.fixed {
         position: fixed;
 
+        &.footer__portfolio {
+            @include sm-desktop {
+                position: relative;
+            }
+            @include less-than-tab-land {
+                position: relative;
+            }
+        }
+
         @include less-than-ipad {
             position: relative;
         }

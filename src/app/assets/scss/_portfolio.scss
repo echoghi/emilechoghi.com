@@ -2,11 +2,12 @@
     padding: 0 70px;
 
     @include sm-desktop {
-        padding: 0 30px;
+        padding: 0 30px 30px 30px;
     }
 
     @include less-than-tab-land {
         padding: 0;
+        padding-bottom: 30px;
     }
 
     &__header {
