@@ -26,7 +26,7 @@ class Portfolio extends React.Component {
   		projects : [
   		{
   				title: 'Choghi Wedding',
-  				date: 'July 2nd, 2017',
+  				date: 'October 5th, 2016',
   				text: 'A wedding site for my brother\'s union',
   				image: weddingImg,
   				link: 'http://choghiwedding.com',
@@ -39,7 +39,7 @@ class Portfolio extends React.Component {
   			},
   			{
   				title: 'Ninety Music',
-  				date: 'July 2nd, 2017',
+  				date: 'April 3rd, 2016',
   				text: 'A music player powered by SoundCloud',
   				image: ninetyImg,
   				link: 'http://echoghi.github.io/ClomMafMedia/',
