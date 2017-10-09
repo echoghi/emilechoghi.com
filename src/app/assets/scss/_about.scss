@@ -121,6 +121,28 @@
 
                 @include less-than-ipad {
                     position: relative;
+                    width: 50%;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    margin: 30px auto;
+                    float: right;
+                    transform: translateX(-50%);
+                }
+
+                @include mobile-lg {
+                    position: relative;
+                    width: 100%;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    margin: 30px auto;
+                    float: right;
+                    transform: translateX(-10px);
+                }
+
+                @include mobile {
+                    position: relative;
                     width: 100%;
                     left: 0;
                     right: 0;
@@ -143,6 +165,18 @@
                     @include less-than-tab-land {
                         left: 0;
                     }
+
+                    @include less-than-ipad {
+                        transform: translateX(50%); 
+                    }
+
+                    @include mobile-lg {
+                        transform: translateX(-10px); 
+                    }
+
+                    @include mobile {
+                        transform: translateX(-10px); 
+                    }
                 }
                 .skill__content {
                     float: right;
@@ -152,6 +186,18 @@
             &:last-child img {
                 transform: none;
                 margin-bottom: 0;
+
+                @include less-than-ipad {
+                    transform: translateX(50%); 
+                }
+
+                @include mobile-lg {
+                    transform: none;
+                }
+
+                @include mobile {
+                    transform: none;
+                }
             }
         }
     }
