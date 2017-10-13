@@ -132,24 +132,24 @@
 
                 @include mobile-lg {
                     position: relative;
-                    width: 100%;
+                    width: 80%;
                     left: 0;
                     right: 0;
                     display: block;
                     margin: 30px auto;
                     float: right;
-                    transform: translateX(-10px);
+                    transform: translateX(-40px);
                 }
 
                 @include mobile {
                     position: relative;
-                    width: 100%;
+                    width: 80%;
                     left: 0;
                     right: 0;
                     display: block;
                     margin: 30px auto;
                     float: right;
-                    transform: translateX(-10px);
+                    transform: translateX(-15%);
                 }
             }
 
@@ -171,15 +171,21 @@
                     }
 
                     @include mobile-lg {
-                        transform: translateX(-10px); 
+                        transform: translateX(30px); 
                     }
 
                     @include mobile {
-                        transform: translateX(-10px); 
+                        transform: translateX(10%); 
                     }
                 }
                 .skill__content {
                     float: right;
+                }
+            }
+
+            &:nth-child(3) img {
+                @include mobile-lg {
+                    transform: translateX(-45px);
                 }
             }
 
@@ -192,11 +198,11 @@
                 }
 
                 @include mobile-lg {
-                    transform: none;
+                    transform: translateX(40px);
                 }
 
                 @include mobile {
-                    transform: none;
+                    transform: translateX(12.5%);
                 }
             }
         }
