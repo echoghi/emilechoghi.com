@@ -1,10 +1,31 @@
 .home {
     height: calc(100vh - 80px);
 
+    @include less-than-ipad {
+        background: $polar;
+        overflow: hidden;
+    }
+
+    @include mobile-lg {
+        background: none;
+    }
+
+    @include mobile {
+        background: none;
+    }
+
     .jumbotron {
         padding: 100px 0;
 
         @include less-than-ipad {
+            padding: 30px 0;
+        }
+
+        @include mobile-lg {
+            padding: 50px 0;
+        }
+
+        @include mobile {
             padding: 50px 0;
         }
 
