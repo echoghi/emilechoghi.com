@@ -31,9 +31,9 @@ class Portfolio extends React.Component {
   				image: weddingImg,
   				link: 'http://choghiwedding.com',
   				tech: [
-  					{key: 0, label: 'Angular.js', class: 'icon-angular'},
-  					{key: 1, label: 'SCSS', class: 'icon-scss'},
-  					{key: 2, label: 'Node.js', class: 'icon-node'}
+  					{key: 0, label: 'Angular.js', class: 'icon-angular', id: 'icon-1'},
+  					{key: 1, label: 'SCSS', class: 'icon-scss', id: 'icon-2'},
+  					{key: 2, label: 'Node.js', class: 'icon-node', id: 'icon-3'}
   				],
   				key: 0
   			},
@@ -44,8 +44,8 @@ class Portfolio extends React.Component {
   				image: ninetyImg,
   				link: 'http://echoghi.github.io/ClomMafMedia/',
   				tech: [
-  					{key: 0, label: 'Angular.js', class: 'icon-angular'},
-  					{key: 1, label: 'SCSS', class: 'icon-scss'}
+  					{key: 0, label: 'Angular.js', class: 'icon-angular', id: 'icon-4'},
+  					{key: 1, label: 'SCSS', class: 'icon-scss', id: 'icon-5'}
   				],
   				key: 1
   			},
@@ -56,10 +56,10 @@ class Portfolio extends React.Component {
   				image: pidashImg,
   				link: 'https://github.com/echoghi/PiDash',
   				tech: [
-  					{key: 0, label: 'React.js', class: 'icon-react'},
-  					{key: 1, label: 'Webpack', class: 'icon-webpack'},
-  					{key: 2, label: 'SCSS', class: 'icon-scss' , size: 30}, 
-  					{key: 3, label: 'Node.js', class: 'icon-node'}
+  					{key: 0, label: 'React.js', class: 'icon-react', id: 'icon-6'},
+  					{key: 1, label: 'Webpack', class: 'icon-webpack', id: 'icon-7'},
+  					{key: 2, label: 'SCSS', class: 'icon-scss' , size: 30, id: 'icon-8'}, 
+  					{key: 3, label: 'Node.js', class: 'icon-node', id: 'icon-9'}
   				],
   				key: 2
   			},
@@ -70,7 +70,7 @@ class Portfolio extends React.Component {
   				image: slavebotImg,
   				link: 'https://github.com/echoghi/slavebot',
   				tech: [
-  					{key: 0, label: 'Node.js', class: 'icon-node'}
+  					{key: 0, label: 'Node.js', class: 'icon-node', id: 'icon-10'}
   				],
   				key: 3
   			}

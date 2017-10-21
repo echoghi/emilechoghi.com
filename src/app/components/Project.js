@@ -28,9 +28,9 @@ class Project extends React.Component {
 			}
 
 			chips.push(
-				<Avatar key={chip.key} data-for={chip.class} data-tip='tooltip'>
+				<Avatar key={chip.key} data-for={chip.id} data-tip='tooltip'>
 					{customChip}
-					<ReactTooltip class='chip__tip' type='info' id={chip.class}>
+					<ReactTooltip class='chip__tip' type='info' id={chip.id}>
 						<span>{chip.label}</span>
 					</ReactTooltip>
 				</Avatar>
