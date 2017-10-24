@@ -20,14 +20,14 @@
         width: 50px;
         display: inline-block;
         float: left;
-        padding: 30px;
+        padding: 15px 30px;
 
         &.active {
             color: $punch;
         }
 
         @include less-than-ipad {
-            padding: 30px 25px;
+            padding: 15px 25px;
             width: 20%;
             z-index: 2;
         }

@@ -88,7 +88,7 @@ class NavBar extends React.Component {
 		return (
 			<div className="navbar">
 				<div className="navbar__brand">
-					EC
+					<i className="icon-brand" />
 				</div>
 				<div className={this.handleHamburgerClass()} onClick={this.handleMenu}>
 					<div />

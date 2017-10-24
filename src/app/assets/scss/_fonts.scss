@@ -1,6 +1,7 @@
 /* stylelint-disable */
 $icomoon-font-path: "../fonts" !default;
 
+$icon-brand: "\e90f";
 $icon-angular-path1: "\e90a";
 $icon-angular-path2: "\e90b";
 $icon-angular-path3: "\e90c";
@@ -68,11 +69,11 @@ $icon-css3: "\eae6";
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('#{$icomoon-font-path}/icomoon.eot?u8220h');
-  src:  url('#{$icomoon-font-path}/icomoon.eot?u8220h#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/icomoon.ttf?u8220h') format('truetype'),
-    url('#{$icomoon-font-path}/icomoon.woff?u8220h') format('woff'),
-    url('#{$icomoon-font-path}/icomoon.svg?u8220h#icomoon') format('svg');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?1zpj48');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?1zpj48#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?1zpj48') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?1zpj48') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?1zpj48#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -90,6 +91,12 @@ $icon-css3: "\eae6";
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-brand {
+  &:before {
+    content: $icon-brand;
+  }
 }
 
 .icon-angular .path1 {
