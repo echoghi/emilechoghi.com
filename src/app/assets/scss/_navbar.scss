@@ -15,16 +15,12 @@
     &__brand {
         position: absolute;
         font-size: 50px;
-        color: $curious-blue;
-        cursor: pointer;
+        background: $curious-blue;
+        color: $white;
         width: 50px;
         display: inline-block;
         float: left;
         padding: 15px 30px;
-
-        &.active {
-            color: $punch;
-        }
 
         @include less-than-ipad {
             padding: 15px 25px;

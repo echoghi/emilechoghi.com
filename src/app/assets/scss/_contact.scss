@@ -4,6 +4,7 @@ form {
     width: 60%;
 
     @include sm-desktop {
+        height: 80vh;
         width: 70%;
     }
 
