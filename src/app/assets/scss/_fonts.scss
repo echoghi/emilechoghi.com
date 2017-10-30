@@ -1,6 +1,7 @@
 /* stylelint-disable */
 $icomoon-font-path: "../fonts" !default;
 
+$icon-home: "\e915";
 $icon-briefcase: "\e910";
 $icon-map-pin: "\e911";
 $icon-message-circle: "\e912";
@@ -74,11 +75,11 @@ $icon-css3: "\eae6";
 
 @font-face {
   font-family: 'portfolio';
-  src:  url('#{$icomoon-font-path}/portfolio.eot?wkg3ih');
-  src:  url('#{$icomoon-font-path}/portfolio.eot?wkg3ih#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/portfolio.ttf?wkg3ih') format('truetype'),
-    url('#{$icomoon-font-path}/portfolio.woff?wkg3ih') format('woff'),
-    url('#{$icomoon-font-path}/portfolio.svg?wkg3ih#portfolio') format('svg');
+  src:  url('#{$icomoon-font-path}/portfolio.eot?bj7lda');
+  src:  url('#{$icomoon-font-path}/portfolio.eot?bj7lda#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/portfolio.ttf?bj7lda') format('truetype'),
+    url('#{$icomoon-font-path}/portfolio.woff?bj7lda') format('woff'),
+    url('#{$icomoon-font-path}/portfolio.svg?bj7lda#portfolio') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -96,6 +97,12 @@ $icon-css3: "\eae6";
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home {
+  &:before {
+    content: $icon-home;
+  }
 }
 
 .icon-briefcase {

@@ -96,7 +96,7 @@ class NavBar extends React.Component {
 					<div />
 				</div>
 				<ul className={this.handleMenuClass()}>
-					<li className={this.handleNavClass('home')} onClick={() => { this.navigate('home'); }}>Home <i className="icon-map-pin" /></li>
+					<li className={this.handleNavClass('home')} onClick={() => { this.navigate('home'); }}>Home <i className="icon-home" /></li>
 					<li className={this.handleNavClass('about')} onClick={() => { this.navigate('about'); }}>About <i className="icon-user" /></li>
 					<li className={this.handleNavClass('portfolio')} onClick={() => { this.navigate('portfolio'); }}>Portfolio <i className="icon-briefcase" /></li> 
 					<li className={this.handleNavClass('contact')} onClick={() => { this.navigate('contact'); }}>Contact <i className="icon-message-square" /></li>

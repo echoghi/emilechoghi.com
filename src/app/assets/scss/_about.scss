@@ -4,7 +4,7 @@
         padding: 100px 0;
 
         @include less-than-ipad {
-            padding: 50px 0;
+            padding: 20px 0;
         }
 
         &__container {
@@ -36,7 +36,8 @@
             }
 
             h1 {
-                padding-bottom: 20px;
+                font-family: 'Varela Round';
+                padding-bottom: 10px;
                 line-height: 1.3;
             }
 
