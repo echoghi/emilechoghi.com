@@ -1,10 +1,11 @@
 /* stylelint-disable */
 $icomoon-font-path: "../fonts" !default;
 
-$icon-email_2: "\e910";
-$icon-image_2: "\e911";
-$icon-location2: "\e912";
-$icon-man2: "\e913";
+$icon-briefcase: "\e910";
+$icon-map-pin: "\e911";
+$icon-message-circle: "\e912";
+$icon-message-square: "\e913";
+$icon-user: "\e914";
 $icon-brand: "\e90f";
 $icon-angular-path1: "\e90a";
 $icon-angular-path2: "\e90b";
@@ -72,19 +73,19 @@ $icon-html5: "\eae5";
 $icon-css3: "\eae6";
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('#{$icomoon-font-path}/icomoon.eot?yfey57');
-  src:  url('#{$icomoon-font-path}/icomoon.eot?yfey57#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/icomoon.ttf?yfey57') format('truetype'),
-    url('#{$icomoon-font-path}/icomoon.woff?yfey57') format('woff'),
-    url('#{$icomoon-font-path}/icomoon.svg?yfey57#icomoon') format('svg');
+  font-family: 'portfolio';
+  src:  url('#{$icomoon-font-path}/portfolio.eot?wkg3ih');
+  src:  url('#{$icomoon-font-path}/portfolio.eot?wkg3ih#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/portfolio.ttf?wkg3ih') format('truetype'),
+    url('#{$icomoon-font-path}/portfolio.woff?wkg3ih') format('woff'),
+    url('#{$icomoon-font-path}/portfolio.svg?wkg3ih#portfolio') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: 'portfolio' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -97,24 +98,30 @@ $icon-css3: "\eae6";
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-email_2 {
+.icon-briefcase {
   &:before {
-    content: $icon-email_2;
+    content: $icon-briefcase;
   }
 }
-.icon-image_2 {
+.icon-map-pin {
   &:before {
-    content: $icon-image_2;
+    content: $icon-map-pin;
   }
 }
-.icon-location2 {
+.icon-message-circle {
   &:before {
-    content: $icon-location2;
+    content: $icon-message-circle;
   }
 }
-.icon-man2 {
+.icon-message-square {
   &:before {
-    content: $icon-man2;
+    content: $icon-message-square;
+  }
+}
+
+.icon-user {
+  &:before {
+    content: $icon-user;
   }
 }
 
