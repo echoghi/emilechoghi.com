@@ -1,5 +1,6 @@
 .home {
     height: calc(100vh - 80px);
+    font-family: 'Varela Round';
 
     @include less-than-ipad {
         background: $polar;

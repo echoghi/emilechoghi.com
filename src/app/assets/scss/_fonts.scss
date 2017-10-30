@@ -1,6 +1,10 @@
 /* stylelint-disable */
 $icomoon-font-path: "../fonts" !default;
 
+$icon-email_2: "\e910";
+$icon-image_2: "\e911";
+$icon-location2: "\e912";
+$icon-man2: "\e913";
 $icon-brand: "\e90f";
 $icon-angular-path1: "\e90a";
 $icon-angular-path2: "\e90b";
@@ -69,11 +73,11 @@ $icon-css3: "\eae6";
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('#{$icomoon-font-path}/icomoon.eot?1zpj48');
-  src:  url('#{$icomoon-font-path}/icomoon.eot?1zpj48#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/icomoon.ttf?1zpj48') format('truetype'),
-    url('#{$icomoon-font-path}/icomoon.woff?1zpj48') format('woff'),
-    url('#{$icomoon-font-path}/icomoon.svg?1zpj48#icomoon') format('svg');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?yfey57');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?yfey57#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?yfey57') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?yfey57') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?yfey57#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -91,6 +95,27 @@ $icon-css3: "\eae6";
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-email_2 {
+  &:before {
+    content: $icon-email_2;
+  }
+}
+.icon-image_2 {
+  &:before {
+    content: $icon-image_2;
+  }
+}
+.icon-location2 {
+  &:before {
+    content: $icon-location2;
+  }
+}
+.icon-man2 {
+  &:before {
+    content: $icon-man2;
+  }
 }
 
 .icon-brand {

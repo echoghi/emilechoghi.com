@@ -1,6 +1,6 @@
 
 .navbar {
-    font-family: 'Eczar', serif;
+    font-family: 'Varela Round', serif;
     background: $white;
     display: block;
     position: fixed;
@@ -48,6 +48,10 @@
             background: $curious-blue;
             border-radius: 5px;
             transition: all 200ms ease-out;
+
+            &:nth-child(2) {
+                width: 65%;
+            }
         }
 
         &.active div {
@@ -104,12 +108,14 @@
                     padding: 30px 20px;
                     border-bottom: 1px solid $catskill-white
                 }
-                &:nth-child(2){
-                    padding: 20px 20px 0 20px;
+
+                &:nth-child(2) {
+                    padding-top: 30px;
                 }
+
                 &:last-child {
-                    padding: 0 20px 20px 20px;
-                    border-bottom: 1px solid $catskill-white
+                    border-bottom: 1px solid $catskill-white;
+                    padding-bottom: 30px;
                 }
             }
 
@@ -121,6 +127,10 @@
             cursor: pointer;
             transition: opacity .2s;
 
+            i {
+                display: none;
+            }
+
             &.active {
                 color: $curious-blue;
             }
@@ -131,7 +141,14 @@
 
             @include less-than-ipad {
                 display: block;
-                padding: 20px;            
+                padding: 20px;  
+                text-align: left;
+
+                i {
+                    display: block;
+                    float: right;
+                    font-size: 25px;
+                }          
             }
         }
     }
