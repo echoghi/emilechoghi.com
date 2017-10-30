@@ -11,7 +11,8 @@
     }
 
     &__header {
-        font-size: 18px;
+        font-family: 'Varela Round';
+        font-size: 30px;
         font-weight: bold;
         padding: 30px 25px;
 
@@ -20,11 +21,11 @@
         }
 
         @include less-than-tab-land {
-            padding: 25px;
+            padding: 0 25px;
         }
 
         @include less-than-ipad {
-            padding: 20px;
+            padding: 0 20px;
         }
     }
 
