@@ -27,7 +27,7 @@ class About extends React.Component {
   			{
   				name: 'Responsive Development',
   				image: responsiveImg,
-  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. ',
+  				text: 'The majority of people on the internet these days are not just sitting in front of their desktop computers; they\'re on their phones, tablets, and countless other handheld devices that have popped up throughout the years. That\'s why its critical that modern websites are responsive across breakpoints, making good use of screen real estate while never compromising on design. Almost every project that I\'ve worked on is coded with the expectation that it could be used on any device, so I strive to keep the user\'s experience effortless, flexible, and clean.',
   				key: 0
   			},
   			{
