@@ -64,7 +64,8 @@
         }
 
         @include less-than-tab-land {
-            width: 85%
+            width: 85%;
+            padding: 75px 0;
         }
 
         h1 {
