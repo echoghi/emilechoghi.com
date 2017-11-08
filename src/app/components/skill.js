@@ -7,7 +7,7 @@ class Skill extends React.Component {
 		return (
 			<div className="skill">
 				<div className="skill__content">
-					<h3>{title}</h3>
+					<h2>{title}</h2>
 					<p>{text}</p>
 				</div>
 				<img src={src} />

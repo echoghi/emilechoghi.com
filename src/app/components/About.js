@@ -27,25 +27,25 @@ class About extends React.Component {
   			{
   				name: 'Responsive Development',
   				image: responsiveImg,
-  				text: 'The majority of people on the internet these days are not just sitting in front of their desktop computers; they\'re on their phones, tablets, and countless other handheld devices that have popped up throughout the years. That\'s why its critical that modern websites are responsive across breakpoints, making good use of screen real estate while never compromising on design. Almost every project that I\'ve worked on is coded with the expectation that it could be used on any device, so I strive to keep the user\'s experience effortless, flexible, and clean.',
+  				text: 'The majority of people on the internet these days are not just sitting in front of their desktop computers; they\'re on their phones, tablets, and a bunch of other handheld devices. That\'s why its critical for my websites to be responsive across breakpoints, making good use of screen real estate while never compromising on design. Almost every project that I\'ve worked on is coded with the expectation that it could be used on any device, so I strive to keep the user\'s experience effortless, flexible, and clean.',
   				key: 0
   			},
   			{
   				name: 'Fast Build Cycle',
   				image: timerImg,
-  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
+  				text: 'When I start a new project, I like to have nothing else in my queue. That way, I can give it every last bit of my attention until the code goes live. As part of my process, I use the latest software to speed up my development process with neat little time savers like webpack which allows me to compile my code and refresh the page I\'m working on across my phone, tablet, and laptop as soon as I\'ve hit "save". ',
   				key: 1
   			},
   			{
   				name: 'Organized Approach',
   				image: planImg,
-  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
+  				text: 'I like to keep it simple. My goals are to focus on minimalism of design and lightweight code while effectively conveying the message that you want to send. I try to steer clear of clutter and deliver a website that\'s easy to navigate, present information, and most importantly (for myself), maintain. In my experience, I\'ve realized that a well organized website/code base can shave days or even weeks off of even the simplest of projects. For some releases, that extra time can make a world of difference.',
   				key: 2
   			},
   			{
   				name: '24/7 Maintenance',
   				image: keyboardImg,
-  				text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.',
+  				text: 'Drop me a line whenever. I\'m always available to make urgent changes to a site, and if its anything smaller than a complete overhaul of a page, chances are I\'ll have your site updated and redeployed within a day. My backend configurations with Node.js, along with my one command webpack build system are very simple to use once completed and make site maintenance a breeze.',
   				key: 3
   			}
   		]
