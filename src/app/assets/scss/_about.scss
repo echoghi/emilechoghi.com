@@ -78,7 +78,7 @@
 
         &__container .skill {
             position: relative;
-            margin: 0 auto;
+            margin: 15px auto;
             height: 250px;
 
             @include less-than-ipad {
@@ -88,6 +88,7 @@
 
             .skill__content {
                 width: 45%;
+                margin: 15px 0;
                 display: inline-block;
                 vertical-align: top;
 
@@ -109,7 +110,7 @@
                 height: auto;
                 float: right;
                 right: 10%;
-                bottom: 20%;
+                bottom: 10%;
 
                 @include sm-desktop {
                     right: 2%;
