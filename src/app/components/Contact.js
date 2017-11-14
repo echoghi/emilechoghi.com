@@ -8,6 +8,7 @@ import Loading from './Loading';
 import FormError from './Error';
 import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
+import ContactMap from './ContactMap';
 
 const mapStateToProps = state => ({
     success: state.portfolioState.success,
@@ -199,6 +200,8 @@ class Contact extends React.Component {
 				<div className="portfolio">
 
 					<div className="clearfix" />
+
+                    <ContactMap />
 
 					<form id="contact-me">
 						<h4> Contact Me </h4>
