@@ -5,7 +5,7 @@ class ContactMap extends React.Component {
 	state = {
   		lat: 37.449308,
   		long: -122.162339,
-  		zoom: 16
+  		zoom: 14
 	};
 
 	render() {
