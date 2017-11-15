@@ -27,7 +27,7 @@ class About extends React.Component {
   			{
   				name: 'Responsive Development',
   				image: responsiveImg,
-  				text: 'The majority of people on the internet these days are not just sitting in front of their desktop computers; they\'re on their phones, tablets, and a bunch of other handheld devices. That\'s why its critical for my websites to be responsive across breakpoints, making good use of screen real estate while never compromising on design. Almost every project that I\'ve worked on is coded with the expectation that it could be used on any device, so I strive to keep the user\'s experience effortless, flexible, and clean.',
+  				text: 'The majority of people on the internet these days are not just sitting in front of their desktop computers; they\'re on their phones, tablets, and a bunch of other handheld devices. Almost every project that I\'ve worked on is coded with the expectation that it could be used on any device, so I strive to keep the user\'s experience effortless, flexible, and clean.',
   				key: 0
   			},
   			{
