@@ -8,6 +8,29 @@ class ContactMap extends React.Component {
   		zoom: 14
 	};
 
+	componentDidMount() {
+		this.updateWindowDimensions();
+		window.addEventListener('resize', this.updateWindowDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	updateWindowDimensions = () => {
+		this.setState({ width: window.innerWidth});
+	}
+
+	renderMarker() {
+		let { lat, long, width } = this.state;
+
+		const position = [lat, long];
+
+		if(width < 760) {
+			return <Marker position={position} />;
+		}
+	}
+
 	render() {
 		let { lat, long, zoom } = this.state;
 
@@ -19,7 +42,7 @@ class ContactMap extends React.Component {
 				attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 				url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
 				/>
-				<Marker position={position} />
+				{this.renderMarker()}
 			</Map>
 		);
 	}
