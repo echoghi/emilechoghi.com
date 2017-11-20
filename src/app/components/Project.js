@@ -7,7 +7,7 @@ class Project extends React.Component {
 		let chips = [];
 		let customChip;
 
-		this.props.chips.map(function(chip) {
+		this.props.chips.map(chip => {
 			// Handle multipath icons
 			if(chip.class === 'icon-angular') {
 				customChip = (<span className={chip.class}>

@@ -25,7 +25,7 @@ class NavBar extends React.Component {
 		this.setState({ menuOpen : !this.state.menuOpen });
 	}
 
-	navigate = (page) => {
+	navigate = page => {
 		if(!this.props[page]) {
 	    	this.props.handleNav(page);
 	    }

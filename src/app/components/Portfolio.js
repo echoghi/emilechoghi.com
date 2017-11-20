@@ -89,7 +89,7 @@ class Portfolio extends React.Component {
 	renderProjects() {
 		let portfolio = [];
 
-		this.state.projects.map(function(p) {
+		this.state.projects.map(p => {
 			portfolio.push(
 				<Project title={p.title} date={p.date} description={p.text} key={p.key} chips={p.tech} image={p.image} link={p.link} />
 			);
