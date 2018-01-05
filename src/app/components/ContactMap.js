@@ -3,9 +3,9 @@ import { Map, TileLayer, Marker } from 'react-leaflet';
 
 class ContactMap extends React.Component {
 	state = {
-  		lat: 37.449308,
-  		long: -122.162339,
-  		zoom: 14
+		lat: 37.449308,
+		long: -122.162339,
+		zoom: 14
 	};
 
 	componentDidMount() {
@@ -18,15 +18,15 @@ class ContactMap extends React.Component {
 	}
 
 	updateWindowDimensions = () => {
-		this.setState({ width: window.innerWidth});
-	}
+		this.setState({ width: window.innerWidth });
+	};
 
 	renderMarker() {
 		let { lat, long, width } = this.state;
 
 		const position = [lat, long];
 
-		if(width < 760) {
+		if (width < 760) {
 			return <Marker position={position} />;
 		}
 	}
@@ -37,16 +37,15 @@ class ContactMap extends React.Component {
 		const position = [lat, long];
 
 		return (
-			<Map center={position} zoom={zoom}>
+			<Map center={position} zoom={zoom} dragging={false}>
 				<TileLayer
-				attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-				url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+					attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+					url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
 				/>
 				{this.renderMarker()}
 			</Map>
 		);
 	}
-
-};
+}
 
 export default ContactMap;

@@ -124,8 +124,8 @@ class Home extends React.Component {
 											return this.renderLottie(letter);
 										})}
 									</section>
+									{/* Last Name */}
 									<section>
-										{/* Last Name */}
 										{_.map(lastName.split(''), letter => {
 											return this.renderLottie(letter);
 										})}
