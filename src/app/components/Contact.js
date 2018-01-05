@@ -39,6 +39,7 @@ class Contact extends React.Component {
         name: '',
         email: '',
         message: '',
+        duration: 1000,
         validation: {
             name: new validationObj(),
             email: new validationObj(),
@@ -195,11 +196,18 @@ class Contact extends React.Component {
         }
     };
 
+    stopAnimation() {
+        if (this.state.duration) {
+            this.setState({ duration: 0 });
+        }
+    }
+
     render() {
         let transition = {
             delay: (el, index) => index * 240,
+            complete: () => this.stopAnimation(),
             elasticity: 0,
-            duration: 1000,
+            duration: this.state.duration,
             opacity: [0, 1],
             translateX: [200, 0]
         };

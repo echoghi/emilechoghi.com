@@ -46,7 +46,7 @@ class Home extends React.Component {
 		}
 	}
 
-	renderLottie(letter) {
+	renderLottie(letter, index) {
 		// prettier-ignore
 		const durationSwitch = letter =>
             ({
@@ -96,7 +96,9 @@ class Home extends React.Component {
 			}
 		};
 
-		return <Lottie options={options} height={150} width={width} />;
+		return (
+			<Lottie options={options} height={150} width={width} key={index} />
+		);
 	}
 
 	render() {
@@ -120,15 +122,27 @@ class Home extends React.Component {
 								<div className="jumbotron__content">
 									{/* First Name */}
 									<section>
-										{_.map(firstName.split(''), letter => {
-											return this.renderLottie(letter);
-										})}
+										{_.map(
+											firstName.split(''),
+											(letter, index) => {
+												return this.renderLottie(
+													letter,
+													index
+												);
+											}
+										)}
 									</section>
 									{/* Last Name */}
 									<section>
-										{_.map(lastName.split(''), letter => {
-											return this.renderLottie(letter);
-										})}
+										{_.map(
+											lastName.split(''),
+											(letter, index) => {
+												return this.renderLottie(
+													letter,
+													index
+												);
+											}
+										)}
 									</section>
 									<h2>Frontend Engineer</h2>
 								</div>
