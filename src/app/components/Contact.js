@@ -9,6 +9,7 @@ import FormError from './Error';
 import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import ContactMap from './ContactMap';
+import Anime from 'react-anime';
 
 const mapStateToProps = state => ({
     success: state.portfolioState.success,
@@ -194,53 +195,63 @@ class Contact extends React.Component {
     }
 
 	render() {
+        let transition = {
+            delay: (el, index) => index * 240,
+            elasticity: 0,
+            duration: 1000,
+            opacity: [0,1],
+            translateX: [200, 0]
+        };
+
 		return (
 			<div>
-				<NavBar />
-				<div className="portfolio">
+			    <NavBar pathname={this.props.location.pathname} />
+                <ContactMap />
 
-					<div className="clearfix" />
+                <Anime {...transition}>
+    				<div className="portfolio">
 
-                    <ContactMap />
+    					<div className="clearfix" />
 
-					<form id="contact-me">
-						<h4> Contact Me </h4>
-						<div className="form__row">
-							<div className="form__item">
-								<label className={this.handleErrorClass('name')}>Your Name</label>
-								<input type="text" name="name" value={this.state.name} maxLength="100" onChange={this.onChange} className={this.handleErrorClass('name')} />
-								<div className={this.handleErrorClass('name')}>required*</div>
-							</div>
-							<div className="form__item">
-								<label className={this.handleErrorClass('email')}>Email Address</label>
-								<input type="text" name="email" value={this.state.email} maxLength="254" onChange={this.onChange} className={this.handleErrorClass('email')} />
-								<div className={this.handleErrorClass('email')}>invalid*</div>
-							</div>
-						</div>
-						<div className="form__row">
-							<div className="form__item-lg">
-								<label className={this.handleErrorClass('message')}>Your Message</label>
-								<textarea maxLength="6000" name="message" value={this.state.message} onChange={this.onChange} className={this.handleErrorClass('message')} />
-								<div className={this.handleErrorClass('message')}>required*</div>
-							</div>
-						</div>
+    					<form id="contact-me">
+    						<h4> Contact Me </h4>
+    						<div className="form__row">
+    							<div className="form__item">
+    								<label className={this.handleErrorClass('name')}>Your Name</label>
+    								<input type="text" name="name" maxLength="100" onChange={this.onChange} className={this.handleErrorClass('name')} />
+    								<div className={this.handleErrorClass('name')}>required*</div>
+    							</div>
+    							<div className="form__item">
+    								<label className={this.handleErrorClass('email')}>Email Address</label>
+    								<input type="text" name="email" maxLength="254" onChange={this.onChange} className={this.handleErrorClass('email')} />
+    								<div className={this.handleErrorClass('email')}>invalid*</div>
+    							</div>
+    						</div>
+    						<div className="form__row">
+    							<div className="form__item-lg">
+    								<label className={this.handleErrorClass('message')}>Your Message</label>
+    								<textarea maxLength="6000" name="message" onChange={this.onChange} className={this.handleErrorClass('message')} />
+    								<div className={this.handleErrorClass('message')}>required*</div>
+    							</div>
+    						</div>
 
-						<Button onClick={this.handleSubmit} className="form-button">
-                            Send
-                        </Button>
+    						<Button onClick={this.handleSubmit} className="form-button">
+                                Send
+                            </Button>
 
-					</form>
+    					</form>
 
-					{this.renderLoading()}
+    					{this.renderLoading()}
 
-                    <Snackbar
-                        open={this.props.success || false}
-                        message="Your message was sent successfully"
-                        autoHideDuration={4000}
-                        onRequestClose={this.handleRequestClose}
-                    />
+                        <Snackbar
+                            open={this.props.success || false}
+                            message="Your message was sent successfully"
+                            autoHideDuration={4000}
+                            onRequestClose={this.handleRequestClose}
+                        />
 
-				</div>
+    				</div>
+                </Anime>
 
                 <Footer fixed />
 			</div>

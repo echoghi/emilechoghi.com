@@ -93,7 +93,7 @@ form {
             font: inherit;
             font-size: 18px;
             border-radius: 0;
-            transition: opacity .2s;  
+            transition: opacity .2s;
 
             &.invalid {
                 border: 1px solid $punch;
@@ -153,5 +153,6 @@ form {
         opacity: .6;
         height: 200px;
         z-index: 95;
+        top: 80px;
     }
 }

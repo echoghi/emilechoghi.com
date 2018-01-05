@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleNav: page => dispatch(handleNav(page))
+    handleNav: (page, prev) => dispatch(handleNav(page, prev))
 });
 
 class NavBar extends React.Component {
@@ -27,7 +27,7 @@ class NavBar extends React.Component {
 
 	navigate = page => {
 		if(!this.props[page]) {
-	    	this.props.handleNav(page);
+	    	this.props.handleNav(page, this.props.pathname);
 	    }
 	}
 

@@ -5,6 +5,7 @@ import { activatePage } from './actions';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Skill from './Skill';
+import Anime from 'react-anime';
 // Images
 import responsiveImg from '../assets/images/responsive.png';
 import timerImg from '../assets/images/timer.png';
@@ -12,7 +13,8 @@ import planImg from '../assets/images/plan.png';
 import keyboardImg from '../assets/images/keyboard.png';
 
 const mapStateToProps = state => ({
-    portfolio: state.navigationState.about
+    portfolio: state.navigationState.about,
+    previousRoute: state.navigationState.previousRoute
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -71,34 +73,49 @@ class About extends React.Component {
 	}
 
 	render() {
+		let transition = {
+            delay: (el, index) => index * 240,
+            elasticity: 0,
+            duration: 1000,
+            opacity: [0,1],
+            translateX: [-200, 0]
+        };
+
+        if(this.props.previousRoute === '/') {
+            transition.translateX = [200, 0];
+        } 
+
 		return (
 			<div>
-				<NavBar />
-				<div className="about">
+				<NavBar pathname={this.props.location.pathname} />
 
-					<div className="clearfix" />
-					
-					<div className="jumbotron">
-						<div className="jumbotron__container">
-							<div className="jumbotron__content">
-								<h1>Web Developer based in Palo Alto</h1>
-								<p>As a professional web and app developer from the Bay Area, 
-								I’ve spent the last 2 years exploring the boundaries of web development 
-								to make sure I can deliver websites that are fast, well designed, and responsive. By day, I'm a frontend
-								engineer at <a className="jumbotron__link" href="https://www.doctor.com">Doctor.com</a>, but in my free time I enjoy building sites for clients using the most up to date software
-								available, kicking off each new project with a custom toolkit of ideas and a fresh approach built to match your needs.</p>
+				<Anime {...transition}>
+					<div className="about">
+
+						<div className="clearfix" />
+						
+						<div className="jumbotron">
+							<div className="jumbotron__container">
+								<div className="jumbotron__content">
+									<h1>Web Developer based in Palo Alto</h1>
+									<p>As a professional web and app developer from the Bay Area, 
+									I’ve spent the last 2 years exploring the boundaries of web development 
+									to make sure I can deliver websites that are fast, well designed, and responsive. By day, I'm a frontend
+									engineer at <a className="jumbotron__link" href="https://www.doctor.com">Doctor.com</a>, but in my free time I enjoy building sites for clients using the most up to date software
+									available, kicking off each new project with a custom toolkit of ideas and a fresh approach built to match your needs.</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div className="skills">
-						<h1>What I specialize in</h1>
-						<div className="skills__container" >
-							{this.renderSkills()}
+						<div className="skills">
+							<h1>What I specialize in</h1>
+							<div className="skills__container" >
+								{this.renderSkills()}
+							</div>
 						</div>
-					</div>
 
-					<Footer />
-				</div>
+						<Footer />
+					</div>
+				</Anime>
 			</div>
 		);
 	}

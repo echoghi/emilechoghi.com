@@ -3,7 +3,8 @@ export function navigationState(
         home: false,
         about: false,
         portfolio: false,
-        contact: false
+        contact: false,
+        previousRoute: null
     },
     action
 ) {
@@ -13,11 +14,13 @@ export function navigationState(
                     home: false,
                     about: false,
                     portfolio: false,
-                    contact: false
+                    contact: false,
+                    previousRoute: null
                 });
 
             return Object.assign({}, temp, {
-                [action.data]: true
+                [action.data]: true,
+                previousRoute: action.previousRoute
             });
 
         case 'ACTIVATE_PAGE':

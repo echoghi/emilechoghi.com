@@ -5,6 +5,7 @@ import { activatePage } from './actions';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Project from './Project';
+import Anime from 'react-anime';
 // Images
 import weddingImg from '../assets/images/wedding.png';
 import ninetyImg from '../assets/images/ninety.png';
@@ -12,7 +13,8 @@ import pidashImg from '../assets/images/pidash.png';
 import slavebotImg from '../assets/images/reddit.png';
 
 const mapStateToProps = state => ({
-    portfolio: state.navigationState.portfolio
+    portfolio: state.navigationState.portfolio,
+    previousRoute: state.navigationState.previousRoute
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -91,7 +93,7 @@ class Portfolio extends React.Component {
 
 		this.state.projects.map(p => {
 			portfolio.push(
-				<Project title={p.title} date={p.date} description={p.text} key={p.key} chips={p.tech} image={p.image} link={p.link} />
+			    <Project title={p.title} date={p.date} description={p.text} key={p.key} chips={p.tech} image={p.image} link={p.link} />
 			);
 		});
 
@@ -99,21 +101,37 @@ class Portfolio extends React.Component {
 	}
 
 	render() {
+        let transition = {
+            delay: (el, index) => index * 240,
+            elasticity: 0,
+            duration: 1000,
+            opacity: [0,1],
+            translateX: [-200, 0]
+        };
+
+        if(this.props.previousRoute === '/about' || this.props.previousRoute === '/') {
+            transition.translateX = [200, 0];
+        } 
+
 		return (
 			<div>
-				<NavBar />
-				<div className="portfolio">
+				<NavBar pathname={this.props.location.pathname} />
 
-					<div className="clearfix" />
-					
-					<h4 className="portfolio__header">
-						Recent Projects
-					</h4>
+                <Anime {...transition}>
+    				<div className="portfolio">
 
-					<div className="portfolio__wrapper">
-						{this.renderProjects()}
-					</div>
-				</div>
+    					<div className="clearfix" />
+    					
+    					<h4 className="portfolio__header">
+    						Recent Projects
+    					</h4>
+
+        				<div className="portfolio__wrapper">
+        					{this.renderProjects()}
+        				</div>
+    				</div>
+                </Anime>
+
 				<Footer fixed type="portfolio"/>
 			</div>
 		);

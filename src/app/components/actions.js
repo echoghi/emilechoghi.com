@@ -86,7 +86,7 @@ export function fetchData(query) {
     };
 }
 
-export function handleNav(page) {
+export function handleNav(page, prev) {
     // Route to...
     if(page === 'home') {
         hashHistory.push('/');
@@ -96,7 +96,8 @@ export function handleNav(page) {
     
     return {
         type: 'NAVIGATE',
-        data: page
+        data: page,
+        previousRoute: prev
     };
 }
 

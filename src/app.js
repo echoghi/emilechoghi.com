@@ -4,7 +4,7 @@
  * 
  */
 
- // SCSS
+// SCSS
 /*eslint-disable*/
 import Styles from './app/assets/scss/style.scss';
 /*eslint-enable*/
@@ -16,6 +16,9 @@ import { Router, Route, hashHistory } from 'react-router';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import 'whatwg-fetch';
+/*eslint-disable*/
+import _ from 'lodash';
+/*eslint-enable*/
 
 //Reducers
 import { portfolioState, navigationState } from './app/components/reducers';
@@ -29,12 +32,12 @@ import Contact from './app/components/Contact';
 const portfolioApp = combineReducers({
     portfolioState,
     navigationState
-}); 
+});
 
 export const store = compose(applyMiddleware(thunk))(createStore)(portfolioApp);
 
 ReactDOM.render(
-     <Provider store={store}>
+    <Provider store={store}>
         <Router history={hashHistory}>
             <Route path={'/'} component={Home} />
             <Route path={'/about'} component={About} />

@@ -32,26 +32,26 @@
 
         &__container {
             width: 70%;
-            margin: 0 auto;
+            margin: 100px auto;
 
             @include sm-desktop {
                 width: 80%;
             }
 
             @include less-than-tab-land {
-                width: 80%
+                width: 80%;
             }
 
             @include less-than-ipad {
-                width: 85%
+                width: 85%;
             }
         }
 
         &__content {
-            width: 60%;
+            width: 100%;
 
             @include less-than-tab-land {
-                width: 80%
+                width: 80%;
             }
 
             @include less-than-ipad {
@@ -68,6 +68,21 @@
                     font-size: 40px;
                 }
             }
+            /* stylelint-disable */
+            // Lottie overrride
+            div {
+                display: inline-block;
+                margin: 0 !important;
+            }
+
+            section {
+                display: inline-block;
+                padding: 0 30px;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
 
             h2 {
                 font-size: 30px;
@@ -78,7 +93,7 @@
             }
 
             p {
-                font-family: Roboto,sans-serif;
+                font-family: Roboto, sans-serif;
                 line-height: 33px;
                 font-size: 15px;
                 letter-spacing: 0;
