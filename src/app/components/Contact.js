@@ -39,7 +39,7 @@ class Contact extends React.Component {
         name: '',
         email: '',
         message: '',
-        duration: 1000,
+        initialLoad: true,
         validation: {
             name: new validationObj(),
             email: new validationObj(),
@@ -197,26 +197,23 @@ class Contact extends React.Component {
     };
 
     stopAnimation() {
-        if (this.state.duration) {
-            this.setState({ duration: 0 });
+        if (this.state.initialLoad) {
+            this.setState({ initialLoad: false });
         }
     }
 
-    render() {
+    renderForm() {
         let transition = {
             delay: (el, index) => index * 240,
             complete: () => this.stopAnimation(),
             elasticity: 0,
-            duration: this.state.duration,
+            duration: 1000,
             opacity: [0, 1],
             translateX: [200, 0]
         };
 
-        return (
-            <div>
-                <NavBar pathname={this.props.location.pathname} />
-                <ContactMap />
-
+        if (this.state.initialLoad) {
+            return (
                 <Anime {...transition}>
                     <div className="portfolio">
                         <div className="clearfix" />
@@ -320,6 +317,99 @@ class Contact extends React.Component {
                         />
                     </div>
                 </Anime>
+            );
+        } else {
+            return (
+                <div className="portfolio">
+                    <div className="clearfix" />
+
+                    <form id="contact-me">
+                        <h4> Contact Me </h4>
+                        <div className="form__row">
+                            <div className="form__item">
+                                <label
+                                    className={this.handleErrorClass('name')}
+                                >
+                                    Your Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    maxLength="100"
+                                    onChange={this.onChange}
+                                    className={this.handleErrorClass('name')}
+                                />
+                                <div className={this.handleErrorClass('name')}>
+                                    required*
+                                </div>
+                            </div>
+                            <div className="form__item">
+                                <label
+                                    className={this.handleErrorClass('email')}
+                                >
+                                    Email Address
+                                </label>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    maxLength="254"
+                                    onChange={this.onChange}
+                                    className={this.handleErrorClass('email')}
+                                />
+                                <div className={this.handleErrorClass('email')}>
+                                    invalid*
+                                </div>
+                            </div>
+                        </div>
+                        <div className="form__row">
+                            <div className="form__item-lg">
+                                <label
+                                    className={this.handleErrorClass('message')}
+                                >
+                                    Your Message
+                                </label>
+                                <textarea
+                                    maxLength="6000"
+                                    name="message"
+                                    onChange={this.onChange}
+                                    className={this.handleErrorClass('message')}
+                                />
+                                <div
+                                    className={this.handleErrorClass('message')}
+                                >
+                                    required*
+                                </div>
+                            </div>
+                        </div>
+
+                        <Button
+                            onClick={this.handleSubmit}
+                            className="form-button"
+                        >
+                            Send
+                        </Button>
+                    </form>
+
+                    {this.renderLoading()}
+
+                    <Snackbar
+                        open={this.props.success || false}
+                        message="Your message was sent successfully"
+                        autoHideDuration={4000}
+                        onRequestClose={this.handleRequestClose}
+                    />
+                </div>
+            );
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <NavBar pathname={this.props.location.pathname} />
+                <ContactMap />
+
+                {this.renderForm()}
 
                 <Footer fixed />
             </div>
