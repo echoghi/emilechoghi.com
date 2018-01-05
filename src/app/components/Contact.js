@@ -203,16 +203,16 @@ class Contact extends React.Component {
     }
 
     renderForm() {
-        let transition = {
-            delay: (el, index) => index * 240,
-            complete: () => this.stopAnimation(),
-            elasticity: 0,
-            duration: 1000,
-            opacity: [0, 1],
-            translateX: [200, 0]
-        };
-
         if (this.state.initialLoad) {
+            let transition = {
+                delay: (el, index) => index * 240,
+                complete: () => this.stopAnimation(),
+                elasticity: 0,
+                duration: 1000,
+                opacity: [0, 1],
+                translateX: [200, 0]
+            };
+
             return (
                 <Anime {...transition}>
                     <div className="portfolio">

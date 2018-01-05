@@ -26,6 +26,7 @@ const mapDispatchToProps = dispatch => ({
 
 class Home extends React.Component {
 	state = {
+		width: 0,
 		loading: true,
 		error: null,
 		firstName: 'emile',
@@ -46,41 +47,54 @@ class Home extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		this.updateWindowDimensions();
+		window.addEventListener('resize', this.updateWindowDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	updateWindowDimensions = () => {
+		this.setState({ width: window.innerWidth });
+	};
+
 	renderLottie(letter, index) {
 		// prettier-ignore
 		const durationSwitch = letter =>
             ({
                 'e': {
                 	data: eData,
-                	width: 50
+                	width: 40
                 },
                 'm': {
                 	data: mData,
-                	width: 75
+                	width: 50
                 },
                 'i': {
                 	data: iData,
-                	width: 50
+                	width: 40
                 },
                 'l': {
                 	data: lData,
-                	width: 50
+                	width: 40
                 },
                 'c': {
                 	data: cData,
-                	width: 75
+                	width: 50
                 },
                 'h': {
                 	data: hData,
-                	width: 75
+                	width: 50
                 },
                 'o': {
                 	data: oData,
-                	width: 75
+                	width: 50
                 },
                 'g': {
                 	data: gData,
-                	width: 75
+                	width: 50
                 }
             })[letter];
 
@@ -97,7 +111,7 @@ class Home extends React.Component {
 		};
 
 		return (
-			<Lottie options={options} height={150} width={width} key={index} />
+			<Lottie options={options} height={100} width={width} key={index} />
 		);
 	}
 
