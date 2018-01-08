@@ -30,6 +30,7 @@
     "react": "^15.6.0",
     "react-anime": "^2.0.1",
     "react-dom": "^15.6.0",
+    "react-ga": "^2.4.0",
     "react-leaflet": "^1.7.4",
     "react-lottie": "^0.2.5",
     "react-redux": "5.0.3",

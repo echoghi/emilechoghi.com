@@ -1,6 +1,13 @@
 /* stylelint-disable */
 $icomoon-font-path: "../fonts" !default;
 
+$icon-angel: "\e916";
+$icon-firebase-path1: "\e917";
+$icon-firebase-path2: "\e918";
+$icon-firebase-path3: "\e919";
+$icon-firebase-path4: "\e91a";
+$icon-firebase-path5: "\e91b";
+$icon-firebase-path6: "\e91c";
 $icon-home: "\e915";
 $icon-briefcase: "\e910";
 $icon-map-pin: "\e911";
@@ -75,16 +82,18 @@ $icon-css3: "\eae6";
 
 @font-face {
   font-family: 'portfolio';
-  src:  url('#{$icomoon-font-path}/portfolio.eot?bj7lda');
-  src:  url('#{$icomoon-font-path}/portfolio.eot?bj7lda#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/portfolio.ttf?bj7lda') format('truetype'),
-    url('#{$icomoon-font-path}/portfolio.woff?bj7lda') format('woff'),
-    url('#{$icomoon-font-path}/portfolio.svg?bj7lda#portfolio') format('svg');
+  src: url('#{$icomoon-font-path}/portfolio.eot?riwi4z');
+  src: url('#{$icomoon-font-path}/portfolio.eot?riwi4z#iefix')
+      format('embedded-opentype'),
+    url('#{$icomoon-font-path}/portfolio.ttf?riwi4z') format('truetype'),
+    url('#{$icomoon-font-path}/portfolio.woff?riwi4z') format('woff'),
+    url('#{$icomoon-font-path}/portfolio.svg?riwi4z#portfolio') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'portfolio' !important;
   speak: none;
@@ -97,6 +106,55 @@ $icon-css3: "\eae6";
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angel {
+  &:before {
+    content: $icon-angel;
+  }
+}
+.icon-firebase .path1 {
+  &:before {
+    content: $icon-firebase-path1;
+    color: rgb(255, 160, 0);
+  }
+}
+.icon-firebase .path2 {
+  &:before {
+    content: $icon-firebase-path2;
+    margin-left: -0.7353515625em;
+    color: rgb(245, 124, 0);
+  }
+}
+.icon-firebase .path3 {
+  &:before {
+    content: $icon-firebase-path3;
+    margin-left: -0.7353515625em;
+    color: rgb(255, 202, 40);
+  }
+}
+.icon-firebase .path4 {
+  &:before {
+    content: $icon-firebase-path4;
+    margin-left: -0.7353515625em;
+    color: rgb(255, 255, 255);
+    opacity: 0.2;
+  }
+}
+.icon-firebase .path5 {
+  &:before {
+    content: $icon-firebase-path5;
+    margin-left: -0.7353515625em;
+    color: rgb(165, 39, 20);
+    opacity: 0.2;
+  }
+}
+.icon-firebase .path6 {
+  &:before {
+    content: $icon-firebase-path6;
+    margin-left: -0.7353515625em;
+    color: rgb(0, 0, 0);
+  }
 }
 
 .icon-home {
@@ -140,62 +198,62 @@ $icon-css3: "\eae6";
 
 .icon-angular .path1 {
   &:before {
-    content: $icon-angular-path1;  
+    content: $icon-angular-path1;
     color: rgb(179, 179, 179);
   }
 }
 .icon-angular .path2 {
   &:before {
-    content: $icon-angular-path2;  
-    margin-left: -0.9482421875em;  
+    content: $icon-angular-path2;
+    margin-left: -0.9482421875em;
     color: rgb(166, 18, 13);
   }
 }
 .icon-angular .path3 {
   &:before {
-    content: $icon-angular-path3;  
-    margin-left: -0.9482421875em;  
+    content: $icon-angular-path3;
+    margin-left: -0.9482421875em;
     color: rgb(221, 27, 22);
   }
 }
 .icon-angular .path4 {
   &:before {
-    content: $icon-angular-path4;  
-    margin-left: -0.9482421875em;  
+    content: $icon-angular-path4;
+    margin-left: -0.9482421875em;
     color: rgb(242, 242, 242);
   }
 }
 .icon-angular .path5 {
   &:before {
-    content: $icon-angular-path5;  
-    margin-left: -0.9482421875em;  
+    content: $icon-angular-path5;
+    margin-left: -0.9482421875em;
     color: rgb(179, 179, 179);
   }
 }
 .icon-gulp .path1 {
   &:before {
-    content: $icon-gulp-path1;  
+    content: $icon-gulp-path1;
     color: rgb(207, 69, 71);
   }
 }
 .icon-gulp .path2 {
   &:before {
-    content: $icon-gulp-path2;  
-    margin-left: -1em;  
+    content: $icon-gulp-path2;
+    margin-left: -1em;
     color: rgb(255, 255, 255);
   }
 }
 .icon-gulp .path3 {
   &:before {
-    content: $icon-gulp-path3;  
-    margin-left: -1em;  
+    content: $icon-gulp-path3;
+    margin-left: -1em;
     color: rgb(255, 255, 255);
   }
 }
 .icon-gulp .path4 {
   &:before {
-    content: $icon-gulp-path4;  
-    margin-left: -1em;  
+    content: $icon-gulp-path4;
+    margin-left: -1em;
     color: rgb(255, 255, 255);
   }
 }
@@ -220,21 +278,21 @@ $icon-css3: "\eae6";
 }
 .icon-webpack .path1 {
   &:before {
-    content: $icon-webpack-path1;  
+    content: $icon-webpack-path1;
     color: rgb(255, 255, 255);
   }
 }
 .icon-webpack .path2 {
   &:before {
-    content: $icon-webpack-path2;  
-    margin-left: -1em;  
+    content: $icon-webpack-path2;
+    margin-left: -1em;
     color: rgb(142, 214, 251);
   }
 }
 .icon-webpack .path3 {
   &:before {
-    content: $icon-webpack-path3;  
-    margin-left: -1em;  
+    content: $icon-webpack-path3;
+    margin-left: -1em;
     color: rgb(28, 120, 192);
   }
 }

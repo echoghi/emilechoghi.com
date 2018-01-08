@@ -16,6 +16,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import 'whatwg-fetch';
+import ReactGA from 'react-ga';
 /*eslint-disable*/
 import _ from 'lodash';
 /*eslint-enable*/
@@ -32,6 +33,10 @@ import Contact from './app/components/Contact';
 const portfolioApp = combineReducers({
     portfolioState,
     navigationState
+});
+
+ReactGA.initialize('UA-75282883-2', {
+    debug: true
 });
 
 export const store = compose(applyMiddleware(thunk))(createStore)(portfolioApp);

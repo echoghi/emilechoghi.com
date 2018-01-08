@@ -1,6 +1,7 @@
 .footer {
     position: relative;
     background: $white;
+    font-family: 'Varela Round', serif;
     height: 80px;
     width: 100%;
     bottom: 0;
@@ -49,7 +50,7 @@
         box-sizing: border-box;
         padding: 20px 0;
         width: fit-content;
-        top: 0; 
+        top: 0;
         right: 0;
         line-height: 40px;
     }
@@ -79,7 +80,7 @@
             padding: 0 10px;
             list-style: none;
             display: inline-block;
-            vertical-align: text-top;
+            vertical-align: sub;
 
             @include less-than-tab-land {
                 padding: 0 7.5px;

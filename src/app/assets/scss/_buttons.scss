@@ -1,7 +1,7 @@
 button {
     &.form-button {
         display: block;
-        float: left;
+        float: right;
         width: 150px;
         font-size: 22px;
         border-radius: 2px;
@@ -20,7 +20,7 @@ button {
 
         @include less-than-ipad {
             width: 100%;
-            margin-top: 20px
+            margin-top: 20px;
         }
 
         &:hover {

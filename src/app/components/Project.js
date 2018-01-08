@@ -1,43 +1,58 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
 import ReactTooltip from 'react-tooltip';
+import ReactGA from 'react-ga';
 
 class Project extends React.Component {
 	renderChips() {
 		let chips = [];
 		let customChip;
 
-		this.props.chips.map(chip => {
+		_.map(this.props.chips, chip => {
 			// Handle multipath icons
-			if(chip.class === 'icon-angular') {
-				customChip = (<span className={chip.class}>
-						<span className='path1' />
-						<span className='path2' />
-						<span className='path3' />
-						<span className='path4' />
-						<span className='path5' />
-					</span>);
+			if (chip.class === 'icon-angular') {
+				customChip = (
+					<span className={chip.class}>
+						<span className="path1" />
+						<span className="path2" />
+						<span className="path3" />
+						<span className="path4" />
+						<span className="path5" />
+					</span>
+				);
 			} else if (chip.class === 'icon-webpack') {
-				customChip = (<span className={chip.class}>
-						<span className='path1' />
-						<span className='path2' />
-						<span className='path3' />
-					</span>);
+				customChip = (
+					<span className={chip.class}>
+						<span className="path1" />
+						<span className="path2" />
+						<span className="path3" />
+					</span>
+				);
 			} else {
-				customChip = <i className={chip.class}/>;
+				customChip = <i className={chip.class} />;
 			}
 
 			chips.push(
-				<Avatar key={chip.key} data-for={chip.id} data-tip='tooltip'>
+				<Avatar key={chip.key} data-for={chip.id} data-tip="tooltip">
 					{customChip}
-					<ReactTooltip class='chip__tip' type='info' id={chip.id}>
-						<span>{chip.label}</span>
+					<ReactTooltip class="chip__tip" type="info" id={chip.id}>
+						<span>
+							{chip.label}
+						</span>
 					</ReactTooltip>
 				</Avatar>
 			);
 		});
 
 		return chips;
+	}
+
+	sendAnalytics(project) {
+		ReactGA.event({
+			category: 'Portfolio Item',
+			action: 'Project Click',
+			label: `Navigated to ${project}`
+		});
 	}
 
 	render() {
@@ -47,15 +62,25 @@ class Project extends React.Component {
 			<li>
 				<div className="portfolio__item">
 					<div className="portfolio__item--preview">
-						<a href={link} target="_blank">
+						<a
+							href={link}
+							target="_blank"
+							onClick={() => this.sendAnalytics(title)}
+						>
 							<img src={image} />
-							<i className="icon-redo2"/>
+							<i className="icon-redo2" />
 						</a>
 					</div>
 					<div className="portfolio__item--info">
-						<div>{title}</div>
-						<div>{date}</div>
-						<div>{description}</div>
+						<div>
+							{title}
+						</div>
+						<div>
+							{date}
+						</div>
+						<div>
+							{description}
+						</div>
 						<div className="chips">
 							{this.renderChips()}
 						</div>
@@ -64,7 +89,6 @@ class Project extends React.Component {
 			</li>
 		);
 	}
-
-};
+}
 
 export default Project;

@@ -1,4 +1,5 @@
 import { hashHistory } from 'react-router';
+import ReactGA from 'react-ga';
 export const LOADING_DATA = 'LOADING_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const DATA_ERROR = 'DATA_ERROR';
@@ -88,12 +89,12 @@ export function fetchData(query) {
 
 export function handleNav(page, prev) {
     // Route to...
-    if(page === 'home') {
+    if (page === 'home') {
         hashHistory.push('/');
     } else {
         hashHistory.push(`/${page}`);
     }
-    
+
     return {
         type: 'NAVIGATE',
         data: page,
@@ -104,18 +105,20 @@ export function handleNav(page, prev) {
 export function postForm(data) {
     return dispatch => {
         dispatch(loadingData());
-        return fetch(
-            '/api/postForm',
-            {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {'Content-Type': 'application/json; charset=utf-8'}
-            }
-        )
+        return fetch('/api/postForm', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
+        })
             .then(response => {
-                if(response.status === 200) {
+                if (response.status === 200) {
                     dispatch(formSuccess());
-                    setTimeout(function() { 
+                    ReactGA.event({
+                        category: 'Form Success',
+                        action: 'Message Submitted',
+                        label: 'Success Notification'
+                    });
+                    setTimeout(function() {
                         dispatch(resetForm());
                     }, 3000);
                 } else {

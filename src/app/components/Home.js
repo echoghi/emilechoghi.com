@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { activatePage } from './actions';
 // Components
 import NavBar from './NavBar';
+import Footer from './Footer';
 import Anime from 'react-anime';
 import Lottie from 'react-lottie';
+import ReactGA from 'react-ga';
 import * as eData from '../assets/animations/e.json';
 import * as mData from '../assets/animations/m.json';
 import * as iData from '../assets/animations/i.json';
@@ -50,6 +52,8 @@ class Home extends React.Component {
 	componentDidMount() {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
+
+		ReactGA.ga('send', 'pageview', '/');
 	}
 
 	componentWillUnmount() {
@@ -165,6 +169,8 @@ class Home extends React.Component {
 						<img src={homeImg} />
 					</div>
 				</Anime>
+
+				<Footer fixed />
 			</div>
 		);
 	}

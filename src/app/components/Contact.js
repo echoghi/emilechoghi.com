@@ -10,6 +10,7 @@ import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import ContactMap from './ContactMap';
 import Anime from 'react-anime';
+import ReactGA from 'react-ga';
 
 const mapStateToProps = state => ({
     success: state.portfolioState.success,
@@ -56,10 +57,14 @@ class Contact extends React.Component {
         }
     }
 
+    componentDidMount() {
+        ReactGA.ga('send', 'pageview', '/contact');
+    }
+
     /**
      * Loading Spinner
      *
-     * @return LoadingSpinner component
+     * @return LoadingSpinner
      */
     renderLoading() {
         let { loading, error, success } = this.props;
@@ -69,6 +74,7 @@ class Contact extends React.Component {
         } else if (error) {
             return <FormError close={this.props.resetError} />;
         }
+
         if (success) {
             if (this.state.name) {
                 this.resetForm();
