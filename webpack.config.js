@@ -142,9 +142,8 @@ module.exports = function(env) {
                     }
                 },
 
-               {
+                {
                     test: /\.(scss|css)$/,
-                    exclude: /node_modules/,
                     use: isProd // If Prod
                         ? ExtractTextPlugin.extract({
                               fallback: 'style-loader',
@@ -184,7 +183,7 @@ module.exports = function(env) {
                 },
                 {
                     test: /\.(ttf|eot|svg|woff|woff2)(\?[a-z0-9]+)?$/,
-                    loader: "file-loader"
+                    loader: 'file-loader'
                 },
                 {
                     test: /\.(png|jpg)$/,

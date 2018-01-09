@@ -118,6 +118,7 @@ export function postForm(data) {
                         action: 'Message Submitted',
                         label: 'Success Notification'
                     });
+                    // Reset form to clear success notification
                     setTimeout(function() {
                         dispatch(resetForm());
                     }, 3000);

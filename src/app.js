@@ -1,5 +1,5 @@
 /**
- * Personal Portfolio 2.0.1
+ * Personal Portfolio 2.1.0
  * Copyright (c) Emile Choghi 2017
  * 
  */
@@ -35,9 +35,7 @@ const portfolioApp = combineReducers({
     navigationState
 });
 
-ReactGA.initialize('UA-75282883-2', {
-    debug: true
-});
+ReactGA.initialize('UA-75282883-2');
 
 export const store = compose(applyMiddleware(thunk))(createStore)(portfolioApp);
 
