@@ -19,7 +19,8 @@ import * as gData from '../assets/animations/g.json';
 import homeImg from '../assets/images/home.png';
 
 const mapStateToProps = state => ({
-	home: state.navigationState.home
+	home: state.navigationState.home,
+	width: state.portfolioState.width
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -29,6 +30,8 @@ const mapDispatchToProps = dispatch => ({
 class Home extends React.Component {
 	state = {
 		width: 0,
+		initialLoad: true,
+		duration: 1000,
 		loading: true,
 		error: null,
 		firstName: 'emile',
@@ -119,13 +122,26 @@ class Home extends React.Component {
 		);
 	}
 
+	stopAnimation() {
+		if (this.state.initialLoad) {
+			this.setState({ duration: 0, initialLoad: false });
+		}
+	}
+
+	renderFooter() {
+		if (this.props.width > 760) {
+			return <Footer fixed />;
+		}
+	}
+
 	render() {
-		let { firstName, lastName } = this.state;
+		let { firstName, lastName, duration } = this.state;
 
 		let transition = {
 			delay: (el, index) => index * 240,
+			complete: () => this.stopAnimation(),
 			elasticity: 0,
-			duration: 1000,
+			duration: duration,
 			opacity: [0, 1],
 			translateX: [-200, 0]
 		};
@@ -170,7 +186,7 @@ class Home extends React.Component {
 					</div>
 				</Anime>
 
-				<Footer fixed />
+				{this.renderFooter()}
 			</div>
 		);
 	}

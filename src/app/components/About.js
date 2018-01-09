@@ -36,12 +36,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class About extends React.Component {
-	/* eslint-disable */
 	state = {
 		loading: true,
 		error: null
 	};
-	/* eslint-enable */
 
 	componentWillMount() {
 		let { about, activatePage } = this.props;
@@ -64,10 +62,6 @@ class About extends React.Component {
 			opacity: [0, 1],
 			translateX: [-200, 0]
 		};
-
-		if (this.props.previousRoute === '/') {
-			transition.translateX = [200, 0];
-		}
 
 		return (
 			<div>

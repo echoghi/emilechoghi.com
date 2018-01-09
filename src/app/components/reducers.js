@@ -11,12 +11,12 @@ export function navigationState(
     switch (action.type) {
         case 'NAVIGATE':
             let temp = Object.assign({}, state, {
-                    home: false,
-                    about: false,
-                    portfolio: false,
-                    contact: false,
-                    previousRoute: null
-                });
+                home: false,
+                about: false,
+                portfolio: false,
+                contact: false,
+                previousRoute: null
+            });
 
             return Object.assign({}, temp, {
                 [action.data]: true,
@@ -25,11 +25,11 @@ export function navigationState(
 
         case 'ACTIVATE_PAGE':
             let temp2 = Object.assign({}, state, {
-                    home: false,
-                    about: false,
-                    portfolio: false,
-                    contact: false
-                });
+                home: false,
+                about: false,
+                portfolio: false,
+                contact: false
+            });
 
             return Object.assign({}, temp2, {
                 [action.data]: true
@@ -43,6 +43,7 @@ export function navigationState(
 export function portfolioState(
     state = {
         data: {},
+        width: 0,
         loading: false,
         success: null,
         error: null
@@ -53,6 +54,11 @@ export function portfolioState(
         case 'LOADING_DATA':
             return Object.assign({}, state, {
                 loading: true
+            });
+
+        case 'SAVE_WIDTH':
+            return Object.assign({}, state, {
+                width: action.data
             });
 
         case 'DATA_ERROR':
