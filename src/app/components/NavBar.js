@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { handleNav, saveWidth } from './actions';
+import { Link } from 'react-router-dom';
+import { saveWidth, saveRoute } from './actions';
 
 const mapStateToProps = state => ({
 	data: state.portfolioState.data,
@@ -11,8 +12,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	handleNav: (page, prev) => dispatch(handleNav(page, prev)),
-	saveBreakPoint: width => dispatch(saveWidth(width))
+	saveBreakPoint: width => dispatch(saveWidth(width)),
+	saveRoute: route => dispatch(saveRoute(route))
 });
 
 class NavBar extends React.Component {
@@ -24,12 +25,6 @@ class NavBar extends React.Component {
 
 	handleMenu = () => {
 		this.setState({ menuOpen: !this.state.menuOpen });
-	};
-
-	navigate = page => {
-		if (!this.props[page]) {
-			this.props.handleNav(page, this.props.pathname);
-		}
 	};
 
 	handleHamburgerClass() {
@@ -87,10 +82,14 @@ class NavBar extends React.Component {
 	};
 
 	render() {
+		let { pathname, saveRoute } = this.props;
+
 		return (
 			<div className="navbar">
 				<div className="navbar__brand">
-					<i className="icon-brand" />
+					<Link to="/">
+						<i className="icon-brand" />
+					</Link>
 				</div>
 				<div
 					className={this.handleHamburgerClass()}
@@ -103,35 +102,35 @@ class NavBar extends React.Component {
 				<ul className={this.handleMenuClass()}>
 					<li
 						className={this.handleNavClass('home')}
-						onClick={() => {
-							this.navigate('home');
-						}}
+						onClick={() => saveRoute(pathname)}
 					>
-						Home <i className="icon-home" />
+						<Link to="/">
+							{' '}Home <i className="icon-home" />
+						</Link>
 					</li>
 					<li
 						className={this.handleNavClass('about')}
-						onClick={() => {
-							this.navigate('about');
-						}}
+						onClick={() => saveRoute(pathname)}
 					>
-						About <i className="icon-user" />
+						<Link to="/about">
+							About <i className="icon-user" />
+						</Link>
 					</li>
 					<li
 						className={this.handleNavClass('portfolio')}
-						onClick={() => {
-							this.navigate('portfolio');
-						}}
+						onClick={() => saveRoute(pathname)}
 					>
-						Portfolio <i className="icon-briefcase" />
+						<Link to="/portfolio">
+							Portfolio <i className="icon-briefcase" />
+						</Link>
 					</li>
 					<li
 						className={this.handleNavClass('contact')}
-						onClick={() => {
-							this.navigate('contact');
-						}}
+						onClick={() => saveRoute(pathname)}
 					>
-						Contact <i className="icon-message-square" />
+						<Link to="/contact">
+							Contact <i className="icon-message-square" />
+						</Link>
 					</li>
 				</ul>
 			</div>

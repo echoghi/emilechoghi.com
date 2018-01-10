@@ -1,5 +1,5 @@
 /**
- * Personal Portfolio 2.1.0
+ * Personal Portfolio 2.5.0
  * Copyright (c) Emile Choghi 2017
  * 
  */
@@ -12,7 +12,7 @@ import Styles from './app/assets/scss/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory } from 'react-router';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import 'whatwg-fetch';
@@ -41,12 +41,14 @@ export const store = compose(applyMiddleware(thunk))(createStore)(portfolioApp);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={hashHistory}>
-            <Route path={'/'} component={Home} />
-            <Route path={'/about'} component={About} />
-            <Route path={'/portfolio'} component={Portfolio} />
-            <Route path={'/contact'} component={Contact} />
-        </Router>
+        <BrowserRouter>
+            <Switch>
+                <Route exact path={'/'} component={Home} />
+                <Route exact path={'/about'} component={About} />
+                <Route exact path={'/portfolio'} component={Portfolio} />
+                <Route exact path={'/contact'} component={Contact} />
+            </Switch>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('app')
 );

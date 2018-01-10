@@ -9,7 +9,7 @@ export function navigationState(
     action
 ) {
     switch (action.type) {
-        case 'NAVIGATE':
+        case 'SAVE_ROUTE':
             let temp = Object.assign({}, state, {
                 home: false,
                 about: false,
@@ -20,7 +20,7 @@ export function navigationState(
 
             return Object.assign({}, temp, {
                 [action.data]: true,
-                previousRoute: action.previousRoute
+                previousRoute: action.route
             });
 
         case 'ACTIVATE_PAGE':

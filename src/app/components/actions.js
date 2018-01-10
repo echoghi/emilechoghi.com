@@ -1,4 +1,3 @@
-import { hashHistory } from 'react-router';
 import ReactGA from 'react-ga';
 export const LOADING_DATA = 'LOADING_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
@@ -9,6 +8,7 @@ export const FORM_SUCCESS = 'FORM_SUCCESS';
 export const FORM_ERROR = 'FORM_ERROR';
 export const ACTIVATE_PAGE = 'ACTIVATE_PAGE';
 export const SAVE_WIDTH = 'SAVE_WIDTH';
+export const SAVE_ROUTE = 'SAVE_ROUTE';
 
 export function receiveData(data) {
     return {
@@ -21,6 +21,13 @@ export function saveWidth(data) {
     return {
         type: SAVE_WIDTH,
         data
+    };
+}
+
+export function saveRoute(route) {
+    return {
+        type: SAVE_ROUTE,
+        route
     };
 }
 
@@ -64,49 +71,6 @@ export function activatePage(page) {
     return {
         type: ACTIVATE_PAGE,
         data: page
-    };
-}
-
-export function fetchData(query) {
-    return dispatch => {
-        return fetch(query)
-            .then(dispatch(loadingData()))
-            .then(response => {
-                if (response.status >= 200 && response.status < 304) {
-                    return response.json();
-                } else {
-                    dispatch(dataError());
-                }
-            })
-            .then(json => {
-                if (json && !json.error) {
-                    dispatch(receiveData(json));
-                    console.log('data: ', json);
-                    // Route to...
-                    browserHistory.push('/home');
-                } else {
-                    dispatch(dataError());
-                }
-            })
-            .catch(error => {
-                dispatch(dataError());
-                console.log('Error: ' + error.message);
-            });
-    };
-}
-
-export function handleNav(page, prev) {
-    // Route to...
-    if (page === 'home') {
-        hashHistory.push('/');
-    } else {
-        hashHistory.push(`/${page}`);
-    }
-
-    return {
-        type: 'NAVIGATE',
-        data: page,
-        previousRoute: prev
     };
 }
 
