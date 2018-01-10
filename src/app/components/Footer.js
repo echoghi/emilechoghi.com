@@ -17,7 +17,7 @@ class Footer extends React.Component {
 		return (
 			<div className={this.renderFooterClass()}>
 				<div className="footer__wrapper">
-					<div className="footer__text">© 2017 Emile Choghi</div>
+					<div className="footer__text">© 2018 Emile Choghi</div>
 					<div className="social-links">
 						<li>
 							<a
