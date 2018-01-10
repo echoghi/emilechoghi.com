@@ -82,23 +82,27 @@ class About extends React.Component {
 								<div className="jumbotron__content">
 									<h1>Web Developer based in Palo Alto</h1>
 									<p>
-										As a professional web and app developer
-										from the Bay Area, I’ve spent the last 2
-										years exploring the boundaries of web
-										development to make sure I can deliver
-										websites that are fast, well designed,
-										and responsive. By day, I'm a frontend
-										engineer at{' '}
+										As a professional web developer from the
+										Bay Area, I’ve spent the last 2 years
+										exploring the boundaries of web
+										development to create user experiences
+										that are fast, well designed, and a joy
+										to use. I specialize in creating complex
+										web applications, but my current focus
+										is in providing effortless user
+										experiences by understanding what users
+										wants. By day, I'm a frontend engineer
+										at{' '}
 										<a
 											className="jumbotron__link"
 											href="https://www.doctor.com"
 										>
 											Doctor.com
-										</a>, but in my free time I enjoy
-										building sites and apps with React,
-										Webpack, and Node.js kicking off each
-										new project with a fresh approach built
-										to match your needs.
+										</a>, but in my free time you can find
+										me building sites and apps with React,
+										Webpack, and Node.js, tinkering around
+										with my Raspberry Pi, or playing
+										basketball.
 									</p>
 								</div>
 							</div>
