@@ -1,4 +1,3 @@
-
 .navbar {
     font-family: 'Varela Round', serif;
     background: $white;
@@ -37,7 +36,7 @@
         width: 30px;
         padding: 20px 25px;
 
-        @include less-than-ipad { 
+        @include less-than-ipad {
             display: block;
             z-index: 2;
         }
@@ -86,15 +85,17 @@
         &.collapsed {
             text-align: center;
             transform: scaleY(0);
-            transition: transform .3s cubic-bezier(0.71, 0.02, 0.9, 0.23), opacity .1s;
-            transform-origin: top; 
+            transition: transform .3s cubic-bezier(0.71, 0.02, 0.9, 0.23),
+                opacity .1s;
+            transform-origin: top;
         }
 
         &.active {
             text-align: center;
             opacity: 1;
             transform: scaleY(1);
-            transition: transform .3s cubic-bezier(0.01, 0.03, 0.29, 1.17), opacity .2s;
+            transition: transform .3s cubic-bezier(0.01, 0.03, 0.29, 1.17),
+                opacity .2s;
             transform-origin: top;
         }
 
@@ -103,11 +104,11 @@
             float: none;
             background: $white;
 
-            li {
+            a {
                 &:first-child {
                     margin-top: 50px;
                     padding: 30px 10px;
-                    border-bottom: 1px solid $catskill-white
+                    border-bottom: 1px solid $catskill-white;
                 }
 
                 &:nth-child(2) {
@@ -119,10 +120,9 @@
                     padding-bottom: 30px;
                 }
             }
-
         }
 
-        li {
+        a {
             display: inline-block;
             padding: 0 20px;
             cursor: pointer;
@@ -142,14 +142,14 @@
 
             @include less-than-ipad {
                 display: block;
-                padding: 20px 10px;  
+                padding: 20px 10px;
                 text-align: left;
 
                 i {
                     display: block;
                     float: right;
                     font-size: 25px;
-                }          
+                }
             }
         }
     }

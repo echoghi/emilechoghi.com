@@ -100,38 +100,38 @@ class NavBar extends React.Component {
 					<div />
 				</div>
 				<ul className={this.handleMenuClass()}>
-					<li
-						className={this.handleNavClass('home')}
-						onClick={() => saveRoute(pathname)}
-					>
-						<Link to="/">
+					<Link to="/">
+						<li
+							className={this.handleNavClass('home')}
+							onClick={() => saveRoute(pathname)}
+						>
 							{' '}Home <i className="icon-home" />
-						</Link>
-					</li>
-					<li
-						className={this.handleNavClass('about')}
-						onClick={() => saveRoute(pathname)}
-					>
-						<Link to="/about">
+						</li>
+					</Link>
+					<Link to="/about">
+						<li
+							className={this.handleNavClass('about')}
+							onClick={() => saveRoute(pathname)}
+						>
 							About <i className="icon-user" />
-						</Link>
-					</li>
-					<li
-						className={this.handleNavClass('portfolio')}
-						onClick={() => saveRoute(pathname)}
-					>
-						<Link to="/portfolio">
+						</li>
+					</Link>
+					<Link to="/portfolio">
+						<li
+							className={this.handleNavClass('portfolio')}
+							onClick={() => saveRoute(pathname)}
+						>
 							Portfolio <i className="icon-briefcase" />
-						</Link>
-					</li>
-					<li
-						className={this.handleNavClass('contact')}
-						onClick={() => saveRoute(pathname)}
-					>
-						<Link to="/contact">
+						</li>
+					</Link>
+					<Link to="/contact">
+						<li
+							className={this.handleNavClass('contact')}
+							onClick={() => saveRoute(pathname)}
+						>
 							Contact <i className="icon-message-square" />
-						</Link>
-					</li>
+						</li>
+					</Link>
 				</ul>
 			</div>
 		);
