@@ -9,9 +9,9 @@ import Anime from 'react-anime';
 import ReactGA from 'react-ga';
 // Images
 import weddingImg from '../assets/images/wedding.png';
-import ninetyImg from '../assets/images/ninety.png';
+import dashboardImg from '../assets/images/dashboard.png';
 import pidashImg from '../assets/images/pidash.png';
-import slavebotImg from '../assets/images/reddit.png';
+import homeImg from '../assets/images/choghi.png';
 
 const mapStateToProps = state => ({
     portfolio: state.navigationState.portfolio,
@@ -28,6 +28,36 @@ class Portfolio extends React.Component {
         loading: true,
         error: null,
         projects: [
+            {
+                title: 'Health Dashboard',
+                date: 'January 15th, 2018',
+                text:
+                    "An admin app to collect/analyze nutrition and fitness data using firebase",
+                image: dashboardImg,
+                link: null,
+                tech: [
+                    {
+                        key: 0,
+                        label: 'React.js',
+                        class: 'icon-react',
+                        id: 'icon-6'
+                    },
+                    {
+                        key: 1,
+                        label: 'Webpack',
+                        class: 'icon-webpack',
+                        id: 'icon-7'
+                    },
+                    {
+                        key: 2,
+                        label: 'SCSS',
+                        class: 'icon-scss',
+                        size: 30,
+                        id: 'icon-8'
+                    }
+                ],
+                key: 0
+            },
             {
                 title: 'Choghi Wedding',
                 date: 'October 5th, 2016',
@@ -49,24 +79,6 @@ class Portfolio extends React.Component {
                         class: 'icon-node',
                         id: 'icon-3'
                     }
-                ],
-                key: 0
-            },
-            {
-                title: 'Ninety Music',
-                date: 'April 3rd, 2016',
-                text:
-                    "A music player made to promote my friends' group, using the SoundCloud API.",
-                image: ninetyImg,
-                link: 'http://echoghi.github.io/ClomMafMedia/',
-                tech: [
-                    {
-                        key: 0,
-                        label: 'Angular.js',
-                        class: 'icon-angular',
-                        id: 'icon-4'
-                    },
-                    { key: 1, label: 'SCSS', class: 'icon-scss', id: 'icon-5' }
                 ],
                 key: 1
             },
@@ -107,18 +119,37 @@ class Portfolio extends React.Component {
                 key: 2
             },
             {
-                title: 'Slavebot',
-                date: 'May 24th, 2016',
+                title: 'emilechoghi.com',
+                date: 'July 2nd, 2017',
                 text:
-                    "A simple Reddit bot that upvotes any content posted by the username it's given.",
-                image: slavebotImg,
-                link: 'https://github.com/echoghi/slavebot',
+                    'This website, which runs on a modest node server and relays messages to my gmail.',
+                image: homeImg,
+                link: 'https://emilechoghi.com',
                 tech: [
                     {
                         key: 0,
+                        label: 'React.js',
+                        class: 'icon-react',
+                        id: 'icon-6'
+                    },
+                    {
+                        key: 1,
+                        label: 'Webpack',
+                        class: 'icon-webpack',
+                        id: 'icon-7'
+                    },
+                    {
+                        key: 2,
+                        label: 'SCSS',
+                        class: 'icon-scss',
+                        size: 30,
+                        id: 'icon-8'
+                    },
+                    {
+                        key: 3,
                         label: 'Node.js',
                         class: 'icon-node',
-                        id: 'icon-10'
+                        id: 'icon-9'
                     }
                 ],
                 key: 3

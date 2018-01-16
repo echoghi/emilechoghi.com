@@ -47,6 +47,26 @@ class Project extends React.Component {
 		return chips;
 	}
 
+	renderLink() {
+		let { title, image, link } = this.props;
+
+		if(link) {
+			return (<a
+						href={link}
+						target="_blank"
+						onClick={() => this.sendAnalytics(title)}
+					>
+						<img src={image} />
+						<i className="icon-redo2" />
+					</a>);
+		} else {
+			return(<div className="coming-soon">
+					<div>Coming Soon</div>
+					<img src={image} />
+				</div>);
+		}
+	}
+
 	sendAnalytics(project) {
 		ReactGA.event({
 			category: 'Portfolio Item',
@@ -56,20 +76,13 @@ class Project extends React.Component {
 	}
 
 	render() {
-		let { title, image, date, description, link } = this.props;
+		let { title, date, description } = this.props;
 
 		return (
 			<li>
 				<div className="portfolio__item">
 					<div className="portfolio__item--preview">
-						<a
-							href={link}
-							target="_blank"
-							onClick={() => this.sendAnalytics(title)}
-						>
-							<img src={image} />
-							<i className="icon-redo2" />
-						</a>
+						{this.renderLink()}
 					</div>
 					<div className="portfolio__item--info">
 						<div>

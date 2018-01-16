@@ -134,6 +134,28 @@
             transition: all 0.3s ease-in-out;
             z-index: 1;
 
+            .coming-soon {
+                position: relative;
+                height: 100%;
+                width: 100%;
+
+                div {
+                    position: absolute;
+                    visibility: hidden;
+                    color: $white;
+                    font-family: 'Varela Round';
+                    text-align: center;
+                    height: 30px;
+                    font-weight: bold;
+                    font-size: 30px;
+                    top: 50%;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    z-index: 4;
+                }
+            }
+
             &:hover {
                 background: $black;
 
@@ -146,6 +168,10 @@
                     -webkit-transform: scale(1.05);
                     transform: scale(1.05);
                     opacity: .6;
+                }
+
+                .coming-soon div {
+                    visibility: visible
                 }
             }
 
