@@ -29,7 +29,6 @@ const mapDispatchToProps = dispatch => ({
 
 class Home extends React.Component {
 	state = {
-		width: 0,
 		initialLoad: true,
 		duration: 1000,
 		loading: true,
@@ -53,19 +52,8 @@ class Home extends React.Component {
 	}
 
 	componentDidMount() {
-		this.updateWindowDimensions();
-		window.addEventListener('resize', this.updateWindowDimensions);
-
 		ReactGA.ga('send', 'pageview', '/');
 	}
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.updateWindowDimensions);
-	}
-
-	updateWindowDimensions = () => {
-		this.setState({ width: window.innerWidth });
-	};
 
 	renderLottie(letter, index) {
 		// prettier-ignore
@@ -129,7 +117,7 @@ class Home extends React.Component {
 	}
 
 	renderFooter() {
-		if (this.props.width > 760) {
+		if (this.props.width > 800) {
 			return <Footer fixed />;
 		}
 	}

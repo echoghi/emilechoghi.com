@@ -16,7 +16,8 @@ const mapStateToProps = state => ({
     success: state.portfolioState.success,
     loading: state.portfolioState.loading,
     error: state.portfolioState.error,
-    contact: state.navigationState.contact
+    contact: state.navigationState.contact,
+    width: state.portfolioState.width
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -205,6 +206,14 @@ class Contact extends React.Component {
     stopAnimation() {
         if (this.state.initialLoad) {
             this.setState({ initialLoad: false });
+        }
+    }
+
+    renderSnackbarStyle() {
+        if(this.props.width < 760) {
+            return {
+                width: '80%'
+            };
         }
     }
 
@@ -400,6 +409,7 @@ class Contact extends React.Component {
 
                     <Snackbar
                         open={this.props.success || false}
+                        style={this.renderSnackbarStyle()}
                         message="Your message was sent successfully"
                         autoHideDuration={4000}
                         onRequestClose={this.handleRequestClose}
