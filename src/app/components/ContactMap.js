@@ -39,8 +39,8 @@ class ContactMap extends React.Component {
 		return (
 			<Map center={position} zoom={zoom} dragging={false}>
 				<TileLayer
-					attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-					url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+					attribution="&copy; <a href=&quot;https://openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors"
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
 				{this.renderMarker()}
 			</Map>
