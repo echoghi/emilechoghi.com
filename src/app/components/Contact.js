@@ -102,6 +102,9 @@ class Contact extends React.Component {
             }
         }
 
+        // Reset inputs
+        document.getElementById('contact-form').reset();
+
         this.setState(obj);
     }
 
@@ -233,7 +236,7 @@ class Contact extends React.Component {
                     <div className="portfolio">
                         <div className="clearfix" />
 
-                        <form id="contact-me">
+                        <form id="contact-form">
                             <h4> Contact Me </h4>
                             <div className="form__row">
                                 <div className="form__item">
@@ -338,7 +341,7 @@ class Contact extends React.Component {
                 <div className="portfolio">
                     <div className="clearfix" />
 
-                    <form id="contact-me">
+                    <form id="contact-form">
                         <h4> Contact Me </h4>
                         <div className="form__row">
                             <div className="form__item">
