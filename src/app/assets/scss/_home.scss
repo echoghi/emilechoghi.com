@@ -36,14 +36,17 @@
 
             @include sm-desktop {
                 width: 80%;
+                margin: 30px auto;
             }
 
             @include less-than-tab-land {
                 width: 80%;
+                margin: 30px auto;
             }
 
             @include less-than-ipad {
                 width: 90%;
+                margin: 100px auto;
             }
         }
 
