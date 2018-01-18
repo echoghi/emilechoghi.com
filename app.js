@@ -68,7 +68,7 @@ app.get('*.css', function(req, res, next) {
     next();
 });
 
-app.get('/', function(req, res){
+app.get('*', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
