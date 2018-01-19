@@ -53,7 +53,9 @@ class About extends React.Component {
 	}
 
 	componentDidMount() {
-		ReactGA.ga('send', 'pageview', '/about');
+		if(NODE_ENV === 'production') {
+			ReactGA.ga('send', 'pageview', '/about');
+		}
 	}
 
 	render() {

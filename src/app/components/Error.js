@@ -10,11 +10,13 @@ import Button from 'material-ui/Button';
 
 class FormError extends React.PureComponent {
     componentDidMount() {
-        ReactGA.event({
-            category: 'Form Error',
-            action: 'Form Submission Error',
-            label: 'Error Modal'
-        });
+        if(NODE_ENV === 'production') {
+            ReactGA.event({
+                category: 'Form Error',
+                action: 'Form Submission Error',
+                label: 'Error Modal'
+            });
+        }
     }
 
     render() {

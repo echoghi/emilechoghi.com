@@ -68,11 +68,13 @@ class Project extends React.Component {
 	}
 
 	sendAnalytics(project) {
-		ReactGA.event({
-			category: 'Portfolio Item',
-			action: 'Project Click',
-			label: `Navigated to ${project}`
-		});
+		if(NODE_ENV === 'production') {
+			ReactGA.event({
+				category: 'Portfolio Item',
+				action: 'Project Click',
+				label: `Navigated to ${project}`
+			});
+		}
 	}
 
 	render() {

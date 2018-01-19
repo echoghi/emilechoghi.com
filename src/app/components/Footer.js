@@ -15,11 +15,13 @@ class Footer extends React.Component {
 	}
 
 	sendAnalytics(site) {
-		ReactGA.event({
-			category: 'Footer Link',
-			action: 'Social Media Link Click',
-			label: `Navigated to ${site} Profile`
-		});
+		if(NODE_ENV === 'production') {
+			ReactGA.event({
+				category: 'Footer Link',
+				action: 'Social Media Link Click',
+				label: `Navigated to ${site} Profile`
+			});
+		}
 	}
 
 	render() {

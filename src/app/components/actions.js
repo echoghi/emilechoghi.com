@@ -85,11 +85,15 @@ export function postForm(data) {
             .then(response => {
                 if (response.status === 200) {
                     dispatch(formSuccess());
-                    ReactGA.event({
-                        category: 'Form Success',
-                        action: 'Message Submitted',
-                        label: 'Success Notification'
-                    });
+
+                    if(NODE_ENV === 'production') {
+                        ReactGA.event({
+                            category: 'Form Success',
+                            action: 'Message Submitted',
+                            label: 'Success Notification'
+                        });
+                    }
+                    
                     // Reset form to clear success notification
                     setTimeout(function() {
                         dispatch(resetForm());

@@ -59,7 +59,9 @@ class Contact extends React.Component {
     }
 
     componentDidMount() {
-        ReactGA.ga('send', 'pageview', '/contact');
+        if(NODE_ENV === 'production') {
+            ReactGA.ga('send', 'pageview', '/contact');
+        }
     }
 
     /**

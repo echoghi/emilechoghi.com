@@ -168,7 +168,9 @@ class Portfolio extends React.Component {
     }
 
     componentDidMount() {
-        ReactGA.ga('send', 'pageview', '/portfolio');
+        if(NODE_ENV === 'production') {
+            ReactGA.ga('send', 'pageview', '/portfolio');
+        }
     }
 
     renderProjects() {

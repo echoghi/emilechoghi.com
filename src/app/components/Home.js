@@ -52,7 +52,9 @@ class Home extends React.Component {
 	}
 
 	componentDidMount() {
-		ReactGA.ga('send', 'pageview', '/');
+		if(NODE_ENV === 'production') {
+			ReactGA.ga('send', 'pageview', '/');
+		}
 	}
 
 	renderLottie(letter, index) {
