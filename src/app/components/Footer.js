@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 
 class Footer extends React.Component {
 	renderFooterClass() {
@@ -13,6 +14,14 @@ class Footer extends React.Component {
 		}
 	}
 
+	sendAnalytics(site) {
+		ReactGA.event({
+			category: 'Footer Link',
+			action: 'Social Media Link Click',
+			label: `Navigated to ${site} Profile`
+		});
+	}
+
 	render() {
 		return (
 			<div className={this.renderFooterClass()}>
@@ -24,6 +33,7 @@ class Footer extends React.Component {
 								href="https://github.com/echoghi"
 								target="_blank"
 								rel="noopener noreferrer"
+								onClick={() => this.sendAnalytics('Github')}
 							>
 								<i className="icon-github" />
 							</a>
@@ -33,6 +43,7 @@ class Footer extends React.Component {
 								href="https://www.linkedin.com/in/emile-choghi-a6b60ba1/"
 								target="_blank"
 								rel="noopener noreferrer"
+								onClick={() => this.sendAnalytics('LinkedIn')}
 							>
 								<i className="icon-linkedin" />
 							</a>
@@ -42,6 +53,7 @@ class Footer extends React.Component {
 								href="https://angel.co/emile-choghi"
 								target="_blank"
 								rel="noopener noreferrer"
+								onClick={() => this.sendAnalytics('Angellist')}
 							>
 								<i className="icon-angel" />
 							</a>
