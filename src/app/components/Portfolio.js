@@ -32,7 +32,7 @@ class Portfolio extends React.Component {
                 title: 'Health Dashboard',
                 date: 'January 15th, 2018',
                 text:
-                    "An admin app to collect/analyze nutrition and fitness data using firebase",
+                    "An admin app to analyze nutrition and fitness data using React + Firebase.",
                 image: dashboardImg,
                 link: null,
                 tech: [
@@ -122,9 +122,9 @@ class Portfolio extends React.Component {
                 title: 'emilechoghi.com',
                 date: 'July 2nd, 2017',
                 text:
-                    'This website, which runs on a modest node server and relays messages to my gmail.',
+                    'This website, which runs on a modest node server and relays messages to my email.',
                 image: homeImg,
-                link: 'https://emilechoghi.com',
+                link: 'https://github.com/echoghi/emilechoghi.com',
                 tech: [
                     {
                         key: 0,

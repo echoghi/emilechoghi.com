@@ -112,9 +112,11 @@
         background: $aqua-haze;
         border: 1px solid $gallery;
         box-shadow: none;
+        transition: all .3s;
 
         &:hover {
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
+            transition: all.3s;
+            box-shadow: 0 8px 20px 0 rgba(0,0,0,.1);
         }
 
         &:first-child {
