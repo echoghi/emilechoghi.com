@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 
-class Footer extends React.Component {
+class Footer extends React.PureComponent {
 	renderFooterClass() {
 		if (this.props.fixed) {
 			if (this.props.type === 'portfolio') {

@@ -35,7 +35,9 @@ const portfolioApp = combineReducers({
     navigationState
 });
 
-ReactGA.initialize('UA-75282883-2');
+if(NODE_ENV === 'production') {
+    ReactGA.initialize('UA-75282883-2');
+}
 
 export const store = compose(applyMiddleware(thunk))(createStore)(portfolioApp);
 

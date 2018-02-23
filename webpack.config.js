@@ -33,6 +33,9 @@ module.exports = function(env) {
 
     if (isProd) {
         plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify('production')
+            }),
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
                 debug: false
@@ -83,6 +86,9 @@ module.exports = function(env) {
         );
     } else {
         plugins.push(
+            new webpack.DefinePlugin({
+                NODE_ENV: JSON.stringify(nodeEnv)
+            }),
             new webpack.HotModuleReplacementPlugin(),
             new BrowserSyncPlugin(
                 // BrowserSync options
@@ -218,13 +224,7 @@ module.exports = function(env) {
             ]
         },
         resolve: {
-            extensions: [
-                '.webpack-loader.js',
-                '.web-loader.js',
-                '.loader.js',
-                '.js',
-                '.jsx'
-            ],
+            extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
             modules: [path.resolve(__dirname, 'node_modules'), sourcePath]
         },
 
