@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { postForm, resetError, activatePage } from './actions';
+import { postForm, resetError } from './actions';
 // Components
-import NavBar from './NavBar';
 import Footer from './Footer';
 import Loading from './Loading';
 import FormError from './Error';
@@ -16,14 +15,12 @@ const mapStateToProps = state => ({
     success: state.portfolioState.success,
     loading: state.portfolioState.loading,
     error: state.portfolioState.error,
-    contact: state.navigationState.contact,
     width: state.portfolioState.width
 });
 
 const mapDispatchToProps = dispatch => ({
     postForm: data => dispatch(postForm(data)),
-    resetError: () => dispatch(resetError()),
-    activatePage: page => dispatch(activatePage(page))
+    resetError: () => dispatch(resetError())
 });
 
 // Email validation RegExp
@@ -35,31 +32,28 @@ let validationObj = function() {
 };
 
 class Contact extends React.Component {
-    state = {
-        loading: true,
-        error: null,
-        name: '',
-        email: '',
-        message: '',
-        initialLoad: true,
-        validation: {
-            name: new validationObj(),
-            email: new validationObj(),
-            message: new validationObj()
-        }
-    };
+    constructor(props) {
+        super(props);
 
-    componentWillMount() {
-        let { contact, activatePage } = this.props;
+        this.state = {
+            loading: true,
+            error: null,
+            name: '',
+            email: '',
+            message: '',
+            initialLoad: true,
+            validation: {
+                name: new validationObj(),
+                email: new validationObj(),
+                message: new validationObj()
+            }
+        };
+
         window.scrollTo(0, 0);
-
-        if (!contact) {
-            activatePage('contact');
-        }
     }
 
     componentDidMount() {
-        if(NODE_ENV === 'production') {
+        if (NODE_ENV === 'production') {
             ReactGA.ga('send', 'pageview', '/contact');
         }
     }
@@ -70,12 +64,12 @@ class Contact extends React.Component {
      * @return LoadingSpinner
      */
     renderLoading() {
-        let { loading, error, success } = this.props;
+        const { loading, error, success, resetError } = this.props;
 
         if (loading) {
             return <Loading />;
         } else if (error) {
-            return <FormError close={this.props.resetError} />;
+            return <FormError close={resetError} />;
         }
 
         if (success) {
@@ -113,7 +107,7 @@ class Contact extends React.Component {
     /**
      * Validate Inputs
      *
-     * @return valid - validation status 
+     * @return valid - validation status
      */
     validateInputs() {
         let valid = true;
@@ -215,7 +209,7 @@ class Contact extends React.Component {
     }
 
     renderSnackbarStyle() {
-        if(this.props.width < 760) {
+        if (this.props.width < 760) {
             return {
                 width: '80%'
             };
@@ -242,87 +236,42 @@ class Contact extends React.Component {
                             <h4> Contact Me </h4>
                             <div className="form__row">
                                 <div className="form__item">
-                                    <label
-                                        className={this.handleErrorClass(
-                                            'name'
-                                        )}
-                                    >
-                                        Your Name
-                                    </label>
+                                    <label className={this.handleErrorClass('name')}>Your Name</label>
                                     <input
                                         type="text"
                                         name="name"
                                         maxLength="100"
                                         onChange={this.onChange}
-                                        className={this.handleErrorClass(
-                                            'name'
-                                        )}
+                                        className={this.handleErrorClass('name')}
                                     />
-                                    <div
-                                        className={this.handleErrorClass(
-                                            'name'
-                                        )}
-                                    >
-                                        required*
-                                    </div>
+                                    <div className={this.handleErrorClass('name')}>required*</div>
                                 </div>
                                 <div className="form__item">
-                                    <label
-                                        className={this.handleErrorClass(
-                                            'email'
-                                        )}
-                                    >
-                                        Email Address
-                                    </label>
+                                    <label className={this.handleErrorClass('email')}>Email Address</label>
                                     <input
                                         type="text"
                                         name="email"
                                         maxLength="254"
                                         onChange={this.onChange}
-                                        className={this.handleErrorClass(
-                                            'email'
-                                        )}
+                                        className={this.handleErrorClass('email')}
                                     />
-                                    <div
-                                        className={this.handleErrorClass(
-                                            'email'
-                                        )}
-                                    >
-                                        invalid*
-                                    </div>
+                                    <div className={this.handleErrorClass('email')}>invalid*</div>
                                 </div>
                             </div>
                             <div className="form__row">
                                 <div className="form__item-lg">
-                                    <label
-                                        className={this.handleErrorClass(
-                                            'message'
-                                        )}
-                                    >
-                                        Your Message
-                                    </label>
+                                    <label className={this.handleErrorClass('message')}>Your Message</label>
                                     <textarea
                                         maxLength="6000"
                                         name="message"
                                         onChange={this.onChange}
-                                        className={this.handleErrorClass(
-                                            'message'
-                                        )}
+                                        className={this.handleErrorClass('message')}
                                     />
-                                    <div
-                                        className={this.handleErrorClass(
-                                            'message'
-                                        )}
-                                    >
-                                        required*
-                                    </div>
+                                    <div className={this.handleErrorClass('message')}>required*</div>
                                 </div>
                             </div>
 
-                            <Button
-                                onClick={this.handleSubmit}
-                                className="form-button"
-                            >
+                            <Button onClick={this.handleSubmit} className="form-button">
                                 Send
                             </Button>
                         </form>
@@ -347,11 +296,7 @@ class Contact extends React.Component {
                         <h4> Contact Me </h4>
                         <div className="form__row">
                             <div className="form__item">
-                                <label
-                                    className={this.handleErrorClass('name')}
-                                >
-                                    Your Name
-                                </label>
+                                <label className={this.handleErrorClass('name')}>Your Name</label>
                                 <input
                                     type="text"
                                     name="name"
@@ -359,16 +304,10 @@ class Contact extends React.Component {
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('name')}
                                 />
-                                <div className={this.handleErrorClass('name')}>
-                                    required*
-                                </div>
+                                <div className={this.handleErrorClass('name')}>required*</div>
                             </div>
                             <div className="form__item">
-                                <label
-                                    className={this.handleErrorClass('email')}
-                                >
-                                    Email Address
-                                </label>
+                                <label className={this.handleErrorClass('email')}>Email Address</label>
                                 <input
                                     type="text"
                                     name="email"
@@ -376,36 +315,23 @@ class Contact extends React.Component {
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('email')}
                                 />
-                                <div className={this.handleErrorClass('email')}>
-                                    invalid*
-                                </div>
+                                <div className={this.handleErrorClass('email')}>invalid*</div>
                             </div>
                         </div>
                         <div className="form__row">
                             <div className="form__item-lg">
-                                <label
-                                    className={this.handleErrorClass('message')}
-                                >
-                                    Your Message
-                                </label>
+                                <label className={this.handleErrorClass('message')}>Your Message</label>
                                 <textarea
                                     maxLength="6000"
                                     name="message"
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('message')}
                                 />
-                                <div
-                                    className={this.handleErrorClass('message')}
-                                >
-                                    required*
-                                </div>
+                                <div className={this.handleErrorClass('message')}>required*</div>
                             </div>
                         </div>
 
-                        <Button
-                            onClick={this.handleSubmit}
-                            className="form-button"
-                        >
+                        <Button onClick={this.handleSubmit} className="form-button">
                             Send
                         </Button>
                     </form>
@@ -427,7 +353,6 @@ class Contact extends React.Component {
     render() {
         return (
             <div>
-                <NavBar pathname={this.props.location.pathname} />
                 <ContactMap />
 
                 {this.renderForm()}

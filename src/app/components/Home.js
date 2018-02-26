@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { activatePage } from './actions';
 // Components
-import NavBar from './NavBar';
 import Footer from './Footer';
 import Anime from 'react-anime';
 import Lottie from 'react-lottie';
@@ -19,47 +17,38 @@ import * as gData from '../assets/animations/g.json';
 import homeImg from '../assets/images/home.png';
 
 const mapStateToProps = state => ({
-	home: state.navigationState.home,
-	width: state.portfolioState.width
-});
-
-const mapDispatchToProps = dispatch => ({
-	activatePage: page => dispatch(activatePage(page))
+    width: state.portfolioState.width
 });
 
 class Home extends React.Component {
-	state = {
-		initialLoad: true,
-		duration: 1000,
-		loading: true,
-		error: null,
-		firstName: 'emile',
-		lastName: 'choghi',
-		e1: false,
-		m: false,
-		i: false,
-		l: false,
-		e2: false
-	};
+    constructor(props) {
+        super(props);
 
-	componentWillMount() {
-		let { home, activatePage } = this.props;
-		window.scrollTo(0, 0);
+        this.state = {
+            initialLoad: true,
+            duration: 1000,
+            loading: true,
+            error: null,
+            firstName: 'emile',
+            lastName: 'choghi',
+            e1: false,
+            m: false,
+            i: false,
+            l: false,
+            e2: false
+        };
+        window.scrollTo(0, 0);
+    }
 
-		if (!home) {
-			activatePage('home');
-		}
-	}
+    componentDidMount() {
+        if (NODE_ENV === 'production') {
+            ReactGA.ga('send', 'pageview', '/');
+        }
+    }
 
-	componentDidMount() {
-		if(NODE_ENV === 'production') {
-			ReactGA.ga('send', 'pageview', '/');
-		}
-	}
-
-	renderLottie(letter, index) {
-		// prettier-ignore
-		const durationSwitch = letter =>
+    renderLottie(letter, index) {
+        // prettier-ignore
+        const durationSwitch = letter =>
             ({
                 'e': {
                 	data: eData,
@@ -95,91 +84,76 @@ class Home extends React.Component {
                 }
             })[letter];
 
-		const { data, width } = durationSwitch(letter);
+        const { data, width } = durationSwitch(letter);
 
-		const options = {
-			loop: false,
-			autoplay: true,
-			animationData: data,
-			rendererSettings: {
-				preserveAspectRatio: 'xMidYMid slice',
-				progressiveLoad: true
-			}
-		};
+        const options = {
+            loop: false,
+            autoplay: true,
+            animationData: data,
+            rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice',
+                progressiveLoad: true
+            }
+        };
 
-		return (
-			<Lottie options={options} height={100} width={width} key={index} />
-		);
-	}
+        return <Lottie options={options} height={100} width={width} key={index} />;
+    }
 
-	stopAnimation() {
-		if (this.state.initialLoad) {
-			this.setState({ duration: 0, initialLoad: false });
-		}
-	}
+    stopAnimation() {
+        if (this.state.initialLoad) {
+            this.setState({ duration: 0, initialLoad: false });
+        }
+    }
 
-	renderFooter() {
-		if (this.props.width > 800) {
-			return <Footer fixed />;
-		}
-	}
+    renderFooter() {
+        if (this.props.width > 800) {
+            return <Footer fixed />;
+        }
+    }
 
-	render() {
-		let { firstName, lastName, duration } = this.state;
+    render() {
+        const { firstName, lastName, duration } = this.state;
 
-		let transition = {
-			delay: (el, index) => index * 240,
-			complete: () => this.stopAnimation(),
-			elasticity: 0,
-			duration: duration,
-			opacity: [0, 1],
-			translateX: [-200, 0]
-		};
+        let transition = {
+            delay: (el, index) => index * 240,
+            complete: () => this.stopAnimation(),
+            elasticity: 0,
+            duration: duration,
+            opacity: [0, 1],
+            translateX: [-200, 0]
+        };
 
-		return (
-			<div>
-				<NavBar pathname={this.props.location.pathname} />
-				<Anime {...transition}>
-					<div className="home">
-						<div className="jumbotron">
-							<div className="jumbotron__container">
-								<div className="jumbotron__content">
-									{/* First Name */}
-									<section>
-										{_.map(
-											firstName.split(''),
-											(letter, index) => {
-												return this.renderLottie(
-													letter,
-													index
-												);
-											}
-										)}
-									</section>
-									{/* Last Name */}
-									<section>
-										{_.map(
-											lastName.split(''),
-											(letter, index) => {
-												return this.renderLottie(
-													letter,
-													index
-												);
-											}
-										)}
-									</section>
-									<h2>Frontend Engineer</h2>
-								</div>
-							</div>
-						</div>
-						<img src={homeImg} />
-					</div>
-				</Anime>
+        return (
+            <div>
+                <Anime {...transition}>
+                    <div className="home">
+                        <div className="jumbotron">
+                            <div className="jumbotron__container">
+                                <div className="jumbotron__content">
+                                    {/* First Name */}
+                                    <section>
+                                        {_.map(firstName.split(''), (letter, index) => {
+                                            return this.renderLottie(letter, index);
+                                        })}
+                                    </section>
+                                    {/* Last Name */}
+                                    <section>
+                                        {_.map(lastName.split(''), (letter, index) => {
+                                            return this.renderLottie(letter, index);
+                                        })}
+                                    </section>
+                                    <h2>Frontend Engineer</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <img src={homeImg} />
+                    </div>
+                </Anime>
 
-				{this.renderFooter()}
-			</div>
-		);
-	}
+                {this.renderFooter()}
+            </div>
+        );
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);

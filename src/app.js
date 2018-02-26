@@ -1,7 +1,7 @@
 /**
  * Personal Portfolio 2.5.0
  * Copyright (c) Emile Choghi 2017
- * 
+ *
  */
 
 // SCSS
@@ -22,20 +22,16 @@ import _ from 'lodash';
 /*eslint-enable*/
 
 //Reducers
-import { portfolioState, navigationState } from './app/components/reducers';
+import { portfolioState } from './app/components/reducers';
 
 //components
-import Home from './app/components/Home';
-import About from './app/components/About';
-import Portfolio from './app/components/Portfolio';
-import Contact from './app/components/Contact';
+import AppIndex from './app/components/AppIndex';
 
 const portfolioApp = combineReducers({
-    portfolioState,
-    navigationState
+    portfolioState
 });
 
-if(NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
     ReactGA.initialize('UA-75282883-2');
 }
 
@@ -45,10 +41,7 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route exact path={'/'} component={Home} />
-                <Route exact path={'/about'} component={About} />
-                <Route exact path={'/portfolio'} component={Portfolio} />
-                <Route exact path={'/contact'} component={Contact} />
+                <Route path={'/'} component={AppIndex} />
             </Switch>
         </BrowserRouter>
     </Provider>,

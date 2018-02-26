@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { activatePage } from './actions';
 // Components
-import NavBar from './NavBar';
 import Footer from './Footer';
 import Project from './Project';
 import Anime from 'react-anime';
@@ -14,161 +12,149 @@ import pidashImg from '../assets/images/pidash.png';
 import homeImg from '../assets/images/choghi.png';
 
 const mapStateToProps = state => ({
-    portfolio: state.navigationState.portfolio,
-    previousRoute: state.navigationState.previousRoute
-});
-
-const mapDispatchToProps = dispatch => ({
-    activatePage: page => dispatch(activatePage(page))
+    previousRoute: state.portfolioState.previousRoute
 });
 
 class Portfolio extends React.Component {
     /* eslint-disable */
-    state = {
-        loading: true,
-        error: null,
-        projects: [
-            {
-                title: 'Health Dashboard',
-                date: 'January 15th, 2018',
-                text:
-                    "An admin app to analyze nutrition and fitness data using React + Firebase.",
-                image: dashboardImg,
-                link: null,
-                tech: [
-                    {
-                        key: 0,
-                        label: 'React.js',
-                        class: 'icon-react',
-                        id: 'icon-6'
-                    },
-                    {
-                        key: 1,
-                        label: 'Webpack',
-                        class: 'icon-webpack',
-                        id: 'icon-7'
-                    },
-                    {
-                        key: 2,
-                        label: 'SCSS',
-                        class: 'icon-scss',
-                        size: 30,
-                        id: 'icon-8'
-                    }
-                ],
-                key: 0
-            },
-            {
-                title: 'Choghi Wedding',
-                date: 'October 5th, 2016',
-                text:
-                    "A site for my brother's wedding, featuring an itinerary, photos, and guestbook.",
-                image: weddingImg,
-                link: 'http://choghiwedding.com',
-                tech: [
-                    {
-                        key: 0,
-                        label: 'Angular.js',
-                        class: 'icon-angular',
-                        id: 'icon-1'
-                    },
-                    { key: 1, label: 'SCSS', class: 'icon-scss', id: 'icon-2' },
-                    {
-                        key: 2,
-                        label: 'Node.js',
-                        class: 'icon-node',
-                        id: 'icon-3'
-                    }
-                ],
-                key: 1
-            },
-            {
-                title: 'PiDash',
-                date: 'July 2nd, 2017',
-                text:
-                    'A dashboard app meant to serve as a kiosk display running on my Raspberry Pi.',
-                image: pidashImg,
-                link: 'https://github.com/echoghi/PiDash',
-                tech: [
-                    {
-                        key: 0,
-                        label: 'React.js',
-                        class: 'icon-react',
-                        id: 'icon-6'
-                    },
-                    {
-                        key: 1,
-                        label: 'Webpack',
-                        class: 'icon-webpack',
-                        id: 'icon-7'
-                    },
-                    {
-                        key: 2,
-                        label: 'SCSS',
-                        class: 'icon-scss',
-                        size: 30,
-                        id: 'icon-8'
-                    },
-                    {
-                        key: 3,
-                        label: 'Node.js',
-                        class: 'icon-node',
-                        id: 'icon-9'
-                    }
-                ],
-                key: 2
-            },
-            {
-                title: 'emilechoghi.com',
-                date: 'July 2nd, 2017',
-                text:
-                    'This website, which runs on a modest node server and relays messages to my email.',
-                image: homeImg,
-                link: 'https://github.com/echoghi/emilechoghi.com',
-                tech: [
-                    {
-                        key: 0,
-                        label: 'React.js',
-                        class: 'icon-react',
-                        id: 'icon-6'
-                    },
-                    {
-                        key: 1,
-                        label: 'Webpack',
-                        class: 'icon-webpack',
-                        id: 'icon-7'
-                    },
-                    {
-                        key: 2,
-                        label: 'SCSS',
-                        class: 'icon-scss',
-                        size: 30,
-                        id: 'icon-8'
-                    },
-                    {
-                        key: 3,
-                        label: 'Node.js',
-                        class: 'icon-node',
-                        id: 'icon-9'
-                    }
-                ],
-                key: 3
-            }
-        ]
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loading: true,
+            error: null,
+            projects: [
+                {
+                    title: 'Health Dashboard',
+                    date: 'January 15th, 2018',
+                    text: 'An admin app to analyze nutrition and fitness data using React + Firebase.',
+                    image: dashboardImg,
+                    link: null,
+                    tech: [
+                        {
+                            key: 0,
+                            label: 'React.js',
+                            class: 'icon-react',
+                            id: 'icon-6'
+                        },
+                        {
+                            key: 1,
+                            label: 'Webpack',
+                            class: 'icon-webpack',
+                            id: 'icon-7'
+                        },
+                        {
+                            key: 2,
+                            label: 'SCSS',
+                            class: 'icon-scss',
+                            size: 30,
+                            id: 'icon-8'
+                        }
+                    ],
+                    key: 0
+                },
+                {
+                    title: 'Choghi Wedding',
+                    date: 'October 5th, 2016',
+                    text: "A site for my brother's wedding, featuring an itinerary, photos, and guestbook.",
+                    image: weddingImg,
+                    link: 'http://choghiwedding.com',
+                    tech: [
+                        {
+                            key: 0,
+                            label: 'Angular.js',
+                            class: 'icon-angular',
+                            id: 'icon-1'
+                        },
+                        { key: 1, label: 'SCSS', class: 'icon-scss', id: 'icon-2' },
+                        {
+                            key: 2,
+                            label: 'Node.js',
+                            class: 'icon-node',
+                            id: 'icon-3'
+                        }
+                    ],
+                    key: 1
+                },
+                {
+                    title: 'PiDash',
+                    date: 'July 2nd, 2017',
+                    text: 'A dashboard app meant to serve as a kiosk display running on my Raspberry Pi.',
+                    image: pidashImg,
+                    link: 'https://github.com/echoghi/PiDash',
+                    tech: [
+                        {
+                            key: 0,
+                            label: 'React.js',
+                            class: 'icon-react',
+                            id: 'icon-6'
+                        },
+                        {
+                            key: 1,
+                            label: 'Webpack',
+                            class: 'icon-webpack',
+                            id: 'icon-7'
+                        },
+                        {
+                            key: 2,
+                            label: 'SCSS',
+                            class: 'icon-scss',
+                            size: 30,
+                            id: 'icon-8'
+                        },
+                        {
+                            key: 3,
+                            label: 'Node.js',
+                            class: 'icon-node',
+                            id: 'icon-9'
+                        }
+                    ],
+                    key: 2
+                },
+                {
+                    title: 'emilechoghi.com',
+                    date: 'July 2nd, 2017',
+                    text: 'This website, which runs on a modest node server and relays messages to my email.',
+                    image: homeImg,
+                    link: 'https://github.com/echoghi/emilechoghi.com',
+                    tech: [
+                        {
+                            key: 0,
+                            label: 'React.js',
+                            class: 'icon-react',
+                            id: 'icon-6'
+                        },
+                        {
+                            key: 1,
+                            label: 'Webpack',
+                            class: 'icon-webpack',
+                            id: 'icon-7'
+                        },
+                        {
+                            key: 2,
+                            label: 'SCSS',
+                            class: 'icon-scss',
+                            size: 30,
+                            id: 'icon-8'
+                        },
+                        {
+                            key: 3,
+                            label: 'Node.js',
+                            class: 'icon-node',
+                            id: 'icon-9'
+                        }
+                    ],
+                    key: 3
+                }
+            ]
+        };
+
+        window.scrollTo(0, 0);
+    }
     /* eslint-enable */
 
-    componentWillMount() {
-        let { portfolio, activatePage } = this.props;
-        window.scrollTo(0, 0);
-
-        if (!portfolio) {
-            activatePage('portfolio');
-        }
-    }
-
     componentDidMount() {
-        if(NODE_ENV === 'production') {
+        if (NODE_ENV === 'production') {
             ReactGA.ga('send', 'pageview', '/portfolio');
         }
     }
@@ -202,26 +188,19 @@ class Portfolio extends React.Component {
             translateX: [-200, 0]
         };
 
-        if (
-            this.props.previousRoute === '/about' ||
-            this.props.previousRoute === '/'
-        ) {
+        if (this.props.previousRoute === '/about' || this.props.previousRoute === '/') {
             transition.translateX = [200, 0];
         }
 
         return (
             <div>
-                <NavBar pathname={this.props.location.pathname} />
-
                 <Anime {...transition}>
                     <div className="portfolio">
                         <div className="clearfix" />
 
                         <h4 className="portfolio__header">Recent Projects</h4>
 
-                        <div className="portfolio__wrapper">
-                            {this.renderProjects()}
-                        </div>
+                        <div className="portfolio__wrapper">{this.renderProjects()}</div>
                     </div>
                 </Anime>
 
@@ -231,4 +210,4 @@ class Portfolio extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);
+export default connect(mapStateToProps)(Portfolio);

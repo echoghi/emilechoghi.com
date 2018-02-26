@@ -67,13 +67,6 @@ export function formError() {
     };
 }
 
-export function activatePage(page) {
-    return {
-        type: ACTIVATE_PAGE,
-        data: page
-    };
-}
-
 export function postForm(data) {
     return dispatch => {
         dispatch(loadingData());
@@ -86,14 +79,14 @@ export function postForm(data) {
                 if (response.status === 200) {
                     dispatch(formSuccess());
 
-                    if(NODE_ENV === 'production') {
+                    if (NODE_ENV === 'production') {
                         ReactGA.event({
                             category: 'Form Success',
                             action: 'Message Submitted',
                             label: 'Success Notification'
                         });
                     }
-                    
+
                     // Reset form to clear success notification
                     setTimeout(function() {
                         dispatch(resetForm());
