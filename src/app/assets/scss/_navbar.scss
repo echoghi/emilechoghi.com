@@ -85,17 +85,19 @@
         &.collapsed {
             text-align: center;
             transform: scaleY(0);
-            transition: transform .3s cubic-bezier(0.71, 0.02, 0.9, 0.23),
-                opacity .1s;
+            transition: transform 0.3s cubic-bezier(0.71, 0.02, 0.9, 0.23), opacity 0.1s;
             transform-origin: top;
+
+            @include less-than-ipad {
+                transition: transform 0.1s cubic-bezier(0.71, 0.02, 0.9, 0.23), opacity 0.1s;
+            }
         }
 
         &.active {
             text-align: center;
             opacity: 1;
             transform: scaleY(1);
-            transition: transform .3s cubic-bezier(0.01, 0.03, 0.29, 1.17),
-                opacity .2s;
+            transition: transform 0.3s cubic-bezier(0.01, 0.03, 0.29, 1.17), opacity 0.2s;
             transform-origin: top;
         }
 
@@ -126,7 +128,7 @@
             display: inline-block;
             padding: 0 20px;
             cursor: pointer;
-            transition: opacity .2s;
+            transition: opacity 0.2s;
 
             i {
                 display: none;
@@ -137,7 +139,7 @@
             }
 
             &:hover {
-                opacity: .8;
+                opacity: 0.8;
             }
 
             @include less-than-ipad {

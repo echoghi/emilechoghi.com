@@ -74,8 +74,15 @@ class NavBar extends React.Component {
         this.setState({ width: window.innerWidth });
     };
 
-    render() {
+    onNavigation = pathname => {
         const { saveRoute } = this.props;
+
+        saveRoute(pathname);
+
+        this.setState({ menuOpen: false });
+    };
+
+    render() {
         const { pathname } = this.props.history.location;
 
         return (
@@ -92,23 +99,23 @@ class NavBar extends React.Component {
                 </div>
                 <ul className={this.handleMenuClass()}>
                     <Link to="/">
-                        <li className={this.handleNavClass('')} onClick={() => saveRoute(pathname)}>
+                        <li className={this.handleNavClass('')} onClick={() => this.onNavigation(pathname)}>
                             {' '}
                             Home <i className="icon-home" />
                         </li>
                     </Link>
                     <Link to="/about">
-                        <li className={this.handleNavClass('about')} onClick={() => saveRoute(pathname)}>
+                        <li className={this.handleNavClass('about')} onClick={() => this.onNavigation(pathname)}>
                             About <i className="icon-user" />
                         </li>
                     </Link>
                     <Link to="/portfolio">
-                        <li className={this.handleNavClass('portfolio')} onClick={() => saveRoute(pathname)}>
+                        <li className={this.handleNavClass('portfolio')} onClick={() => this.onNavigation(pathname)}>
                             Portfolio <i className="icon-briefcase" />
                         </li>
                     </Link>
                     <Link to="/contact">
-                        <li className={this.handleNavClass('contact')} onClick={() => saveRoute(pathname)}>
+                        <li className={this.handleNavClass('contact')} onClick={() => this.onNavigation(pathname)}>
                             Contact <i className="icon-message-square" />
                         </li>
                     </Link>
