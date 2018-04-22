@@ -223,7 +223,7 @@ class Contact extends React.Component {
                 <div className="portfolio">
                     <div className="clearfix" />
 
-                    <form id="contact-form">
+                    <form id="contact-form" netlify>
                         <h4> Contact Me </h4>
                         <div className="form__row">
                             <div className="form__item">

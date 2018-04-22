@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Footer from './Footer';
 import Lottie from 'react-lottie';
 import ReactGA from 'react-ga';
+import styled from 'styled-components';
 import * as eData from '../assets/animations/e.json';
 import * as mData from '../assets/animations/m.json';
 import * as iData from '../assets/animations/i.json';
@@ -113,6 +114,14 @@ class Home extends React.Component {
     render() {
         const { firstName, lastName } = this.state;
 
+        const Header = styled.h2`
+            font-size: 30px;
+
+            @media (max-width: 767px) {
+                font-size: 20px;
+            }
+        `;
+
         return (
             <div>
                 <div className="home">
@@ -131,7 +140,7 @@ class Home extends React.Component {
                                         return this.renderLottie(letter, index);
                                     })}
                                 </section>
-                                <h2>Frontend Engineer</h2>
+                                <Header>Frontend Engineer</Header>
                             </div>
                         </div>
                     </div>
