@@ -137,7 +137,6 @@ class Portfolio extends React.Component {
             font-size: 28px;
             font-weight: bold;
             padding: 15px;
-            margin-bottom: 10px;
         `;
 
         return (
