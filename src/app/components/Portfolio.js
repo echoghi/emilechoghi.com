@@ -32,7 +32,7 @@ class Portfolio extends React.Component {
                     tech: [
                         {
                             key: 0,
-                            label: 'React.js'
+                            label: 'React'
                         },
                         {
                             key: 1,
@@ -58,7 +58,7 @@ class Portfolio extends React.Component {
                     tech: [
                         {
                             key: 0,
-                            label: 'React.js'
+                            label: 'React'
                         },
                         {
                             key: 1,
@@ -70,7 +70,7 @@ class Portfolio extends React.Component {
                         },
                         {
                             key: 3,
-                            label: 'Node.js'
+                            label: 'Node'
                         }
                     ],
                     key: 2
@@ -83,19 +83,19 @@ class Portfolio extends React.Component {
                     tech: [
                         {
                             key: 0,
-                            label: 'React.js'
+                            label: 'React'
                         },
                         {
                             key: 1,
-                            label: 'Webpack'
+                            label: 'Styled Components'
                         },
                         {
                             key: 2,
-                            label: 'SCSS'
+                            label: 'Webpack'
                         },
                         {
                             key: 3,
-                            label: 'Node.js'
+                            label: 'Node'
                         }
                     ],
                     key: 3
@@ -136,7 +136,8 @@ class Portfolio extends React.Component {
         const Header = styled.h4`
             font-size: 28px;
             font-weight: bold;
-            padding: 15px 0;
+            padding: 15px;
+            margin-bottom: 10px;
         `;
 
         return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 // Components
 import Footer from './Footer';
 import ReactGA from 'react-ga';
@@ -44,12 +45,19 @@ class About extends React.Component {
     }
 
     render() {
+        const Header = styled.h4`
+            font-size: 28px;
+            font-weight: bold;
+            padding: 15px;
+            margin-bottom: 10px;
+        `;
+
         return (
             <div>
                 <div className="about">
                     <div className="clearfix" />
                     <div className="skills">
-                        <h1>Where I've worked</h1>
+                        <Header>Where I've worked</Header>
                         <div className="skills__container">
                             <VerticalTimeline>
                                 <VerticalTimelineElement

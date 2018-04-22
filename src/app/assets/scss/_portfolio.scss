@@ -1,11 +1,15 @@
 .portfolio {
+    height: 80vh;
     padding: 0 70px;
     font-family: 'Varela Round';
+    
     @include sm-desktop {
+        height: auto;
         padding: 0 30px 30px 30px;
     }
 
     @include less-than-tab-land {
+        height: auto;
         padding: 0;
         padding-bottom: 30px;
     }
@@ -47,6 +51,15 @@
             padding: 0 10px;
             vertical-align: top;
             width: 33%;
+
+            &:nth-child(3) {
+                @include sm-desktop {
+                    float: left;
+                }
+                @include less-than-tab-land {
+                    float: left;
+                }
+            }
 
             @include sm-desktop {
                 display: inline-block;
