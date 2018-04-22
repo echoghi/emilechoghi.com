@@ -1,56 +1,4 @@
-/* stylelint-disable */
 form {
-    font-family: 'Varela Round';
-    background: none;
-    margin: 0 auto;
-    margin-top: 70px;
-    width: 60%;
-
-    @include sm-desktop {
-        height: 80vh;
-        width: 70%;
-    }
-
-    @include less-than-tab-land {
-        margin-top: 30px;
-        width: 85%;
-    }
-
-    @include less-than-ipad {
-        height: 185vh;
-    }
-
-    @include mobile-lg {
-        height: 100vh;
-    }
-
-    @include mobile {
-        height: 105vh;
-    }
-
-    @include mobile-small {
-        height: 120vh;
-    }
-
-    h4 {
-        font-size: 30px;
-        font-weight: bold;
-        margin: 100px 0;
-
-        @include sm-desktop {
-            margin: 50px 0;
-        }
-
-        @include less-than-ipad {
-            margin: 40px 0;
-        }
-    }
-
-    .form__row {
-        display: block;
-        width: 100%;
-    }
-
     .form__item,
     .form__item-lg {
         display: inline-block;
@@ -136,7 +84,7 @@ form {
     font-size: 25px;
     vertical-align: text-bottom;
 }
-
+/* stylelint-disable */
 .leaflet-container {
     position: fixed !important;
     opacity: .15;

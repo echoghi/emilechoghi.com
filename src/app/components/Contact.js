@@ -9,6 +9,7 @@ import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import ContactMap from './ContactMap';
 import ReactGA from 'react-ga';
+import styled from 'styled-components';
 
 const mapStateToProps = state => ({
     success: state.portfolioState.success,
@@ -216,6 +217,59 @@ class Contact extends React.Component {
     }
 
     render() {
+        const FormHeader = styled.h4`
+            font-size: 30px;
+            font-weight: bold;
+            margin: 100px 0;
+
+            @media (max-width: 1199px) and (min-width: 1024px) {
+                margin: 50px 0;
+            }
+
+            @media (max-width: 767px) {
+                margin: 40px 0;
+            }
+        `;
+
+        const Form = styled.form`
+            font-family: 'Varela Round';
+            background: none;
+            margin: 0 auto;
+            margin-top: 70px;
+            width: 60%;
+
+            @media (max-width: 1199px) and (min-width: 1024px) {
+                height: 80vh;
+                width: 70%;
+            }
+
+            @media (max-width: 1023px) {
+                margin-top: 30px;
+                width: 85%;
+            }
+
+            @media (max-width: 767px) {
+                height: 185vh;
+            }
+
+            @media (max-width: 415px) and (min-width: 376px) {
+                height: 100vh;
+            }
+
+            @media (max-width: 375px) {
+                height: 105vh;
+            }
+
+            @media (max-width: 370px) {
+                height: 120vh;
+            }
+        `;
+
+        const FormRow = styled.div`
+            display: block;
+            width: 100%;
+        `;
+
         return (
             <div>
                 <ContactMap />
@@ -223,9 +277,9 @@ class Contact extends React.Component {
                 <div className="portfolio">
                     <div className="clearfix" />
 
-                    <form id="contact-form" netlify>
-                        <h4> Contact Me </h4>
-                        <div className="form__row">
+                    <Form id="contact-form">
+                        <FormHeader> Contact Me </FormHeader>
+                        <FormRow>
                             <div className="form__item">
                                 <label className={this.handleErrorClass('name')}>Your Name</label>
                                 <input
@@ -248,8 +302,8 @@ class Contact extends React.Component {
                                 />
                                 <div className={this.handleErrorClass('email')}>invalid*</div>
                             </div>
-                        </div>
-                        <div className="form__row">
+                        </FormRow>
+                        <FormRow>
                             <div className="form__item-lg">
                                 <label className={this.handleErrorClass('message')}>Your Message</label>
                                 <textarea
@@ -260,12 +314,12 @@ class Contact extends React.Component {
                                 />
                                 <div className={this.handleErrorClass('message')}>required*</div>
                             </div>
-                        </div>
+                        </FormRow>
 
                         <Button onClick={this.handleSubmit} className="form-button">
                             Send
                         </Button>
-                    </form>
+                    </Form>
 
                     {this.renderLoading()}
 
