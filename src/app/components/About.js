@@ -49,14 +49,32 @@ class About extends React.Component {
             font-size: 28px;
             font-weight: bold;
             padding: 15px;
-            margin-bottom: 10px;
+        `;
+
+        const Skills = styled.div`
+            width: 70%;
+            margin: 0 auto;
+
+            @media (max-width: 1199px) and (min-width: 1024px) {
+                width: 80%;
+            }
+
+            @media (max-width: 1023px) {
+                width: 85%;
+            }
+        `;
+
+        const About = styled.div`
+            margin-top: 80px;
+            background: #f4f7f8;
+            font-family: 'Varela Round';
         `;
 
         return (
             <div>
-                <div className="about">
+                <About>
                     <div className="clearfix" />
-                    <div className="skills">
+                    <Skills>
                         <Header>Where I've worked</Header>
                         <div className="skills__container">
                             <VerticalTimeline>
@@ -125,10 +143,10 @@ class About extends React.Component {
                                 </VerticalTimelineElement>
                             </VerticalTimeline>
                         </div>
-                    </div>
+                    </Skills>
 
                     <Footer />
-                </div>
+                </About>
             </div>
         );
     }
