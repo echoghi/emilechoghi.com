@@ -4,8 +4,8 @@
     "description": "Portfolio Site",
     "scripts": {
         "dev": "yarn install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-        "prod": "cross-env NODE_ENV=production webpack-dev-server --env.prod=true",
-        "build": "cross-env NODE_ENV=production webpack --env.prod=true",
+        "build": "NODE_ENV=production webpack --env.prod=true",
+        "build-windows": "cross-env NODE_ENV=production webpack --env.prod=true",
         "server": "node app"
     },
     "repository": {
