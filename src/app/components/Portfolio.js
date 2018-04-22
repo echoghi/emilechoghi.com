@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 // Components
 import Footer from './Footer';
 import Project from './Project';
-import Anime from 'react-anime';
 import ReactGA from 'react-ga';
+import styled from 'styled-components';
 // Images
-import weddingImg from '../assets/images/wedding.png';
 import dashboardImg from '../assets/images/dashboard.png';
 import pidashImg from '../assets/images/pidash.png';
 import homeImg from '../assets/images/choghi.png';
@@ -26,122 +25,77 @@ class Portfolio extends React.Component {
             projects: [
                 {
                     title: 'Health Dashboard',
-                    date: 'January 15th, 2018',
-                    text: 'An admin app to analyze nutrition and fitness data using React + Firebase.',
+                    text:
+                        'A health app designed to log and analyze your daily nutritional intake against your daily expenditure (via the apple watch) to track trends and caloric surpluses/defecits on a monthly basis.',
                     image: dashboardImg,
-                    link: null,
+                    link: 'https://github.com/echoghi/calorie-tracker',
                     tech: [
                         {
                             key: 0,
-                            label: 'React.js',
-                            class: 'icon-react',
-                            id: 'icon-6'
+                            label: 'React.js'
                         },
                         {
                             key: 1,
-                            label: 'Webpack',
-                            class: 'icon-webpack',
-                            id: 'icon-7'
+                            label: 'Webpack'
                         },
                         {
                             key: 2,
-                            label: 'SCSS',
-                            class: 'icon-scss',
-                            size: 30,
-                            id: 'icon-8'
+                            label: 'SCSS'
+                        },
+                        {
+                            key: 3,
+                            label: 'Firebase'
                         }
                     ],
                     key: 0
                 },
                 {
-                    title: 'Choghi Wedding',
-                    date: 'October 5th, 2016',
-                    text: "A site for my brother's wedding, featuring an itinerary, photos, and guestbook.",
-                    image: weddingImg,
-                    link: 'http://choghiwedding.com',
-                    tech: [
-                        {
-                            key: 0,
-                            label: 'Angular.js',
-                            class: 'icon-angular',
-                            id: 'icon-1'
-                        },
-                        { key: 1, label: 'SCSS', class: 'icon-scss', id: 'icon-2' },
-                        {
-                            key: 2,
-                            label: 'Node.js',
-                            class: 'icon-node',
-                            id: 'icon-3'
-                        }
-                    ],
-                    key: 1
-                },
-                {
                     title: 'PiDash',
-                    date: 'July 2nd, 2017',
-                    text: 'A dashboard app meant to serve as a kiosk display running on my Raspberry Pi.',
+                    text:
+                        'A kiosk app made to run on a RaspberryPi, showing a newsfeed, cryptocurrency price ticker, weather forecast, and estimated commute time.',
                     image: pidashImg,
                     link: 'https://github.com/echoghi/PiDash',
                     tech: [
                         {
                             key: 0,
-                            label: 'React.js',
-                            class: 'icon-react',
-                            id: 'icon-6'
+                            label: 'React.js'
                         },
                         {
                             key: 1,
-                            label: 'Webpack',
-                            class: 'icon-webpack',
-                            id: 'icon-7'
+                            label: 'Webpack'
                         },
                         {
                             key: 2,
-                            label: 'SCSS',
-                            class: 'icon-scss',
-                            size: 30,
-                            id: 'icon-8'
+                            label: 'SCSS'
                         },
                         {
                             key: 3,
-                            label: 'Node.js',
-                            class: 'icon-node',
-                            id: 'icon-9'
+                            label: 'Node.js'
                         }
                     ],
                     key: 2
                 },
                 {
                     title: 'emilechoghi.com',
-                    date: 'July 2nd, 2017',
                     text: 'This website, which runs on a modest node server and relays messages to my email.',
                     image: homeImg,
                     link: 'https://github.com/echoghi/emilechoghi.com',
                     tech: [
                         {
                             key: 0,
-                            label: 'React.js',
-                            class: 'icon-react',
-                            id: 'icon-6'
+                            label: 'React.js'
                         },
                         {
                             key: 1,
-                            label: 'Webpack',
-                            class: 'icon-webpack',
-                            id: 'icon-7'
+                            label: 'Webpack'
                         },
                         {
                             key: 2,
-                            label: 'SCSS',
-                            class: 'icon-scss',
-                            size: 30,
-                            id: 'icon-8'
+                            label: 'SCSS'
                         },
                         {
                             key: 3,
-                            label: 'Node.js',
-                            class: 'icon-node',
-                            id: 'icon-9'
+                            label: 'Node.js'
                         }
                     ],
                     key: 3
@@ -166,10 +120,9 @@ class Portfolio extends React.Component {
             portfolio.push(
                 <Project
                     title={p.title}
-                    date={p.date}
+                    stack={p.tech}
                     description={p.text}
                     key={p.key}
-                    chips={p.tech}
                     image={p.image}
                     link={p.link}
                 />
@@ -180,29 +133,21 @@ class Portfolio extends React.Component {
     }
 
     render() {
-        let transition = {
-            delay: (el, index) => index * 240,
-            elasticity: 0,
-            duration: 1000,
-            opacity: [0, 1],
-            translateX: [-200, 0]
-        };
-
-        if (this.props.previousRoute === '/about' || this.props.previousRoute === '/') {
-            transition.translateX = [200, 0];
-        }
+        const Header = styled.h4`
+            font-size: 28px;
+            font-weight: bold;
+            padding: 15px 0;
+        `;
 
         return (
             <div>
-                <Anime {...transition}>
-                    <div className="portfolio">
-                        <div className="clearfix" />
+                <div className="portfolio">
+                    <div className="clearfix" />
 
-                        <h4 className="portfolio__header">Recent Projects</h4>
+                    <Header>Recent Projects</Header>
 
-                        <div className="portfolio__wrapper">{this.renderProjects()}</div>
-                    </div>
-                </Anime>
+                    <div className="portfolio__wrapper">{this.renderProjects()}</div>
+                </div>
 
                 <Footer fixed type="portfolio" />
             </div>

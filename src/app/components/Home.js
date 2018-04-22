@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 // Components
 import Footer from './Footer';
-import Anime from 'react-anime';
 import Lottie from 'react-lottie';
 import ReactGA from 'react-ga';
 import * as eData from '../assets/animations/e.json';
@@ -112,43 +111,32 @@ class Home extends React.Component {
     }
 
     render() {
-        const { firstName, lastName, duration } = this.state;
-
-        let transition = {
-            delay: (el, index) => index * 240,
-            complete: () => this.stopAnimation(),
-            elasticity: 0,
-            duration: duration,
-            opacity: [0, 1],
-            translateX: [-200, 0]
-        };
+        const { firstName, lastName } = this.state;
 
         return (
             <div>
-                <Anime {...transition}>
-                    <div className="home">
-                        <div className="jumbotron">
-                            <div className="jumbotron__container">
-                                <div className="jumbotron__content">
-                                    {/* First Name */}
-                                    <section>
-                                        {_.map(firstName.split(''), (letter, index) => {
-                                            return this.renderLottie(letter, index);
-                                        })}
-                                    </section>
-                                    {/* Last Name */}
-                                    <section>
-                                        {_.map(lastName.split(''), (letter, index) => {
-                                            return this.renderLottie(letter, index);
-                                        })}
-                                    </section>
-                                    <h2>Frontend Engineer</h2>
-                                </div>
+                <div className="home">
+                    <div className="jumbotron">
+                        <div className="jumbotron__container">
+                            <div className="jumbotron__content">
+                                {/* First Name */}
+                                <section>
+                                    {_.map(firstName.split(''), (letter, index) => {
+                                        return this.renderLottie(letter, index);
+                                    })}
+                                </section>
+                                {/* Last Name */}
+                                <section>
+                                    {_.map(lastName.split(''), (letter, index) => {
+                                        return this.renderLottie(letter, index);
+                                    })}
+                                </section>
+                                <h2>Frontend Engineer</h2>
                             </div>
                         </div>
-                        <img src={homeImg} />
                     </div>
-                </Anime>
+                    <img src={homeImg} />
+                </div>
 
                 {this.renderFooter()}
             </div>

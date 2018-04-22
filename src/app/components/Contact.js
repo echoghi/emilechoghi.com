@@ -8,7 +8,6 @@ import FormError from './Error';
 import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import ContactMap from './ContactMap';
-import Anime from 'react-anime';
 import ReactGA from 'react-ga';
 
 const mapStateToProps = state => ({
@@ -216,79 +215,11 @@ class Contact extends React.Component {
         }
     }
 
-    renderForm() {
-        if (this.state.initialLoad) {
-            let transition = {
-                delay: (el, index) => index * 240,
-                complete: () => this.stopAnimation(),
-                elasticity: 0,
-                duration: 1000,
-                opacity: [0, 1],
-                translateX: [200, 0]
-            };
+    render() {
+        return (
+            <div>
+                <ContactMap />
 
-            return (
-                <Anime {...transition}>
-                    <div className="portfolio">
-                        <div className="clearfix" />
-
-                        <form id="contact-form">
-                            <h4> Contact Me </h4>
-                            <div className="form__row">
-                                <div className="form__item">
-                                    <label className={this.handleErrorClass('name')}>Your Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        maxLength="100"
-                                        onChange={this.onChange}
-                                        className={this.handleErrorClass('name')}
-                                    />
-                                    <div className={this.handleErrorClass('name')}>required*</div>
-                                </div>
-                                <div className="form__item">
-                                    <label className={this.handleErrorClass('email')}>Email Address</label>
-                                    <input
-                                        type="text"
-                                        name="email"
-                                        maxLength="254"
-                                        onChange={this.onChange}
-                                        className={this.handleErrorClass('email')}
-                                    />
-                                    <div className={this.handleErrorClass('email')}>invalid*</div>
-                                </div>
-                            </div>
-                            <div className="form__row">
-                                <div className="form__item-lg">
-                                    <label className={this.handleErrorClass('message')}>Your Message</label>
-                                    <textarea
-                                        maxLength="6000"
-                                        name="message"
-                                        onChange={this.onChange}
-                                        className={this.handleErrorClass('message')}
-                                    />
-                                    <div className={this.handleErrorClass('message')}>required*</div>
-                                </div>
-                            </div>
-
-                            <Button onClick={this.handleSubmit} className="form-button">
-                                Send
-                            </Button>
-                        </form>
-
-                        {this.renderLoading()}
-
-                        <Snackbar
-                            open={this.props.success || false}
-                            message="Your message was sent successfully"
-                            autoHideDuration={4000}
-                            onRequestClose={this.handleRequestClose}
-                        />
-                    </div>
-                </Anime>
-            );
-        } else {
-            return (
                 <div className="portfolio">
                     <div className="clearfix" />
 
@@ -346,16 +277,6 @@ class Contact extends React.Component {
                         onRequestClose={this.handleRequestClose}
                     />
                 </div>
-            );
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <ContactMap />
-
-                {this.renderForm()}
 
                 <Footer fixed />
             </div>

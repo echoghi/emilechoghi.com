@@ -1,6 +1,6 @@
 .portfolio {
     padding: 0 70px;
-
+    font-family: 'Varela Round';
     @include sm-desktop {
         padding: 0 30px 30px 30px;
     }
@@ -11,11 +11,6 @@
     }
 
     &__header {
-        font-family: 'Varela Round';
-        font-size: 30px;
-        font-weight: bold;
-        padding: 30px 25px;
-
         @include sm-desktop {
             padding: 30px 15px 15px 15px;
         }
@@ -30,8 +25,8 @@
     }
 
     &__wrapper {
-        display: flex;
-        justify-content: space-between;
+        text-align: center;
+        margin: 0 auto;
 
         @include sm-desktop {
             display: block;
@@ -42,24 +37,25 @@
         }
 
         @include less-than-ipad {
-            flex-direction: column;
             padding: 0;
         }
 
         li {
+            display: inline-block;
             box-sizing: border-box;
             list-style: none;
-            padding: 0 25px;
-            width: 25%;
+            padding: 0 10px;
+            vertical-align: top;
+            width: 33%;
 
             @include sm-desktop {
-                display: inline-flex;
+                display: inline-block;
                 width: 50%;
                 padding: 15px;
             }
 
             @include less-than-tab-land {
-                display: inline-flex;
+                display: inline-block;
                 width: 50%;
                 padding: 0 20px 20px 20px;
 
@@ -73,12 +69,12 @@
             }
 
             @include less-than-ipad {
-                display: inline-flex;
+                display: inline-block;
                 width: 50%;
             }
 
             @include mobile-lg {
-                display: flex;
+                display: block;
                 width: 100%;
 
                 &:nth-child(even),
@@ -109,14 +105,13 @@
         border-radius: 2px;
         height: auto;
         width: auto;
-        background: $aqua-haze;
-        border: 1px solid $gallery;
         box-shadow: none;
         transition: all .3s;
 
         &:hover {
             transition: all.3s;
-            box-shadow: 0 8px 20px 0 rgba(0,0,0,.1);
+            cursor: pointer;
+            //box-shadow: 0 8px 20px 0 rgba(0,0,0,.1);
         }
 
         &:first-child {
@@ -130,9 +125,9 @@
         &--preview {
             height: 275px;
             width: 100%;
+            border-radius: 3px 3px 0 0;
             background: $aqua-haze;
             overflow: hidden;
-            cursor: pointer;
             transition: all 0.3s ease-in-out;
             z-index: 1;
 
@@ -145,7 +140,6 @@
                     position: absolute;
                     visibility: hidden;
                     color: $white;
-                    font-family: 'Varela Round';
                     text-align: center;
                     height: 30px;
                     font-weight: bold;
@@ -204,51 +198,8 @@
         }
 
         &--info {
+            text-align: left;
             padding: 20px;
-
-            div {
-                padding: 5px 0;
-
-                &:first-child {
-                    font-weight: bold;
-                }
-
-                &.chips {
-                    display: inline-flex;
-                    flex-wrap: wrap;
-
-                    div {
-                        height: 35px;
-                        margin: 7.5px 5px;
-                        background: $grey800;
-                        padding: 0;
-                        transition: .3s all;
-
-                        &.chip__tip {
-                            margin: 0;
-                            height: 20px;
-                            transition: opacity 0.3s ease-out;
-                            padding: 7.5px;
-                            background: $curious-blue;
-
-                            &:after {
-                                border-top-color: $curious-blue;
-                            }
-                        }
-
-                        &:first-child {
-                            margin-left: 0;
-                            font-weight: normal;
-                        }
-                    }
-                }
-            }
         }
     }
-}
-// Material UI avatar override
-/* stylelint-disable */
-.MuiChip-avatarChildren-5.icon-react {
-    height: 30px;
-    width: 30px;
 }

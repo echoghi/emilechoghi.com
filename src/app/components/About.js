@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 // Components
 import Footer from './Footer';
-import Anime from 'react-anime';
 import ReactGA from 'react-ga';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -45,128 +44,83 @@ class About extends React.Component {
     }
 
     render() {
-        let transition = {
-            delay: (el, index) => index * 240,
-            elasticity: 0,
-            duration: 1000,
-            opacity: [0, 1],
-            translateX: [-200, 0]
-        };
-
-        if (this.props.previousRoute === '/') {
-            transition.translateX = [200, 0];
-        }
-
         return (
             <div>
-                <Anime {...transition}>
-                    <div className="about">
-                        <div className="clearfix" />
-
-                        <div className="jumbotron">
-                            <div className="jumbotron__container">
-                                <div className="jumbotron__content">
-                                    <h1>Web Developer based in Palo Alto</h1>
+                <div className="about">
+                    <div className="clearfix" />
+                    <div className="skills">
+                        <h1>Where I've worked</h1>
+                        <div className="skills__container">
+                            <VerticalTimeline>
+                                <VerticalTimelineElement
+                                    className="vertical-timeline-element--work"
+                                    date="2016 - present"
+                                    iconStyle={{
+                                        background: '#00BDBD',
+                                        color: '#fff',
+                                        fill: '#fff'
+                                    }}
+                                    icon={<Icon icon="doctor" />}
+                                >
+                                    <h3 className="vertical-timeline-element-title">Frontend Engineer</h3>
+                                    <h4 className="vertical-timeline-element-subtitle">Doctor.com</h4>
                                     <p>
-                                        As a professional web developer from the Bay Area, I’ve spent the last 2 years
-                                        exploring the boundaries of web development to create user experiences that are
-                                        fast, well designed, and a joy to use. I specialize in creating complex web
-                                        applications, but my current focus is in providing effortless user experiences
-                                        by understanding what users wants. By day, I'm a frontend engineer at{' '}
-                                        <a className="jumbotron__link" href="https://www.doctor.com">
-                                            Doctor.com
-                                        </a>, but in my free time you can find me building sites and apps with React,
-                                        Webpack, and Node.js, tinkering around with my Raspberry Pi, or playing
-                                        basketball.
+                                        Frontend web and app development with React.js, Webpack, Angular.js 1.x, jQuery,
+                                        and Sass.
                                     </p>
-                                </div>
-                            </div>
+                                </VerticalTimelineElement>
+                                <VerticalTimelineElement
+                                    className="vertical-timeline-element--work"
+                                    date="2015 - 2016"
+                                    iconStyle={{
+                                        background: '#269bda',
+                                        color: '#fff',
+                                        fill: '#fff'
+                                    }}
+                                    icon={<Icon icon="doctor" />}
+                                >
+                                    <h3 className="vertical-timeline-element-title">Freelance Web Developer</h3>
+                                    <h4 className="vertical-timeline-element-subtitle">Palo Alto, CA</h4>
+                                    <p>Fullstack web development with Angular.js 1.x, Node.js, jQuery, and Sass.</p>
+                                </VerticalTimelineElement>
+                                <VerticalTimelineElement
+                                    className="vertical-timeline-element--work"
+                                    date="2015 - 2016"
+                                    iconStyle={{
+                                        background: 'darkgreen',
+                                        color: '#fff',
+                                        fill: '#fff'
+                                    }}
+                                    icon={<Icon icon="freecodecamp" />}
+                                >
+                                    <h3 className="vertical-timeline-element-title">
+                                        Frontend Development Certification
+                                    </h3>
+                                    <h4 className="vertical-timeline-element-subtitle">FreeCodeCamp</h4>
+                                    <p>User Experience, Visual Design, Javascript, CSS, HTML</p>
+                                </VerticalTimelineElement>
+                                <VerticalTimelineElement
+                                    className="vertical-timeline-element--work"
+                                    date="2012 - 2014"
+                                    iconStyle={{
+                                        background: '#FFC500',
+                                        color: '#fff',
+                                        fill: '#fff'
+                                    }}
+                                    icon={<Icon icon="grad" />}
+                                >
+                                    <h3 className="vertical-timeline-element-title">B.A. Politics</h3>
+                                    <h4 className="vertical-timeline-element-subtitle">
+                                        University of California, Santa Cruz
+                                    </h4>
+                                    <p>Sub-Saharan African and Middle Eastern Affairs</p>
+                                </VerticalTimelineElement>
+                            </VerticalTimeline>
                         </div>
-                        <div className="skills">
-                            <h1>Where I've worked</h1>
-                            <div className="skills__container">
-                                <VerticalTimeline>
-                                    <VerticalTimelineElement
-                                        className="vertical-timeline-element--work"
-                                        date="2017 - present"
-                                        iconStyle={{
-                                            background: '#00BDBD',
-                                            color: '#fff',
-                                            fill: '#fff'
-                                        }}
-                                        icon={<Icon icon="doctor" />}
-                                    >
-                                        <h3 className="vertical-timeline-element-title">Junior Software Engineer II</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">Doctor.com</h4>
-                                        <p>Frontend web development with React.js, Webpack, and Sass.</p>
-                                    </VerticalTimelineElement>
-                                    <VerticalTimelineElement
-                                        className="vertical-timeline-element--work"
-                                        date="2016 - 2017"
-                                        iconStyle={{
-                                            background: '#00BDBD',
-                                            color: '#fff',
-                                            fill: '#fff'
-                                        }}
-                                        icon={<Icon icon="doctor" />}
-                                    >
-                                        <h3 className="vertical-timeline-element-title">Junior Software Engineer I</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">Doctor.com</h4>
-                                        <p>Frontend web and app development with Angular.js 1.x, jQuery, Sass.</p>
-                                    </VerticalTimelineElement>
-                                    <VerticalTimelineElement
-                                        className="vertical-timeline-element--work"
-                                        date="2015 - 2016"
-                                        iconStyle={{
-                                            background: '#269bda',
-                                            color: '#fff',
-                                            fill: '#fff'
-                                        }}
-                                        icon={<Icon icon="doctor" />}
-                                    >
-                                        <h3 className="vertical-timeline-element-title">Freelance Web Developer</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">Palo Alto, CA</h4>
-                                        <p>Fullstack web development with Angular.js 1.x, Node.js, jQuery, and Sass.</p>
-                                    </VerticalTimelineElement>
-                                    <VerticalTimelineElement
-                                        className="vertical-timeline-element--work"
-                                        date="2015 - 2016"
-                                        iconStyle={{
-                                            background: 'darkgreen',
-                                            color: '#fff',
-                                            fill: '#fff'
-                                        }}
-                                        icon={<Icon icon="freecodecamp" />}
-                                    >
-                                        <h3 className="vertical-timeline-element-title">
-                                            Frontend Development Certification
-                                        </h3>
-                                        <h4 className="vertical-timeline-element-subtitle">FreeCodeCamp</h4>
-                                        <p>User Experience, Visual Design, Javascript, CSS, HTML</p>
-                                    </VerticalTimelineElement>
-                                    <VerticalTimelineElement
-                                        className="vertical-timeline-element--work"
-                                        date="2012 - 2014"
-                                        iconStyle={{
-                                            background: '#FFC500',
-                                            color: '#fff',
-                                            fill: '#fff'
-                                        }}
-                                        icon={<Icon icon="grad" />}
-                                    >
-                                        <h3 className="vertical-timeline-element-title">B.A. Politics</h3>
-                                        <h4 className="vertical-timeline-element-subtitle">
-                                            University of California, Santa Cruz
-                                        </h4>
-                                        <p>Sub-Saharan African and Middle Eastern Affairs</p>
-                                    </VerticalTimelineElement>
-                                </VerticalTimeline>
-                            </div>
-                        </div>
-
-                        <Footer />
                     </div>
-                </Anime>
+
+                    <Footer />
+                </div>
             </div>
         );
     }

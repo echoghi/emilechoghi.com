@@ -1,68 +1,22 @@
 import React from 'react';
-import Avatar from 'material-ui/Avatar';
-import ReactTooltip from 'react-tooltip';
 import ReactGA from 'react-ga';
+import styled from 'styled-components';
 
 class Project extends React.Component {
-    renderChips() {
-        let chips = [];
-        let customChip;
+    renderImage() {
+        const { image } = this.props;
 
-        _.map(this.props.chips, chip => {
-            // Handle multipath icons
-            if (chip.class === 'icon-angular') {
-                customChip = (
-                    <span className={chip.class}>
-                        <span className="path1" />
-                        <span className="path2" />
-                        <span className="path3" />
-                        <span className="path4" />
-                        <span className="path5" />
-                    </span>
-                );
-            } else if (chip.class === 'icon-webpack') {
-                customChip = (
-                    <span className={chip.class}>
-                        <span className="path1" />
-                        <span className="path2" />
-                        <span className="path3" />
-                    </span>
-                );
-            } else {
-                customChip = <i className={chip.class} />;
-            }
+        const Image = styled.div`
+            display: inline-block;
+            height: 100%;
+        `;
 
-            chips.push(
-                <Avatar key={chip.key} data-for={chip.id} data-tip="tooltip">
-                    {customChip}
-                    <ReactTooltip class="chip__tip" type="info" id={chip.id}>
-                        <span>{chip.label}</span>
-                    </ReactTooltip>
-                </Avatar>
-            );
-        });
-
-        return chips;
-    }
-
-    renderLink() {
-        let { title, image, link } = this.props;
-
-        if (link) {
-            return (
-                <a href={link} target="_blank" onClick={() => this.sendAnalytics(title)}>
-                    <img src={image} />
-                    <i className="icon-redo2" />
-                </a>
-            );
-        } else {
-            return (
-                <div className="coming-soon">
-                    <div>Coming Soon</div>
-                    <img src={image} />
-                </div>
-            );
-        }
+        return (
+            <Image>
+                <img src={image} />
+                <i className="icon-redo2" />
+            </Image>
+        );
     }
 
     sendAnalytics(project) {
@@ -75,21 +29,71 @@ class Project extends React.Component {
         }
     }
 
+    renderProjectLabels(chips) {
+        let labels = [];
+
+        _.map(chips, chip => {
+            labels.push(chip.label);
+        });
+
+        labels = _.uniq(labels, 'label');
+
+        return labels;
+    }
+
     render() {
-        let { title, date, description } = this.props;
+        const { title, description, stack } = this.props;
+
+        const Stack = styled.div`
+            text-transform: uppercase;
+            font-size: 14px;
+        `;
+
+        const Label = styled.span`
+            padding-right: 5px;
+            font-weight: 700;
+            color: rgb(155, 49, 67);
+        `;
+
+        const Info = styled.span`
+            text-align: left;
+            padding: 20px;
+            font-family: 'Varela Round';
+        `;
+
+        const Title = styled.div`
+            font-weight: bold;
+            font-size: 17px;
+            padding-top: 10px;
+        `;
+
+        const Text = styled.div`
+            text-align: left;
+            padding: 5px 0;
+            font-family: 'Varela Round';
+        `;
 
         return (
-            <li>
-                <div className="portfolio__item">
-                    <div className="portfolio__item--preview">{this.renderLink()}</div>
-                    <div className="portfolio__item--info">
-                        <div>{title}</div>
-                        <div>{date}</div>
-                        <div>{description}</div>
-                        <div className="chips">{this.renderChips()}</div>
+            <a href={this.props.link} target="_blank">
+                <li onClick={() => this.sendAnalytics(title)}>
+                    <div className="portfolio__item">
+                        <div className="portfolio__item--preview">{this.renderImage()}</div>
+                        <Info className="portfolio__item--info">
+                            <Stack>
+                                {stack.map((label, index) => {
+                                    return (
+                                        <Label key={label.key}>
+                                            {label.label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                        </Label>
+                                    );
+                                })}
+                            </Stack>
+                            <Title>{title}</Title>
+                            <Text>{description}</Text>
+                        </Info>
                     </div>
-                </div>
-            </li>
+                </li>
+            </a>
         );
     }
 }
