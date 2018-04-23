@@ -15,7 +15,6 @@ const mapStateToProps = state => ({
 });
 
 class Portfolio extends React.Component {
-    /* eslint-disable */
     constructor(props) {
         super(props);
 
@@ -105,7 +104,6 @@ class Portfolio extends React.Component {
 
         window.scrollTo(0, 0);
     }
-    /* eslint-enable */
 
     componentDidMount() {
         if (NODE_ENV === 'production') {
@@ -133,6 +131,41 @@ class Portfolio extends React.Component {
     }
 
     render() {
+        const Portfolio = styled.div`
+            height: 80vh;
+            padding: 0 70px;
+            font-family: 'Varela Round';
+            margin-top: 80px;
+
+            @media (max-width: 1199px) and (min-width: 1024px) {
+                height: auto;
+                padding: 0 30px 30px 30px;
+            }
+
+            @media (max-width: 1023px) {
+                height: auto;
+                padding: 0;
+                padding-bottom: 30px;
+            }
+        `;
+
+        const PortfolioWrapper = styled.div`
+            text-align: center;
+            margin: 0 auto;
+
+            @media (max-width: 1199px) and (min-width: 1024px) {
+                display: block;
+            }
+
+            @media (max-width: 1023px) {
+                display: block;
+            }
+
+            @media (max-width: 768px) {
+                padding: 0;
+            }
+        `;
+
         const Header = styled.h4`
             font-size: 28px;
             font-weight: bold;
@@ -141,13 +174,13 @@ class Portfolio extends React.Component {
 
         return (
             <div>
-                <div className="portfolio">
+                <Portfolio className="portfolio">
                     <div className="clearfix" />
 
                     <Header>Recent Projects</Header>
 
-                    <div className="portfolio__wrapper">{this.renderProjects()}</div>
-                </div>
+                    <PortfolioWrapper>{this.renderProjects()}</PortfolioWrapper>
+                </Portfolio>
 
                 <Footer fixed type="portfolio" />
             </div>

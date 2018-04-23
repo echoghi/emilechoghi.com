@@ -44,6 +44,84 @@ class Project extends React.Component {
     render() {
         const { title, description, stack } = this.props;
 
+        const ListItem = styled.li`
+            display: inline-block;
+            box-sizing: border-box;
+            list-style: none;
+            padding: 0 10px;
+            vertical-align: top;
+            width: 33%;
+
+            @media (max-width: 1199px) and (min-width: 1024px) {
+                display: inline-block;
+                width: 50%;
+                padding: 15px;
+            }
+
+            @media (max-width: 1023px) {
+                display: inline-block;
+                width: 50%;
+                padding: 0 20px 20px 20px;
+
+                &:nth-child(odd) {
+                    padding-right: 10px;
+                }
+
+                &:nth-child(even) {
+                    padding-left: 10px;
+                }
+            }
+
+            @media (max-width: 375px) {
+                display: flex;
+                width: 100%;
+
+                &:nth-child(even),
+                &:nth-child(odd) {
+                    padding: 0 20px 20px 20px;
+                }
+            }
+        `;
+
+        const PortfolioItem = styled.div`
+            margin: 2px;
+            display: inline-block;
+            border-radius: 2px;
+            height: auto;
+            width: auto;
+            box-shadow: none;
+            transition: all 0.3s;
+
+            &:hover {
+                transition: all.3s;
+                cursor: pointer;
+            }
+
+            &:first-child {
+                margin: 2px 0;
+            }
+
+            @media (max-width: 1023px) {
+                display: inline-block;
+            }
+        `;
+
+        const Image = styled.div`
+            height: 275px;
+            width: 100%;
+            border-radius: 3px 3px 0 0;
+            background: $aqua-haze;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            z-index: 1;
+
+            img {
+                height: 100%;
+                width: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+        `;
+
         const Stack = styled.div`
             text-transform: uppercase;
             font-size: 14px;
@@ -75,10 +153,10 @@ class Project extends React.Component {
 
         return (
             <a href={this.props.link} target="_blank">
-                <li onClick={() => this.sendAnalytics(title)}>
-                    <div className="portfolio__item">
-                        <div className="portfolio__item--preview">{this.renderImage()}</div>
-                        <Info className="portfolio__item--info">
+                <ListItem onClick={() => this.sendAnalytics(title)}>
+                    <PortfolioItem>
+                        <Image>{this.renderImage()}</Image>
+                        <Info>
                             <Stack>
                                 {stack.map((label, index) => {
                                     return (
@@ -91,8 +169,8 @@ class Project extends React.Component {
                             <Title>{title}</Title>
                             <Text>{description}</Text>
                         </Info>
-                    </div>
-                </li>
+                    </PortfolioItem>
+                </ListItem>
             </a>
         );
     }
