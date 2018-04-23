@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 // Components
 import Footer from './Footer';
@@ -21,10 +20,6 @@ const Icon = props => (
         <path d={icons[props.icon]} />
     </svg>
 );
-
-const mapStateToProps = state => ({
-    previousRoute: state.portfolioState.previousRoute
-});
 
 class About extends React.Component {
     constructor(props) {
@@ -152,4 +147,4 @@ class About extends React.Component {
     }
 }
 
-export default connect(mapStateToProps)(About);
+export default About;

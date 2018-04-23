@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 // Components
 import Footer from './Footer';
 import Project from './Project';
@@ -9,10 +8,6 @@ import styled from 'styled-components';
 import dashboardImg from '../assets/images/dashboard.png';
 import pidashImg from '../assets/images/pidash.png';
 import homeImg from '../assets/images/choghi.png';
-
-const mapStateToProps = state => ({
-    previousRoute: state.portfolioState.previousRoute
-});
 
 class Portfolio extends React.Component {
     constructor(props) {
@@ -188,4 +183,4 @@ class Portfolio extends React.Component {
     }
 }
 
-export default connect(mapStateToProps)(Portfolio);
+export default Portfolio;
