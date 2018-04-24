@@ -9,6 +9,29 @@ import dashboardImg from '../assets/images/dashboard.png';
 import pidashImg from '../assets/images/pidash.png';
 import homeImg from '../assets/images/choghi.png';
 
+const PortfolioWrapper = styled.div`
+    text-align: center;
+    margin: 0 auto;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        display: block;
+    }
+
+    @media (max-width: 1023px) {
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0;
+    }
+`;
+
+const Header = styled.h4`
+    font-size: 28px;
+    font-weight: bold;
+    padding: 15px;
+`;
+
 class Portfolio extends React.Component {
     constructor(props) {
         super(props);
@@ -149,29 +172,6 @@ class Portfolio extends React.Component {
                 padding: 0;
                 padding-bottom: 30px;
             }
-        `;
-
-        const PortfolioWrapper = styled.div`
-            text-align: center;
-            margin: 0 auto;
-
-            @media (max-width: 1199px) and (min-width: 1024px) {
-                display: block;
-            }
-
-            @media (max-width: 1023px) {
-                display: block;
-            }
-
-            @media (max-width: 768px) {
-                padding: 0;
-            }
-        `;
-
-        const Header = styled.h4`
-            font-size: 28px;
-            font-weight: bold;
-            padding: 15px;
         `;
 
         return (

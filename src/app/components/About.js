@@ -21,6 +21,31 @@ const Icon = props => (
     </svg>
 );
 
+const Header = styled.h4`
+    font-size: 28px;
+    font-weight: bold;
+    padding: 15px;
+`;
+
+const Skills = styled.div`
+    width: 70%;
+    margin: 0 auto;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        width: 80%;
+    }
+
+    @media (max-width: 1023px) {
+        width: 85%;
+    }
+`;
+
+const AboutWrapper = styled.div`
+    margin-top: 80px;
+    background: #f4f7f8;
+    font-family: 'Varela Round';
+`;
+
 class About extends React.Component {
     constructor(props) {
         super(props);
@@ -40,109 +65,80 @@ class About extends React.Component {
     }
 
     render() {
-        const Header = styled.h4`
-            font-size: 28px;
-            font-weight: bold;
-            padding: 15px;
-        `;
-
-        const Skills = styled.div`
-            width: 70%;
-            margin: 0 auto;
-
-            @media (max-width: 1199px) and (min-width: 1024px) {
-                width: 80%;
-            }
-
-            @media (max-width: 1023px) {
-                width: 85%;
-            }
-        `;
-
-        const About = styled.div`
-            margin-top: 80px;
-            background: #f4f7f8;
-            font-family: 'Varela Round';
-        `;
-
         return (
-            <div>
-                <About>
-                    <div className="clearfix" />
-                    <Skills>
-                        <Header>Where I've worked</Header>
-                        <div className="skills__container">
-                            <VerticalTimeline>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--work"
-                                    date="2016 - present"
-                                    iconStyle={{
-                                        background: '#00BDBD',
-                                        color: '#fff',
-                                        fill: '#fff'
-                                    }}
-                                    icon={<Icon icon="doctor" />}
-                                >
-                                    <h3 className="vertical-timeline-element-title">Frontend Engineer</h3>
-                                    <h4 className="vertical-timeline-element-subtitle">Doctor.com</h4>
-                                    <p>
-                                        Frontend web and app development with React.js, Webpack, Angular.js 1.x, jQuery,
-                                        and Sass.
-                                    </p>
-                                </VerticalTimelineElement>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--work"
-                                    date="2015 - 2016"
-                                    iconStyle={{
-                                        background: '#269bda',
-                                        color: '#fff',
-                                        fill: '#fff'
-                                    }}
-                                    icon={<Icon icon="doctor" />}
-                                >
-                                    <h3 className="vertical-timeline-element-title">Freelance Web Developer</h3>
-                                    <h4 className="vertical-timeline-element-subtitle">Palo Alto, CA</h4>
-                                    <p>Fullstack web development with Angular.js 1.x, Node.js, jQuery, and Sass.</p>
-                                </VerticalTimelineElement>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--work"
-                                    date="2015 - 2016"
-                                    iconStyle={{
-                                        background: 'darkgreen',
-                                        color: '#fff',
-                                        fill: '#fff'
-                                    }}
-                                    icon={<Icon icon="freecodecamp" />}
-                                >
-                                    <h3 className="vertical-timeline-element-title">
-                                        Frontend Development Certification
-                                    </h3>
-                                    <h4 className="vertical-timeline-element-subtitle">FreeCodeCamp</h4>
-                                    <p>User Experience, Visual Design, Javascript, CSS, HTML</p>
-                                </VerticalTimelineElement>
-                                <VerticalTimelineElement
-                                    className="vertical-timeline-element--work"
-                                    date="2012 - 2014"
-                                    iconStyle={{
-                                        background: '#FFC500',
-                                        color: '#fff',
-                                        fill: '#fff'
-                                    }}
-                                    icon={<Icon icon="grad" />}
-                                >
-                                    <h3 className="vertical-timeline-element-title">B.A. Politics</h3>
-                                    <h4 className="vertical-timeline-element-subtitle">
-                                        University of California, Santa Cruz
-                                    </h4>
-                                    <p>Sub-Saharan African and Middle Eastern Affairs</p>
-                                </VerticalTimelineElement>
-                            </VerticalTimeline>
-                        </div>
-                    </Skills>
+            <AboutWrapper>
+                <div className="clearfix" />
+                <Skills>
+                    <Header>Where I've worked</Header>
+                    <div className="skills__container">
+                        <VerticalTimeline>
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                date="2016 - present"
+                                iconStyle={{
+                                    background: '#00BDBD',
+                                    color: '#fff',
+                                    fill: '#fff'
+                                }}
+                                icon={<Icon icon="doctor" />}
+                            >
+                                <h3 className="vertical-timeline-element-title">Frontend Engineer</h3>
+                                <h4 className="vertical-timeline-element-subtitle">Doctor.com</h4>
+                                <p>
+                                    Frontend web and app development with React.js, Webpack, Angular.js 1.x, jQuery, and
+                                    Sass.
+                                </p>
+                            </VerticalTimelineElement>
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                date="2015 - 2016"
+                                iconStyle={{
+                                    background: '#269bda',
+                                    color: '#fff',
+                                    fill: '#fff'
+                                }}
+                                icon={<Icon icon="doctor" />}
+                            >
+                                <h3 className="vertical-timeline-element-title">Freelance Web Developer</h3>
+                                <h4 className="vertical-timeline-element-subtitle">Palo Alto, CA</h4>
+                                <p>Fullstack web development with Angular.js 1.x, Node.js, jQuery, and Sass.</p>
+                            </VerticalTimelineElement>
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                date="2015 - 2016"
+                                iconStyle={{
+                                    background: 'darkgreen',
+                                    color: '#fff',
+                                    fill: '#fff'
+                                }}
+                                icon={<Icon icon="freecodecamp" />}
+                            >
+                                <h3 className="vertical-timeline-element-title">Frontend Development Certification</h3>
+                                <h4 className="vertical-timeline-element-subtitle">FreeCodeCamp</h4>
+                                <p>User Experience, Visual Design, Javascript, CSS, HTML</p>
+                            </VerticalTimelineElement>
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                date="2012 - 2014"
+                                iconStyle={{
+                                    background: '#FFC500',
+                                    color: '#fff',
+                                    fill: '#fff'
+                                }}
+                                icon={<Icon icon="grad" />}
+                            >
+                                <h3 className="vertical-timeline-element-title">B.A. Politics</h3>
+                                <h4 className="vertical-timeline-element-subtitle">
+                                    University of California, Santa Cruz
+                                </h4>
+                                <p>Sub-Saharan African and Middle Eastern Affairs</p>
+                            </VerticalTimelineElement>
+                        </VerticalTimeline>
+                    </div>
+                </Skills>
 
-                    <Footer />
-                </About>
-            </div>
+                <Footer />
+            </AboutWrapper>
         );
     }
 }

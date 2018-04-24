@@ -2,6 +2,127 @@ import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
 
+const ListItem = styled.li`
+    display: inline-block;
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0 10px;
+    vertical-align: top;
+    width: 33%;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        display: inline-block;
+        width: 50%;
+        padding: 15px;
+    }
+
+    @media (max-width: 1023px) {
+        display: inline-block;
+        width: 50%;
+        padding: 0 20px 20px 20px;
+
+        &:nth-child(odd) {
+            padding-right: 10px;
+        }
+
+        &:nth-child(even) {
+            padding-left: 10px;
+        }
+    }
+
+    @media (max-width: 375px) {
+        display: flex;
+        width: 100%;
+
+        &:nth-child(even),
+        &:nth-child(odd) {
+            padding: 0 20px 20px 20px;
+        }
+    }
+`;
+
+const PortfolioItem = styled.div`
+    margin: 2px;
+    display: inline-block;
+    border-radius: 2px;
+    height: auto;
+    width: auto;
+    box-shadow: none;
+    transition: all 0.3s;
+
+    &:hover {
+        transition: all.3s;
+        cursor: pointer;
+    }
+
+    &:first-child {
+        margin: 2px 0;
+    }
+
+    @media (max-width: 1023px) {
+        display: inline-block;
+    }
+`;
+
+const Image = styled.div`
+    height: 275px;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+
+    img {
+        height: 100%;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+`;
+
+const Stack = styled.div`
+    text-transform: uppercase;
+    font-size: 14px;
+`;
+
+const Label = styled.span`
+    padding-right: 5px;
+    font-weight: 700;
+    color: rgb(155, 49, 67);
+`;
+
+const Info = styled.span`
+    text-align: left;
+    padding: 20px;
+    font-family: 'Varela Round';
+`;
+
+const Title = styled.div`
+    font-weight: bold;
+    font-size: 17px;
+    padding-top: 10px;
+`;
+
+const Text = styled.div`
+    text-align: left;
+    padding: 5px 0;
+    font-family: 'Varela Round';
+`;
+
+const Background = styled.div`
+    position: relative;
+    height: 100%;
+`;
+
+const Icon = styled.div`
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    font-size: 55px;
+`;
+
 class Project extends React.Component {
     renderImage() {
         const { image } = this.props;
@@ -21,21 +142,6 @@ class Project extends React.Component {
 
     renderProjectBackground() {
         const { icon } = this.props;
-
-        const Background = styled.div`
-            position: relative;
-            height: 100%;
-        `;
-
-        const Icon = styled.div`
-            display: inline-block;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 40%;
-            font-size: 55px;
-        `;
 
         return (
             <Background>
@@ -68,112 +174,6 @@ class Project extends React.Component {
 
     render() {
         const { title, description, stack } = this.props;
-
-        const ListItem = styled.li`
-            display: inline-block;
-            box-sizing: border-box;
-            list-style: none;
-            padding: 0 10px;
-            vertical-align: top;
-            width: 33%;
-
-            @media (max-width: 1199px) and (min-width: 1024px) {
-                display: inline-block;
-                width: 50%;
-                padding: 15px;
-            }
-
-            @media (max-width: 1023px) {
-                display: inline-block;
-                width: 50%;
-                padding: 0 20px 20px 20px;
-
-                &:nth-child(odd) {
-                    padding-right: 10px;
-                }
-
-                &:nth-child(even) {
-                    padding-left: 10px;
-                }
-            }
-
-            @media (max-width: 375px) {
-                display: flex;
-                width: 100%;
-
-                &:nth-child(even),
-                &:nth-child(odd) {
-                    padding: 0 20px 20px 20px;
-                }
-            }
-        `;
-
-        const PortfolioItem = styled.div`
-            margin: 2px;
-            display: inline-block;
-            border-radius: 2px;
-            height: auto;
-            width: auto;
-            box-shadow: none;
-            transition: all 0.3s;
-
-            &:hover {
-                transition: all.3s;
-                cursor: pointer;
-            }
-
-            &:first-child {
-                margin: 2px 0;
-            }
-
-            @media (max-width: 1023px) {
-                display: inline-block;
-            }
-        `;
-
-        const Image = styled.div`
-            height: 275px;
-            width: 100%;
-            border-radius: 3px 3px 0 0;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-            z-index: 1;
-
-            img {
-                height: 100%;
-                width: 100%;
-                transition: all 0.3s ease-in-out;
-            }
-        `;
-
-        const Stack = styled.div`
-            text-transform: uppercase;
-            font-size: 14px;
-        `;
-
-        const Label = styled.span`
-            padding-right: 5px;
-            font-weight: 700;
-            color: rgb(155, 49, 67);
-        `;
-
-        const Info = styled.span`
-            text-align: left;
-            padding: 20px;
-            font-family: 'Varela Round';
-        `;
-
-        const Title = styled.div`
-            font-weight: bold;
-            font-size: 17px;
-            padding-top: 10px;
-        `;
-
-        const Text = styled.div`
-            text-align: left;
-            padding: 5px 0;
-            font-family: 'Varela Round';
-        `;
 
         return (
             <a href={this.props.link} target="_blank">

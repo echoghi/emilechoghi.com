@@ -20,6 +20,14 @@ const mapStateToProps = state => ({
     width: state.portfolioState.width
 });
 
+const Header = styled.h2`
+    font-size: 30px;
+
+    @media (max-width: 767px) {
+        font-size: 20px;
+    }
+`;
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -113,14 +121,6 @@ class Home extends React.Component {
 
     render() {
         const { firstName, lastName } = this.state;
-
-        const Header = styled.h2`
-            font-size: 30px;
-
-            @media (max-width: 767px) {
-                font-size: 20px;
-            }
-        `;
 
         return (
             <div>
