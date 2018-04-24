@@ -23,6 +23,190 @@ const mapDispatchToProps = dispatch => ({
     resetError: () => dispatch(resetError())
 });
 
+const Portfolio = styled.div`
+    height: 80vh;
+    padding: 0 70px;
+    font-family: 'Varela Round';
+    margin-top: 80px;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        height: auto;
+        padding: 0 30px 30px 30px;
+    }
+
+    @media (max-width: 1023px) {
+        height: auto;
+        padding: 0;
+        padding-bottom: 30px;
+    }
+`;
+
+const FormHeader = styled.h4`
+    font-size: 30px;
+    font-weight: bold;
+    margin: 100px 0;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        margin: 50px 0;
+    }
+
+    @media (max-width: 767px) {
+        margin: 40px 0;
+    }
+`;
+
+const Form = styled.form`
+    font-family: 'Varela Round';
+    background: none;
+    margin: 0 auto;
+    margin-top: 70px;
+    width: 60%;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        height: 80vh;
+        width: 70%;
+    }
+
+    @media (max-width: 1023px) {
+        margin-top: 30px;
+        width: 85%;
+    }
+
+    @media (max-width: 767px) {
+        height: 185vh;
+    }
+
+    @media (max-width: 415px) and (min-width: 376px) {
+        height: 100vh;
+    }
+
+    @media (max-width: 375px) {
+        height: 105vh;
+    }
+
+    @media (max-width: 370px) {
+        height: 120vh;
+    }
+`;
+
+const FormRow = styled.div`
+    display: block;
+    width: 100%;
+`;
+
+const FormItem = styled.div`
+    display: inline-block;
+    margin: 10px 0;
+    width: 46%;
+    float: right;
+
+    @media (max-width: 767px) {
+        display: block;
+        width: 100%;
+    }
+
+    &:first-child {
+        float: left;
+    }
+`;
+
+const FormItemLarge = styled.div`
+    display: inline-block;
+    margin: 10px 0;
+    width: 100%;
+    float: right;
+
+    @media (max-width: 767px) {
+        display: block;
+        width: 100%;
+    }
+
+    &:first-child {
+        float: left;
+    }
+`;
+
+const ErrorLabel = styled.div`
+    visibility: hidden;
+    text-align: right;
+    color: #dd4b39;
+    letter-spacing: 0.3px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 2;
+    text-transform: uppercase;
+
+    &.invalid {
+        visibility: visible;
+    }
+`;
+
+const Label = styled.label`
+    font-size: 18px;
+
+    &.invalid {
+        color: #dd4b39;
+    }
+`;
+
+const Input = styled.input`
+    font-family: 'Rubik', sans-serif;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    box-sizing: border-box;
+    background-color: #ecf1f6;
+    color: #3d575d;
+    border: none;
+    width: 100%;
+    margin: 5px 0;
+    height: 55px;
+    padding: 5px 0 5px 15px;
+    font: inherit;
+    font-size: 18px;
+    border-radius: 0;
+    transition: opacity 0.2s;
+
+    &.invalid {
+        border: 1px solid #dd4b39;
+        border-radius: 0;
+    }
+
+    &:focus {
+        outline: none;
+    }
+`;
+
+const TextArea = styled.textarea`
+    font-family: 'Rubik', sans-serif;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    box-sizing: border-box;
+    background-color: #ecf1f6;
+    color: #3d575d;
+    border: none;
+    width: 100%;
+    margin: 5px 0;
+    height: 150px;
+    padding: 15px 0 5px 15px;
+    font: inherit;
+    font-size: 18px;
+    border-radius: 0;
+    transition: opacity 0.2s;
+
+    &.invalid {
+        border: 1px solid #dd4b39;
+        border-radius: 0;
+    }
+
+    &:focus {
+        outline: none;
+    }
+`;
+
 // Email validation RegExp
 const validateEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 // Reusable validation constuctor for each input
@@ -71,10 +255,8 @@ class Contact extends React.Component {
             return <FormError close={resetError} />;
         }
 
-        if (success) {
-            if (this.state.name) {
-                this.resetForm();
-            }
+        if (success && this.state.name) {
+            this.resetForm();
         }
     }
 
@@ -210,204 +392,7 @@ class Contact extends React.Component {
     }
 
     render() {
-        const Portfolio = styled.div`
-            height: 80vh;
-            padding: 0 70px;
-            font-family: 'Varela Round';
-            margin-top: 80px;
-
-            @media (max-width: 1199px) and (min-width: 1024px) {
-                height: auto;
-                padding: 0 30px 30px 30px;
-            }
-
-            @media (max-width: 1023px) {
-                height: auto;
-                padding: 0;
-                padding-bottom: 30px;
-            }
-        `;
-
-        const FormHeader = styled.h4`
-            font-size: 30px;
-            font-weight: bold;
-            margin: 100px 0;
-
-            @media (max-width: 1199px) and (min-width: 1024px) {
-                margin: 50px 0;
-            }
-
-            @media (max-width: 767px) {
-                margin: 40px 0;
-            }
-        `;
-
-        const Form = styled.form`
-            font-family: 'Varela Round';
-            background: none;
-            margin: 0 auto;
-            margin-top: 70px;
-            width: 60%;
-
-            @media (max-width: 1199px) and (min-width: 1024px) {
-                height: 80vh;
-                width: 70%;
-            }
-
-            @media (max-width: 1023px) {
-                margin-top: 30px;
-                width: 85%;
-            }
-
-            @media (max-width: 767px) {
-                height: 185vh;
-            }
-
-            @media (max-width: 415px) and (min-width: 376px) {
-                height: 100vh;
-            }
-
-            @media (max-width: 375px) {
-                height: 105vh;
-            }
-
-            @media (max-width: 370px) {
-                height: 120vh;
-            }
-        `;
-
-        const FormRow = styled.div`
-            display: block;
-            width: 100%;
-        `;
-
-        const FormItem = styled.div`
-            display: inline-block;
-            margin: 10px 0;
-            width: 46%;
-            float: right;
-
-            @media (max-width: 767px) {
-                display: block;
-                width: 100%;
-            }
-
-            &:first-child {
-                float: left;
-            }
-
-            div {
-                visibility: hidden;
-                text-align: right;
-                color: #dd4b39;
-                letter-spacing: 0.3px;
-                font-size: 12px;
-                font-weight: bold;
-                line-height: 2;
-                text-transform: uppercase;
-
-                &.invalid {
-                    visibility: visible;
-                }
-            }
-        `;
-
-        const FormItemLarge = styled.div`
-            display: inline-block;
-            margin: 10px 0;
-            width: 100%;
-            float: right;
-
-            @media (max-width: 767px) {
-                display: block;
-                width: 100%;
-            }
-
-            &:first-child {
-                float: left;
-            }
-
-            div {
-                visibility: hidden;
-                text-align: right;
-                color: #dd4b39;
-                letter-spacing: 0.3px;
-                font-size: 12px;
-                font-weight: bold;
-                line-height: 2;
-                text-transform: uppercase;
-
-                &.invalid {
-                    visibility: visible;
-                }
-            }
-        `;
-
-        const Label = styled.label`
-            font-size: 18px;
-
-            &.invalid {
-                color: #dd4b39;
-            }
-        `;
-
-        const Input = styled.input`
-            font-family: 'Rubik', sans-serif;
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            display: block;
-            box-sizing: border-box;
-            background-color: #ecf1f6;
-            color: #3d575d;
-            border: none;
-            width: 100%;
-            margin: 5px 0;
-            height: 55px;
-            padding: 5px 0 5px 15px;
-            font: inherit;
-            font-size: 18px;
-            border-radius: 0;
-            transition: opacity 0.2s;
-
-            &.invalid {
-                border: 1px solid #dd4b39;
-                border-radius: 0;
-            }
-
-            &:focus {
-                outline: none;
-            }
-        `;
-
-        const TextArea = styled.textarea`
-            font-family: 'Rubik', sans-serif;
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            display: block;
-            box-sizing: border-box;
-            background-color: #ecf1f6;
-            color: #3d575d;
-            border: none;
-            width: 100%;
-            margin: 5px 0;
-            height: 150px;
-            padding: 15px 0 5px 15px;
-            font: inherit;
-            font-size: 18px;
-            border-radius: 0;
-            transition: opacity 0.2s;
-
-            &.invalid {
-                border: 1px solid #dd4b39;
-                border-radius: 0;
-            }
-
-            &:focus {
-                outline: none;
-            }
-        `;
+        const { name, email, message } = this.state;
 
         return (
             <div>
@@ -424,22 +409,24 @@ class Contact extends React.Component {
                                 <Input
                                     type="text"
                                     name="name"
+                                    value={name}
                                     maxLength="100"
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('name')}
                                 />
-                                <div className={this.handleErrorClass('name')}>required*</div>
+                                <ErrorLabel className={this.handleErrorClass('name')}>required*</ErrorLabel>
                             </FormItem>
                             <FormItem>
                                 <Label className={this.handleErrorClass('email')}>Email Address</Label>
                                 <Input
                                     type="text"
                                     name="email"
+                                    value={email}
                                     maxLength="254"
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('email')}
                                 />
-                                <div className={this.handleErrorClass('email')}>invalid*</div>
+                                <ErrorLabel className={this.handleErrorClass('email')}>invalid*</ErrorLabel>
                             </FormItem>
                         </FormRow>
                         <FormRow>
@@ -448,10 +435,11 @@ class Contact extends React.Component {
                                 <TextArea
                                     maxLength="6000"
                                     name="message"
+                                    value={message}
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('message')}
                                 />
-                                <div className={this.handleErrorClass('message')}>required*</div>
+                                <ErrorLabel className={this.handleErrorClass('message')}>required*</ErrorLabel>
                             </FormItemLarge>
                         </FormRow>
 
