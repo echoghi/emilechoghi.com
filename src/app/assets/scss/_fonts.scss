@@ -1,99 +1,31 @@
 /* stylelint-disable */
 $icomoon-font-path: "../fonts" !default;
 
-$icon-angel: "\e916";
-$icon-firebase-path1: "\e917";
-$icon-firebase-path2: "\e918";
-$icon-firebase-path3: "\e919";
-$icon-firebase-path4: "\e91a";
-$icon-firebase-path5: "\e91b";
-$icon-firebase-path6: "\e91c";
-$icon-home: "\e915";
-$icon-briefcase: "\e910";
-$icon-map-pin: "\e911";
-$icon-message-circle: "\e912";
-$icon-message-square: "\e913";
-$icon-user: "\e914";
-$icon-brand: "\e90f";
-$icon-angular-path1: "\e90a";
-$icon-angular-path2: "\e90b";
-$icon-angular-path3: "\e90c";
-$icon-angular-path4: "\e90d";
-$icon-angular-path5: "\e90e";
-$icon-gulp-path1: "\e900";
-$icon-gulp-path2: "\e901";
-$icon-gulp-path3: "\e902";
-$icon-gulp-path4: "\e903";
-$icon-node: "\e904";
-$icon-react: "\e905";
-$icon-scss: "\e906";
-$icon-webpack-path1: "\e907";
-$icon-webpack-path2: "\e908";
-$icon-webpack-path3: "\e909";
-$icon-files-empty: "\e925";
-$icon-file-text2: "\e926";
-$icon-location: "\e947";
-$icon-user-tie: "\e976";
-$icon-equalizer: "\e992";
-$icon-cog: "\e994";
-$icon-leaf: "\e9a4";
-$icon-rocket: "\e9a5";
-$icon-fire: "\e9a9";
-$icon-power: "\e9b5";
-$icon-link: "\e9cb";
-$icon-star-empty: "\e9d7";
-$icon-star-full: "\e9d9";
-$icon-man: "\e9dc";
-$icon-happy: "\e9df";
-$icon-smile: "\e9e1";
-$icon-tongue: "\e9e3";
-$icon-sad: "\e9e5";
-$icon-wink: "\e9e7";
-$icon-grin: "\e9e9";
-$icon-confused: "\e9f5";
-$icon-neutral: "\e9f7";
-$icon-hipster: "\e9f9";
-$icon-sleepy: "\e9fd";
-$icon-crying: "\ea01";
-$icon-warning: "\ea07";
-$icon-cancel-circle: "\ea0d";
-$icon-loop2: "\ea2e";
-$icon-arrow-up2: "\ea3a";
-$icon-arrow-right2: "\ea3c";
-$icon-arrow-down2: "\ea3e";
-$icon-arrow-left2: "\ea40";
-$icon-circle-up: "\ea41";
-$icon-circle-right: "\ea42";
-$icon-circle-down: "\ea43";
-$icon-circle-left: "\ea44";
-$icon-embed2: "\ea80";
-$icon-terminal: "\ea81";
-$icon-facebook: "\ea90";
-$icon-facebook2: "\ea91";
-$icon-instagram: "\ea92";
-$icon-twitter: "\ea96";
-$icon-rss: "\ea9b";
-$icon-github: "\eab0";
-$icon-linkedin: "\eac9";
-$icon-linkedin2: "\eaca";
-$icon-redo2: "\e968";
-$icon-html5: "\eae5";
-$icon-css3: "\eae6";
+$icon-angel: \e916;
+$icon-brand: \e90f;
+$icon-briefcase: \e910;
+$icon-home: \e915;
+$icon-map-pin: \e911;
+$icon-message-circle: \e912;
+$icon-message-square: \e913;
+$icon-user: \e914;
+$icon-fire: \e9a9;
+$icon-tongue: \e9e3;
+$icon-github: \eab0;
+$icon-linkedin: \eac9;
 
 @font-face {
   font-family: 'portfolio';
-  src: url('#{$icomoon-font-path}/portfolio.eot?riwi4z');
-  src: url('#{$icomoon-font-path}/portfolio.eot?riwi4z#iefix')
-      format('embedded-opentype'),
-    url('#{$icomoon-font-path}/portfolio.ttf?riwi4z') format('truetype'),
-    url('#{$icomoon-font-path}/portfolio.woff?riwi4z') format('woff'),
-    url('#{$icomoon-font-path}/portfolio.svg?riwi4z#portfolio') format('svg');
+  src:  url('#{$icomoon-font-path}/portfolio.eot?7gcc6t');
+  src:  url('#{$icomoon-font-path}/portfolio.eot?7gcc6t#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/portfolio.ttf?7gcc6t') format('truetype'),
+    url('#{$icomoon-font-path}/portfolio.woff?7gcc6t') format('woff'),
+    url('#{$icomoon-font-path}/portfolio.svg?7gcc6t#portfolio') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'portfolio' !important;
   speak: none;
@@ -108,439 +40,68 @@ $icon-css3: "\eae6";
   -moz-osx-font-smoothing: grayscale;
 }
 
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}
+
 .icon-angel {
   &:before {
-    content: $icon-angel;
+    content: unicode($icon-angel);
   }
 }
-.icon-firebase .path1 {
+.icon-brand {
   &:before {
-    content: $icon-firebase-path1;
-    color: rgb(255, 160, 0);
+    content: unicode($icon-brand); 
   }
 }
-.icon-firebase .path2 {
-  &:before {
-    content: $icon-firebase-path2;
-    margin-left: -0.7353515625em;
-    color: rgb(245, 124, 0);
-  }
-}
-.icon-firebase .path3 {
-  &:before {
-    content: $icon-firebase-path3;
-    margin-left: -0.7353515625em;
-    color: rgb(255, 202, 40);
-  }
-}
-.icon-firebase .path4 {
-  &:before {
-    content: $icon-firebase-path4;
-    margin-left: -0.7353515625em;
-    color: rgb(255, 255, 255);
-    opacity: 0.2;
-  }
-}
-.icon-firebase .path5 {
-  &:before {
-    content: $icon-firebase-path5;
-    margin-left: -0.7353515625em;
-    color: rgb(165, 39, 20);
-    opacity: 0.2;
-  }
-}
-.icon-firebase .path6 {
-  &:before {
-    content: $icon-firebase-path6;
-    margin-left: -0.7353515625em;
-    color: rgb(0, 0, 0);
-  }
-}
-
-.icon-home {
-  &:before {
-    content: $icon-home;
-  }
-}
-
 .icon-briefcase {
   &:before {
-    content: $icon-briefcase;
+    content: unicode($icon-briefcase);
+  }
+}
+.icon-home {
+  &:before {
+    content: unicode($icon-home);
   }
 }
 .icon-map-pin {
   &:before {
-    content: $icon-map-pin;
+    content: unicode($icon-map-pin); 
   }
 }
 .icon-message-circle {
   &:before {
-    content: $icon-message-circle;
+    content: unicode($icon-message-circle); 
   }
 }
 .icon-message-square {
   &:before {
-    content: $icon-message-square;
+    content: unicode($icon-message-square);
   }
 }
-
 .icon-user {
   &:before {
-    content: $icon-user;
-  }
-}
-
-.icon-brand {
-  &:before {
-    content: $icon-brand;
-  }
-}
-
-.icon-angular .path1 {
-  &:before {
-    content: $icon-angular-path1;
-    color: rgb(179, 179, 179);
-  }
-}
-.icon-angular .path2 {
-  &:before {
-    content: $icon-angular-path2;
-    margin-left: -0.9482421875em;
-    color: rgb(166, 18, 13);
-  }
-}
-.icon-angular .path3 {
-  &:before {
-    content: $icon-angular-path3;
-    margin-left: -0.9482421875em;
-    color: rgb(221, 27, 22);
-  }
-}
-.icon-angular .path4 {
-  &:before {
-    content: $icon-angular-path4;
-    margin-left: -0.9482421875em;
-    color: rgb(242, 242, 242);
-  }
-}
-.icon-angular .path5 {
-  &:before {
-    content: $icon-angular-path5;
-    margin-left: -0.9482421875em;
-    color: rgb(179, 179, 179);
-  }
-}
-.icon-gulp .path1 {
-  &:before {
-    content: $icon-gulp-path1;
-    color: rgb(207, 69, 71);
-  }
-}
-.icon-gulp .path2 {
-  &:before {
-    content: $icon-gulp-path2;
-    margin-left: -1em;
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-gulp .path3 {
-  &:before {
-    content: $icon-gulp-path3;
-    margin-left: -1em;
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-gulp .path4 {
-  &:before {
-    content: $icon-gulp-path4;
-    margin-left: -1em;
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-node {
-  &:before {
-    content: $icon-node;
-    color: $node-green;
-  }
-}
-.icon-react {
-  &:before {
-    content: $icon-react;
-    color: $react-blue;
-    font-size: 30px;
-  }
-}
-.icon-scss {
-  &:before {
-    content: $icon-scss;
-    color: $scss-pink;
-  }
-}
-.icon-webpack .path1 {
-  &:before {
-    content: $icon-webpack-path1;
-    color: rgb(255, 255, 255);
-  }
-}
-.icon-webpack .path2 {
-  &:before {
-    content: $icon-webpack-path2;
-    margin-left: -1em;
-    color: rgb(142, 214, 251);
-  }
-}
-.icon-webpack .path3 {
-  &:before {
-    content: $icon-webpack-path3;
-    margin-left: -1em;
-    color: rgb(28, 120, 192);
-  }
-}
-.icon-files-empty {
-  &:before {
-    content: $icon-files-empty;
-  }
-}
-.icon-file-text2 {
-  &:before {
-    content: $icon-file-text2;
-  }
-}
-.icon-location {
-  &:before {
-    content: $icon-location;
-  }
-}
-.icon-user-tie {
-  &:before {
-    content: $icon-user-tie;
-  }
-}
-.icon-equalizer {
-  &:before {
-    content: $icon-equalizer;
-  }
-}
-.icon-cog {
-  &:before {
-    content: $icon-cog;
-  }
-}
-.icon-leaf {
-  &:before {
-    content: $icon-leaf;
-  }
-}
-.icon-rocket {
-  &:before {
-    content: $icon-rocket;
+    content: unicode($icon-user); 
   }
 }
 .icon-fire {
   &:before {
-    content: $icon-fire;
-  }
-}
-.icon-power {
-  &:before {
-    content: $icon-power;
-  }
-}
-.icon-link {
-  &:before {
-    content: $icon-link;
-  }
-}
-.icon-star-empty {
-  &:before {
-    content: $icon-star-empty;
-  }
-}
-.icon-star-full {
-  &:before {
-    content: $icon-star-full;
-  }
-}
-.icon-man {
-  &:before {
-    content: $icon-man;
-  }
-}
-.icon-happy {
-  &:before {
-    content: $icon-happy;
-  }
-}
-.icon-smile {
-  &:before {
-    content: $icon-smile;
+    content: unicode($icon-fire);
   }
 }
 .icon-tongue {
   &:before {
-    content: $icon-tongue;
-  }
-}
-.icon-sad {
-  &:before {
-    content: $icon-sad;
-  }
-}
-.icon-wink {
-  &:before {
-    content: $icon-wink;
-  }
-}
-.icon-grin {
-  &:before {
-    content: $icon-grin;
-  }
-}
-.icon-confused {
-  &:before {
-    content: $icon-confused;
-  }
-}
-.icon-neutral {
-  &:before {
-    content: $icon-neutral;
-  }
-}
-.icon-hipster {
-  &:before {
-    content: $icon-hipster;
-  }
-}
-.icon-sleepy {
-  &:before {
-    content: $icon-sleepy;
-  }
-}
-.icon-crying {
-  &:before {
-    content: $icon-crying;
-  }
-}
-.icon-warning {
-  &:before {
-    content: $icon-warning;
-  }
-}
-.icon-cancel-circle {
-  &:before {
-    content: $icon-cancel-circle;
-  }
-}
-.icon-loop2 {
-  &:before {
-    content: $icon-loop2;
-  }
-}
-.icon-arrow-up2 {
-  &:before {
-    content: $icon-arrow-up2;
-  }
-}
-.icon-arrow-right2 {
-  &:before {
-    content: $icon-arrow-right2;
-  }
-}
-.icon-arrow-down2 {
-  &:before {
-    content: $icon-arrow-down2;
-  }
-}
-.icon-arrow-left2 {
-  &:before {
-    content: $icon-arrow-left2;
-  }
-}
-.icon-circle-up {
-  &:before {
-    content: $icon-circle-up;
-  }
-}
-.icon-circle-right {
-  &:before {
-    content: $icon-circle-right;
-  }
-}
-.icon-circle-down {
-  &:before {
-    content: $icon-circle-down;
-  }
-}
-.icon-circle-left {
-  &:before {
-    content: $icon-circle-left;
-  }
-}
-.icon-embed2 {
-  &:before {
-    content: $icon-embed2;
-  }
-}
-.icon-terminal {
-  &:before {
-    content: $icon-terminal;
-  }
-}
-.icon-facebook {
-  &:before {
-    content: $icon-facebook;
-    color: #3b5998;
-  }
-}
-.icon-facebook2 {
-  &:before {
-    content: $icon-facebook2;
-    color: #3b5998;
-  }
-}
-.icon-instagram {
-  &:before {
-    content: $icon-instagram;
-  }
-}
-.icon-twitter {
-  &:before {
-    content: $icon-twitter;
-  }
-}
-.icon-rss {
-  &:before {
-    content: $icon-rss;
+    content: unicode($icon-tongue); 
   }
 }
 .icon-github {
   &:before {
-    content: $icon-github;
+    content: unicode($icon-github);
   }
 }
 .icon-linkedin {
   &:before {
-    content: $icon-linkedin;
+    content: unicode($icon-linkedin);
     color: #007bb6;
-  }
-}
-.icon-linkedin2 {
-  &:before {
-    content: $icon-linkedin2;
-  }
-}
-.icon-redo2 {
-  &:before {
-    content: $icon-redo2;
-  }
-}
-.icon-html5 {
-  &:before {
-    content: $icon-html5;
-  }
-}
-.icon-css3 {
-  &:before {
-    content: $icon-css3;
   }
 }

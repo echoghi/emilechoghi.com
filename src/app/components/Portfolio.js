@@ -19,6 +19,8 @@ class Portfolio extends React.Component {
             projects: [
                 {
                     title: 'Health Dashboard',
+                    color: '#ed5454',
+                    icon: 'fire',
                     text:
                         'A health app designed to log and analyze your daily nutritional intake against your daily expenditure (via the apple watch) to track trends and caloric surpluses/defecits on a monthly basis.',
                     image: dashboardImg,
@@ -45,6 +47,7 @@ class Portfolio extends React.Component {
                 },
                 {
                     title: 'PiDash',
+                    color: '#008489',
                     text:
                         'A kiosk app made to run on a RaspberryPi, showing a newsfeed, cryptocurrency price ticker, weather forecast, and estimated commute time.',
                     image: pidashImg,
@@ -71,6 +74,8 @@ class Portfolio extends React.Component {
                 },
                 {
                     title: 'emilechoghi.com',
+                    icon: 'brand',
+                    color: '#269bda',
                     text: 'This website, which runs on a modest node server and relays messages to my email.',
                     image: homeImg,
                     link: 'https://github.com/echoghi/emilechoghi.com',
@@ -114,6 +119,8 @@ class Portfolio extends React.Component {
                 <Project
                     title={p.title}
                     stack={p.tech}
+                    icon={p.icon}
+                    color={p.color}
                     description={p.text}
                     key={p.key}
                     image={p.image}

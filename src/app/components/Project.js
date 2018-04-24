@@ -19,6 +19,31 @@ class Project extends React.Component {
         );
     }
 
+    renderProjectBackground() {
+        const { icon } = this.props;
+
+        const Background = styled.div`
+            position: relative;
+            height: 100%;
+        `;
+
+        const Icon = styled.div`
+            display: inline-block;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 40%;
+            font-size: 55px;
+        `;
+
+        return (
+            <Background>
+                <Icon className={`icon-${icon}`} />
+            </Background>
+        );
+    }
+
     sendAnalytics(project) {
         if (NODE_ENV === 'production') {
             ReactGA.event({
@@ -110,7 +135,6 @@ class Project extends React.Component {
             height: 275px;
             width: 100%;
             border-radius: 3px 3px 0 0;
-            background: $aqua-haze;
             overflow: hidden;
             transition: all 0.3s ease-in-out;
             z-index: 1;

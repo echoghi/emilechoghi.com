@@ -41,7 +41,6 @@ class Contact extends React.Component {
             name: '',
             email: '',
             message: '',
-            initialLoad: true,
             validation: {
                 name: new validationObj(),
                 email: new validationObj(),
@@ -151,7 +150,7 @@ class Contact extends React.Component {
                 obj['validation'][event.target.name]['valid'] = false;
             }
         }
-
+        console.log(obj);
         this.setState(obj);
     };
 
@@ -202,12 +201,6 @@ class Contact extends React.Component {
         }
     };
 
-    stopAnimation() {
-        if (this.state.initialLoad) {
-            this.setState({ initialLoad: false });
-        }
-    }
-
     renderSnackbarStyle() {
         if (this.props.width < 760) {
             return {
@@ -217,6 +210,24 @@ class Contact extends React.Component {
     }
 
     render() {
+        const Portfolio = styled.div`
+            height: 80vh;
+            padding: 0 70px;
+            font-family: 'Varela Round';
+            margin-top: 80px;
+
+            @media (max-width: 1199px) and (min-width: 1024px) {
+                height: auto;
+                padding: 0 30px 30px 30px;
+            }
+
+            @media (max-width: 1023px) {
+                height: auto;
+                padding: 0;
+                padding-bottom: 30px;
+            }
+        `;
+
         const FormHeader = styled.h4`
             font-size: 30px;
             font-weight: bold;
@@ -270,19 +281,147 @@ class Contact extends React.Component {
             width: 100%;
         `;
 
+        const FormItem = styled.div`
+            display: inline-block;
+            margin: 10px 0;
+            width: 46%;
+            float: right;
+
+            @media (max-width: 767px) {
+                display: block;
+                width: 100%;
+            }
+
+            &:first-child {
+                float: left;
+            }
+
+            div {
+                visibility: hidden;
+                text-align: right;
+                color: #dd4b39;
+                letter-spacing: 0.3px;
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 2;
+                text-transform: uppercase;
+
+                &.invalid {
+                    visibility: visible;
+                }
+            }
+        `;
+
+        const FormItemLarge = styled.div`
+            display: inline-block;
+            margin: 10px 0;
+            width: 100%;
+            float: right;
+
+            @media (max-width: 767px) {
+                display: block;
+                width: 100%;
+            }
+
+            &:first-child {
+                float: left;
+            }
+
+            div {
+                visibility: hidden;
+                text-align: right;
+                color: #dd4b39;
+                letter-spacing: 0.3px;
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 2;
+                text-transform: uppercase;
+
+                &.invalid {
+                    visibility: visible;
+                }
+            }
+        `;
+
+        const Label = styled.label`
+            font-size: 18px;
+
+            &.invalid {
+                color: #dd4b39;
+            }
+        `;
+
+        const Input = styled.input`
+            font-family: 'Rubik', sans-serif;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            display: block;
+            box-sizing: border-box;
+            background-color: #ecf1f6;
+            color: #3d575d;
+            border: none;
+            width: 100%;
+            margin: 5px 0;
+            height: 55px;
+            padding: 5px 0 5px 15px;
+            font: inherit;
+            font-size: 18px;
+            border-radius: 0;
+            transition: opacity 0.2s;
+
+            &.invalid {
+                border: 1px solid #dd4b39;
+                border-radius: 0;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        `;
+
+        const TextArea = styled.textarea`
+            font-family: 'Rubik', sans-serif;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            display: block;
+            box-sizing: border-box;
+            background-color: #ecf1f6;
+            color: #3d575d;
+            border: none;
+            width: 100%;
+            margin: 5px 0;
+            height: 150px;
+            padding: 15px 0 5px 15px;
+            font: inherit;
+            font-size: 18px;
+            border-radius: 0;
+            transition: opacity 0.2s;
+
+            &.invalid {
+                border: 1px solid #dd4b39;
+                border-radius: 0;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        `;
+
         return (
             <div>
                 <ContactMap />
 
-                <div className="portfolio">
+                <Portfolio>
                     <div className="clearfix" />
 
                     <Form id="contact-form">
                         <FormHeader> Contact Me </FormHeader>
                         <FormRow>
-                            <div className="form__item">
-                                <label className={this.handleErrorClass('name')}>Your Name</label>
-                                <input
+                            <FormItem>
+                                <Label className={this.handleErrorClass('name')}>Your Name</Label>
+                                <Input
                                     type="text"
                                     name="name"
                                     maxLength="100"
@@ -290,10 +429,10 @@ class Contact extends React.Component {
                                     className={this.handleErrorClass('name')}
                                 />
                                 <div className={this.handleErrorClass('name')}>required*</div>
-                            </div>
-                            <div className="form__item">
-                                <label className={this.handleErrorClass('email')}>Email Address</label>
-                                <input
+                            </FormItem>
+                            <FormItem>
+                                <Label className={this.handleErrorClass('email')}>Email Address</Label>
+                                <Input
                                     type="text"
                                     name="email"
                                     maxLength="254"
@@ -301,19 +440,19 @@ class Contact extends React.Component {
                                     className={this.handleErrorClass('email')}
                                 />
                                 <div className={this.handleErrorClass('email')}>invalid*</div>
-                            </div>
+                            </FormItem>
                         </FormRow>
                         <FormRow>
-                            <div className="form__item-lg">
-                                <label className={this.handleErrorClass('message')}>Your Message</label>
-                                <textarea
+                            <FormItemLarge>
+                                <Label className={this.handleErrorClass('message')}>Your Message</Label>
+                                <TextArea
                                     maxLength="6000"
                                     name="message"
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('message')}
                                 />
                                 <div className={this.handleErrorClass('message')}>required*</div>
-                            </div>
+                            </FormItemLarge>
                         </FormRow>
 
                         <Button onClick={this.handleSubmit} className="form-button">
@@ -330,7 +469,7 @@ class Contact extends React.Component {
                         autoHideDuration={4000}
                         onRequestClose={this.handleRequestClose}
                     />
-                </div>
+                </Portfolio>
 
                 <Footer fixed />
             </div>
