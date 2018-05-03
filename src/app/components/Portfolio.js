@@ -44,7 +44,7 @@ class Portfolio extends React.Component {
                     title: 'Doctor.com ReviewHub',
                     color: '#008489',
                     text:
-                        'A kiosk application designed to run on a chromebook in the waiting room of a healthcare provider\'s office for patients to review their doctor post-appointment. This single page application features a service worker that intercepts reviews made offline, stores them in the browser\'s local storage and sends them in bulk upon detecting internet connectivity.',
+                        'A kiosk application designed to run on a chromebook in the waiting room of a healthcare provider\'s office for patients to review their doctor post-appointment. This single page app features functionality to intercept reviews made offline, store them in the browser\'s Local Storage and send them in bulk upon resuming internet connectivity.',
                     image: reviewhubImg,
                     link: 'https://www.doctor.com/solutions/reviewhub',
                     tech: [
