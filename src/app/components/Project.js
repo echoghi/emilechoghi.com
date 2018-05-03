@@ -30,7 +30,7 @@ const ListItem = styled.li`
         }
     }
 
-    @media (max-width: 375px) {
+    @media (max-width: 415px) {
         display: flex;
         width: 100%;
 
@@ -67,7 +67,7 @@ const PortfolioItem = styled.div`
 const Image = styled.div`
     height: 275px;
     width: 100%;
-    border-radius: 3px 3px 0 0;
+    border-radius: 3px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     z-index: 1;
@@ -108,14 +108,8 @@ const Text = styled.div`
     font-family: 'Varela Round';
 `;
 
-const Background = styled.div`
-    position: relative;
-    height: 100%;
-`;
-
 const Icon = styled.div`
     display: inline-block;
-    height: 100%;
     position: absolute;
     left: 0;
     right: 0;
@@ -141,7 +135,14 @@ class Project extends React.Component {
     }
 
     renderProjectBackground() {
-        const { icon } = this.props;
+        const { icon, color } = this.props;
+
+        const Background = styled.div`
+            position: relative;
+            background: ${color};
+            opacity: 0.7;
+            height: 100%;
+        `;
 
         return (
             <Background>

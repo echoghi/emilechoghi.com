@@ -6,7 +6,7 @@ import ReactGA from 'react-ga';
 import styled from 'styled-components';
 // Images
 import dashboardImg from '../assets/images/dashboard.png';
-import pidashImg from '../assets/images/pidash.png';
+import reviewhubImg from '../assets/images/reviewhub.png';
 import homeImg from '../assets/images/choghi.png';
 
 const PortfolioWrapper = styled.div`
@@ -41,11 +41,34 @@ class Portfolio extends React.Component {
             error: null,
             projects: [
                 {
+                    title: 'Doctor.com ReviewHub',
+                    color: '#008489',
+                    text:
+                        'A kiosk application designed to run on a chromebook in the waiting room of a healthcare provider\'s office for patients to review their doctor post-appointment. This single page application features a service worker that intercepts reviews made offline, stores them in the browser\'s local storage and sends them in bulk upon detecting internet connectivity.',
+                    image: reviewhubImg,
+                    link: 'https://www.doctor.com/solutions/reviewhub',
+                    tech: [
+                        {
+                            key: 0,
+                            label: 'Angular'
+                        },
+                        {
+                            key: 1,
+                            label: 'SCSS'
+                        },
+                        {
+                            key: 2,
+                            label: 'PHP'
+                        }
+                    ],
+                    key: 0
+                },
+                {
                     title: 'Health Dashboard',
                     color: '#ed5454',
                     icon: 'fire',
                     text:
-                        'A health app designed to log and analyze your daily nutritional intake against your daily expenditure (via the apple watch) to track trends and caloric surpluses/defecits on a monthly basis.',
+                        'A health app designed to log and analyze your daily nutritional intake against your daily expenditure (via the apple watch) to track trends and caloric surpluses/deficits on a monthly basis.',
                     image: dashboardImg,
                     link: 'https://github.com/echoghi/calorie-tracker',
                     tech: [
@@ -66,34 +89,7 @@ class Portfolio extends React.Component {
                             label: 'Firebase'
                         }
                     ],
-                    key: 0
-                },
-                {
-                    title: 'PiDash',
-                    color: '#008489',
-                    text:
-                        'A kiosk app made to run on a RaspberryPi, showing a newsfeed, cryptocurrency price ticker, weather forecast, and estimated commute time.',
-                    image: pidashImg,
-                    link: 'https://github.com/echoghi/PiDash',
-                    tech: [
-                        {
-                            key: 0,
-                            label: 'React'
-                        },
-                        {
-                            key: 1,
-                            label: 'Webpack'
-                        },
-                        {
-                            key: 2,
-                            label: 'SCSS'
-                        },
-                        {
-                            key: 3,
-                            label: 'Node'
-                        }
-                    ],
-                    key: 2
+                    key: 1
                 },
                 {
                     title: 'emilechoghi.com',
@@ -120,7 +116,7 @@ class Portfolio extends React.Component {
                             label: 'Node'
                         }
                     ],
-                    key: 3
+                    key: 2
                 }
             ]
         };

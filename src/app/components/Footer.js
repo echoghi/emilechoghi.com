@@ -3,8 +3,10 @@ import ReactGA from 'react-ga';
 
 class Footer extends React.PureComponent {
     renderFooterClass() {
-        if (this.props.fixed) {
-            if (this.props.type === 'portfolio') {
+        const { fixed, type } = this.props;
+
+        if (fixed) {
+            if (type === 'portfolio') {
                 return 'footer footer__portfolio fixed';
             } else {
                 return 'footer fixed';
