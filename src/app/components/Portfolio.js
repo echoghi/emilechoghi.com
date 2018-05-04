@@ -29,7 +29,13 @@ const PortfolioWrapper = styled.div`
 const Header = styled.h4`
     font-size: 28px;
     font-weight: bold;
-    padding: 15px;
+    padding: 0 15px;
+
+    @media (max-width: 768px) {
+        font-size: 25px;
+        padding: 0 20px;
+        margin: 25px 0;
+    }
 `;
 
 class Portfolio extends React.Component {
