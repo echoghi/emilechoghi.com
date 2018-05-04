@@ -104,16 +104,16 @@ class Portfolio extends React.Component {
                             label: 'React'
                         },
                         {
-                            key: 1,
-                            label: 'Styled Components'
-                        },
-                        {
                             key: 2,
                             label: 'Webpack'
                         },
                         {
                             key: 3,
                             label: 'Node'
+                        },
+                        {
+                            key: 4,
+                            label: 'Express'
                         }
                     ],
                     key: 2
