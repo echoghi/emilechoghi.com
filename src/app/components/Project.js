@@ -30,7 +30,7 @@ const ListItem = styled.li`
         }
     }
 
-    @media (max-width: 415px) {
+    @media (max-width: 600px) {
         display: flex;
         width: 100%;
 
