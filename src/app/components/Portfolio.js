@@ -29,7 +29,7 @@ const PortfolioWrapper = styled.div`
 const Header = styled.h4`
     font-size: 28px;
     font-weight: bold;
-    padding: 0 15px;
+    padding: 15px;
 
     @media (max-width: 768px) {
         font-size: 25px;
