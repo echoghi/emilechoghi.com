@@ -24,7 +24,9 @@ class FormError extends React.PureComponent {
                     <DialogContentText>An error occurred, please try again</DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={this.props.close}>Ok</Button>
+                    <Button onClick={this.props.close} autoFocus>
+                        Ok
+                    </Button>
                 </DialogActions>
             </Dialog>
         );
