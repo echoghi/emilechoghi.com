@@ -77,22 +77,17 @@
         }
 
         li {
-            padding: 0 10px;
             list-style: none;
             display: inline-block;
             vertical-align: sub;
 
-            @include less-than-tab-land {
-                padding: 0 7.5px;
-            }
-
             i {
                 font-size: 20px;
                 cursor: pointer;
-                transition: opacity .2s;
+                transition: opacity 0.2s;
 
                 &:hover {
-                    opacity: .8;
+                    opacity: 0.8;
                 }
             }
         }

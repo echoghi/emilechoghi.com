@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
+import IconButton from 'material-ui/IconButton';
 
 class Footer extends React.PureComponent {
     renderFooterClass() {
@@ -33,34 +34,41 @@ class Footer extends React.PureComponent {
                     <div className="footer__text">© 2018 Emile Choghi</div>
                     <div className="social-links">
                         <li>
-                            <a
+                            <IconButton
+                                aria-label="github"
+                                component="a"
+                                color="primary"
                                 href="https://github.com/echoghi"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => this.sendAnalytics('Github')}
                             >
                                 <i className="icon-github" />
-                            </a>
+                            </IconButton>
                         </li>
                         <li>
-                            <a
+                            <IconButton
+                                component="a"
+                                aria-label="linked in"
                                 href="https://www.linkedin.com/in/emile-choghi-a6b60ba1/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => this.sendAnalytics('LinkedIn')}
                             >
                                 <i className="icon-linkedin" />
-                            </a>
+                            </IconButton>
                         </li>
                         <li>
-                            <a
+                            <IconButton
+                                component="a"
+                                aria-label="angel list"
                                 href="https://angel.co/emile-choghi"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => this.sendAnalytics('Angellist')}
                             >
                                 <i className="icon-angel" />
-                            </a>
+                            </IconButton>
                         </li>
                     </div>
                 </div>
