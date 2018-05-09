@@ -79,7 +79,7 @@
         list-style: none;
         font-size: 16px;
         float: right;
-        padding: 15px;
+        padding: 10px 15px;
         font-weight: bold;
 
         &.collapsed {
@@ -126,15 +126,19 @@
 
         a {
             display: inline-block;
-            padding: 0 20px;
             cursor: pointer;
             transition: opacity 0.2s;
+
+            span {
+                font-family: 'Varela Round', serif;
+                text-transform: none;
+            }
 
             i {
                 display: none;
             }
 
-            li.active {
+            &.active {
                 color: $curious-blue;
             }
 

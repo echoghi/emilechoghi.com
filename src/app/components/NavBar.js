@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveWidth, saveRoute } from './actions';
+import Button from 'material-ui/Button';
 
 const mapDispatchToProps = dispatch => ({
     saveBreakPoint: width => dispatch(saveWidth(width)),
@@ -82,9 +83,57 @@ class NavBar extends React.Component {
         this.setState({ menuOpen: false });
     };
 
-    render() {
+    renderMenuItem(type) {
         const { pathname } = this.props.history.location;
 
+        if (type === 'home') {
+            return (
+                <Button
+                    component={Link}
+                    className={this.handleNavClass('')}
+                    onClick={() => this.onNavigation(pathname)}
+                    to="/"
+                >
+                    Home <i className="icon-home" />
+                </Button>
+            );
+        } else if (type === 'about') {
+            return (
+                <Button
+                    component={Link}
+                    className={this.handleNavClass('about')}
+                    onClick={() => this.onNavigation(pathname)}
+                    to="/about"
+                >
+                    About <i className="icon-user" />
+                </Button>
+            );
+        } else if (type === 'portfolio') {
+            return (
+                <Button
+                    component={Link}
+                    className={this.handleNavClass('portfolio')}
+                    onClick={() => this.onNavigation(pathname)}
+                    to="/portfolio"
+                >
+                    Portfolio <i className="icon-briefcase" />
+                </Button>
+            );
+        } else if (type === 'contact') {
+            return (
+                <Button
+                    component={Link}
+                    className={this.handleNavClass('contact')}
+                    onClick={() => this.onNavigation(pathname)}
+                    to="/contact"
+                >
+                    Contact <i className="icon-message-square" />
+                </Button>
+            );
+        }
+    }
+
+    render() {
         return (
             <div className="navbar">
                 <div className="navbar__brand">
@@ -98,27 +147,10 @@ class NavBar extends React.Component {
                     <div />
                 </div>
                 <ul className={this.handleMenuClass()}>
-                    <Link to="/">
-                        <li className={this.handleNavClass('')} onClick={() => this.onNavigation(pathname)}>
-                            {' '}
-                            Home <i className="icon-home" />
-                        </li>
-                    </Link>
-                    <Link to="/about">
-                        <li className={this.handleNavClass('about')} onClick={() => this.onNavigation(pathname)}>
-                            About <i className="icon-user" />
-                        </li>
-                    </Link>
-                    <Link to="/portfolio">
-                        <li className={this.handleNavClass('portfolio')} onClick={() => this.onNavigation(pathname)}>
-                            Portfolio <i className="icon-briefcase" />
-                        </li>
-                    </Link>
-                    <Link to="/contact">
-                        <li className={this.handleNavClass('contact')} onClick={() => this.onNavigation(pathname)}>
-                            Contact <i className="icon-message-square" />
-                        </li>
-                    </Link>
+                    {this.renderMenuItem('home')}
+                    {this.renderMenuItem('about')}
+                    {this.renderMenuItem('portfolio')}
+                    {this.renderMenuItem('contact')}
                 </ul>
             </div>
         );
