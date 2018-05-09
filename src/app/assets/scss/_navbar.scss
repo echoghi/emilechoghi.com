@@ -77,7 +77,6 @@
     &__menu {
         display: block;
         list-style: none;
-        font-size: 16px;
         float: right;
         padding: 10px 15px;
         font-weight: bold;
@@ -126,7 +125,7 @@
 
         a {
             display: inline-block;
-            cursor: pointer;
+            font-size: 16px;
             transition: opacity 0.2s;
             min-width: 0;
 
