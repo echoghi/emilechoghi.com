@@ -332,7 +332,7 @@ class Contact extends React.Component {
                 obj['validation'][event.target.name]['valid'] = false;
             }
         }
-        console.log(obj);
+
         this.setState(obj);
     };
 
