@@ -37,7 +37,6 @@ class Footer extends React.PureComponent {
                             <IconButton
                                 aria-label="github"
                                 component="a"
-                                color="primary"
                                 href="https://github.com/echoghi"
                                 target="_blank"
                                 rel="noopener noreferrer"
