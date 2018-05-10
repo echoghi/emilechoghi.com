@@ -41,6 +41,10 @@ const ListItem = styled.li`
     }
 `;
 
+const PortfolioLink = styled.a`
+    display: block;
+`;
+
 const PortfolioItem = styled.div`
     margin: 2px;
     display: inline-block;
@@ -129,7 +133,6 @@ class Project extends React.Component {
         return (
             <Image>
                 <img src={image} />
-                <i className="icon-redo2" />
             </Image>
         );
     }
@@ -174,11 +177,11 @@ class Project extends React.Component {
     }
 
     render() {
-        const { title, description, stack } = this.props;
+        const { title, description, stack, link } = this.props;
 
         return (
-            <a href={this.props.link} target="_blank">
-                <ListItem onClick={() => this.sendAnalytics(title)}>
+            <ListItem onClick={() => this.sendAnalytics(title)}>
+                <PortfolioLink href={link} target="_blank">
                     <PortfolioItem>
                         <Image>{this.renderImage()}</Image>
                         <Info>
@@ -195,8 +198,8 @@ class Project extends React.Component {
                             <Text>{description}</Text>
                         </Info>
                     </PortfolioItem>
-                </ListItem>
-            </a>
+                </PortfolioLink>
+            </ListItem>
         );
     }
 }

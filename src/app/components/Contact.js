@@ -43,7 +43,7 @@ const Portfolio = styled.div`
 
 const FormHeader = styled.h4`
     font-size: 30px;
-    font-weight: bold;
+    font-weight: normal;
     margin: 100px 0;
 
     @media (max-width: 1199px) and (min-width: 1024px) {

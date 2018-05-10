@@ -16,7 +16,7 @@ class Loading extends React.Component {
         };
 
         return (
-            <Dialog open={true}>
+            <Dialog open>
                 <DialogTitle>Sending...</DialogTitle>
                 <DialogContent>
                     <Lottie options={options} height={100} width={100} />
