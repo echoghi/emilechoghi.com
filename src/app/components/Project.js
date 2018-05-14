@@ -14,6 +14,10 @@ const ListItem = styled.li`
         display: inline-block;
         width: 50%;
         padding: 15px;
+
+        &:nth-child(3) {
+            float: left;
+        }
     }
 
     @media (max-width: 1023px) {
@@ -27,6 +31,10 @@ const ListItem = styled.li`
 
         &:nth-child(even) {
             padding-left: 10px;
+        }
+
+        &:nth-child(3) {
+            float: left;
         }
     }
 
@@ -123,11 +131,12 @@ const Icon = styled.div`
 
 class Project extends React.Component {
     renderImage() {
-        const { image } = this.props;
+        const { image, color } = this.props;
 
         const Image = styled.div`
             display: inline-block;
             height: 100%;
+            background: ${color};
         `;
 
         return (

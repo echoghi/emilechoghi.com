@@ -45,10 +45,11 @@ class Portfolio extends React.Component {
         this.state = {
             loading: true,
             error: null,
+            // prettier-ignore
             projects: [
                 {
                     title: 'Doctor.com ReviewHub',
-                    color: '#008489',
+                    color: '#27BCBB',
                     text:
                         'A kiosk application designed to run on a chromebook in the waiting room of a healthcare provider\'s office for patients to review their doctor post-appointment. This single page app features functionality to intercept reviews made offline, store them in the browser\'s Local Storage and send them in bulk upon resuming internet connectivity.',
                     image: reviewhubImg,
