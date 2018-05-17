@@ -9,16 +9,19 @@ import dashboardImg from '../assets/images/dashboard.png';
 import reviewhubImg from '../assets/images/reviewhub.png';
 import homeImg from '../assets/images/choghi.png';
 
-const PortfolioWrapper = styled.div`
+const ProjectWrapper = styled.div`
     text-align: center;
+    padding: 0 85px;
     margin: 0 auto;
 
     @media (max-width: 1199px) and (min-width: 1024px) {
         display: block;
+        padding: 0;
     }
 
     @media (max-width: 1023px) {
         display: block;
+        padding: 0;
     }
 
     @media (max-width: 768px) {
@@ -29,12 +32,76 @@ const PortfolioWrapper = styled.div`
 const Header = styled.h4`
     font-size: 28px;
     font-weight: normal;
-    padding: 15px;
+    padding: 15px 105px;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        padding: 0 20px;
+    }
+
+    @media (max-width: 1023px) {
+        padding: 0 20px;
+    }
 
     @media (max-width: 768px) {
         font-size: 25px;
-        padding: 0 20px;
         margin: 25px 0;
+    }
+`;
+
+const Filter = styled.div`
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 4;
+    position: relative;
+    min-height: 65px;
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding: 16px 110px;
+
+    @media (max-width: 1025px) {
+        display: none;
+    }
+`;
+
+const FilterButton = styled.button`
+    font-size: 14px;
+    margin: 0 5px;
+    line-height: 18px;
+    letter-spacing: normal;
+    padding: 6px 12px;
+    color: rgb(72, 72, 72);
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: auto;
+    background: none;
+    border: 1px solid rgb(220, 224, 224);
+    border-image: initia;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.1s all ease;
+
+    &.active {
+        background: #269bda;
+        color: #fff;
+        border: 1px solid #269bda;
+
+        &:hover {
+            background: #269bda;
+            color: #fff;
+            border: 1px solid #269bda;
+            opacity: 0.8;
+        }
+    }
+
+    &:hover {
+        background: rgb(242, 242, 242);
+        border-color: rgb(242, 242, 242);
+    }
+
+    &:first-child {
+        margin-left: 0;
     }
 `;
 
@@ -42,10 +109,44 @@ class Portfolio extends React.Component {
     constructor(props) {
         super(props);
 
+        // prettier-ignore
         this.state = {
             loading: true,
             error: null,
-            // prettier-ignore
+            filter: {
+                all: {
+                    name: 'All',
+                    active: true
+                },
+                angular: {
+                    name: 'Angular',
+                    active: false
+                },
+                react: {
+                    name: 'React',
+                    active: false
+                },
+                webpack: {
+                    name: 'Webpack',
+                    active: false
+                },
+                scss: {
+                    name: 'SCSS',
+                    active: false
+                },
+                firebase: {
+                    name: 'Firebase',
+                    active: false
+                },
+                styledcomponents: {
+                    name: 'Styled Components',
+                    active: false
+                },
+                node: {
+                    name: 'Node/Express',
+                    active: false
+                }
+            },
             projects: [
                 {
                     title: 'Doctor.com ReviewHub',
@@ -116,11 +217,11 @@ class Portfolio extends React.Component {
                         },
                         {
                             key: 3,
-                            label: 'Node'
+                            label: 'Node/Express'
                         },
                         {
                             key: 4,
-                            label: 'Express'
+                            label: 'Styled Components'
                         }
                     ],
                     key: 2
@@ -137,10 +238,30 @@ class Portfolio extends React.Component {
         }
     }
 
+    filterByStack(stack) {
+        const { filter } = this.state;
+        let active = false;
+
+        if (filter.all.active) {
+            return true;
+        } else {
+            for (let j in filter) {
+                for (let i = 0; i < stack.length; i++) {
+                    if (stack[i].label === filter[j].name && filter[j].active) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return active;
+    }
+
     renderProjects() {
+        const { projects } = this.state;
         let portfolio = [];
 
-        _.map(this.state.projects, p => {
+        _.map(projects, p => {
             portfolio.push(
                 <Project
                     title={p.title}
@@ -151,6 +272,7 @@ class Portfolio extends React.Component {
                     key={p.key}
                     image={p.image}
                     link={p.link}
+                    active={this.filterByStack(p.tech)}
                 />
             );
         });
@@ -158,10 +280,50 @@ class Portfolio extends React.Component {
         return portfolio;
     }
 
+    handleFilterClass(active) {
+        if (active) {
+            return 'active';
+        }
+    }
+
+    handleFilterClick = item => {
+        const { filter } = this.state;
+
+        for (let i in filter) {
+            if (filter[i].name === item) {
+                filter[i].active = true;
+            } else {
+                filter[i].active = false;
+            }
+        }
+
+        this.setState({ filter });
+    };
+
+    renderFilterButtons() {
+        const { filter } = this.state;
+        let buttons = [];
+
+        for (let i in filter) {
+            const button = filter[i];
+
+            buttons.push(
+                <FilterButton
+                    onClick={() => this.handleFilterClick(button.name)}
+                    className={this.handleFilterClass(button.active)}
+                    key={button.name}
+                >
+                    {button.name}
+                </FilterButton>
+            );
+        }
+
+        return buttons;
+    }
+
     render() {
-        const Portfolio = styled.div`
+        const PortfolioWrapper = styled.div`
             height: 80vh;
-            padding: 0 70px;
             font-family: 'Varela Round';
             margin-top: 80px;
 
@@ -179,13 +341,14 @@ class Portfolio extends React.Component {
 
         return (
             <div>
-                <Portfolio className="portfolio">
+                <PortfolioWrapper className="portfolio">
+                    <Filter>{this.renderFilterButtons()}</Filter>
                     <div className="clearfix" />
 
                     <Header>Recent Projects</Header>
 
-                    <PortfolioWrapper>{this.renderProjects()}</PortfolioWrapper>
-                </Portfolio>
+                    <ProjectWrapper>{this.renderProjects()}</ProjectWrapper>
+                </PortfolioWrapper>
 
                 <Footer fixed type="portfolio" />
             </div>

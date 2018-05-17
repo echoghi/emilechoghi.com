@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
+import Grow from 'material-ui/transitions/Grow';
 
 const ListItem = styled.li`
     display: inline-block;
@@ -186,29 +187,31 @@ class Project extends React.Component {
     }
 
     render() {
-        const { title, description, stack, link } = this.props;
+        const { title, description, stack, link, active } = this.props;
 
         return (
-            <ListItem onClick={() => this.sendAnalytics(title)}>
-                <PortfolioLink href={link} target="_blank">
-                    <PortfolioItem>
-                        <Image>{this.renderImage()}</Image>
-                        <Info>
-                            <Stack>
-                                {stack.map((label, index) => {
-                                    return (
-                                        <Label key={label.key}>
-                                            {label.label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
-                                        </Label>
-                                    );
-                                })}
-                            </Stack>
-                            <Title>{title}</Title>
-                            <Text>{description}</Text>
-                        </Info>
-                    </PortfolioItem>
-                </PortfolioLink>
-            </ListItem>
+            <Grow in={active}>
+                <ListItem onClick={() => this.sendAnalytics(title)}>
+                    <PortfolioLink href={link} target="_blank">
+                        <PortfolioItem>
+                            <Image>{this.renderImage()}</Image>
+                            <Info>
+                                <Stack>
+                                    {stack.map((label, index) => {
+                                        return (
+                                            <Label key={label.key}>
+                                                {label.label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                            </Label>
+                                        );
+                                    })}
+                                </Stack>
+                                <Title>{title}</Title>
+                                <Text>{description}</Text>
+                            </Info>
+                        </PortfolioItem>
+                    </PortfolioLink>
+                </ListItem>
+            </Grow>
         );
     }
 }

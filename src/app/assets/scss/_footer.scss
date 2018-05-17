@@ -26,18 +26,20 @@
     }
 
     &__wrapper {
-        width: 70%;
         height: 100%;
         position: relative;
-        margin: 0 auto;
+        margin: 0 110px;
         box-sizing: border-box;
-        padding: 0 30px;
 
         @include sm-desktop {
+            margin: 0 auto;
+            padding: 0 30px;
             width: 80%;
         }
 
         @include less-than-tab-land {
+            margin: 0 auto;
+            padding: 0 30px;
             width: 85%;
             height: 75px;
         }
