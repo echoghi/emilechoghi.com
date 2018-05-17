@@ -77,7 +77,7 @@ const PortfolioItem = styled.div`
     }
 `;
 
-const Image = styled.div`
+const ImageWrapper = styled.div`
     height: 275px;
     width: 100%;
     border-radius: 3px;
@@ -90,6 +90,12 @@ const Image = styled.div`
         width: 100%;
         transition: all 0.3s ease-in-out;
     }
+`;
+
+const Image = styled.div`
+    display: inline-block;
+    height: 100%;
+    background: ${props => props.color};
 `;
 
 const Stack = styled.div`
@@ -121,46 +127,14 @@ const Text = styled.div`
     font-family: 'Varela Round';
 `;
 
-const Icon = styled.div`
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 40%;
-    font-size: 55px;
-`;
-
-class Project extends React.Component {
+class Project extends React.PureComponent {
     renderImage() {
         const { image, color } = this.props;
 
-        const Image = styled.div`
-            display: inline-block;
-            height: 100%;
-            background: ${color};
-        `;
-
         return (
-            <Image>
+            <Image color={color}>
                 <img src={image} />
             </Image>
-        );
-    }
-
-    renderProjectBackground() {
-        const { icon, color } = this.props;
-
-        const Background = styled.div`
-            position: relative;
-            background: ${color};
-            opacity: 0.7;
-            height: 100%;
-        `;
-
-        return (
-            <Background>
-                <Icon className={`icon-${icon}`} />
-            </Background>
         );
     }
 
@@ -194,7 +168,7 @@ class Project extends React.Component {
                 <ListItem onClick={() => this.sendAnalytics(title)}>
                     <PortfolioLink href={link} target="_blank">
                         <PortfolioItem>
-                            <Image>{this.renderImage()}</Image>
+                            <ImageWrapper>{this.renderImage()}</ImageWrapper>
                             <Info>
                                 <Stack>
                                     {stack.map((label, index) => {
