@@ -95,6 +95,7 @@ const ImageWrapper = styled.div`
 const Image = styled.div`
     display: inline-block;
     height: 100%;
+    width: 100%;
     background: ${props => props.color};
 `;
 

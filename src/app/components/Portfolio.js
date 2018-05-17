@@ -9,6 +9,23 @@ import dashboardImg from '../assets/images/dashboard.png';
 import reviewhubImg from '../assets/images/reviewhub.png';
 import homeImg from '../assets/images/choghi.png';
 
+const PortfolioWrapper = styled.div`
+    height: 80vh;
+    font-family: 'Varela Round';
+    margin-top: 80px;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        height: auto;
+        padding: 0 30px 30px 30px;
+    }
+
+    @media (max-width: 1023px) {
+        height: auto;
+        padding: 0;
+        padding-bottom: 30px;
+    }
+`;
+
 const ProjectWrapper = styled.div`
     text-align: center;
     padding: 0 85px;
@@ -324,23 +341,6 @@ class Portfolio extends React.Component {
     }
 
     render() {
-        const PortfolioWrapper = styled.div`
-            height: 80vh;
-            font-family: 'Varela Round';
-            margin-top: 80px;
-
-            @media (max-width: 1199px) and (min-width: 1024px) {
-                height: auto;
-                padding: 0 30px 30px 30px;
-            }
-
-            @media (max-width: 1023px) {
-                height: auto;
-                padding: 0;
-                padding-bottom: 30px;
-            }
-        `;
-
         return (
             <div>
                 <PortfolioWrapper className="portfolio">
