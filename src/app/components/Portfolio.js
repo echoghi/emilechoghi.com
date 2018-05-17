@@ -262,19 +262,21 @@ class Portfolio extends React.Component {
         let portfolio = [];
 
         _.map(projects, p => {
-            portfolio.push(
-                <Project
-                    title={p.title}
-                    stack={p.tech}
-                    icon={p.icon}
-                    color={p.color}
-                    description={p.text}
-                    key={p.key}
-                    image={p.image}
-                    link={p.link}
-                    active={this.filterByStack(p.tech)}
-                />
-            );
+            if (this.filterByStack(p.tech)) {
+                portfolio.push(
+                    <Project
+                        title={p.title}
+                        stack={p.tech}
+                        icon={p.icon}
+                        color={p.color}
+                        description={p.text}
+                        key={p.key}
+                        image={p.image}
+                        link={p.link}
+                        active
+                    />
+                );
+            }
         });
 
         return portfolio;
