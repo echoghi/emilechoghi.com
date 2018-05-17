@@ -128,16 +128,6 @@ const Text = styled.div`
 `;
 
 class Project extends React.PureComponent {
-    renderImage() {
-        const { image, color } = this.props;
-
-        return (
-            <Image color={color}>
-                <img src={image} />
-            </Image>
-        );
-    }
-
     sendAnalytics(project) {
         if (NODE_ENV === 'production') {
             ReactGA.event({
@@ -161,14 +151,18 @@ class Project extends React.PureComponent {
     }
 
     render() {
-        const { title, description, stack, link, active } = this.props;
+        const { title, description, stack, link, active, color, image } = this.props;
 
         return (
             <Grow in={active}>
                 <ListItem onClick={() => this.sendAnalytics(title)}>
                     <PortfolioLink href={link} target="_blank">
                         <PortfolioItem>
-                            <ImageWrapper>{this.renderImage()}</ImageWrapper>
+                            <ImageWrapper>
+                                <Image color={color}>
+                                    <img src={image} />
+                                </Image>
+                            </ImageWrapper>
                             <Info>
                                 <Stack>
                                     {stack.map((label, index) => {
