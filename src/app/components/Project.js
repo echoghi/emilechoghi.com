@@ -11,6 +11,12 @@ const ListItem = styled.li`
     vertical-align: top;
     width: 33%;
 
+    @media (min-width: 1200px) {
+        &:nth-child(4) {
+            float: left;
+        }
+    }
+
     @media (max-width: 1199px) and (min-width: 1024px) {
         display: inline-block;
         width: 50%;

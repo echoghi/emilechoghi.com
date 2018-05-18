@@ -8,9 +8,10 @@ import styled from 'styled-components';
 import dashboardImg from '../assets/images/dashboard.png';
 import reviewhubImg from '../assets/images/reviewhub.png';
 import homeImg from '../assets/images/choghi.png';
+import adminImg from '../assets/images/padm.png';
 
 const PortfolioWrapper = styled.div`
-    height: 80vh;
+    padding-bottom: 120px;
     font-family: 'Varela Round';
     margin-top: 80px;
 
@@ -27,6 +28,7 @@ const PortfolioWrapper = styled.div`
 `;
 
 const ProjectWrapper = styled.div`
+    display: table;
     text-align: center;
     padding: 0 85px;
     margin: 0 auto;
@@ -162,6 +164,10 @@ class Portfolio extends React.Component {
                 node: {
                     name: 'Node/Express',
                     active: false
+                },
+                php: {
+                    name: 'PHP',
+                    active: false
                 }
             },
             projects: [
@@ -191,7 +197,6 @@ class Portfolio extends React.Component {
                 {
                     title: 'Health Dashboard',
                     color: '#ed5454',
-                    icon: 'fire',
                     text:
                         'A health app designed to log and analyze your daily nutritional intake against your daily expenditure (via the apple watch) to track trends and caloric surpluses/deficits on a monthly basis.',
                     image: dashboardImg,
@@ -217,8 +222,33 @@ class Portfolio extends React.Component {
                     key: 1
                 },
                 {
+                    title: 'Doctor.com Provider Admin',
+                    color: '#364343',
+                    text: 'An administrative dashboard where healthcare providers can track their listings, reviews, appointments, and overall reputation.',
+                    image: adminImg,
+                    link: 'https://www.doctor.com/solutions/universal-scheduling',
+                    tech: [
+                        {
+                            key: 0,
+                            label: 'React'
+                        },
+                        {
+                            key: 1,
+                            label: 'Webpack'
+                        },
+                        {
+                            key: 2,
+                            label: 'PHP'
+                        },
+                        {
+                            key: 3,
+                            label: 'Styled Components'
+                        }
+                    ],
+                    key: 2
+                },
+                {
                     title: 'emilechoghi.com',
-                    icon: 'brand',
                     color: '#269bda',
                     text: 'This website, which runs on a modest node server and relays messages to my email.',
                     image: homeImg,
@@ -229,19 +259,19 @@ class Portfolio extends React.Component {
                             label: 'React'
                         },
                         {
-                            key: 2,
+                            key: 1,
                             label: 'Webpack'
                         },
                         {
-                            key: 3,
+                            key: 2,
                             label: 'Node/Express'
                         },
                         {
-                            key: 4,
+                            key: 3,
                             label: 'Styled Components'
                         }
                     ],
-                    key: 2
+                    key: 3
                 }
             ]
         };
@@ -284,7 +314,6 @@ class Portfolio extends React.Component {
                     <Project
                         title={p.title}
                         stack={p.tech}
-                        icon={p.icon}
                         color={p.color}
                         description={p.text}
                         key={p.key}
