@@ -8,17 +8,12 @@
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 
+    &.footer__portfolio {
+        position: relative;
+    }
+
     &.fixed {
         position: fixed;
-
-        &.footer__portfolio {
-            @include sm-desktop {
-                position: relative;
-            }
-            @include less-than-tab-land {
-                position: relative;
-            }
-        }
 
         @include less-than-ipad {
             position: relative;

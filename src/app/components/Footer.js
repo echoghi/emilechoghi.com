@@ -8,7 +8,7 @@ class Footer extends React.PureComponent {
 
         if (fixed) {
             if (type === 'portfolio') {
-                return 'footer footer__portfolio fixed';
+                return 'footer footer__portfolio';
             } else {
                 return 'footer fixed';
             }
