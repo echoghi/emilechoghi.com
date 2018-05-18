@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 
 class Footer extends React.PureComponent {
     renderFooterClass() {

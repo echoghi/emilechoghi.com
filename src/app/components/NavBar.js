@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveWidth, saveRoute } from './actions';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
 const mapDispatchToProps = dispatch => ({

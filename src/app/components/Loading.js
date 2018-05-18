@@ -1,5 +1,7 @@
 import React from 'react';
-import Dialog, { DialogContent, DialogTitle } from 'material-ui/Dialog';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
 import Lottie from 'react-lottie';
 import * as loadingAnimation from '../assets/animations/loading.json';
 

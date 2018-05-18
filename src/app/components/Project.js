@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
-import Grow from 'material-ui/transitions/Grow';
+import Grow from '@material-ui/core/Grow';
 
 const ListItem = styled.li`
     display: inline-block;
