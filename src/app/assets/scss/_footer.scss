@@ -1,4 +1,5 @@
 .footer {
+    display: none;
     position: relative;
     background: $white;
     font-family: 'Varela Round', serif;
@@ -7,6 +8,14 @@
     bottom: 0;
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+
+    @include sm-desktop {
+        display: block
+    }
+
+    @include less-than-tab-land {
+        display: block
+    }
 
     &.footer__portfolio {
         position: relative;

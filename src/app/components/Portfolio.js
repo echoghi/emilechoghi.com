@@ -14,6 +14,7 @@ const PortfolioWrapper = styled.div`
     padding-bottom: 120px;
     font-family: 'Varela Round';
     margin-top: 80px;
+    overflow: auto;
 
     @media (max-width: 1199px) and (min-width: 1024px) {
         height: auto;
@@ -28,7 +29,6 @@ const PortfolioWrapper = styled.div`
 `;
 
 const ProjectWrapper = styled.div`
-    display: table;
     text-align: center;
     padding: 0 85px;
     margin: 0 auto;
@@ -381,7 +381,7 @@ class Portfolio extends React.Component {
                     <ProjectWrapper>{this.renderProjects()}</ProjectWrapper>
                 </PortfolioWrapper>
 
-                <Footer fixed type="portfolio" />
+                <Footer type="portfolio" />
             </div>
         );
     }

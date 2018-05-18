@@ -3,6 +3,7 @@ import { Route, withRouter } from 'react-router-dom';
 
 // Components
 import NavBar from './NavBar';
+import SocialLinks from './SocialLinks';
 import Home from './Home';
 import About from './About';
 import Portfolio from './Portfolio';
@@ -13,6 +14,7 @@ class AppIndex extends React.PureComponent {
         return (
             <div>
                 <NavBar history={this.props} />
+                <SocialLinks />
                 <div>
                     <Route exact path="/" component={Home} />
                     <Route path="/about" component={About} name="About" />

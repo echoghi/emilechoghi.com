@@ -22,8 +22,8 @@ const Icon = props => (
 );
 
 const Header = styled.h4`
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: normal;
     padding: 15px;
 `;
 
@@ -42,8 +42,17 @@ const Skills = styled.div`
 
 const AboutWrapper = styled.div`
     margin-top: 80px;
+    padding-bottom: 80px;
     background: #f4f7f8;
     font-family: 'Varela Round';
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        padding: 0;
+    }
+
+    @media (max-width: 1023px) {
+        padding: 0;
+    }
 `;
 
 class About extends React.Component {
