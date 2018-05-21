@@ -405,7 +405,7 @@ class Contact extends React.Component {
                         <FormHeader> Contact Me </FormHeader>
                         <FormRow>
                             <FormItem>
-                                <Label className={this.handleErrorClass('name')}>Your Name</Label>
+                                <Label className={this.handleErrorClass('name')}>Name</Label>
                                 <Input
                                     type="text"
                                     name="name"
@@ -431,7 +431,7 @@ class Contact extends React.Component {
                         </FormRow>
                         <FormRow>
                             <FormItemLarge>
-                                <Label className={this.handleErrorClass('message')}>Your Message</Label>
+                                <Label className={this.handleErrorClass('message')}>Message</Label>
                                 <TextArea
                                     maxLength="6000"
                                     name="message"

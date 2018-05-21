@@ -6,8 +6,8 @@ import styled from 'styled-components';
 const LinkWrapper = styled.div`
     display: block;
     position: fixed;
-    bottom: 13px;
-    right: 13px;
+    bottom: 20px;
+    right: 20px;
     text-align: center;
     padding: 5px 16px;
     width: auto;
