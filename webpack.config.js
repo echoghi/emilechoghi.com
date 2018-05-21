@@ -9,6 +9,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SystemBellPlugin = require('system-bell-webpack-plugin');
 const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PACKAGE = require('./package.json');
 
@@ -86,6 +87,7 @@ module.exports = function(env) {
         );
     } else {
         plugins.push(
+            //new BundleAnalyzerPlugin(),
             new webpack.DefinePlugin({
                 NODE_ENV: JSON.stringify(nodeEnv)
             }),
