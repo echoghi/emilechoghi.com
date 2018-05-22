@@ -27,6 +27,9 @@ import { portfolioState } from './app/components/reducers';
 //components
 import AppIndex from './app/components/AppIndex';
 
+// Service Worker
+import registerServiceWorker from './registerServiceWorker';
+
 const portfolioApp = combineReducers({
     portfolioState
 });
@@ -47,3 +50,5 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('app')
 );
+
+registerServiceWorker();

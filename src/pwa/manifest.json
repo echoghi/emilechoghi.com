@@ -1,0 +1,15 @@
+{
+    "short_name": "Emile Choghi",
+    "name": "Emile Choghi's Portfolio",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff"
+}
