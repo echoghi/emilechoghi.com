@@ -1,13 +1,42 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import Loadable from 'react-loadable';
 
 // Components
 import NavBar from './NavBar';
-import SocialLinks from './SocialLinks';
-import Home from './Home';
-import About from './About';
-import Portfolio from './Portfolio';
-import Contact from './Contact';
+
+function Loading({ error }) {
+    if (error) {
+        return 'Error! Please refresh the page.';
+    } else {
+        return <h3>Loading...</h3>;
+    }
+}
+
+const SocialLinks = Loadable({
+    loader: () => import('./SocialLinks'),
+    loading: Loading
+});
+
+const Home = Loadable({
+    loader: () => import('./Home'),
+    loading: Loading
+});
+
+const About = Loadable({
+    loader: () => import('./About'),
+    loading: Loading
+});
+
+const Portfolio = Loadable({
+    loader: () => import('./Portfolio'),
+    loading: Loading
+});
+
+const Contact = Loadable({
+    loader: () => import('./Contact'),
+    loading: Loading
+});
 
 class AppIndex extends React.PureComponent {
     render() {
