@@ -37,10 +37,23 @@ module.exports = function(env) {
 
     if (isProd) {
         plugins.push(
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                template: 'index.html'
+            }),
             new CopyWebpackPlugin([{ from: 'pwa' }]),
             new ManifestPlugin({
                 fileName: 'asset-manifest.json'
             }),
+            // GZIP is off because it doesn't get cached by the service worker
+            // new CompressionPlugin({
+            //     asset: '[path].gz[query]',
+            //     algorithm: 'gzip',
+            //     test: /\.js$|\.css$|\.html$/,
+            //     threshold: 10240,
+            //     minRatio: 0.9,
+            //     deleteOriginalAssets: true
+            // }),
             new SWPrecacheWebpackPlugin({
                 // By default, a cache-busting query parameter is appended to requests
                 // used to populate the caches, to ensure the responses are fresh.
@@ -84,14 +97,6 @@ module.exports = function(env) {
                 }
             }),
             new webpack.optimize.AggressiveMergingPlugin(),
-            new CompressionPlugin({
-                asset: '[path].gz[query]',
-                algorithm: 'gzip',
-                test: /\.js$|\.css$|\.html$/,
-                threshold: 10240,
-                minRatio: 0.9,
-                deleteOriginalAssets: true
-            }),
             new webpack.BannerPlugin({
                 banner:
                     `Emile Choghi's Portfolio ` +
