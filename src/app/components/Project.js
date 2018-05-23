@@ -163,7 +163,7 @@ class Project extends React.PureComponent {
         return (
             <Grow in={active}>
                 <ListItem onClick={() => this.sendAnalytics(title)}>
-                    <PortfolioLink href={link} target="_blank">
+                    <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
                         <PortfolioItem>
                             <ImageWrapper>
                                 <Image color={color}>
