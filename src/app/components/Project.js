@@ -167,7 +167,7 @@ class Project extends React.PureComponent {
                         <PortfolioItem>
                             <ImageWrapper>
                                 <Image color={color}>
-                                    <img src={image} />
+                                    <img src={image} alt={title} />
                                 </Image>
                             </ImageWrapper>
                             <Info>

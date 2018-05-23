@@ -144,7 +144,7 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <img src={homeImg} />
+                    <img src={homeImg} alt="San Francisco Skyline" />
                 </div>
 
                 {this.renderFooter()}

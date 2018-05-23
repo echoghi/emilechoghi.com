@@ -9035,26 +9035,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typeface-eczar@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-eczar/-/typeface-eczar-0.0.54.tgz#680e0a8a351b185888145f086dde68eec677fbb1"
-
-typeface-kaushan-script@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-kaushan-script/-/typeface-kaushan-script-0.0.54.tgz#1299cd96104e9c06cb08ebf9e50b18cd92055757"
-
-typeface-roboto@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.54.tgz#8f02c9a18d1cfa7f49381a6ff0d21ff061f38ad2"
-
-typeface-rubik@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-rubik/-/typeface-rubik-0.0.54.tgz#301d18b2efe57495beb5ef096632212b23f4faaf"
-
-typeface-varela-round@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-varela-round/-/typeface-varela-round-0.0.54.tgz#0b3b7bb0f90abe6d73cc12b208437da42aa75e4a"
-
 ua-parser-js@0.7.12, ua-parser-js@^0.7.9:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"

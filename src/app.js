@@ -1,5 +1,5 @@
 /**
- * Personal Portfolio 2.5.0
+ * Personal Portfolio 2.7.0
  * Copyright (c) Emile Choghi 2017
  *
  */
@@ -17,11 +17,6 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import 'whatwg-fetch';
 import ReactGA from 'react-ga';
-import 'typeface-roboto';
-import 'typeface-varela-round';
-import 'typeface-kaushan-script';
-import 'typeface-rubik';
-import 'typeface-eczar';
 /*eslint-disable*/
 import _ from 'lodash';
 /*eslint-enable*/

@@ -50,7 +50,7 @@ module.exports = function(env) {
                 algorithm: 'gzip',
                 test: /\.js$|\.css$/,
                 minRatio: 0.9,
-                deleteOriginalAssets: false
+                deleteOriginalAssets: true
             }),
             new SWPrecacheWebpackPlugin({
                 // By default, a cache-busting query parameter is appended to requests
