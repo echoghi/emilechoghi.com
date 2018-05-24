@@ -84,7 +84,7 @@ const PortfolioItem = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-    height: 275px;
+    height: auto;
     width: 100%;
     border-radius: 3px;
     overflow: hidden;
@@ -102,7 +102,6 @@ const Image = styled.div`
     display: inline-block;
     height: 100%;
     width: 100%;
-    background: ${props => props.color};
 `;
 
 const Stack = styled.div`
