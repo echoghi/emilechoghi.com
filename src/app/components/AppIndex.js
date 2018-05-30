@@ -65,8 +65,7 @@ class AppIndex extends React.PureComponent {
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <meta name="Description" content="The personal portfolio website of Emile Choghi." />
                     <meta name="theme-color" content="#ffffff" />
-                    <link rel="manifest" href="/manifest.json" />
-                    <link rel="stylesheet" href="/styles.css" />
+                    <link rel="stylesheet" type="text/css" href="/styles.css" />
                     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
                 </Helmet>
                 <NavBar history={this.props} />
