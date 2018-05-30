@@ -402,8 +402,8 @@ class Contact extends React.Component {
                     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
                     <link
                         rel="stylesheet"
-                        href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-                        integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+                        href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+                        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
                         crossOrigin=""
                     />
                 </Helmet>
