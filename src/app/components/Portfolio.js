@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Project from './Project';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 // Images
 import dashboardImg from '../assets/images/dashboard.png';
 import reviewhubImg from '../assets/images/reviewhub.png';
@@ -372,6 +373,9 @@ class Portfolio extends React.Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <link rel="canonical" href="https://emilechoghi.com/portfolio" />
+                </Helmet>
                 <PortfolioWrapper className="portfolio">
                     <Filter>{this.renderFilterButtons()}</Filter>
                     <div className="clearfix" />

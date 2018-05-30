@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { postForm, resetError } from './actions';
 // Components
+import { Helmet } from 'react-helmet';
 import Footer from './Footer';
 import Loading from './Loading';
 import FormError from './Error';
@@ -396,6 +397,16 @@ class Contact extends React.Component {
 
         return (
             <div>
+                <Helmet>
+                    <link rel="canonical" href="https://emilechoghi.com/contact" />
+                    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+                    <link
+                        rel="stylesheet"
+                        href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+                        integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+                        crossOrigin=""
+                    />
+                </Helmet>
                 <ContactMap />
 
                 <Portfolio>

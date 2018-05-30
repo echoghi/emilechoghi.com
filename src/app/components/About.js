@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // Components
 import Footer from './Footer';
 import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -76,6 +77,9 @@ class About extends React.Component {
     render() {
         return (
             <AboutWrapper>
+                <Helmet>
+                    <link rel="canonical" href="https://emilechoghi.com/about" />
+                </Helmet>
                 <div className="clearfix" />
                 <Skills>
                     <Header>Where I've worked</Header>
