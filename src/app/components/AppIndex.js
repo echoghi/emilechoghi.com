@@ -2,17 +2,29 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import { Helmet } from 'react-helmet';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import styled from 'styled-components';
 
 // Components
 import NavBar from './NavBar';
 
-function Loading({ error }) {
+const LoadingWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    height: 100vh;
+`;
+
+const Loading = ({ error }) => {
     if (error) {
         return 'Error! Please refresh the page.';
     } else {
-        return <h3>Loading...</h3>;
+        return (
+            <LoadingWrapper>
+                <CircularProgress size={75} style={{ color: '#269bda', margin: '0 auto' }} />
+            </LoadingWrapper>
+        );
     }
-}
+};
 
 const SocialLinks = Loadable({
     loader: () => import('./SocialLinks'),
