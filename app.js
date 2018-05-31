@@ -19,8 +19,6 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
 const port = 3000;
 
 // Configure app to use bodyParser to parse json data
@@ -46,14 +44,14 @@ app.use(express.static(__dirname));
 app.use(expressStaticGzip(__dirname + '/build'));
 
 app.get('*.js', function(req, res, next) {
-    req.url = req.url + '.gz';
+    req.url = `${req.url}.gz`;
     res.set('Content-Type', 'text/javascript');
     res.set('Content-Encoding', 'gzip');
     next();
 });
 
 app.get('*.css', function(req, res, next) {
-    req.url = req.url + '.gz';
+    req.url = `${req.url}.gz`;
     res.set('Content-Type', 'text/css');
     res.set('Content-Encoding', 'gzip');
     next();
@@ -93,5 +91,5 @@ app.post('/api/postForm', function(req, res) {
 
 // Start the server
 server.listen(port, function() {
-    console.log(chalk.green('listening on port 3000'));
+    console.log(chalk.green(`listening on port ${port}`));
 });
