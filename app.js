@@ -1,7 +1,7 @@
 /**
  * Portfolio Server
- * v2.0.0
- * 6/3/17
+ * v2.1.0
+ * 5/31/18
  */
 const express = require('express'),
     bodyParser = require('body-parser'),
@@ -9,15 +9,7 @@ const express = require('express'),
     app = express(),
     server = require('http').createServer(app),
     nodemailer = require('nodemailer'),
-    smtpTransport = require('nodemailer-smtp-transport'),
     expressStaticGzip = require('express-static-gzip');
-
-const generator = require('xoauth2').createXOAuth2Generator({
-    user: 'echoghi@gmail.com',
-    clientId: '1099174116489-oh760121thk83ckupaq83pn7gkju6fj2.apps.googleusercontent.com',
-    clientSecret: 'Cs9qMrCMrYdONo5BCXmBtYph',
-    refreshToken: '1/rh4PjNbgiZ8T0dwK0vjsFoArnXDHpG8xb22LQ9CPbbhmDQcxQDzou3OiRsMAxOgv'
-});
 
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -38,7 +30,7 @@ const allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
     // intercept OPTIONS method
-    if ('OPTIONS' == req.method) {
+    if ('OPTIONS' === req.method) {
         res.send(200);
     } else {
         next();
