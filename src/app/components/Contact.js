@@ -7,7 +7,7 @@ import Footer from './Footer';
 import Loading from './Loading';
 import FormError from './Error';
 import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui//core/Snackbar';
+import Snackbar from '@material-ui/core/Snackbar';
 import ContactMap from './ContactMap';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
@@ -242,11 +242,6 @@ class Contact extends React.Component {
         }
     }
 
-    /**
-     * Loading Spinner
-     *
-     * @return LoadingSpinner
-     */
     renderLoading() {
         const { loading, error, success, resetError } = this.props;
 
@@ -358,12 +353,6 @@ class Contact extends React.Component {
         return className;
     };
 
-    /**
-     * Handle Submit Event
-     *
-     * @param event - DOM event info
-     * @state - Send validation status to state and make scan request
-     */
     handleSubmit = event => {
         event.preventDefault();
         let { name, email, message } = this.state;
@@ -387,7 +376,7 @@ class Contact extends React.Component {
     renderSnackbarStyle() {
         if (this.props.width < 760) {
             return {
-                width: '80%'
+                width: '100%'
             };
         }
     }
@@ -464,9 +453,8 @@ class Contact extends React.Component {
                     <Snackbar
                         open={this.props.success || false}
                         style={this.renderSnackbarStyle()}
-                        message="Your message was sent successfully"
+                        message="Your message was sent, thanks for reaching out!"
                         autoHideDuration={4000}
-                        onRequestClose={this.handleRequestClose}
                     />
                 </Portfolio>
 
