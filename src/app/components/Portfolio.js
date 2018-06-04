@@ -52,7 +52,7 @@ const ProjectWrapper = styled.div`
 const Header = styled.h4`
     font-size: 28px;
     font-weight: normal;
-    padding: 15px 105px;
+    padding: 50px 105px 15px 105px;
 
     @media (max-width: 1199px) and (min-width: 1024px) {
         padding: 0 20px;
@@ -72,7 +72,7 @@ const Filter = styled.div`
     box-sizing: border-box;
     width: 100%;
     z-index: 4;
-    position: relative;
+    position: fixed;
     min-height: 65px;
     background: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(219, 219, 219);
