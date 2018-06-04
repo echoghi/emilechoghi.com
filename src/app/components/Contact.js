@@ -299,7 +299,7 @@ class Contact extends React.Component {
     }
 
     /**
-     * Validate/Mask inputs as the user types
+     * Validate inputs as the user types
      *
      * @param event - DOM event info
      * @state - Send validation status to state
@@ -307,12 +307,11 @@ class Contact extends React.Component {
     onChange = event => {
         // create a shallow copy of the state to mutate
         let obj = Object.assign({}, this.state);
+
         // Set value in obj to eventually send to the state
         obj[event.target.name] = event.target.value;
-        // Validate inputs
-        // Mark input as dirty (interacted with)
-        obj['validation'][event.target.name]['dirty'] = true;
 
+        // Validate inputs
         if (event.target.name === 'email') {
             // Validate email address
             if (validateEmail.test(event.target.value)) {
