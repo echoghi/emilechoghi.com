@@ -196,12 +196,12 @@ class Portfolio extends React.Component {
                     key: 0
                 },
                 {
-                    title: 'Health Dashboard',
+                    title: 'Doughboy.io',
                     color: '#ed5454',
                     text:
-                        'A health app designed to log and analyze your daily nutritional intake against your daily expenditure (via the apple watch) to track trends and caloric surpluses/deficits on a monthly basis.',
+                        'A health app that enables you to log your daily meals, exercises, and observations all in one convenient dashboard. Your nutritional intake is measured against your estimated caloric expenditure each day to help you identify trends in your diet, mood, and overall well being.',
                     image: dashboardImg,
-                    link: 'https://github.com/echoghi/calorie-tracker',
+                    link: 'https://doughboy.io',
                     tech: [
                         {
                             key: 0,
