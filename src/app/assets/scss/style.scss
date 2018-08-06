@@ -1,18 +1,14 @@
 // This file is for imports only
 // Variables
-@import "variables";
+@import 'variables';
 // Mixins
-@import "mixins/breakpoints";
-@import "mixins/loading-spinner";
+@import 'mixins/breakpoints';
 // Main
-@import "main";
+@import 'main';
 // Partials
-@import "navbar";
-@import "footer";
-@import "home";
-@import "contact";
-@import "animations";
-@import "loading";
-@import "error";
-@import "fonts";
-@import "buttons";
+@import 'navbar';
+@import 'footer';
+@import 'home';
+@import 'contact';
+@import 'fonts';
+@import 'buttons';

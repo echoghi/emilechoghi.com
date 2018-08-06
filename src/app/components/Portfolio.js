@@ -146,6 +146,10 @@ class Portfolio extends React.Component {
                     name: 'React',
                     active: false
                 },
+                redux: {
+                    name: 'Redux',
+                    active: false
+                },
                 webpack: {
                     name: 'Webpack',
                     active: false
@@ -158,12 +162,8 @@ class Portfolio extends React.Component {
                     name: 'Firebase',
                     active: false
                 },
-                styledcomponents: {
-                    name: 'Styled Components',
-                    active: false
-                },
                 node: {
-                    name: 'Node/Express',
+                    name: 'Node',
                     active: false
                 },
                 php: {
@@ -209,11 +209,11 @@ class Portfolio extends React.Component {
                         },
                         {
                             key: 1,
-                            label: 'Webpack'
+                            label: 'Redux'
                         },
                         {
                             key: 2,
-                            label: 'SCSS'
+                            label: 'Webpack'
                         },
                         {
                             key: 3,
@@ -235,15 +235,11 @@ class Portfolio extends React.Component {
                         },
                         {
                             key: 1,
-                            label: 'Webpack'
+                            label: 'Redux'
                         },
                         {
                             key: 2,
-                            label: 'PHP'
-                        },
-                        {
-                            key: 3,
-                            label: 'Styled Components'
+                            label: 'Webpack'
                         }
                     ],
                     key: 2
@@ -265,11 +261,7 @@ class Portfolio extends React.Component {
                         },
                         {
                             key: 2,
-                            label: 'Node/Express'
-                        },
-                        {
-                            key: 3,
-                            label: 'Styled Components'
+                            label: 'Node'
                         }
                     ],
                     key: 3

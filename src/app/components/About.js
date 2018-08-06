@@ -4,56 +4,135 @@ import styled from 'styled-components';
 import Footer from './Footer';
 import ReactGA from 'react-ga';
 import { Helmet } from 'react-helmet';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
 
-const icons = {
-    doctor:
-        'M 598 256 v -86 h -172 v 86 h 172 Z M 854 256 c 48 0 84 38 84 86 v 468 c 0 48 -36 86 -84 86 h -684 c -48 0 -84 -38 -84 -86 v -468 c 0 -48 36 -86 84 -86 h 172 v -86 c 0 -48 36 -84 84 -84 h 172 c 48 0 84 36 84 84 v 86 h 172 Z',
-    freecodecamp:
-        'M 622 708 l 198 -196 l -198 -196 l 60 -60 l 256 256 l -256 256 Z M 402 708 l -60 60 l -256 -256 l 256 -256 l 60 60 l -198 196 Z',
-    grad:
-        'M 512 128 l 470 256 v 342 h -86 v -296 l -384 210 l -470 -256 Z M 214 562 l 298 164 l 298 -164 v 172 l -298 162 l -298 -162 v -172 Z'
-};
-
-const Icon = props => (
-    <svg width="22" height="22" viewBox="0 0 1024 1024">
-        <path d={icons[props.icon]} />
-    </svg>
-);
-
-const Header = styled.h4`
-    font-size: 30px;
-    font-weight: normal;
-    padding: 15px;
+const AboutWrapper = styled.div`
+    font-family: 'Varela Round';
 `;
 
-const Skills = styled.div`
-    width: 70%;
+const Tagline = styled.div`
+    padding: 100px;
+    font-weight: 300;
+    max-width: 700px;
+    font-size: 2.5rem;
+    line-height: 1.5;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        padding: 150px 100px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 125px 15px 45px;
+        font-size: 2rem;
+        border-bottom: 1px solid rgb(219, 219, 219);
+    }
+`;
+
+const Content = styled.div`
+    padding: 85px;
     margin: 0 auto;
 
     @media (max-width: 1199px) and (min-width: 1024px) {
-        width: 80%;
+        display: block;
+        padding: 0;
     }
 
     @media (max-width: 1023px) {
-        width: 85%;
+        display: block;
+        padding: 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: 0;
     }
 `;
 
-const AboutWrapper = styled.div`
-    margin-top: 80px;
-    padding-bottom: 80px;
-    background: #f4f7f8;
-    font-family: 'Varela Round';
+const Section = styled.section`
+    padding: 80px 170px;
+    display: flex;
+    justify-content: flex-start;
 
     @media (max-width: 1199px) and (min-width: 1024px) {
-        padding: 0;
+        padding: 0 130px 70px;
+        justify-content: center;
     }
 
     @media (max-width: 1023px) {
-        padding: 0;
+        justify-content: center;
     }
+
+    @media (max-width: 768px) {
+        padding: 50px 20px ${props => (props.skills ? '100px' : 0)};
+        display: block;
+    }
+`;
+
+const SectionTitle = styled.div`
+    text-align: right;
+    margin-right: 70px;
+    font-size: 16px;
+    color: #269bda;
+    width: 200px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    @media (max-width: 768px) {
+        text-align: left;
+    }
+`;
+
+const SectionBody = styled.div`
+    font-size: 1rem;
+    line-height: 2;
+    width: 100%;
+    max-width: 650px;
+
+    a {
+        font-weight: 700;
+
+        &:hover {
+            color: #269bda;
+        }
+    }
+
+    @media (max-width: 768px) {
+        width: unset;
+        padding: 15px 20px;
+    }
+`;
+
+const Skills = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+`;
+
+const Skill = styled.div`
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin: 3px 0;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        display: inline-block;
+        vertical-align: text-top;
+        width: 43%;
+        margin-top: ${props => (props.padding ? '10px' : 0)};
+    }
+`;
+
+const SkillTitle = styled.div`
+    font-weight: 700;
+    color: #36363c;
+    text-transform: uppercase;
 `;
 
 class About extends React.Component {
@@ -81,74 +160,67 @@ class About extends React.Component {
                     <link rel="canonical" href="https://emilechoghi.com/about" />
                 </Helmet>
                 <div className="clearfix" />
-                <Skills>
-                    <Header>Where I've worked</Header>
-                    <div className="skills__container">
-                        <VerticalTimeline>
-                            <VerticalTimelineElement
-                                className="vertical-timeline-element--work"
-                                date="2016 - present"
-                                iconStyle={{
-                                    background: '#00BDBD',
-                                    color: '#fff',
-                                    fill: '#fff'
-                                }}
-                                icon={<Icon icon="doctor" />}
-                            >
-                                <h3 className="vertical-timeline-element-title">Frontend Engineer</h3>
-                                <h4 className="vertical-timeline-element-subtitle">Doctor.com</h4>
-                                <p>
-                                    Frontend web and app development with React.js, Webpack, Angular.js 1.x, jQuery, and
-                                    Sass.
-                                </p>
-                            </VerticalTimelineElement>
-                            <VerticalTimelineElement
-                                className="vertical-timeline-element--work"
-                                date="2015 - 2016"
-                                iconStyle={{
-                                    background: '#269bda',
-                                    color: '#fff',
-                                    fill: '#fff'
-                                }}
-                                icon={<Icon icon="doctor" />}
-                            >
-                                <h3 className="vertical-timeline-element-title">Freelance Web Developer</h3>
-                                <h4 className="vertical-timeline-element-subtitle">Palo Alto, CA</h4>
-                                <p>Fullstack web development with Angular.js 1.x, Node.js, jQuery, and Sass.</p>
-                            </VerticalTimelineElement>
-                            <VerticalTimelineElement
-                                className="vertical-timeline-element--work"
-                                date="2015 - 2016"
-                                iconStyle={{
-                                    background: 'darkgreen',
-                                    color: '#fff',
-                                    fill: '#fff'
-                                }}
-                                icon={<Icon icon="freecodecamp" />}
-                            >
-                                <h3 className="vertical-timeline-element-title">Frontend Development Certification</h3>
-                                <h4 className="vertical-timeline-element-subtitle">FreeCodeCamp</h4>
-                                <p>User Experience, Visual Design, Javascript, CSS, HTML</p>
-                            </VerticalTimelineElement>
-                            <VerticalTimelineElement
-                                className="vertical-timeline-element--work"
-                                date="2012 - 2014"
-                                iconStyle={{
-                                    background: '#FFC500',
-                                    color: '#fff',
-                                    fill: '#fff'
-                                }}
-                                icon={<Icon icon="grad" />}
-                            >
-                                <h3 className="vertical-timeline-element-title">B.A. Politics</h3>
-                                <h4 className="vertical-timeline-element-subtitle">
-                                    University of California, Santa Cruz
-                                </h4>
-                                <p>Sub-Saharan African and Middle Eastern Affairs</p>
-                            </VerticalTimelineElement>
-                        </VerticalTimeline>
-                    </div>
-                </Skills>
+                <Content>
+                    <Tagline>
+                        I'm <b>Emile Choghi</b>, a design-minded front-end software engineer focused on building
+                        beautiful interfaces & experiences
+                    </Tagline>
+                    <Section>
+                        <SectionTitle>Background</SectionTitle>
+                        <SectionBody>
+                            I'm currently a front end engineer at <a href="https://doctor.com">Doctor.com</a> building
+                            web apps with some awesome people. As an engineer, I enjoy bridging the gap between
+                            engineering and design — combining my technical knowledge with my keen eye for design to
+                            create a beautiful product. My goal is to always build applications that are scalable and
+                            efficient under the hood while providing engaging, pixel-perfect user experiences. When I'm
+                            not in front of a computer screen, I'm probably playing basketball, flying my drones, or
+                            hanging out at the beach.
+                        </SectionBody>
+                    </Section>
+                    <Section skills>
+                        <SectionTitle>Skills</SectionTitle>
+                        <SectionBody>
+                            <Skills>
+                                <Skill>
+                                    <SkillTitle>Languages</SkillTitle>
+                                    <ul>
+                                        <li>Javascript (ES7)</li>
+                                        <li>HTML5</li>
+                                        <li>CSS3</li>
+                                    </ul>
+                                </Skill>
+                                <Skill>
+                                    <SkillTitle>Libraries</SkillTitle>
+                                    <ul>
+                                        <li>React</li>
+                                        <li>Angular 1.x</li>
+                                        <li>jQuery</li>
+                                        <li>Bootstrap</li>
+                                        <li>Node & Express</li>
+                                    </ul>
+                                </Skill>
+                                <Skill padding>
+                                    <SkillTitle>Tools</SkillTitle>
+                                    <ul>
+                                        <li>Git & Github</li>
+                                        <li>Webpack</li>
+                                        <li>Gulp</li>
+                                        <li>VS Code</li>
+                                        <li>PHP Storm</li>
+                                    </ul>
+                                </Skill>
+                                <Skill padding>
+                                    <SkillTitle>Design</SkillTitle>
+                                    <ul>
+                                        <li>Adobe Photoshop</li>
+                                        <li>Zeplin</li>
+                                        <li>Invision</li>
+                                    </ul>
+                                </Skill>
+                            </Skills>
+                        </SectionBody>
+                    </Section>
+                </Content>
 
                 <Footer />
             </AboutWrapper>

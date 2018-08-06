@@ -130,13 +130,13 @@ class Home extends React.Component {
                             <div className="jumbotron__content">
                                 {/* First Name */}
                                 <section>
-                                    {_.map(firstName.split(''), (letter, index) => {
+                                    {firstName.split('').map((letter, index) => {
                                         return this.renderLottie(letter, index);
                                     })}
                                 </section>
                                 {/* Last Name */}
                                 <section>
-                                    {_.map(lastName.split(''), (letter, index) => {
+                                    {lastName.split('').map((letter, index) => {
                                         return this.renderLottie(letter, index);
                                     })}
                                 </section>

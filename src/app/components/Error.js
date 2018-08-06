@@ -19,16 +19,18 @@ class FormError extends React.PureComponent {
     }
 
     render() {
+        const { close } = this.props;
+
         return (
-            <Dialog open onClose={this.props.close}>
-                <DialogTitle className="error__title">
+            <Dialog open onClose={close}>
+                <DialogTitle>
                     Oops, your message wasn't sent <i className="icon-tongue" />
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>An error occurred, please try again</DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={this.props.close} autoFocus>
+                    <Button onClick={close} autoFocus>
                         Ok
                     </Button>
                 </DialogActions>
