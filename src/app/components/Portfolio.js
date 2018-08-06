@@ -31,40 +31,21 @@ const PortfolioWrapper = styled.div`
 
 const ProjectWrapper = styled.div`
     text-align: center;
-    padding: 0 85px;
+    padding: 130px 85px 0;
     margin: 0 auto;
 
     @media (max-width: 1199px) and (min-width: 1024px) {
         display: block;
-        padding: 0;
+        padding: 50px 0;
     }
 
     @media (max-width: 1023px) {
         display: block;
-        padding: 0;
+        padding: 50px 0;
     }
 
     @media (max-width: 768px) {
-        padding: 0;
-    }
-`;
-
-const Header = styled.h4`
-    font-size: 28px;
-    font-weight: normal;
-    padding: 50px 105px 15px 105px;
-
-    @media (max-width: 1199px) and (min-width: 1024px) {
-        padding: 0 20px;
-    }
-
-    @media (max-width: 1023px) {
-        padding: 0 20px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 25px;
-        margin: 25px 0;
+        padding: 50px 0;
     }
 `;
 
@@ -371,8 +352,6 @@ class Portfolio extends React.Component {
                 <PortfolioWrapper className="portfolio">
                     <Filter>{this.renderFilterButtons()}</Filter>
                     <div className="clearfix" />
-
-                    <Header>Recent Projects</Header>
 
                     <ProjectWrapper>{this.renderProjects()}</ProjectWrapper>
                 </PortfolioWrapper>
