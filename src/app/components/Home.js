@@ -13,8 +13,6 @@ import * as cData from '../assets/animations/c.json';
 import * as hData from '../assets/animations/h.json';
 import * as oData from '../assets/animations/o.json';
 import * as gData from '../assets/animations/g.json';
-// Images
-import homeImg from '../assets/images/home.png';
 
 const mapStateToProps = state => ({
     width: state.portfolioState.width
@@ -144,7 +142,10 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <img src={homeImg} alt="San Francisco Skyline" />
+                    <img
+                        src="https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_800/v1533608485/portfolio/home.png"
+                        alt="San Francisco Skyline"
+                    />
                 </div>
 
                 {this.renderFooter()}
