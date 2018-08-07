@@ -2,53 +2,42 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import { Helmet } from 'react-helmet';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import styled from 'styled-components';
+import Loading from './Loading';
 
 // Components
 import NavBar from './NavBar';
 
-const LoadingWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    height: 100vh;
-`;
-
-const Loading = ({ error }) => {
+const Loader = ({ error }) => {
     if (error) {
         return 'Error! Please refresh the page.';
     } else {
-        return (
-            <LoadingWrapper>
-                <CircularProgress size={75} style={{ color: '#269bda', margin: '0 auto' }} />
-            </LoadingWrapper>
-        );
+        return <Loading />;
     }
 };
 
 const SocialLinks = Loadable({
     loader: () => import('./SocialLinks'),
-    loading: Loading
+    loading: Loader
 });
 
 const Home = Loadable({
     loader: () => import('./Home'),
-    loading: Loading
+    loading: Loader
 });
 
 const About = Loadable({
     loader: () => import('./About'),
-    loading: Loading
+    loading: Loader
 });
 
 const Portfolio = Loadable({
     loader: () => import('./Portfolio'),
-    loading: Loading
+    loading: Loader
 });
 
 const Contact = Loadable({
     loader: () => import('./Contact'),
-    loading: Loading
+    loading: Loader
 });
 
 class AppIndex extends React.PureComponent {

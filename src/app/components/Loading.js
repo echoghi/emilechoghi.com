@@ -1,29 +1,25 @@
 import React from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import Lottie from 'react-lottie';
-import * as loadingAnimation from '../assets/animations/loading.json';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import styled from 'styled-components';
+
+const LoadingWrapper = styled.div`
+    position: fixed;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+`;
 
 class Loading extends React.Component {
     render() {
-        const options = {
-            loop: true,
-            autoplay: true,
-            animationData: loadingAnimation,
-            rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice',
-                progressiveLoad: true
-            }
-        };
-
         return (
-            <Dialog open>
-                <DialogTitle>Sending...</DialogTitle>
-                <DialogContent>
-                    <Lottie options={options} height={100} width={100} />
-                </DialogContent>
-            </Dialog>
+            <LoadingWrapper>
+                <CircularProgress size={75} style={{ color: '#269bda', margin: '0 auto' }} />
+            </LoadingWrapper>
         );
     }
 }
