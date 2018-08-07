@@ -6,16 +6,8 @@ export const RESET_ERROR = 'RESET_ERROR';
 export const RESET_FORM = 'RESET_FORM';
 export const FORM_SUCCESS = 'FORM_SUCCESS';
 export const FORM_ERROR = 'FORM_ERROR';
-export const ACTIVATE_PAGE = 'ACTIVATE_PAGE';
 export const SAVE_WIDTH = 'SAVE_WIDTH';
 export const SAVE_ROUTE = 'SAVE_ROUTE';
-
-export function receiveData(data) {
-    return {
-        type: RECEIVE_DATA,
-        data
-    };
-}
 
 export function saveWidth(data) {
     return {

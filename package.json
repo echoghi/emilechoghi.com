@@ -35,7 +35,6 @@
         "react-redux": "5.0.7",
         "react-router": "^4.2.0",
         "react-router-dom": "^4.2.2",
-        "react-vertical-timeline-component": "^2.0.3",
         "redux": "3.6.0",
         "redux-thunk": "2.2.0",
         "styled-components": "^3.2.6",

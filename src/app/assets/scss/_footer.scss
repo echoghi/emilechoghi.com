@@ -10,11 +10,11 @@
     overflow: hidden;
 
     @include sm-desktop {
-        display: block
+        display: block;
     }
 
     @include less-than-tab-land {
-        display: block
+        display: block;
     }
 
     &.footer__portfolio {

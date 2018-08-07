@@ -6,7 +6,6 @@ import { Helmet } from 'react-helmet';
 import Footer from './Footer';
 import Loading from './Loading';
 import FormError from './Error';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import ContactMap from './ContactMap';
 import ReactGA from 'react-ga';
@@ -442,9 +441,9 @@ class Contact extends React.Component {
                             </FormItemLarge>
                         </FormRow>
 
-                        <Button onClick={this.handleSubmit} className="form-button">
+                        <button onClick={this.handleSubmit} className="form-button">
                             Send
-                        </Button>
+                        </button>
                     </Form>
 
                     {this.renderLoading()}
@@ -463,4 +462,7 @@ class Contact extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Contact);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Contact);

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { saveWidth, saveRoute } from './actions';
-import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
 const mapDispatchToProps = dispatch => ({
@@ -109,47 +108,35 @@ class NavBar extends React.Component {
 
         if (type === 'home') {
             return (
-                <Button
-                    component={Link}
-                    className={this.handleNavClass('')}
-                    onClick={() => this.onNavigation(pathname)}
-                    to="/"
-                >
+                <Link className={this.handleNavClass('')} onClick={() => this.onNavigation(pathname)} to="/">
                     Home <i className="icon-home" />
-                </Button>
+                </Link>
             );
         } else if (type === 'about') {
             return (
-                <Button
-                    component={Link}
-                    className={this.handleNavClass('about')}
-                    onClick={() => this.onNavigation(pathname)}
-                    to="/about"
-                >
+                <Link className={this.handleNavClass('about')} onClick={() => this.onNavigation(pathname)} to="/about">
                     About <i className="icon-user" />
-                </Button>
+                </Link>
             );
         } else if (type === 'portfolio') {
             return (
-                <Button
-                    component={Link}
+                <Link
                     className={this.handleNavClass('portfolio')}
                     onClick={() => this.onNavigation(pathname)}
                     to="/portfolio"
                 >
                     Portfolio <i className="icon-briefcase" />
-                </Button>
+                </Link>
             );
         } else if (type === 'contact') {
             return (
-                <Button
-                    component={Link}
+                <Link
                     className={this.handleNavClass('contact')}
                     onClick={() => this.onNavigation(pathname)}
                     to="/contact"
                 >
                     Contact <i className="icon-message-square" />
-                </Button>
+                </Link>
             );
         }
     }
@@ -178,4 +165,7 @@ class NavBar extends React.Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(NavBar);
+export default connect(
+    null,
+    mapDispatchToProps
+)(NavBar);
