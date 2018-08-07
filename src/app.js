@@ -17,9 +17,6 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import 'whatwg-fetch';
 import ReactGA from 'react-ga';
-/*eslint-disable*/
-import _ from 'lodash';
-/*eslint-enable*/
 
 //Reducers
 import { portfolioState } from './app/components/reducers';

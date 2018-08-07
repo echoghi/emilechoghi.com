@@ -115,7 +115,7 @@ module.exports = function(env) {
         );
     } else {
         plugins.push(
-            //new BundleAnalyzerPlugin(),
+            new BundleAnalyzerPlugin(),
             new webpack.DefinePlugin({
                 NODE_ENV: JSON.stringify(nodeEnv)
             }),

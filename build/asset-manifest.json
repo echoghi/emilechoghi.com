@@ -7,8 +7,6 @@
   "2.bundle.js.map": "2.bundle.js.map",
   "3.bundle.js": "3.bundle.js",
   "3.bundle.js.map": "3.bundle.js.map",
-  "4.bundle.js": "4.bundle.js",
-  "4.bundle.js.map": "4.bundle.js.map",
   "js.js": "js.bundle.js",
   "js.css": "styles.css",
   "js.js.map": "js.bundle.js.map",

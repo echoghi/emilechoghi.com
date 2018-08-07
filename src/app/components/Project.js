@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
+import uniq from 'lodash.uniq';
 
 const ListItem = styled.li`
     display: inline-block;
@@ -146,11 +147,11 @@ class Project extends React.PureComponent {
     renderProjectLabels(chips) {
         let labels = [];
 
-        _.map(chips, chip => {
+        chips.map(chip => {
             labels.push(chip.label);
         });
 
-        labels = _.uniq(labels, 'label');
+        labels = uniq(labels, 'label');
 
         return labels;
     }

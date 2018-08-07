@@ -49,7 +49,7 @@ const Content = styled.div`
 const Section = styled.section`
     padding: 80px 170px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 
     @media (max-width: 1199px) and (min-width: 1024px) {
         padding: 0 130px 70px;
