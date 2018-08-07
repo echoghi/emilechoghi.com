@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
-import Grow from '@material-ui/core/Grow';
 
 const ListItem = styled.li`
     display: inline-block;
@@ -157,35 +156,33 @@ class Project extends React.PureComponent {
     }
 
     render() {
-        const { title, description, stack, link, active, color, image } = this.props;
+        const { title, description, stack, link, color, image } = this.props;
 
         return (
-            <Grow in={active}>
-                <ListItem onClick={() => this.sendAnalytics(title)}>
-                    <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
-                        <PortfolioItem>
-                            <ImageWrapper>
-                                <Image color={color}>
-                                    <img src={image} alt={title} />
-                                </Image>
-                            </ImageWrapper>
-                            <Info>
-                                <Stack>
-                                    {stack.map((label, index) => {
-                                        return (
-                                            <Label key={label.key}>
-                                                {label.label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
-                                            </Label>
-                                        );
-                                    })}
-                                </Stack>
-                                <Title>{title}</Title>
-                                <Text>{description}</Text>
-                            </Info>
-                        </PortfolioItem>
-                    </PortfolioLink>
-                </ListItem>
-            </Grow>
+            <ListItem onClick={() => this.sendAnalytics(title)}>
+                <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
+                    <PortfolioItem>
+                        <ImageWrapper>
+                            <Image color={color}>
+                                <img src={image} alt={title} />
+                            </Image>
+                        </ImageWrapper>
+                        <Info>
+                            <Stack>
+                                {stack.map((label, index) => {
+                                    return (
+                                        <Label key={label.key}>
+                                            {label.label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                        </Label>
+                                    );
+                                })}
+                            </Stack>
+                            <Title>{title}</Title>
+                            <Text>{description}</Text>
+                        </Info>
+                    </PortfolioItem>
+                </PortfolioLink>
+            </ListItem>
         );
     }
 }
