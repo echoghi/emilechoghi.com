@@ -1,5 +1,5 @@
 /**
- * Personal Portfolio 2.7.0
+ * Personal Portfolio 2.8.0
  * Copyright (c) Emile Choghi 2017
  *
  */
