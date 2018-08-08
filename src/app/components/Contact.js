@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { postForm, resetError } from './actions';
 // Components
 import { Helmet } from 'react-helmet';
 import Footer from './Footer';
@@ -10,18 +8,6 @@ import Snackbar from '@material-ui/core/Snackbar';
 import ContactMap from './ContactMap';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
-
-const mapStateToProps = state => ({
-    success: state.portfolioState.success,
-    loading: state.portfolioState.loading,
-    error: state.portfolioState.error,
-    width: state.portfolioState.width
-});
-
-const mapDispatchToProps = dispatch => ({
-    postForm: data => dispatch(postForm(data)),
-    resetError: () => dispatch(resetError())
-});
 
 const Portfolio = styled.div`
     height: 80vh;
@@ -220,8 +206,9 @@ class Contact extends React.Component {
         super(props);
 
         this.state = {
-            loading: true,
-            error: null,
+            loading: false,
+            error: false,
+            success: false,
             name: '',
             email: '',
             message: '',
@@ -242,15 +229,15 @@ class Contact extends React.Component {
     }
 
     renderLoading() {
-        const { loading, error, success, resetError } = this.props;
+        const { loading, error, success, name } = this.state;
 
         if (loading) {
             return <Loading />;
         } else if (error) {
-            return <Error close={resetError} />;
+            return <Error close={() => this.setState({ error: false })} />;
         }
 
-        if (success && this.state.name) {
+        if (success && name) {
             this.resetForm();
         }
     }
@@ -355,9 +342,43 @@ class Contact extends React.Component {
         event.preventDefault();
 
         if (this.validateInputs()) {
+            this.setState({ loading: true });
+
+            const callback = state => {
+                this.setState(state);
+            };
+
             const { name, email, message } = this.state;
 
-            this.props.postForm({ name, email, message });
+            return fetch('/api/postForm', {
+                method: 'POST',
+                body: JSON.stringify({ name, email, message }),
+                headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            })
+                .then(response => {
+                    if (response.status === 200) {
+                        this.setState({ success: true, loading: false });
+
+                        if (NODE_ENV === 'production') {
+                            ReactGA.event({
+                                category: 'Form Success',
+                                action: 'Message Submitted',
+                                label: 'Success Notification'
+                            });
+                        }
+
+                        // Reset form to clear success notification
+                        setTimeout(() => {
+                            callback({ error: false, success: false });
+                        }, 3000);
+                    } else {
+                        callback({ error: true, loading: false });
+                    }
+                })
+                .catch(error => {
+                    callback({ error: true, loading: false });
+                    throw error;
+                });
         } else {
             // create a shallow copy of the state to mutate
             let obj = Object.assign({}, this.state);
@@ -372,22 +393,13 @@ class Contact extends React.Component {
         }
     };
 
-    renderSnackbarStyle() {
-        if (this.props.width < 760) {
-            return {
-                width: '100%'
-            };
-        }
-    }
-
     render() {
-        const { name, email, message } = this.state;
-
+        const { name, email, message, success } = this.state;
+        console.log(success);
         return (
             <div>
                 <Helmet>
                     <link rel="canonical" href="https://emilechoghi.com/contact" />
-                    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
                     <link
                         rel="stylesheet"
                         href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
@@ -450,8 +462,7 @@ class Contact extends React.Component {
                     {this.renderLoading()}
 
                     <Snackbar
-                        open={this.props.success || false}
-                        style={this.renderSnackbarStyle()}
+                        open={success || false}
                         message="Your message was sent, thanks for reaching out!"
                         autoHideDuration={4000}
                     />
@@ -463,7 +474,4 @@ class Contact extends React.Component {
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Contact);
+export default Contact;

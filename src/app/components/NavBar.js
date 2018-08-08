@@ -1,13 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { saveWidth, saveRoute } from './actions';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
-const mapDispatchToProps = dispatch => ({
-    saveBreakPoint: width => dispatch(saveWidth(width)),
-    saveRoute: route => dispatch(saveRoute(route))
-});
 
 const Nav = styled.div`
     font-family: 'Varela Round', serif;
@@ -31,9 +24,7 @@ const Nav = styled.div`
 
 class NavBar extends React.Component {
     state = {
-        width: 0,
-        menuOpen: false,
-        mobile: false
+        menuOpen: false
     };
 
     handleMenu = () => {
@@ -52,102 +43,29 @@ class NavBar extends React.Component {
         return className;
     }
 
-    handleNavClass(name) {
-        const { pathname } = this.props.history.location;
-        let className;
-
-        if (pathname === `/${name}`) {
-            className = 'active';
-        } else {
-            className = '';
-        }
-
-        return className;
-    }
-
     handleMenuClass() {
         let className;
 
-        if (this.state.width < 760) {
-            if (this.state.menuOpen) {
-                className = 'navbar__menu active';
-            } else {
-                className = 'navbar__menu collapsed';
-            }
+        if (this.state.menuOpen) {
+            className = 'navbar__menu active lg';
         } else {
-            className = 'navbar__menu lg';
+            className = 'navbar__menu collapsed lg';
         }
 
         return className;
     }
 
-    componentDidMount() {
-        this.updateWindowDimensions();
-        window.addEventListener('resize', this.updateWindowDimensions);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateWindowDimensions);
-    }
-
-    updateWindowDimensions = () => {
-        this.props.saveBreakPoint(window.innerWidth);
-        this.setState({ width: window.innerWidth });
-    };
-
-    onNavigation = pathname => {
-        const { saveRoute } = this.props;
-
-        saveRoute(pathname);
-
+    onNavigation = () => {
         this.setState({ menuOpen: false });
     };
-
-    renderMenuItem(type) {
-        const { pathname } = this.props.history.location;
-
-        if (type === 'home') {
-            return (
-                <Link className={this.handleNavClass('')} onClick={() => this.onNavigation(pathname)} to="/">
-                    Home <i className="icon-home" />
-                </Link>
-            );
-        } else if (type === 'about') {
-            return (
-                <Link className={this.handleNavClass('about')} onClick={() => this.onNavigation(pathname)} to="/about">
-                    About <i className="icon-user" />
-                </Link>
-            );
-        } else if (type === 'portfolio') {
-            return (
-                <Link
-                    className={this.handleNavClass('portfolio')}
-                    onClick={() => this.onNavigation(pathname)}
-                    to="/portfolio"
-                >
-                    Portfolio <i className="icon-briefcase" />
-                </Link>
-            );
-        } else if (type === 'contact') {
-            return (
-                <Link
-                    className={this.handleNavClass('contact')}
-                    onClick={() => this.onNavigation(pathname)}
-                    to="/contact"
-                >
-                    Contact <i className="icon-message-square" />
-                </Link>
-            );
-        }
-    }
 
     render() {
         return (
             <Nav className="navbar">
                 <div className="navbar__brand">
-                    <Link to="/">
+                    <NavLink to="/">
                         <i className="icon-brand" />
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className={this.handleHamburgerClass()} onClick={this.handleMenu}>
                     <div />
@@ -155,17 +73,22 @@ class NavBar extends React.Component {
                     <div />
                 </div>
                 <ul className={this.handleMenuClass()}>
-                    {this.renderMenuItem('home')}
-                    {this.renderMenuItem('about')}
-                    {this.renderMenuItem('portfolio')}
-                    {this.renderMenuItem('contact')}
+                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/" exact>
+                        Home <i className="icon-home" />
+                    </NavLink>
+                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/about">
+                        About <i className="icon-user" />
+                    </NavLink>
+                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/portfolio">
+                        Portfolio <i className="icon-briefcase" />
+                    </NavLink>
+                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/contact">
+                        Contact <i className="icon-message-square" />
+                    </NavLink>
                 </ul>
             </Nav>
         );
     }
 }
 
-export default connect(
-    null,
-    mapDispatchToProps
-)(NavBar);
+export default NavBar;

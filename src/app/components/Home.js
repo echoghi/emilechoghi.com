@@ -1,13 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 // Components
-import Footer from './Footer';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
-
-const mapStateToProps = state => ({
-    width: state.portfolioState.width
-});
 
 const Header = styled.h1`
     font-size: 100px;
@@ -34,12 +28,6 @@ class Home extends React.Component {
         }
     }
 
-    renderFooter() {
-        if (this.props.width > 800) {
-            return <Footer fixed />;
-        }
-    }
-
     render() {
         return (
             <div>
@@ -57,11 +45,9 @@ class Home extends React.Component {
                         alt="San Francisco Skyline"
                     />
                 </div>
-
-                {this.renderFooter()}
             </div>
         );
     }
 }
 
-export default connect(mapStateToProps)(Home);
+export default Home;
