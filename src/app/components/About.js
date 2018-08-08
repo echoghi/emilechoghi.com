@@ -21,7 +21,7 @@ const Tagline = styled.div`
     }
 
     @media (max-width: 768px) {
-        padding: 125px 15px 45px;
+        padding: 125px 20px 45px;
         font-size: 2rem;
         border-bottom: 1px solid rgb(219, 219, 219);
     }

@@ -242,6 +242,12 @@ class Contact extends React.Component {
         }
     }
 
+    renderSnackbar() {
+        if (this.state.success) {
+            return <Snackbar open message="Your message was sent, thanks for reaching out!" autoHideDuration={4000} />;
+        }
+    }
+
     /**
      * Reset Form Data
      *
@@ -394,8 +400,8 @@ class Contact extends React.Component {
     };
 
     render() {
-        const { name, email, message, success } = this.state;
-        console.log(success);
+        const { name, email, message } = this.state;
+
         return (
             <div>
                 <Helmet>
@@ -460,12 +466,7 @@ class Contact extends React.Component {
                     </Form>
 
                     {this.renderLoading()}
-
-                    <Snackbar
-                        open={success || false}
-                        message="Your message was sent, thanks for reaching out!"
-                        autoHideDuration={4000}
-                    />
+                    {this.renderSnackbar()}
                 </Portfolio>
 
                 <Footer fixed />
