@@ -124,7 +124,7 @@ const Skill = styled.div`
     @media (max-width: 768px) {
         display: inline-block;
         vertical-align: text-top;
-        width: 43%;
+        width: 50%;
         margin-top: ${props => (props.padding ? '10px' : 0)};
     }
 `;

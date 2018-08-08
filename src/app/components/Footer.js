@@ -1,6 +1,37 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import IconButton from '@material-ui/core/IconButton';
+import styled from 'styled-components';
+
+const IconListItem = styled.li`
+    display: inline-block;
+    list-style: none;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 48px;
+        color: rgba(0, 0, 0, 0.54);
+        height: 48px;
+        padding: 0;
+        font-size: 1.5rem;
+        text-align: center;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+            box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        text-decoration: none;
+        border-radius: 50%;
+        background-color: transparent;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        outline: none;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.08);
+        }
+    }
+`;
 
 class Footer extends React.PureComponent {
     renderFooterClass() {
@@ -33,21 +64,21 @@ class Footer extends React.PureComponent {
                 <div className="footer__wrapper">
                     <div className="footer__text">© 2018 Emile Choghi</div>
                     <div className="social-links">
-                        <li>
-                            <IconButton
+                        <IconListItem>
+                            <a
+                                role="button"
                                 aria-label="github"
-                                component="a"
                                 href="https://github.com/echoghi"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => this.sendAnalytics('Github')}
                             >
                                 <i className="icon-github" />
-                            </IconButton>
-                        </li>
-                        <li>
-                            <IconButton
-                                component="a"
+                            </a>
+                        </IconListItem>
+                        <IconListItem>
+                            <a
+                                role="button"
                                 aria-label="linked in"
                                 href="https://www.linkedin.com/in/emile-choghi-a6b60ba1/"
                                 target="_blank"
@@ -55,11 +86,11 @@ class Footer extends React.PureComponent {
                                 onClick={() => this.sendAnalytics('LinkedIn')}
                             >
                                 <i className="icon-linkedin" />
-                            </IconButton>
-                        </li>
-                        <li>
-                            <IconButton
-                                component="a"
+                            </a>
+                        </IconListItem>
+                        <IconListItem>
+                            <a
+                                role="button"
                                 aria-label="angel list"
                                 href="https://angel.co/emile-choghi"
                                 target="_blank"
@@ -67,8 +98,8 @@ class Footer extends React.PureComponent {
                                 onClick={() => this.sendAnalytics('Angellist')}
                             >
                                 <i className="icon-angel" />
-                            </IconButton>
-                        </li>
+                            </a>
+                        </IconListItem>
                     </div>
                 </div>
             </div>
