@@ -7,7 +7,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import ReactGA from 'react-ga';
 import Button from '@material-ui/core/Button';
 
-class FormError extends React.PureComponent {
+class Error extends React.PureComponent {
     componentDidMount() {
         if (NODE_ENV === 'production') {
             ReactGA.event({
@@ -39,4 +39,4 @@ class FormError extends React.PureComponent {
     }
 }
 
-export default FormError;
+export default Error;

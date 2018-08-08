@@ -288,6 +288,7 @@ class Portfolio extends React.Component {
                         key={p.key}
                         image={p.image}
                         link={p.link}
+                        active
                     />
                 );
             }

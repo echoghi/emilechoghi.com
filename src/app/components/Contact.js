@@ -5,7 +5,7 @@ import { postForm, resetError } from './actions';
 import { Helmet } from 'react-helmet';
 import Footer from './Footer';
 import Loading from './Loading';
-import FormError from './Error';
+import Error from './Error';
 import Snackbar from '@material-ui/core/Snackbar';
 import ContactMap from './ContactMap';
 import ReactGA from 'react-ga';
@@ -247,7 +247,7 @@ class Contact extends React.Component {
         if (loading) {
             return <Loading />;
         } else if (error) {
-            return <FormError close={resetError} />;
+            return <Error close={resetError} />;
         }
 
         if (success && this.state.name) {
@@ -353,9 +353,10 @@ class Contact extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        let { name, email, message } = this.state;
 
         if (this.validateInputs()) {
+            const { name, email, message } = this.state;
+
             this.props.postForm({ name, email, message });
         } else {
             // create a shallow copy of the state to mutate
