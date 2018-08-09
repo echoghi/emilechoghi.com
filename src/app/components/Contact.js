@@ -242,12 +242,6 @@ class Contact extends React.Component {
         }
     }
 
-    renderSnackbar() {
-        if (this.state.success) {
-            return <Snackbar open message="Your message was sent, thanks for reaching out!" autoHideDuration={4000} />;
-        }
-    }
-
     /**
      * Reset Form Data
      *
@@ -297,26 +291,27 @@ class Contact extends React.Component {
      * @state - Send validation status to state
      */
     onChange = event => {
+        const { name, value } = event.target;
         // create a shallow copy of the state to mutate
         let obj = Object.assign({}, this.state);
 
         // Set value in obj to eventually send to the state
-        obj[event.target.name] = event.target.value;
+        obj[name] = value;
 
         // Validate inputs
-        if (event.target.name === 'email') {
+        if (name === 'email') {
             // Validate email address
-            if (validateEmail.test(event.target.value)) {
-                obj['validation'][event.target.name]['valid'] = true;
+            if (validateEmail.test(value)) {
+                obj['validation'][name]['valid'] = true;
             } else {
-                obj['validation'][event.target.name]['valid'] = false;
+                obj['validation'][name]['valid'] = false;
             }
         } else {
             // If there is any value for non-email inputs, mark it valid
-            if (event.target.value !== '') {
-                obj['validation'][event.target.name]['valid'] = true;
+            if (value !== '') {
+                obj['validation'][name]['valid'] = true;
             } else {
-                obj['validation'][event.target.name]['valid'] = false;
+                obj['validation'][name]['valid'] = false;
             }
         }
 
@@ -330,18 +325,15 @@ class Contact extends React.Component {
      * @return className - return class depending on validation status
      */
     handleErrorClass = name => {
-        let className;
-        let validation = this.state.validation;
+        const { validation } = this.state;
 
         if (validation[name].valid) {
-            className = '';
+            return '';
         } else if (!validation[name].valid && validation[name].dirty) {
-            className = 'invalid';
+            return 'invalid';
         } else if (!validation[name].valid && !validation[name].dirty) {
-            className = '';
+            return '';
         }
-
-        return className;
     };
 
     handleSubmit = event => {
@@ -376,7 +368,7 @@ class Contact extends React.Component {
                         // Reset form to clear success notification
                         setTimeout(() => {
                             callback({ error: false, success: false });
-                        }, 3000);
+                        }, 6000);
                     } else {
                         callback({ error: true, loading: false });
                     }
@@ -400,7 +392,7 @@ class Contact extends React.Component {
     };
 
     render() {
-        const { name, email, message } = this.state;
+        const { name, email, message, success } = this.state;
 
         return (
             <div>
@@ -466,7 +458,15 @@ class Contact extends React.Component {
                     </Form>
 
                     {this.renderLoading()}
-                    {this.renderSnackbar()}
+
+                    <Snackbar
+                        open={success}
+                        autoHideDuration={6000}
+                        ContentProps={{
+                            'aria-describedby': 'message-id'
+                        }}
+                        message={<span id="message-id">Your message was sent, thanks for reaching out!</span>}
+                    />
                 </Portfolio>
 
                 <Footer fixed />
