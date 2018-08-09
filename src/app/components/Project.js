@@ -149,7 +149,7 @@ class Project extends React.PureComponent {
         let labels = [];
 
         chips.map(chip => {
-            labels.push(chip.label);
+            labels.push(chip);
         });
 
         labels = uniq(labels, 'label');
@@ -174,8 +174,8 @@ class Project extends React.PureComponent {
                                 <Stack>
                                     {stack.map((label, index) => {
                                         return (
-                                            <Label key={label.key}>
-                                                {label.label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                            <Label key={label}>
+                                                {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
                                             </Label>
                                         );
                                     })}

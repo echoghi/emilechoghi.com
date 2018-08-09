@@ -107,46 +107,8 @@ class Portfolio extends React.Component {
 
         // prettier-ignore
         this.state = {
-            loading: true,
-            error: null,
-            filter: {
-                all: {
-                    name: 'All',
-                    active: true
-                },
-                angular: {
-                    name: 'Angular',
-                    active: false
-                },
-                react: {
-                    name: 'React',
-                    active: false
-                },
-                redux: {
-                    name: 'Redux',
-                    active: false
-                },
-                webpack: {
-                    name: 'Webpack',
-                    active: false
-                },
-                scss: {
-                    name: 'SCSS',
-                    active: false
-                },
-                firebase: {
-                    name: 'Firebase',
-                    active: false
-                },
-                node: {
-                    name: 'Node',
-                    active: false
-                },
-                php: {
-                    name: 'PHP',
-                    active: false
-                }
-            },
+            filter: 'All',
+            stack: ['All', 'Angular', 'React', 'Redux', 'Webpack', 'SCSS', 'Firebase', 'Node', 'PHP'],
             projects: [
                 {
                     title: 'Doctor.com ReviewHub',
@@ -156,18 +118,9 @@ class Portfolio extends React.Component {
                     image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608486/portfolio/reviewhub.png',
                     link: 'https://www.doctor.com/solutions/reviewhub',
                     tech: [
-                        {
-                            key: 0,
-                            label: 'Angular'
-                        },
-                        {
-                            key: 1,
-                            label: 'SCSS'
-                        },
-                        {
-                            key: 2,
-                            label: 'PHP'
-                        }
+                        'Angular',
+                        'SCSS',
+                        'PHP'
                     ],
                     key: 0
                 },
@@ -179,22 +132,10 @@ class Portfolio extends React.Component {
                     image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608483/portfolio/dashboard.png',
                     link: 'https://doughboy.io',
                     tech: [
-                        {
-                            key: 0,
-                            label: 'React'
-                        },
-                        {
-                            key: 1,
-                            label: 'Redux'
-                        },
-                        {
-                            key: 2,
-                            label: 'Webpack'
-                        },
-                        {
-                            key: 3,
-                            label: 'Firebase'
-                        }
+                        'React',
+                        'Redux',
+                        'Webpack',
+                        'Firebase'
                     ],
                     key: 1
                 },
@@ -205,18 +146,9 @@ class Portfolio extends React.Component {
                     image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608484/portfolio/padm.png',
                     link: 'https://www.doctor.com/solutions/universal-scheduling',
                     tech: [
-                        {
-                            key: 0,
-                            label: 'React'
-                        },
-                        {
-                            key: 1,
-                            label: 'Redux'
-                        },
-                        {
-                            key: 2,
-                            label: 'Webpack'
-                        }
+                        'React',
+                        'Redux',
+                        'Webpack'
                     ],
                     key: 2
                 },
@@ -227,18 +159,9 @@ class Portfolio extends React.Component {
                     image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608482/portfolio/choghi.png',
                     link: 'https://github.com/echoghi/emilechoghi.com',
                     tech: [
-                        {
-                            key: 0,
-                            label: 'React'
-                        },
-                        {
-                            key: 1,
-                            label: 'Webpack'
-                        },
-                        {
-                            key: 2,
-                            label: 'Node'
-                        }
+                        'React',
+                        'Webpack',
+                        'Node'
                     ],
                     key: 3
                 }
@@ -256,21 +179,14 @@ class Portfolio extends React.Component {
 
     filterByStack(stack) {
         const { filter } = this.state;
-        let active = false;
 
-        if (filter.all.active) {
+        if (filter === 'All') {
             return true;
         } else {
-            for (let j in filter) {
-                for (let i = 0; i < stack.length; i++) {
-                    if (stack[i].label === filter[j].name && filter[j].active) {
-                        return true;
-                    }
-                }
-            }
+            return stack.includes(filter);
         }
 
-        return active;
+        return false;
     }
 
     renderProjects() {
@@ -297,40 +213,30 @@ class Portfolio extends React.Component {
         return portfolio;
     }
 
-    handleFilterClass(active) {
-        if (active) {
+    handleFilterClass(name) {
+        if (name === this.state.filter) {
             return 'active';
         }
     }
 
     handleFilterClick = item => {
-        const { filter } = this.state;
-
-        for (let i in filter) {
-            if (filter[i].name === item) {
-                filter[i].active = true;
-            } else {
-                filter[i].active = false;
-            }
-        }
-
-        this.setState({ filter });
+        this.setState({ filter: item });
     };
 
     renderFilterButtons() {
-        const { filter } = this.state;
+        const { stack } = this.state;
         let buttons = [];
 
-        for (let i in filter) {
-            const button = filter[i];
+        for (let i in stack) {
+            const button = stack[i];
 
             buttons.push(
                 <FilterButton
-                    onClick={() => this.handleFilterClick(button.name)}
-                    className={this.handleFilterClass(button.active)}
-                    key={button.name}
+                    onClick={() => this.handleFilterClick(button)}
+                    className={this.handleFilterClass(button)}
+                    key={button}
                 >
-                    {button.name}
+                    {button}
                 </FilterButton>
             );
         }
