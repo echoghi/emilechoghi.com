@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 const port = 3000;
 
 // Configure app to use bodyParser to parse json data
-const allowCrossDomain = function(req, res, next) {
+const allowCrossDomain = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
@@ -43,25 +43,25 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname));
 app.use(expressStaticGzip(__dirname + '/build'));
 
-app.get('*.js', function(req, res, next) {
+app.get('*.js', (req, res, next) => {
     req.url = `${req.url}.gz`;
     res.set('Content-Type', 'text/javascript');
     res.set('Content-Encoding', 'gzip');
     next();
 });
 
-app.get('*.css', function(req, res, next) {
+app.get('*.css', (req, res, next) => {
     req.url = `${req.url}.gz`;
     res.set('Content-Type', 'text/css');
     res.set('Content-Encoding', 'gzip');
     next();
 });
 
-app.get('*', function(req, res) {
+app.get('*', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/api/postForm', function(req, res) {
+app.post('/api/postForm', (req, res) => {
     try {
         console.log(chalk.green('Sending email...'), req.body);
 
@@ -69,10 +69,10 @@ app.post('/api/postForm', function(req, res) {
             {
                 from: 'echoghi@gmail.com',
                 to: 'emchoghi@gmail.com',
-                subject: 'Message from ' + req.body.name + ' - ' + req.body.email,
-                text: 'Message:\n' + req.body.message
+                subject: `Message from ${req.body.name} - ${req.body.email}`,
+                text: req.body.message
             },
-            function(err, info) {
+            (err, info) => {
                 if (err) {
                     console.log(chalk.red(err));
                 } else {
@@ -90,6 +90,6 @@ app.post('/api/postForm', function(req, res) {
 });
 
 // Start the server
-server.listen(port, function() {
+server.listen(port, () => {
     console.log(chalk.green(`listening on port ${port}`));
 });
