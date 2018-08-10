@@ -3,16 +3,7 @@
     font-family: 'Varela Round';
 
     @include less-than-ipad {
-        background: $polar;
         overflow: hidden;
-    }
-
-    @include mobile-lg {
-        background: none;
-    }
-
-    @include mobile {
-        background: none;
     }
 
     .jumbotron {
