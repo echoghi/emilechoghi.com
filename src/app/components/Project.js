@@ -2,7 +2,6 @@ import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
 import Fade from '@material-ui/core/Fade';
-import uniq from 'lodash.uniq';
 
 const ListItem = styled.li`
     display: inline-block;
@@ -143,18 +142,6 @@ class Project extends React.PureComponent {
                 label: `Navigated to ${project}`
             });
         }
-    }
-
-    renderProjectLabels(chips) {
-        let labels = [];
-
-        chips.map(chip => {
-            labels.push(chip);
-        });
-
-        labels = uniq(labels, 'label');
-
-        return labels;
     }
 
     render() {
