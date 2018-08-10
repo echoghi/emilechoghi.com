@@ -5,6 +5,14 @@ import Project from './Project';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import reviewhub from '../assets/images/reviewhub.png';
+import padm from '../assets/images/padm.png';
+import doughboy from '../assets/images/dashboard.png';
+import choghi from '../assets/images/choghi.png';
+import reviewhubThumbnail from '../assets/images/reviewhubThumbnail.png';
+import padmThumbnail from '../assets/images/padmThumbnail.png';
+import doughboyThumbnail from '../assets/images/dashboardThumbnail.png';
+import choghiThumbnail from '../assets/images/choghiThumbnail.png';
 
 const PortfolioWrapper = styled.div`
     padding-bottom: 120px;
@@ -115,7 +123,8 @@ class Portfolio extends React.Component {
                     color: '#27BCBB',
                     text:
                         'A kiosk application designed to run on a chromebook in the waiting room of a healthcare provider\'s office for patients to review their doctor post-appointment. This single page app features functionality to intercept reviews made offline, store them in the browser\'s Local Storage and send them in bulk upon resuming internet connectivity.',
-                    image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608486/portfolio/reviewhub.png',
+                    image: reviewhub,
+                    thumbnail: reviewhubThumbnail,
                     link: 'https://www.doctor.com/solutions/reviewhub',
                     tech: [
                         'Angular',
@@ -129,7 +138,8 @@ class Portfolio extends React.Component {
                     color: '#ed5454',
                     text:
                         'A health app that enables you to log your daily meals, exercises, and observations all in one convenient dashboard. Your nutritional intake is measured against your estimated caloric expenditure each day to help you identify trends in your diet, mood, and overall well being.',
-                    image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608483/portfolio/dashboard.png',
+                    image: doughboy,
+                    thumbnail: doughboyThumbnail,
                     link: 'https://doughboy.io',
                     tech: [
                         'React',
@@ -143,7 +153,8 @@ class Portfolio extends React.Component {
                     title: 'Doctor.com Provider Admin',
                     color: '#364343',
                     text: 'An administrative dashboard where healthcare providers can track their listings, reviews, appointments, and overall reputation.',
-                    image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608484/portfolio/padm.png',
+                    image: padm,
+                    thumbnail: padmThumbnail,
                     link: 'https://www.doctor.com/solutions/universal-scheduling',
                     tech: [
                         'React',
@@ -156,7 +167,8 @@ class Portfolio extends React.Component {
                     title: 'emilechoghi.com',
                     color: '#269bda',
                     text: 'This website, which runs on a modest node server and relays messages to my email.',
-                    image: 'https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_715/v1533608482/portfolio/choghi.png',
+                    image: choghi,
+                    thumbnail: choghiThumbnail,
                     link: 'https://github.com/echoghi/emilechoghi.com',
                     tech: [
                         'React',

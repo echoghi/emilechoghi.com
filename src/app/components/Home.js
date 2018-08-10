@@ -2,6 +2,7 @@ import React from 'react';
 // Components
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
+import homeImg from '../assets/images/home.png';
 
 const Header = styled.h1`
     font-size: 100px;
@@ -40,10 +41,7 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <img
-                        src="https://res.cloudinary.com/dp7726gkk/image/upload/c_scale,w_800/v1533608485/portfolio/home.png"
-                        alt="San Francisco Skyline"
-                    />
+                    <img src={homeImg} alt="San Francisco Skyline" />
                 </div>
             </div>
         );

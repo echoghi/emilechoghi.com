@@ -2,6 +2,7 @@ import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
 import Fade from '@material-ui/core/Fade';
+import ProgressiveImage from 'react-progressive-image-loading';
 
 const ListItem = styled.li`
     display: inline-block;
@@ -145,7 +146,7 @@ class Project extends React.PureComponent {
     }
 
     render() {
-        const { title, description, stack, link, color, image, active } = this.props;
+        const { title, description, stack, link, color, image, thumbnail, active } = this.props;
 
         return (
             <Fade in={active}>
@@ -154,7 +155,11 @@ class Project extends React.PureComponent {
                         <PortfolioItem>
                             <ImageWrapper>
                                 <Image color={color}>
-                                    <img src={image} alt={title} />
+                                    <ProgressiveImage
+                                        preview={thumbnail}
+                                        src={image}
+                                        render={(src, style) => <img src={src} style={style} />}
+                                    />
                                 </Image>
                             </ImageWrapper>
                             <Info>

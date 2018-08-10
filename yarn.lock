@@ -7667,6 +7667,10 @@ react-loadable@^5.4.0:
   dependencies:
     prop-types "^15.5.0"
 
+react-progressive-image-loading@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-progressive-image-loading/-/react-progressive-image-loading-3.0.3.tgz#7e99298b9bd76bc7dcfba9cdf83c263d41f17dc3"
+
 react-proxy@^3.0.0-alpha.0:
   version "3.0.0-alpha.1"
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
