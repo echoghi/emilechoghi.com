@@ -172,12 +172,12 @@ class About extends React.Component {
                             <a href="https://doctor.com" target="_blank" rel="noopener noreferrer">
                                 Doctor.com
                             </a>{' '}
-                            building web apps with some awesome people. As an engineer, I enjoy exploring the complex
-                            relationship between engineering and design — combining my technical expertise with my keen
-                            eye for design to create beautiful products. My goal is to always build applications that
-                            are scalable and efficient under the hood while providing engaging, pixel-perfect user
-                            experiences. When I'm not in front of a computer screen, I'm probably playing basketball,
-                            flying my drones, or hanging out at the beach.
+                            building consumer facing web apps with some awesome people. As an engineer, I enjoy
+                            exploring the complex relationship between engineering and design — combining my technical
+                            expertise with my keen attention to detail to create beautiful products. My goal is to
+                            always build applications that are scalable and efficient under the hood while providing
+                            seamless, pixel-perfect user experiences. When I'm not in front of a computer screen, I'm
+                            probably playing basketball, flying my drones, or hanging out at the beach.
                         </SectionBody>
                     </Section>
                     <Section skills>
