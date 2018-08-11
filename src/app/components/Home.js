@@ -20,8 +20,8 @@ const Card = styled.div`
         right: 0;
         bottom: 0;
         left: 0;
-        width: 450px;
-        height: 300px;
+        width: 375px;
+        height: 250px;
         padding: 20px;
         overflow: hidden;
         background: #252525;
