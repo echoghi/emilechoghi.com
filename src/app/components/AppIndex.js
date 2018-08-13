@@ -20,11 +20,6 @@ const SocialLinks = Loadable({
     loading: Loader
 });
 
-const Home = Loadable({
-    loader: () => import('./Home'),
-    loading: Loader
-});
-
 const About = Loadable({
     loader: () => import('./About'),
     loading: Loader
@@ -55,8 +50,7 @@ class AppIndex extends React.PureComponent {
                 <NavBar history={this.props} />
                 <SocialLinks />
                 <div>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/about" component={About} name="About" />
+                    <Route exact path="/" component={About} />
                     <Route path="/portfolio" component={Portfolio} name="Portfolio" />
                     <Route path="/contact" component={Contact} name="Contact" />
                 </div>

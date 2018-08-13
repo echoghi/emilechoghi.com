@@ -76,9 +76,6 @@ class NavBar extends React.Component {
                     <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/" exact>
                         Home <i className="icon-home" />
                     </NavLink>
-                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/about">
-                        About <i className="icon-user" />
-                    </NavLink>
                     <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/portfolio">
                         Portfolio <i className="icon-briefcase" />
                     </NavLink>

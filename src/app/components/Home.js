@@ -21,8 +21,8 @@ const Card = styled.div`
         right: 0;
         bottom: 0;
         left: 0;
-        width: 375px;
-        height: 250px;
+        width: 300px;
+        height: 200px;
         padding: 20px;
         overflow: hidden;
         background: #393b65;
@@ -32,8 +32,6 @@ const Card = styled.div`
         transition: all 1s;
 
         @media (max-width: 768px) {
-            width: 300px;
-            height: 235px;
             padding: 20px 15px;
         }
     }
@@ -125,47 +123,37 @@ class Home extends React.Component {
             <div className="home">
                 <Card>
                     <div className="card">
-                        <div className="purple inline">class</div>{' '}
-                        <span className="yellow inline">softwareEngineer</span> <span>{'{'}</span>
-                        <div className="tab">
-                            <div className="purple inline">constructor</div>(<div className="red inline" />
-                            <span>{') {'}</span>
-                        </div>
-                        <div className="tab">
-                            <ul className="red">
+                        <div className="purple inline">const</div>{' '}
+                        <span className="yellow inline">softwareEngineer</span> ={' {'}
+                        {
+                            <ul>
                                 <li>
-                                    this.name <span className="white">=</span> <span>'Emile Choghi'</span>
+                                    name <span className="white">:</span> <span>'Emile Choghi'</span>
                                     <span className="white">;</span>
                                 </li>
                                 <li>
-                                    this.type <span className="white">=</span> <span>'Frontend'</span>
+                                    type <span className="white">:</span> <span>'frontend'</span>
                                     <span className="white">;</span>
                                 </li>
                                 <li>
-                                    this.email <span className="white">=</span> <span>'emchoghi@gmail.com'</span>
+                                    email <span className="white">:</span> <span>'emchoghi@gmail.com'</span>
                                     <span className="white">;</span>
                                 </li>
                                 <li>
-                                    this.phone <span className="white">=</span> <span>'1 (650) 248-1572</span>
+                                    phone <span className="white">:</span> <span>'1 (650) 248-1572'</span>
+                                    <span className="white">;</span>
+                                </li>
+                                <li>
+                                    company <span className="white">:</span> <span>'Doctor.com'</span>
+                                    <span className="white">;</span>
+                                </li>
+                                <li>
+                                    interests <span className="white">:</span>{' '}
+                                    <span>['running', 'hiking', 'coding', 'basketball']</span>
                                     <span className="white">;</span>
                                 </li>
                             </ul>
-                            }
-                        </div>
-                        <br />
-                        <div className="tab">
-                            <div className="purple inline">getInTouch</div>(<div className="red inline" />
-                            <span>{') {'}</span>
-                            <div className="tab">
-                                <ul className="red">
-                                    <li>
-                                        window.location.href <span className="white">=</span> <span>'/contact'</span>
-                                        <span className="white">;</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            }
-                        </div>
+                        }
                         }
                     </div>
                 </Card>
