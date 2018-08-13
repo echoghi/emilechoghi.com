@@ -86,10 +86,6 @@ const RectOne = styled.svg`
         width: 100%;
         fill: #87bbfd;
     }
-
-    @media (max-width: 768px) {
-        top: 0;
-    }
 `;
 
 const RectTwo = styled.svg`
@@ -106,8 +102,12 @@ const RectTwo = styled.svg`
         fill: #c3edfc;
     }
 
-    @media (max-width: 768px) {
-        bottom: -300px;
+    @media (max-width: 1025px) {
+        bottom: -500px;
+    }
+
+    @media (max-width: 765px) {
+        bottom: -500px;
     }
 `;
 
