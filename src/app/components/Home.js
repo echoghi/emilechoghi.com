@@ -24,17 +24,12 @@ const Card = styled.div`
         height: 250px;
         padding: 20px;
         overflow: hidden;
-        background: #252525;
+        background: #393b65;
         border-radius: 10px;
         box-shadow: -2px 2px 0px 0px #202020, -10px 10px 40px 0px rgba(0, 0, 0, 0.3);
         transform: translate(0px, 0px) rotateX(30deg) rotateZ(0deg);
         z-index: 2;
         transition: all 1s;
-        &:hover {
-            transform: translate(0px, -20px) rotateX(10deg) rotateZ(-20deg);
-            box-shadow: -2px 1px 0px 0px #202020, -40px 40px 40px 0 rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
     }
 
     .purple {
@@ -141,6 +136,20 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <svg
+                        width="2000"
+                        height="1000"
+                        style={{ transform: 'translateY(-900px) translateX(700px) skewY(-12deg)' }}
+                    >
+                        <rect fill="#87bbfd" x="0" y="0" width="2000" height="1000" />
+                    </svg>
+                    <svg
+                        width="1500"
+                        height="1000"
+                        style={{ transform: 'translateY(-1000px) translateX(-200px) skewY(-12deg)' }}
+                    >
+                        <rect fill="#c3edfc" x="0" y="0" width="1500" height="1000" />
+                    </svg>
                 </div>
             </div>
         );
