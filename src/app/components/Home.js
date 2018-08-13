@@ -14,6 +14,7 @@ const Card = styled.div`
     height: 500px;
 
     .card {
+        color: white;
         position: absolute;
         margin: auto;
         top: 0;
@@ -26,14 +27,19 @@ const Card = styled.div`
         overflow: hidden;
         background: #393b65;
         border-radius: 10px;
-        box-shadow: -2px 2px 0px 0px #202020, -10px 10px 40px 0px rgba(0, 0, 0, 0.3);
         transform: translate(0px, 0px) rotateX(30deg) rotateZ(0deg);
         z-index: 2;
         transition: all 1s;
+
+        @media (max-width: 768px) {
+            width: 300px;
+            height: 235px;
+            padding: 20px 15px;
+        }
     }
 
     .purple {
-        color: #c55b73;
+        color: #7795f8;
     }
 
     .yellow {
@@ -58,12 +64,50 @@ const Card = styled.div`
         margin: 0;
 
         span {
-            color: #70b030;
+            color: #74e4a2;
 
             &.white {
                 color: white;
             }
         }
+    }
+`;
+
+const RectOne = styled.svg`
+    position: fixed;
+    right: 0;
+    height: 600px;
+    width: 55%;
+    top: -50px;
+    transform: skewY(-12deg);
+
+    rect {
+        height: 100%;
+        width: 100%;
+        fill: #87bbfd;
+    }
+
+    @media (max-width: 768px) {
+        top: 0;
+    }
+`;
+
+const RectTwo = styled.svg`
+    position: fixed;
+    height: 800px;
+    bottom: -350px;
+    left: 0;
+    width: 85%;
+    transform: skewY(-20deg);
+
+    rect {
+        height: 100%;
+        width: 100%;
+        fill: #c3edfc;
+    }
+
+    @media (max-width: 768px) {
+        bottom: -300px;
     }
 `;
 
@@ -78,79 +122,59 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="home">
-                    <div className="jumbotron">
-                        <div className="jumbotron__container">
-                            <div className="jumbotron__content">
-                                <Card>
-                                    <div className="card">
-                                        <div className="purple inline">class</div>{' '}
-                                        <span className="yellow inline">softwareEngineer</span> <span>{'{'}</span>
-                                        <div className="tab">
-                                            <div className="purple inline">constructor</div>(<div className="red inline" />
-                                            <span>{') {'}</span>
-                                        </div>
-                                        <div className="tab">
-                                            <ul className="red">
-                                                <li>
-                                                    this.name <span className="white">=</span>{' '}
-                                                    <span>'Emile Choghi'</span>
-                                                    <span className="white">;</span>
-                                                </li>
-                                                <li>
-                                                    this.type <span className="white">=</span> <span>'Frontend'</span>
-                                                    <span className="white">;</span>
-                                                </li>
-                                                <li>
-                                                    this.email <span className="white">=</span>{' '}
-                                                    <span>'emchoghi@gmail.com'</span>
-                                                    <span className="white">;</span>
-                                                </li>
-                                                <li>
-                                                    this.phone <span className="white">=</span>{' '}
-                                                    <span>'1 (650) 248-1572</span>
-                                                    <span className="white">;</span>
-                                                </li>
-                                            </ul>
-                                            }
-                                        </div>
-                                        <br />
-                                        <div className="tab">
-                                            <div className="purple inline">getInTouch</div>(<div className="red inline" />
-                                            <span>{') {'}</span>
-                                            <div className="tab">
-                                                <ul className="red">
-                                                    <li>
-                                                        window.location.href <span className="white">=</span>{' '}
-                                                        <span>'/contact'</span>
-                                                        <span className="white">;</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            }
-                                        </div>
-                                        }
-                                    </div>
-                                </Card>
-                            </div>
+            <div className="home">
+                <Card>
+                    <div className="card">
+                        <div className="purple inline">class</div>{' '}
+                        <span className="yellow inline">softwareEngineer</span> <span>{'{'}</span>
+                        <div className="tab">
+                            <div className="purple inline">constructor</div>(<div className="red inline" />
+                            <span>{') {'}</span>
                         </div>
+                        <div className="tab">
+                            <ul className="red">
+                                <li>
+                                    this.name <span className="white">=</span> <span>'Emile Choghi'</span>
+                                    <span className="white">;</span>
+                                </li>
+                                <li>
+                                    this.type <span className="white">=</span> <span>'Frontend'</span>
+                                    <span className="white">;</span>
+                                </li>
+                                <li>
+                                    this.email <span className="white">=</span> <span>'emchoghi@gmail.com'</span>
+                                    <span className="white">;</span>
+                                </li>
+                                <li>
+                                    this.phone <span className="white">=</span> <span>'1 (650) 248-1572</span>
+                                    <span className="white">;</span>
+                                </li>
+                            </ul>
+                            }
+                        </div>
+                        <br />
+                        <div className="tab">
+                            <div className="purple inline">getInTouch</div>(<div className="red inline" />
+                            <span>{') {'}</span>
+                            <div className="tab">
+                                <ul className="red">
+                                    <li>
+                                        window.location.href <span className="white">=</span> <span>'/contact'</span>
+                                        <span className="white">;</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            }
+                        </div>
+                        }
                     </div>
-                    <svg
-                        width="2000"
-                        height="1000"
-                        style={{ transform: 'translateY(-900px) translateX(700px) skewY(-12deg)' }}
-                    >
-                        <rect fill="#87bbfd" x="0" y="0" width="2000" height="1000" />
-                    </svg>
-                    <svg
-                        width="1500"
-                        height="1000"
-                        style={{ transform: 'translateY(-1000px) translateX(-200px) skewY(-12deg)' }}
-                    >
-                        <rect fill="#c3edfc" x="0" y="0" width="1500" height="1000" />
-                    </svg>
-                </div>
+                </Card>
+                <RectOne>
+                    <rect x="0" y="0" />
+                </RectOne>
+                <RectTwo>
+                    <rect x="0" y="0" />
+                </RectTwo>
             </div>
         );
     }
