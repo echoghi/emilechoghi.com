@@ -136,20 +136,11 @@ const SkillTitle = styled.div`
 `;
 
 class About extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: true,
-            error: null
-        };
-
-        window.scrollTo(0, 0);
-    }
-
     componentDidMount() {
+        window.scrollTo(0, 0);
+
         if (NODE_ENV === 'production') {
-            ReactGA.ga('send', 'pageview', '/about');
+            ReactGA.ga('send', 'pageview', '/');
         }
     }
 
@@ -157,7 +148,7 @@ class About extends React.Component {
         return (
             <AboutWrapper>
                 <Helmet>
-                    <link rel="canonical" href="https://emilechoghi.com/about" />
+                    <link rel="canonical" href="https://emilechoghi.com/" />
                 </Helmet>
                 <div className="clearfix" />
                 <Content>
