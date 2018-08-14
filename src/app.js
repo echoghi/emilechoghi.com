@@ -1,6 +1,6 @@
 /**
  * Personal Portfolio 2.8.0
- * Copyright (c) Emile Choghi 2017
+ * Copyright (c) Emile Choghi 2018
  *
  */
 
