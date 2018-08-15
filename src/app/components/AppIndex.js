@@ -45,7 +45,6 @@ class AppIndex extends React.PureComponent {
                     <meta charSet="UTF-8" />
                     <link rel="canonical" href="https://emilechoghi.com" />
                     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-                    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
                 </Helmet>
                 <NavBar history={this.props} />
                 <SocialLinks />
