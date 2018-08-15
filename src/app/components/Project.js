@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
-import Fade from '@material-ui/core/Fade';
 import ProgressiveImage from 'react-progressive-image-loading';
 
 const ListItem = styled.li`
@@ -146,39 +145,39 @@ class Project extends React.PureComponent {
     }
 
     render() {
-        const { title, description, stack, link, color, image, thumbnail, active } = this.props;
+        const { title, description, stack, link, color, image, thumbnail } = this.props;
 
         return (
-            <Fade in={active}>
-                <ListItem onClick={() => this.sendAnalytics(title)}>
-                    <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
-                        <PortfolioItem>
-                            <ImageWrapper>
-                                <Image color={color}>
-                                    <ProgressiveImage
-                                        preview={thumbnail}
-                                        src={image}
-                                        render={(src, style) => <img src={src} style={style} />}
-                                    />
-                                </Image>
-                            </ImageWrapper>
-                            <Info>
-                                <Stack>
-                                    {stack.map((label, index) => {
-                                        return (
-                                            <Label key={label}>
-                                                {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
-                                            </Label>
-                                        );
-                                    })}
-                                </Stack>
-                                <Title>{title}</Title>
-                                <Text>{description}</Text>
-                            </Info>
-                        </PortfolioItem>
-                    </PortfolioLink>
-                </ListItem>
-            </Fade>
+            <ListItem onClick={() => this.sendAnalytics(title)}>
+                <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
+                    <PortfolioItem>
+                        <ImageWrapper>
+                            <Image color={color}>
+                                <ProgressiveImage
+                                    preview={thumbnail}
+                                    src={image}
+                                    transitionTime={500}
+                                    transitionFunction="ease"
+                                    render={(src, style) => <img src={src} style={style} />}
+                                />
+                            </Image>
+                        </ImageWrapper>
+                        <Info>
+                            <Stack>
+                                {stack.map((label, index) => {
+                                    return (
+                                        <Label key={label}>
+                                            {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                        </Label>
+                                    );
+                                })}
+                            </Stack>
+                            <Title>{title}</Title>
+                            <Text>{description}</Text>
+                        </Info>
+                    </PortfolioItem>
+                </PortfolioLink>
+            </ListItem>
         );
     }
 }
