@@ -2,9 +2,9 @@ import React from 'react';
 // Components
 import { Helmet } from 'react-helmet';
 import Footer from './Footer';
+import Success from './Success';
 import Loading from './Loading';
 import Error from './Error';
-import Snackbar from '@material-ui/core/Snackbar';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
 
@@ -230,6 +230,14 @@ class Contact extends React.Component {
         }
     }
 
+    renderSuccess() {
+        const { success } = this.state;
+
+        if (success) {
+            return <Success close={() => this.setState({ success: false })} />;
+        }
+    }
+
     /**
      * Reset Form Data
      *
@@ -239,18 +247,12 @@ class Contact extends React.Component {
         // create a shallow copy of the state to mutate
         let obj = Object.assign({}, this.state);
         // Reset Form Data
-        for (let key in obj) {
-            if (key === 'validation') {
-                obj[key].name = new validationObj();
-                obj[key].email = new validationObj();
-                obj[key].message = new validationObj();
-            } else {
-                obj[key] = '';
-            }
-        }
-
-        // Reset inputs
-        document.getElementById('contact-form').reset();
+        obj.validation.name = new validationObj();
+        obj.validation.email = new validationObj();
+        obj.validation.message = new validationObj();
+        obj.name = '';
+        obj.email = '';
+        obj.message = '';
 
         this.setState(obj);
     }
@@ -343,7 +345,7 @@ class Contact extends React.Component {
             })
                 .then(response => {
                     if (response.status === 200) {
-                        this.setState({ success: true, loading: false });
+                        callback({ success: true, loading: false });
 
                         if (NODE_ENV === 'production') {
                             ReactGA.event({
@@ -352,11 +354,6 @@ class Contact extends React.Component {
                                 label: 'Success Notification'
                             });
                         }
-
-                        // Reset form to clear success notification
-                        setTimeout(() => {
-                            callback({ error: false, success: false });
-                        }, 6000);
                     } else {
                         callback({ error: true, loading: false });
                     }
@@ -380,7 +377,7 @@ class Contact extends React.Component {
     };
 
     render() {
-        const { name, email, message, success } = this.state;
+        const { name, email, message } = this.state;
 
         return (
             <div>
@@ -446,14 +443,7 @@ class Contact extends React.Component {
 
                     {this.renderLoading()}
 
-                    <Snackbar
-                        open={success}
-                        autoHideDuration={6000}
-                        ContentProps={{
-                            'aria-describedby': 'message-id'
-                        }}
-                        message={<span id="message-id">Your message was sent, thanks for reaching out!</span>}
-                    />
+                    {this.renderSuccess()}
                 </Portfolio>
 
                 <Footer fixed />
