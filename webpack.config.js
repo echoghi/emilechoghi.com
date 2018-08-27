@@ -3,7 +3,7 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+//const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -40,7 +40,7 @@ module.exports = function(env) {
                 filename: 'index.html',
                 template: 'index.html'
             }),
-            new CopyWebpackPlugin([{ from: 'pwa' }]),
+            // new CopyWebpackPlugin([{ from: 'pwa' }]),
             new ManifestPlugin({
                 fileName: 'asset-manifest.json'
             }),
