@@ -217,16 +217,12 @@ class Contact extends React.Component {
     }
 
     renderLoading() {
-        const { loading, error, success, name } = this.state;
+        const { loading, error } = this.state;
 
         if (loading) {
             return <Loading />;
         } else if (error) {
             return <Error close={() => this.setState({ error: false })} />;
-        }
-
-        if (success && name) {
-            this.resetForm();
         }
     }
 
@@ -263,7 +259,6 @@ class Contact extends React.Component {
      * @return valid - validation status
      */
     validateInputs() {
-        let valid = true;
         // Check for incompleted fields
         for (let key in this.state.validation) {
             if (!this.state.validation[key]['valid']) {
@@ -271,7 +266,7 @@ class Contact extends React.Component {
             }
         }
 
-        return valid;
+        return true;
     }
 
     /**
@@ -354,6 +349,8 @@ class Contact extends React.Component {
                                 label: 'Success Notification'
                             });
                         }
+
+                        this.resetForm();
                     } else {
                         callback({ error: true, loading: false });
                     }
@@ -383,12 +380,6 @@ class Contact extends React.Component {
             <div>
                 <Helmet>
                     <link rel="canonical" href="https://emilechoghi.com/contact" />
-                    <link
-                        rel="stylesheet"
-                        href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
-                        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-                        crossOrigin=""
-                    />
                 </Helmet>
 
                 <Portfolio>
