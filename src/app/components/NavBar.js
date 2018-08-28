@@ -32,27 +32,19 @@ class NavBar extends React.Component {
     };
 
     handleHamburgerClass() {
-        let className;
-
         if (this.state.menuOpen) {
-            className = 'hamburger active';
+            return 'hamburger active';
         } else {
-            className = 'hamburger';
+            return 'hamburger';
         }
-
-        return className;
     }
 
     handleMenuClass() {
-        let className;
-
         if (this.state.menuOpen) {
-            className = 'navbar__menu active lg';
+            return 'navbar__menu active lg';
         } else {
-            className = 'navbar__menu collapsed lg';
+            return 'navbar__menu collapsed lg';
         }
-
-        return className;
     }
 
     onNavigation = () => {
