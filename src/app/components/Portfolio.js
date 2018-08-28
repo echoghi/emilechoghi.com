@@ -193,8 +193,6 @@ class Portfolio extends React.Component {
         } else {
             return stack.includes(filter);
         }
-
-        return false;
     }
 
     renderProjects() {
