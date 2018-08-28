@@ -126,8 +126,7 @@ class Portfolio extends React.Component {
                         'Angular',
                         'SCSS',
                         'PHP'
-                    ],
-                    key: 0
+                    ]
                 },
                 {
                     title: 'Doughboy.io',
@@ -142,8 +141,7 @@ class Portfolio extends React.Component {
                         'Redux',
                         'Webpack',
                         'Firebase'
-                    ],
-                    key: 1
+                    ]
                 },
                 {
                     title: 'Doctor.com Provider Admin',
@@ -156,8 +154,7 @@ class Portfolio extends React.Component {
                         'React',
                         'Redux',
                         'Webpack'
-                    ],
-                    key: 2
+                    ]
                 },
                 {
                     title: 'emilechoghi.com',
@@ -170,8 +167,7 @@ class Portfolio extends React.Component {
                         'React',
                         'Webpack',
                         'Node'
-                    ],
-                    key: 3
+                    ]
                 }
             ]
         };
@@ -203,11 +199,11 @@ class Portfolio extends React.Component {
             if (this.filterByStack(p.tech)) {
                 portfolio.push(
                     <Project
+                        key={p.title}
                         title={p.title}
                         stack={p.tech}
                         color={p.color}
                         description={p.text}
-                        key={p.key}
                         image={p.image}
                         link={p.link}
                         active
