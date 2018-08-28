@@ -240,17 +240,13 @@ class Contact extends React.Component {
      * @state - entire state
      */
     resetForm() {
-        // create a shallow copy of the state to mutate
-        let obj = Object.assign({}, this.state);
-        // Reset Form Data
-        obj.validation.name = new validationObj();
-        obj.validation.email = new validationObj();
-        obj.validation.message = new validationObj();
-        obj.name = '';
-        obj.email = '';
-        obj.message = '';
+        let { validation } = this.state;
+        // Reset Form Validation
+        for (let type in validation) {
+            validation[type] = new validationObj();
+        }
 
-        this.setState(obj);
+        this.setState({ name: '', email: '', message: '' });
     }
 
     /**
