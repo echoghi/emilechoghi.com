@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // Components
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
@@ -109,7 +109,7 @@ const RectTwo = styled.svg`
     }
 `;
 
-class Home extends React.Component {
+class Home extends Component {
     componentDidMount() {
         window.scrollTo(0, 0);
 

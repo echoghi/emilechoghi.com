@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // Components
 import { Helmet } from 'react-helmet';
 import Footer from './Footer';
@@ -189,7 +189,7 @@ const validationObj = () => {
     this.dirty = false;
 };
 
-class Contact extends React.Component {
+class Contact extends Component {
     constructor(props) {
         super(props);
 

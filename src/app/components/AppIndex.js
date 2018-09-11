@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import { Helmet } from 'react-helmet';
@@ -35,7 +35,17 @@ const Contact = Loadable({
     loading: Loader
 });
 
-class AppIndex extends React.PureComponent {
+class AppIndex extends PureComponent {
+    sendSocialLinkAnalytics(site) {
+        if (NODE_ENV === 'production') {
+            ReactGA.event({
+                category: 'Social Link Bar',
+                action: 'Social Media Link Click',
+                label: `Navigated to ${site} Profile`
+            });
+        }
+    }
+
     render() {
         return (
             <div>
@@ -47,7 +57,7 @@ class AppIndex extends React.PureComponent {
                     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
                 </Helmet>
                 <NavBar history={this.props} />
-                <SocialLinks />
+                <SocialLinks sendAnalytics={this.sendSocialLinkAnalytics} />
                 <div>
                     <Route exact path="/" component={About} />
                     <Route path="/portfolio" component={Portfolio} name="Portfolio" />

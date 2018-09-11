@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
-import ProgressiveImage from 'react-progressive-image-loading';
 
 const ListItem = styled.li`
     display: inline-block;
@@ -133,7 +132,7 @@ const Text = styled.div`
     font-family: 'Varela Round';
 `;
 
-class Project extends React.PureComponent {
+class Project extends PureComponent {
     sendAnalytics(project) {
         if (NODE_ENV === 'production') {
             ReactGA.event({
@@ -145,7 +144,7 @@ class Project extends React.PureComponent {
     }
 
     render() {
-        const { title, description, stack, link, color, image, thumbnail } = this.props;
+        const { title, description, stack, link, color, image } = this.props;
 
         return (
             <ListItem onClick={() => this.sendAnalytics(title)}>
@@ -153,13 +152,7 @@ class Project extends React.PureComponent {
                     <PortfolioItem>
                         <ImageWrapper>
                             <Image color={color}>
-                                <ProgressiveImage
-                                    preview={thumbnail}
-                                    src={image}
-                                    transitionTime={500}
-                                    transitionFunction="ease"
-                                    render={(src, style) => <img src={src} style={style} />}
-                                />
+                                <img src={image} alt={title} />
                             </Image>
                         </ImageWrapper>
                         <Info>

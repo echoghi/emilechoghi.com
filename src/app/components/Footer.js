@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
 
@@ -33,7 +33,7 @@ const IconListItem = styled.li`
     }
 `;
 
-class Footer extends React.PureComponent {
+class Footer extends PureComponent {
     renderFooterClass() {
         const { fixed, type } = this.props;
 

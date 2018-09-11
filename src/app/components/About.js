@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 // Components
 import Footer from './Footer';
@@ -135,7 +135,7 @@ const SkillTitle = styled.div`
     text-transform: uppercase;
 `;
 
-class About extends React.Component {
+class About extends Component {
     componentDidMount() {
         window.scrollTo(0, 0);
 

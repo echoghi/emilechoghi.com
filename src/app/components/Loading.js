@@ -14,14 +14,10 @@ const LoadingWrapper = styled.div`
     height: 100px;
 `;
 
-class Loading extends React.Component {
-    render() {
-        return (
-            <LoadingWrapper>
-                <CircularProgress size={75} style={{ color: '#269bda', margin: '0 auto' }} />
-            </LoadingWrapper>
-        );
-    }
-}
+const Loading = () => (
+    <LoadingWrapper>
+        <CircularProgress size={75} style={{ color: '#269bda', margin: '0 auto' }} />
+    </LoadingWrapper>
+);
 
 export default Loading;

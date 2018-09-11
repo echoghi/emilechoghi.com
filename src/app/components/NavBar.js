@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -22,7 +22,7 @@ const Nav = styled.div`
     }
 `;
 
-class NavBar extends React.Component {
+class NavBar extends Component {
     state = {
         menuOpen: false
     };
