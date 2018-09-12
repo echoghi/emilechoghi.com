@@ -217,11 +217,21 @@ class Contact extends Component {
     }
 
     renderLoading() {
-        const { loading, error } = this.state;
-
-        if (loading) {
+        if (this.state.loading) {
             return <Loading />;
-        } else if (error) {
+        }
+    }
+
+    renderError() {
+        if (this.state.error) {
+            if (NODE_ENV === 'production') {
+                ReactGA.event({
+                    category: 'Form Error',
+                    action: 'Form Submission Error',
+                    label: 'Error Modal'
+                });
+            }
+
             return <Error close={() => this.setState({ error: false })} />;
         }
     }
@@ -429,8 +439,8 @@ class Contact extends Component {
                     </Form>
 
                     {this.renderLoading()}
-
                     {this.renderSuccess()}
+                    {this.renderError()}
                 </Portfolio>
 
                 <Footer fixed />

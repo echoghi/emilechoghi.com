@@ -1,10 +1,9 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
-import ReactGA from 'react-ga';
 import styled from 'styled-components';
 
 const Button = styled.div`
@@ -28,34 +27,18 @@ const Button = styled.div`
     }
 `;
 
-class Error extends PureComponent {
-    componentDidMount() {
-        if (NODE_ENV === 'production') {
-            ReactGA.event({
-                category: 'Form Error',
-                action: 'Form Submission Error',
-                label: 'Error Modal'
-            });
-        }
-    }
-
-    render() {
-        const { close } = this.props;
-
-        return (
-            <Dialog open onClose={close}>
-                <DialogTitle>
-                    Oops, your message wasn't sent <i className="icon-tongue" />
-                </DialogTitle>
-                <DialogContent>
-                    <DialogContentText>An error occurred, please try again</DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={close}>Ok</Button>
-                </DialogActions>
-            </Dialog>
-        );
-    }
-}
+const Error = ({ close }) => (
+    <Dialog open onClose={close}>
+        <DialogTitle>
+            Oops, your message wasn't sent <i className="icon-tongue" />
+        </DialogTitle>
+        <DialogContent>
+            <DialogContentText>An error occurred, please try again</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+            <Button onClick={close}>Ok</Button>
+        </DialogActions>
+    </Dialog>
+);
 
 export default Error;
