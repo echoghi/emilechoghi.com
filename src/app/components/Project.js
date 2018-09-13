@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
 
@@ -132,47 +132,41 @@ const Text = styled.div`
     font-family: 'Varela Round';
 `;
 
-class Project extends PureComponent {
-    sendAnalytics(project) {
-        if (NODE_ENV === 'production') {
-            ReactGA.event({
-                category: 'Portfolio Item',
-                action: 'Project Click',
-                label: `Navigated to ${project}`
-            });
-        }
+const sendAnalytics = project => {
+    if (NODE_ENV === 'production') {
+        ReactGA.event({
+            category: 'Portfolio Item',
+            action: 'Project Click',
+            label: `Navigated to ${project}`
+        });
     }
+};
 
-    render() {
-        const { title, description, stack, link, color, image } = this.props;
-
-        return (
-            <ListItem onClick={() => this.sendAnalytics(title)}>
-                <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
-                    <PortfolioItem>
-                        <ImageWrapper>
-                            <Image color={color}>
-                                <img src={image} alt={title} />
-                            </Image>
-                        </ImageWrapper>
-                        <Info>
-                            <Stack>
-                                {stack.map((label, index) => {
-                                    return (
-                                        <Label key={label}>
-                                            {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
-                                        </Label>
-                                    );
-                                })}
-                            </Stack>
-                            <Title>{title}</Title>
-                            <Text>{description}</Text>
-                        </Info>
-                    </PortfolioItem>
-                </PortfolioLink>
-            </ListItem>
-        );
-    }
-}
+const Project = ({ title, description, stack, link, color, image }) => (
+    <ListItem onClick={() => sendAnalytics(title)}>
+        <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
+            <PortfolioItem>
+                <ImageWrapper>
+                    <Image color={color}>
+                        <img src={image} alt={title} />
+                    </Image>
+                </ImageWrapper>
+                <Info>
+                    <Stack>
+                        {stack.map((label, index) => {
+                            return (
+                                <Label key={label}>
+                                    {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                </Label>
+                            );
+                        })}
+                    </Stack>
+                    <Title>{title}</Title>
+                    <Text>{description}</Text>
+                </Info>
+            </PortfolioItem>
+        </PortfolioLink>
+    </ListItem>
+);
 
 export default Project;
