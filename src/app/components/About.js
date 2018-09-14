@@ -178,16 +178,16 @@ class About extends Component {
                                 <Skill>
                                     <SkillTitle>Languages</SkillTitle>
                                     <ul>
-                                        <li>Javascript (ES7)</li>
-                                        <li>HTML5</li>
-                                        <li>CSS3</li>
+                                        <li>Javascript (ES6)</li>
+                                        <li>HTML</li>
+                                        <li>CSS</li>
                                     </ul>
                                 </Skill>
                                 <Skill>
                                     <SkillTitle>Libraries</SkillTitle>
                                     <ul>
                                         <li>React</li>
-                                        <li>Angular 1.x</li>
+                                        <li>AngularJS</li>
                                         <li>jQuery</li>
                                         <li>Bootstrap</li>
                                         <li>Node & Express</li>

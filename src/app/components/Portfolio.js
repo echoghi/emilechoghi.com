@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // Components
 import Footer from './Footer';
 import Project from './Project';
@@ -106,7 +106,7 @@ const FilterButton = styled.button`
     }
 `;
 
-class Portfolio extends React.Component {
+class Portfolio extends Component {
     constructor(props) {
         super(props);
 
