@@ -1,7 +1,6 @@
-import React, { PureComponent } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import { Helmet } from 'react-helmet';
 import Loading from './Loading';
 
 // Components
@@ -35,37 +34,16 @@ const Contact = Loadable({
     loading: Loader
 });
 
-class AppIndex extends PureComponent {
-    sendSocialLinkAnalytics(site) {
-        if (NODE_ENV === 'production') {
-            ReactGA.event({
-                category: 'Social Link Bar',
-                action: 'Social Media Link Click',
-                label: `Navigated to ${site} Profile`
-            });
-        }
-    }
+const AppIndex = () => (
+    <Fragment>
+        <NavBar />
+        <SocialLinks />
+        <Fragment>
+            <Route exact path="/" component={About} />
+            <Route path="/portfolio" component={Portfolio} name="Portfolio" />
+            <Route path="/contact" component={Contact} name="Contact" />
+        </Fragment>
+    </Fragment>
+);
 
-    render() {
-        return (
-            <div>
-                <Helmet>
-                    <title>Emile Choghi</title>
-
-                    <meta charSet="UTF-8" />
-                    <link rel="canonical" href="https://emilechoghi.com" />
-                    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-                </Helmet>
-                <NavBar history={this.props} />
-                <SocialLinks sendAnalytics={this.sendSocialLinkAnalytics} />
-                <div>
-                    <Route exact path="/" component={About} />
-                    <Route path="/portfolio" component={Portfolio} name="Portfolio" />
-                    <Route path="/contact" component={Contact} name="Contact" />
-                </div>
-            </div>
-        );
-    }
-}
-
-export default withRouter(AppIndex);
+export default AppIndex;

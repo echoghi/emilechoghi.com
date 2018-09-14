@@ -3,7 +3,6 @@ import styled from 'styled-components';
 // Components
 import Footer from './Footer';
 import ReactGA from 'react-ga';
-import { Helmet } from 'react-helmet';
 
 const AboutWrapper = styled.div`
     font-family: 'Varela Round';
@@ -137,19 +136,18 @@ const SkillTitle = styled.div`
 
 class About extends Component {
     componentDidMount() {
-        window.scrollTo(0, 0);
+        document.title = 'Emile Choghi';
 
         if (NODE_ENV === 'production') {
             ReactGA.ga('send', 'pageview', '/');
         }
+
+        window.scrollTo(0, 0);
     }
 
     render() {
         return (
             <AboutWrapper>
-                <Helmet>
-                    <link rel="canonical" href="https://emilechoghi.com/" />
-                </Helmet>
                 <div className="clearfix" />
                 <Content>
                     <Tagline>

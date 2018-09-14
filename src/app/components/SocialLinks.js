@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import styled from 'styled-components';
 
 const LinkWrapper = styled.div`
@@ -57,7 +58,17 @@ const IconListItem = styled.li`
     }
 `;
 
-const SocialLinks = ({ sendAnalytics }) => (
+const sendAnalytics = site => {
+    if (NODE_ENV === 'production') {
+        ReactGA.event({
+            category: 'Social Link Bar',
+            action: 'Social Media Link Click',
+            label: `Navigated to ${site} Profile`
+        });
+    }
+};
+
+const SocialLinks = () => (
     <LinkWrapper>
         <IconListItem>
             <a

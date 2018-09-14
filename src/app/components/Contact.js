@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // Components
-import { Helmet } from 'react-helmet';
 import Footer from './Footer';
 import Success from './Success';
 import Loading from './Loading';
@@ -190,30 +189,28 @@ const validationObj = () => {
 };
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: false,
-            error: false,
-            success: false,
-            name: '',
-            email: '',
-            message: '',
-            validation: {
-                name: new validationObj(),
-                email: new validationObj(),
-                message: new validationObj()
-            }
-        };
-
-        window.scrollTo(0, 0);
-    }
+    state = {
+        loading: false,
+        error: false,
+        success: false,
+        name: '',
+        email: '',
+        message: '',
+        validation: {
+            name: new validationObj(),
+            email: new validationObj(),
+            message: new validationObj()
+        }
+    };
 
     componentDidMount() {
+        document.title = 'Contact Emile Choghi';
+
         if (NODE_ENV === 'production') {
             ReactGA.ga('send', 'pageview', '/contact');
         }
+
+        window.scrollTo(0, 0);
     }
 
     renderLoading() {
@@ -383,11 +380,7 @@ class Contact extends Component {
         const { name, email, message } = this.state;
 
         return (
-            <div>
-                <Helmet>
-                    <link rel="canonical" href="https://emilechoghi.com/contact" />
-                </Helmet>
-
+            <Fragment>
                 <Portfolio>
                     <div className="clearfix" />
 
@@ -444,7 +437,7 @@ class Contact extends Component {
                 </Portfolio>
 
                 <Footer fixed />
-            </div>
+            </Fragment>
         );
     }
 }
