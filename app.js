@@ -14,11 +14,13 @@ const express = require('express'),
 // Load nodemailer config
 require('dotenv').load();
 
+const { USEREMAIL, USERPASS } = process.env;
+
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'echoghi@gmail.com',
-        pass: 'echoghipotac877'
+        user: USEREMAIL,
+        pass: USERPASS
     }
 });
 
