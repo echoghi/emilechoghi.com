@@ -182,11 +182,6 @@ const TextArea = styled.textarea`
 
 // Email validation RegExp
 const validateEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-// Reusable validation constuctor for each input
-const validationObj = () => {
-    this.valid = false;
-    this.dirty = false;
-};
 
 class Contact extends Component {
     state = {
@@ -197,9 +192,9 @@ class Contact extends Component {
         email: '',
         message: '',
         validation: {
-            name: new validationObj(),
-            email: new validationObj(),
-            message: new validationObj()
+            name: { dirty: false, valid: false },
+            email: { dirty: false, valid: false },
+            message: { dirty: false, valid: false }
         }
     };
 
@@ -250,7 +245,7 @@ class Contact extends Component {
         let { validation } = this.state;
         // Reset Form Validation
         for (let type in validation) {
-            validation[type] = new validationObj();
+            validation[type] = { dirty: false, valid: false };
         }
 
         this.setState({ name: '', email: '', message: '' });
@@ -384,7 +379,7 @@ class Contact extends Component {
                 <Portfolio>
                     <div className="clearfix" />
 
-                    <Form id="contact-form">
+                    <Form id="contact-form" onSubmit={this.handleSubmit}>
                         <FormHeader> Contact Me </FormHeader>
                         <FormRow>
                             <FormItem>
@@ -426,7 +421,7 @@ class Contact extends Component {
                             </FormItemLarge>
                         </FormRow>
 
-                        <button onClick={this.handleSubmit} className="form-button">
+                        <button type="submit" className="form-button">
                             Send
                         </button>
                     </Form>

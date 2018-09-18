@@ -6,7 +6,14 @@
         "dev": "yarn install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
         "build": "NODE_ENV=production webpack --env.prod=true",
         "build-windows": "cross-env NODE_ENV=production webpack --env.prod=true",
-        "server": "node app"
+        "server": "node app",
+        "test": "jest",
+        "test:update": "jest -u"
+    },
+    "jest": {
+        "snapshotSerializers": [
+            "jest-serializer-enzyme"
+        ]
     },
     "repository": {
         "type": "git"
@@ -20,26 +27,30 @@
         "express-static-gzip": "^0.3.0",
         "image-webpack-loader": "^3.4.2",
         "nodemailer": "^4.0.1",
-        "react": "^16.4.2",
-        "react-dom": "^16.4.2",
+        "react": "16.5.1",
+        "react-dom": "16.5.1",
         "react-ga": "^2.4.0",
         "react-loadable": "^5.4.0",
         "react-router": "^4.2.0",
         "react-router-dom": "^4.2.2",
+        "regenerator-runtime": "^0.12.1",
         "styled-components": "^3.2.6",
         "whatwg-fetch": "^2.0.4"
     },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
-        "@babel/core": "^7.0.1",
+        "@babel/core": "^7.1.0",
         "@babel/plugin-proposal-class-properties": "^7.0.0",
         "@babel/plugin-syntax-dynamic-import": "^7.0.0",
         "@babel/plugin-transform-runtime": "^7.0.0",
-        "@babel/preset-env": "^7.0.0",
+        "@babel/preset-env": "^7.1.0",
         "@babel/preset-react": "^7.0.0",
         "@babel/register": "^7.0.0",
+        "babel-core": "7.0.0-bridge.0",
         "babel-eslint": "^9.0.0",
+        "babel-jest": "^23.6.0",
         "babel-loader": "8.0.2",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "browser-sync": "^2.18.8",
         "browser-sync-webpack-plugin": "^1.1.4",
         "case-sensitive-paths-webpack-plugin": "^2.0.0",
@@ -48,6 +59,8 @@
         "copy-webpack-plugin": "^4.5.1",
         "css-loader": "^0.25.0",
         "duplicate-package-checker-webpack-plugin": "^1.2.4",
+        "enzyme": "^3.6.0",
+        "enzyme-adapter-react-16": "^1.5.0",
         "eslint": "^4.0.0",
         "eslint-config-prettier": "^2.2.0",
         "eslint-loader": "^1.7.1",
@@ -62,6 +75,7 @@
         "html-loader": "^0.4.5",
         "html-webpack-plugin": "^2.28.0",
         "html-webpack-template": "^6.0.1",
+        "jest": "^23.6.0",
         "json-loader": "^0.5.4",
         "loader-utils": "^1.1.0",
         "node-sass": "4.9.0",
@@ -72,6 +86,7 @@
         "raw-loader": "^0.5.1",
         "react-addons-test-utils": "^15.4.2",
         "react-hot-loader": "^3.0.0-beta.6",
+        "react-test-renderer": "^16.5.1",
         "sass-loader": "^6.0.3",
         "style-loader": "^0.13.2",
         "stylelint-webpack-plugin": "^0.7.0",

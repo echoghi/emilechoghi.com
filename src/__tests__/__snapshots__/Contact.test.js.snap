@@ -1,0 +1,1281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact Form 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Contact />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+          <div
+            className="clearfix"
+          />
+          <styled.form
+            id="contact-form"
+            onSubmit={[Function]}
+          >
+            <styled.h4>
+               Contact Me 
+            </styled.h4>
+            <styled.div>
+              <styled.div>
+                <styled.label
+                  className=""
+                >
+                  Name
+                </styled.label>
+                <styled.input
+                  className=""
+                  maxLength="100"
+                  name="name"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                />
+                <styled.div
+                  className=""
+                >
+                  required*
+                </styled.div>
+              </styled.div>
+              <styled.div>
+                <styled.label
+                  className=""
+                >
+                  Email Address
+                </styled.label>
+                <styled.input
+                  className=""
+                  maxLength="254"
+                  name="email"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                />
+                <styled.div
+                  className=""
+                >
+                  invalid*
+                </styled.div>
+              </styled.div>
+            </styled.div>
+            <styled.div>
+              <styled.div>
+                <styled.label
+                  className=""
+                >
+                  Message
+                </styled.label>
+                <styled.textarea
+                  className=""
+                  maxLength="6000"
+                  name="message"
+                  onChange={[Function]}
+                  value=""
+                />
+                <styled.div
+                  className=""
+                >
+                  required*
+                </styled.div>
+              </styled.div>
+            </styled.div>
+            <button
+              className="form-button"
+              type="submit"
+            >
+              Send
+            </button>
+          </styled.form>
+        </styled.div>,
+        <Footer
+          fixed={true}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <div
+              className="clearfix"
+            />,
+            <styled.form
+              id="contact-form"
+              onSubmit={[Function]}
+            >
+              <styled.h4>
+                 Contact Me 
+              </styled.h4>
+              <styled.div>
+                <styled.div>
+                  <styled.label
+                    className=""
+                  >
+                    Name
+                  </styled.label>
+                  <styled.input
+                    className=""
+                    maxLength="100"
+                    name="name"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                  <styled.div
+                    className=""
+                  >
+                    required*
+                  </styled.div>
+                </styled.div>
+                <styled.div>
+                  <styled.label
+                    className=""
+                  >
+                    Email Address
+                  </styled.label>
+                  <styled.input
+                    className=""
+                    maxLength="254"
+                    name="email"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                  <styled.div
+                    className=""
+                  >
+                    invalid*
+                  </styled.div>
+                </styled.div>
+              </styled.div>
+              <styled.div>
+                <styled.div>
+                  <styled.label
+                    className=""
+                  >
+                    Message
+                  </styled.label>
+                  <styled.textarea
+                    className=""
+                    maxLength="6000"
+                    name="message"
+                    onChange={[Function]}
+                    value=""
+                  />
+                  <styled.div
+                    className=""
+                  >
+                    required*
+                  </styled.div>
+                </styled.div>
+              </styled.div>
+              <button
+                className="form-button"
+                type="submit"
+              >
+                Send
+              </button>
+            </styled.form>,
+            undefined,
+            undefined,
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "clearfix",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.h4>
+                   Contact Me 
+                </styled.h4>,
+                <styled.div>
+                  <styled.div>
+                    <styled.label
+                      className=""
+                    >
+                      Name
+                    </styled.label>
+                    <styled.input
+                      className=""
+                      maxLength="100"
+                      name="name"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                    <styled.div
+                      className=""
+                    >
+                      required*
+                    </styled.div>
+                  </styled.div>
+                  <styled.div>
+                    <styled.label
+                      className=""
+                    >
+                      Email Address
+                    </styled.label>
+                    <styled.input
+                      className=""
+                      maxLength="254"
+                      name="email"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                    <styled.div
+                      className=""
+                    >
+                      invalid*
+                    </styled.div>
+                  </styled.div>
+                </styled.div>,
+                <styled.div>
+                  <styled.div>
+                    <styled.label
+                      className=""
+                    >
+                      Message
+                    </styled.label>
+                    <styled.textarea
+                      className=""
+                      maxLength="6000"
+                      name="message"
+                      onChange={[Function]}
+                      value=""
+                    />
+                    <styled.div
+                      className=""
+                    >
+                      required*
+                    </styled.div>
+                  </styled.div>
+                </styled.div>,
+                <button
+                  className="form-button"
+                  type="submit"
+                >
+                  Send
+                </button>,
+              ],
+              "id": "contact-form",
+              "onSubmit": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": " Contact Me ",
+                },
+                "ref": null,
+                "rendered": " Contact Me ",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <styled.div>
+                      <styled.label
+                        className=""
+                      >
+                        Name
+                      </styled.label>
+                      <styled.input
+                        className=""
+                        maxLength="100"
+                        name="name"
+                        onChange={[Function]}
+                        type="text"
+                        value=""
+                      />
+                      <styled.div
+                        className=""
+                      >
+                        required*
+                      </styled.div>
+                    </styled.div>,
+                    <styled.div>
+                      <styled.label
+                        className=""
+                      >
+                        Email Address
+                      </styled.label>
+                      <styled.input
+                        className=""
+                        maxLength="254"
+                        name="email"
+                        onChange={[Function]}
+                        type="text"
+                        value=""
+                      />
+                      <styled.div
+                        className=""
+                      >
+                        invalid*
+                      </styled.div>
+                    </styled.div>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <styled.label
+                          className=""
+                        >
+                          Name
+                        </styled.label>,
+                        <styled.input
+                          className=""
+                          maxLength="100"
+                          name="name"
+                          onChange={[Function]}
+                          type="text"
+                          value=""
+                        />,
+                        <styled.div
+                          className=""
+                        >
+                          required*
+                        </styled.div>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "Name",
+                          "className": "",
+                        },
+                        "ref": null,
+                        "rendered": "Name",
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "className": "",
+                          "maxLength": "100",
+                          "name": "name",
+                          "onChange": [Function],
+                          "type": "text",
+                          "value": "",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "required*",
+                          "className": "",
+                        },
+                        "ref": null,
+                        "rendered": "required*",
+                        "type": [Function],
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <styled.label
+                          className=""
+                        >
+                          Email Address
+                        </styled.label>,
+                        <styled.input
+                          className=""
+                          maxLength="254"
+                          name="email"
+                          onChange={[Function]}
+                          type="text"
+                          value=""
+                        />,
+                        <styled.div
+                          className=""
+                        >
+                          invalid*
+                        </styled.div>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "Email Address",
+                          "className": "",
+                        },
+                        "ref": null,
+                        "rendered": "Email Address",
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "className": "",
+                          "maxLength": "254",
+                          "name": "email",
+                          "onChange": [Function],
+                          "type": "text",
+                          "value": "",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "invalid*",
+                          "className": "",
+                        },
+                        "ref": null,
+                        "rendered": "invalid*",
+                        "type": [Function],
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <styled.div>
+                    <styled.label
+                      className=""
+                    >
+                      Message
+                    </styled.label>
+                    <styled.textarea
+                      className=""
+                      maxLength="6000"
+                      name="message"
+                      onChange={[Function]}
+                      value=""
+                    />
+                    <styled.div
+                      className=""
+                    >
+                      required*
+                    </styled.div>
+                  </styled.div>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.label
+                        className=""
+                      >
+                        Message
+                      </styled.label>,
+                      <styled.textarea
+                        className=""
+                        maxLength="6000"
+                        name="message"
+                        onChange={[Function]}
+                        value=""
+                      />,
+                      <styled.div
+                        className=""
+                      >
+                        required*
+                      </styled.div>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Message",
+                        "className": "",
+                      },
+                      "ref": null,
+                      "rendered": "Message",
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "className": "",
+                        "maxLength": "6000",
+                        "name": "message",
+                        "onChange": [Function],
+                        "value": "",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "required*",
+                        "className": "",
+                      },
+                      "ref": null,
+                      "rendered": "required*",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Send",
+                  "className": "form-button",
+                  "type": "submit",
+                },
+                "ref": null,
+                "rendered": "Send",
+                "type": "button",
+              },
+            ],
+            "type": [Function],
+          },
+          undefined,
+          undefined,
+          undefined,
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "fixed": true,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+            <div
+              className="clearfix"
+            />
+            <styled.form
+              id="contact-form"
+              onSubmit={[Function]}
+            >
+              <styled.h4>
+                 Contact Me 
+              </styled.h4>
+              <styled.div>
+                <styled.div>
+                  <styled.label
+                    className=""
+                  >
+                    Name
+                  </styled.label>
+                  <styled.input
+                    className=""
+                    maxLength="100"
+                    name="name"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                  <styled.div
+                    className=""
+                  >
+                    required*
+                  </styled.div>
+                </styled.div>
+                <styled.div>
+                  <styled.label
+                    className=""
+                  >
+                    Email Address
+                  </styled.label>
+                  <styled.input
+                    className=""
+                    maxLength="254"
+                    name="email"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                  <styled.div
+                    className=""
+                  >
+                    invalid*
+                  </styled.div>
+                </styled.div>
+              </styled.div>
+              <styled.div>
+                <styled.div>
+                  <styled.label
+                    className=""
+                  >
+                    Message
+                  </styled.label>
+                  <styled.textarea
+                    className=""
+                    maxLength="6000"
+                    name="message"
+                    onChange={[Function]}
+                    value=""
+                  />
+                  <styled.div
+                    className=""
+                  >
+                    required*
+                  </styled.div>
+                </styled.div>
+              </styled.div>
+              <button
+                className="form-button"
+                type="submit"
+              >
+                Send
+              </button>
+            </styled.form>
+          </styled.div>,
+          <Footer
+            fixed={true}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <div
+                className="clearfix"
+              />,
+              <styled.form
+                id="contact-form"
+                onSubmit={[Function]}
+              >
+                <styled.h4>
+                   Contact Me 
+                </styled.h4>
+                <styled.div>
+                  <styled.div>
+                    <styled.label
+                      className=""
+                    >
+                      Name
+                    </styled.label>
+                    <styled.input
+                      className=""
+                      maxLength="100"
+                      name="name"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                    <styled.div
+                      className=""
+                    >
+                      required*
+                    </styled.div>
+                  </styled.div>
+                  <styled.div>
+                    <styled.label
+                      className=""
+                    >
+                      Email Address
+                    </styled.label>
+                    <styled.input
+                      className=""
+                      maxLength="254"
+                      name="email"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                    <styled.div
+                      className=""
+                    >
+                      invalid*
+                    </styled.div>
+                  </styled.div>
+                </styled.div>
+                <styled.div>
+                  <styled.div>
+                    <styled.label
+                      className=""
+                    >
+                      Message
+                    </styled.label>
+                    <styled.textarea
+                      className=""
+                      maxLength="6000"
+                      name="message"
+                      onChange={[Function]}
+                      value=""
+                    />
+                    <styled.div
+                      className=""
+                    >
+                      required*
+                    </styled.div>
+                  </styled.div>
+                </styled.div>
+                <button
+                  className="form-button"
+                  type="submit"
+                >
+                  Send
+                </button>
+              </styled.form>,
+              undefined,
+              undefined,
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "clearfix",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.h4>
+                     Contact Me 
+                  </styled.h4>,
+                  <styled.div>
+                    <styled.div>
+                      <styled.label
+                        className=""
+                      >
+                        Name
+                      </styled.label>
+                      <styled.input
+                        className=""
+                        maxLength="100"
+                        name="name"
+                        onChange={[Function]}
+                        type="text"
+                        value=""
+                      />
+                      <styled.div
+                        className=""
+                      >
+                        required*
+                      </styled.div>
+                    </styled.div>
+                    <styled.div>
+                      <styled.label
+                        className=""
+                      >
+                        Email Address
+                      </styled.label>
+                      <styled.input
+                        className=""
+                        maxLength="254"
+                        name="email"
+                        onChange={[Function]}
+                        type="text"
+                        value=""
+                      />
+                      <styled.div
+                        className=""
+                      >
+                        invalid*
+                      </styled.div>
+                    </styled.div>
+                  </styled.div>,
+                  <styled.div>
+                    <styled.div>
+                      <styled.label
+                        className=""
+                      >
+                        Message
+                      </styled.label>
+                      <styled.textarea
+                        className=""
+                        maxLength="6000"
+                        name="message"
+                        onChange={[Function]}
+                        value=""
+                      />
+                      <styled.div
+                        className=""
+                      >
+                        required*
+                      </styled.div>
+                    </styled.div>
+                  </styled.div>,
+                  <button
+                    className="form-button"
+                    type="submit"
+                  >
+                    Send
+                  </button>,
+                ],
+                "id": "contact-form",
+                "onSubmit": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": " Contact Me ",
+                  },
+                  "ref": null,
+                  "rendered": " Contact Me ",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.div>
+                        <styled.label
+                          className=""
+                        >
+                          Name
+                        </styled.label>
+                        <styled.input
+                          className=""
+                          maxLength="100"
+                          name="name"
+                          onChange={[Function]}
+                          type="text"
+                          value=""
+                        />
+                        <styled.div
+                          className=""
+                        >
+                          required*
+                        </styled.div>
+                      </styled.div>,
+                      <styled.div>
+                        <styled.label
+                          className=""
+                        >
+                          Email Address
+                        </styled.label>
+                        <styled.input
+                          className=""
+                          maxLength="254"
+                          name="email"
+                          onChange={[Function]}
+                          type="text"
+                          value=""
+                        />
+                        <styled.div
+                          className=""
+                        >
+                          invalid*
+                        </styled.div>
+                      </styled.div>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": Array [
+                          <styled.label
+                            className=""
+                          >
+                            Name
+                          </styled.label>,
+                          <styled.input
+                            className=""
+                            maxLength="100"
+                            name="name"
+                            onChange={[Function]}
+                            type="text"
+                            value=""
+                          />,
+                          <styled.div
+                            className=""
+                          >
+                            required*
+                          </styled.div>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "Name",
+                            "className": "",
+                          },
+                          "ref": null,
+                          "rendered": "Name",
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "className": "",
+                            "maxLength": "100",
+                            "name": "name",
+                            "onChange": [Function],
+                            "type": "text",
+                            "value": "",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "required*",
+                            "className": "",
+                          },
+                          "ref": null,
+                          "rendered": "required*",
+                          "type": [Function],
+                        },
+                      ],
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": Array [
+                          <styled.label
+                            className=""
+                          >
+                            Email Address
+                          </styled.label>,
+                          <styled.input
+                            className=""
+                            maxLength="254"
+                            name="email"
+                            onChange={[Function]}
+                            type="text"
+                            value=""
+                          />,
+                          <styled.div
+                            className=""
+                          >
+                            invalid*
+                          </styled.div>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "Email Address",
+                            "className": "",
+                          },
+                          "ref": null,
+                          "rendered": "Email Address",
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "className": "",
+                            "maxLength": "254",
+                            "name": "email",
+                            "onChange": [Function],
+                            "type": "text",
+                            "value": "",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "invalid*",
+                            "className": "",
+                          },
+                          "ref": null,
+                          "rendered": "invalid*",
+                          "type": [Function],
+                        },
+                      ],
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <styled.div>
+                      <styled.label
+                        className=""
+                      >
+                        Message
+                      </styled.label>
+                      <styled.textarea
+                        className=""
+                        maxLength="6000"
+                        name="message"
+                        onChange={[Function]}
+                        value=""
+                      />
+                      <styled.div
+                        className=""
+                      >
+                        required*
+                      </styled.div>
+                    </styled.div>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <styled.label
+                          className=""
+                        >
+                          Message
+                        </styled.label>,
+                        <styled.textarea
+                          className=""
+                          maxLength="6000"
+                          name="message"
+                          onChange={[Function]}
+                          value=""
+                        />,
+                        <styled.div
+                          className=""
+                        >
+                          required*
+                        </styled.div>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "Message",
+                          "className": "",
+                        },
+                        "ref": null,
+                        "rendered": "Message",
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "className": "",
+                          "maxLength": "6000",
+                          "name": "message",
+                          "onChange": [Function],
+                          "value": "",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "required*",
+                          "className": "",
+                        },
+                        "ref": null,
+                        "rendered": "required*",
+                        "type": [Function],
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Send",
+                    "className": "form-button",
+                    "type": "submit",
+                  },
+                  "ref": null,
+                  "rendered": "Send",
+                  "type": "button",
+                },
+              ],
+              "type": [Function],
+            },
+            undefined,
+            undefined,
+            undefined,
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "fixed": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
