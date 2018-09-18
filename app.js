@@ -11,6 +11,9 @@ const express = require('express'),
     nodemailer = require('nodemailer'),
     expressStaticGzip = require('express-static-gzip');
 
+// Load nodemailer config
+require('dotenv').load();
+
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
