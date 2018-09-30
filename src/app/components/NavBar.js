@@ -65,13 +65,13 @@ class NavBar extends Component {
                     <div />
                 </div>
                 <ul className={this.handleMenuClass()}>
-                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/" exact>
+                    <NavLink activeClassName="active" onClick={this.onNavigation} to="/" exact>
                         Home <i className="icon-home" />
                     </NavLink>
-                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/portfolio">
+                    <NavLink activeClassName="active" onClick={this.onNavigation} to="/portfolio">
                         Portfolio <i className="icon-briefcase" />
                     </NavLink>
-                    <NavLink activeClassName="active" onClick={() => this.onNavigation()} to="/contact">
+                    <NavLink activeClassName="active" onClick={this.onNavigation} to="/contact">
                         Contact <i className="icon-message-square" />
                     </NavLink>
                 </ul>

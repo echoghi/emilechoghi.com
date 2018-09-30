@@ -3,13 +3,14 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 //const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SystemBellPlugin = require('system-bell-webpack-plugin');
-const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -23,18 +24,34 @@ module.exports = function(env) {
     const isProd = nodeEnv === 'production';
 
     const plugins = [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: Infinity,
-            filename: '[name].bundle.js'
-        }),
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(nodeEnv)
         }),
         new webpack.NamedModulesPlugin()
     ];
 
+    const optimization = {
+        minimizer: []
+    };
+
     if (isProd) {
+        optimization.minimizer.push(
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    compress: true,
+                    ecma: 6,
+                    output: {
+                        comments: false
+                    },
+                    compress: {
+                        dead_code: true,
+                        drop_console: true
+                    }
+                },
+                sourceMap: false
+            })
+        );
+
         plugins.push(
             new HtmlWebpackPlugin({
                 filename: 'index.html',
@@ -76,23 +93,6 @@ module.exports = function(env) {
                 minimize: true,
                 debug: false
             }),
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false,
-                    screw_ie8: true,
-                    conditionals: true,
-                    unused: true,
-                    comparisons: true,
-                    sequences: true,
-                    dead_code: true,
-                    evaluate: true,
-                    if_return: true,
-                    join_vars: true
-                },
-                output: {
-                    comments: false
-                }
-            }),
             new webpack.optimize.AggressiveMergingPlugin(),
             new webpack.BannerPlugin({
                 banner:
@@ -110,11 +110,11 @@ module.exports = function(env) {
                     `:` +
                     new Date().getMinutes()
             }),
-            new ExtractTextPlugin('styles.css')
+            new MiniCssExtractPlugin('styles.css')
         );
     } else {
         plugins.push(
-            new BundleAnalyzerPlugin(),
+            //new BundleAnalyzerPlugin(),
             new webpack.DefinePlugin({
                 NODE_ENV: JSON.stringify(nodeEnv)
             }),
@@ -124,7 +124,7 @@ module.exports = function(env) {
                 {
                     host: 'localhost',
                     port: 8080,
-                    open: false,
+                    open: true,
                     // proxy the Webpack Dev Server endpoint
                     // (which should be serving on http://localhost:8080/)
                     // through BrowserSync
@@ -139,7 +139,7 @@ module.exports = function(env) {
             new CaseSensitivePathsPlugin(),
             new FriendlyErrorsWebpackPlugin(),
             new SystemBellPlugin(),
-            new NyanProgressPlugin(),
+            new ProgressBarPlugin(),
             new DuplicatePackageCheckerPlugin(),
             new StyleLintPlugin({
                 files: './app/assets/scss/*.scss'
@@ -178,34 +178,33 @@ module.exports = function(env) {
                 },
 
                 {
-                    test: /\.(scss|css)$/,
-                    use: isProd // If Prod
-                        ? ExtractTextPlugin.extract({
-                              fallback: 'style-loader',
-                              use: ['css-loader', 'sass-loader']
-                          })
-                        : // Else
+                    test: /\.json$/,
+                    loader: 'json-loader',
+                    type: 'javascript/auto'
+                },
 
-                          [
-                              {
-                                  loader: 'style-loader',
-                                  options: {
-                                      sourceMap: false
-                                  }
-                              },
-                              {
-                                  loader: 'css-loader',
-                                  options: {
-                                      sourceMap: true
-                                  }
-                              },
-                              {
-                                  loader: 'sass-loader',
-                                  options: {
-                                      sourceMap: true
-                                  }
-                              }
-                          ]
+                {
+                    test: /\.(scss|css)$/,
+                    use: [
+                        {
+                            loader: 'style-loader',
+                            options: {
+                                sourceMap: false
+                            }
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
                 },
                 {
                     test: /\.(js|jsx)$/,
@@ -223,32 +222,7 @@ module.exports = function(env) {
                 {
                     test: /\.(png|jpg)$/,
                     exclude: /node_modules/,
-                    use: [
-                        {
-                            loader: 'url-loader',
-                            options: {
-                                query: {
-                                    name: 'app/assets/images/[name].[ext]'
-                                }
-                            }
-                        },
-                        {
-                            loader: 'image-webpack-loader',
-                            options: {
-                                query: {
-                                    mozjpeg: {
-                                        progressive: true
-                                    },
-                                    gifsicle: {
-                                        interlaced: true
-                                    },
-                                    optipng: {
-                                        optimizationLevel: 7
-                                    }
-                                }
-                            }
-                        }
-                    ]
+                    use: ['file-loader']
                 }
             ]
         },
