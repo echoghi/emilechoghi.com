@@ -7,9 +7,9 @@ module.exports = {
         jest: true
     },
 
-    plugins: ['react'],
+    plugins: ['react', 'jsx-a11y'],
 
-    extends: ['plugin:react/recommended', 'prettier'],
+    extends: ['plugin:react/recommended', 'plugin:jsx-a11y/recommended', 'prettier'],
 
     parser: 'babel-eslint',
 

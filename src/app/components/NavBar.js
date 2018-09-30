@@ -59,12 +59,19 @@ class NavBar extends Component {
                         <i className="icon-brand" />
                     </NavLink>
                 </div>
-                <div className={this.handleHamburgerClass()} onClick={this.handleMenu}>
+                <div
+                    className={this.handleHamburgerClass()}
+                    onClick={this.handleMenu}
+                    onKeyDown={this.handleMenu}
+                    aria-expanded={this.state.menuOpen}
+                    tabIndex={0}
+                    role="menu"
+                >
                     <div />
                     <div />
                     <div />
                 </div>
-                <ul className={this.handleMenuClass()}>
+                <ul className={this.handleMenuClass()} role="menu">
                     <NavLink activeClassName="active" onClick={this.onNavigation} to="/" exact>
                         Home <i className="icon-home" />
                     </NavLink>

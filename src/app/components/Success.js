@@ -74,9 +74,7 @@ const Success = ({ close }) => (
             </Container>
         </DialogContent>
         <DialogActions>
-            <Button onClick={close} autoFocus>
-                Ok
-            </Button>
+            <Button onClick={close}>Ok</Button>
         </DialogActions>
     </Dialog>
 );
