@@ -124,7 +124,7 @@ module.exports = function(env) {
                 {
                     host: 'localhost',
                     port: 8080,
-                    open: true,
+                    open: false,
                     // proxy the Webpack Dev Server endpoint
                     // (which should be serving on http://localhost:8080/)
                     // through BrowserSync
