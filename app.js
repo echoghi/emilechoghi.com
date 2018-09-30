@@ -1,7 +1,7 @@
 /**
  * Portfolio Server
- * v2.1.0
- * 5/31/18
+ *
+ * 9/18/18
  */
 const express = require('express'),
     bodyParser = require('body-parser'),
