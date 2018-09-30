@@ -1,4 +1,5 @@
 import Contact from '../app/components/Contact.js';
+import 'jest-styled-components';
 import 'whatwg-fetch';
 
 configure({ adapter: new Adapter() });
@@ -22,21 +23,22 @@ const mockFormPost = () => {
 };
 
 describe('<Contact />', () => {
-    test('Contact Snapshot', () => {
+    test('snapshot', () => {
         const component = shallow(<Contact />);
         expect(component).toMatchSnapshot();
     });
 
-    test('Contact form renders correctly', () => {
+    test('form renders correctly', () => {
         const component = shallow(<Contact />);
         // Test that component exists
         expect(component).toBeDefined();
         expect(component).toHaveLength(1);
     });
 
-    test('Contact Form Should Submit', () => {
+    test('form should submit', () => {
         const component = mount(<Contact />);
 
+        // enter name
         const nameInput = component
             .find('input')
             .first()
@@ -44,6 +46,7 @@ describe('<Contact />', () => {
             .instance();
         nameInput.value = 'Test';
 
+        // enter email
         const emailInput = component
             .find('input')
             .at(1)
@@ -51,6 +54,7 @@ describe('<Contact />', () => {
             .instance();
         emailInput.value = 'test@jest.com';
 
+        // enter message
         const messageInput = component
             .find('textarea')
             .first()
@@ -58,7 +62,54 @@ describe('<Contact />', () => {
             .instance();
         messageInput.value = 'testing form';
 
+        // submit form
         component.find('form').simulate('submit');
+
+        // validation should pass
+        expect(component.find('input').first()).toHaveStyleRule('border', 'none');
+        expect(component.find('input').at(1)).toHaveStyleRule('border', 'none');
+        expect(component.find('textarea').first()).toHaveStyleRule('border', 'none');
+    });
+
+    test('form validation should work', () => {
+        const component = mount(<Contact />);
+
+        // enter name
+        const nameInput = component.find('input').first();
+        nameInput.simulate('change', {
+            target: { value: 'test', name: 'name' }
+        });
+
+        // enter email
+        const emailInput = component.find('input').at(1);
+        emailInput.simulate('change', {
+            target: { value: 'broken email', name: 'email' }
+        });
+
+        // enter message
+        const messageInput = component.find('textarea').first();
+        messageInput.simulate('change', {
+            target: { value: 'test', name: 'message' }
+        });
+
+        // submit form
+        component.find('form').simulate('submit');
+
+        // state should be updated
+        expect(component.state('name')).toEqual('test');
+        expect(component.state('email')).toEqual('broken email');
+        expect(component.state('message')).toEqual('test');
+        expect(component.state('validation')).toEqual({
+            email: { dirty: true, valid: false },
+            message: { dirty: true, valid: true },
+            name: { dirty: true, valid: true }
+        });
+
+        component.update();
+        // validation should pass
+        expect(nameInput).toHaveStyleRule('border', 'none');
+        expect(emailInput).toHaveStyleRule('border', 'none');
+        expect(messageInput).toHaveStyleRule('border', 'none');
     });
 
     test('form should POST successfully', async function() {

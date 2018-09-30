@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 // Components
+import ReactGA from 'react-ga';
+import styled from 'styled-components';
 import Footer from './Footer';
 import Success from './Success';
 import Loading from './Loading';
 import Error from './Error';
-import ReactGA from 'react-ga';
-import styled from 'styled-components';
 
 const Portfolio = styled.div`
     height: calc(100vh - 80px);
@@ -392,10 +392,14 @@ class Contact extends Component {
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('name')}
                                 />
-                                <ErrorLabel className={this.handleErrorClass('name')}>required*</ErrorLabel>
+                                <ErrorLabel className={this.handleErrorClass('name')}>
+                                    required*
+                                </ErrorLabel>
                             </FormItem>
                             <FormItem>
-                                <Label className={this.handleErrorClass('email')}>Email Address</Label>
+                                <Label className={this.handleErrorClass('email')}>
+                                    Email Address
+                                </Label>
                                 <Input
                                     type="text"
                                     name="email"
@@ -404,7 +408,9 @@ class Contact extends Component {
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('email')}
                                 />
-                                <ErrorLabel className={this.handleErrorClass('email')}>invalid*</ErrorLabel>
+                                <ErrorLabel className={this.handleErrorClass('email')}>
+                                    invalid*
+                                </ErrorLabel>
                             </FormItem>
                         </FormRow>
                         <FormRow>
@@ -417,7 +423,9 @@ class Contact extends Component {
                                     onChange={this.onChange}
                                     className={this.handleErrorClass('message')}
                                 />
-                                <ErrorLabel className={this.handleErrorClass('message')}>required*</ErrorLabel>
+                                <ErrorLabel className={this.handleErrorClass('message')}>
+                                    required*
+                                </ErrorLabel>
                             </FormItemLarge>
                         </FormRow>
 

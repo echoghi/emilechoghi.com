@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ReactGA from 'react-ga';
 // Components
 import Footer from './Footer';
-import ReactGA from 'react-ga';
 
 const AboutWrapper = styled.div`
     font-family: 'Varela Round';
@@ -151,8 +151,8 @@ class About extends Component {
                 <div className="clearfix" />
                 <Content>
                     <Tagline>
-                        I'm <b>Emile Choghi</b>, a design-oriented front end software engineer focused on building
-                        beautiful interfaces & experiences
+                        I'm <b>Emile Choghi</b>, a design-oriented front end software engineer
+                        focused on building beautiful interfaces & experiences
                     </Tagline>
                     <Section>
                         <SectionTitle>Background</SectionTitle>
@@ -161,12 +161,14 @@ class About extends Component {
                             <a href="https://doctor.com" target="_blank" rel="noopener noreferrer">
                                 Doctor.com
                             </a>{' '}
-                            building consumer facing web apps with some awesome people. As an engineer, I enjoy
-                            exploring the complex relationship between engineering and design — combining my technical
-                            expertise with my keen attention to detail to create beautiful products. My goal is to
-                            always build applications that are scalable and efficient under the hood while providing
-                            seamless, pixel-perfect user experiences. When I'm not in front of a computer screen, I'm
-                            probably playing basketball, flying my drones, or hanging out at the beach.
+                            building consumer facing web apps with some awesome people. As an
+                            engineer, I enjoy exploring the complex relationship between engineering
+                            and design — combining my technical expertise with my keen attention to
+                            detail to create beautiful products. My goal is to always build
+                            applications that are scalable and efficient under the hood while
+                            providing seamless, pixel-perfect user experiences. When I'm not in
+                            front of a computer screen, I'm probably playing basketball, flying my
+                            drones, or hanging out at the beach.
                         </SectionBody>
                     </Section>
                     <Section skills>
