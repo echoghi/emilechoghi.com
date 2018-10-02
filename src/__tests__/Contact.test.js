@@ -104,12 +104,6 @@ describe('<Contact />', () => {
             message: { dirty: true, valid: true },
             name: { dirty: true, valid: true }
         });
-
-        component.update();
-        // validation should pass
-        expect(nameInput).toHaveStyleRule('border', 'none');
-        expect(emailInput).toHaveStyleRule('border', 'none');
-        expect(messageInput).toHaveStyleRule('border', 'none');
     });
 
     test('form should POST successfully', async function() {

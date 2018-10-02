@@ -7,15 +7,9 @@
         "build": "yarn install && cross-env NODE_ENV=production webpack --env.prod=true --mode production",
         "server": "node app",
         "test": "jest",
-        "test:update": "jest -u"
-    },
-    "jest": {
-        "snapshotSerializers": [
-            "jest-serializer-enzyme"
-        ],
-        "moduleNameMapper": {
-            "^styled-components": "<rootDir>/node_modules/styled-components"
-        }
+        "test:update": "jest -u",
+        "test:watch": "jest --silent --watch",
+        "test:coverage": "jest --silent --coverage"
     },
     "repository": {
         "type": "git"
@@ -61,6 +55,7 @@
         "duplicate-package-checker-webpack-plugin": "^3.0.0",
         "enzyme": "^3.6.0",
         "enzyme-adapter-react-16": "^1.5.0",
+        "enzyme-to-json": "^3.3.4",
         "eslint": "5.6.1",
         "eslint-config-prettier": "^2.2.0",
         "eslint-loader": "2.1.1",
