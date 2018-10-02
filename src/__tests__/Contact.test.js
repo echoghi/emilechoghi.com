@@ -22,22 +22,20 @@ const mockFormPost = () => {
         });
 };
 
+const component = mount(<Contact />);
+
 describe('<Contact />', () => {
     test('snapshot', () => {
-        const component = shallow(<Contact />);
         expect(component).toMatchSnapshot();
     });
 
     test('form renders correctly', () => {
-        const component = shallow(<Contact />);
         // Test that component exists
         expect(component).toBeDefined();
         expect(component).toHaveLength(1);
     });
 
     test('form should submit', () => {
-        const component = mount(<Contact />);
-
         // enter name
         const nameInput = component
             .find('input')
