@@ -8960,10 +8960,6 @@ react-event-listener@^0.6.2:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
-react-flip-move@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.2.tgz#2f6f16ca6cb0a8490fba15a98b3440a76127e825"
-
 react-flip-toolkit@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/react-flip-toolkit/-/react-flip-toolkit-5.0.2.tgz#ca18805709ce8f0a3897c46bd61cf71ef33aaa98"
