@@ -4,12 +4,12 @@ import Footer from './Footer';
 import Project from './Project';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
-import FlipMove from 'react-flip-move';
 // Project Images
 import reviewhub from '../assets/images/reviewhub.png';
 import padm from '../assets/images/padm.png';
 import doughboy from '../assets/images/dashboard.png';
 import choghi from '../assets/images/choghi.png';
+import { Flipper } from 'react-flip-toolkit';
 
 const PortfolioWrapper = styled.div`
     padding-bottom: 120px;
@@ -250,9 +250,13 @@ class Portfolio extends Component {
                     <div className="clearfix" />
 
                     <ProjectWrapper>
-                        <FlipMove typeName={null} appearAnimation="elevator">
+                        <Flipper
+                            flipKey={this.renderProjects().length}
+                            className="staggered-list-content"
+                            spring="gentle"
+                        >
                             {this.renderProjects()}
-                        </FlipMove>
+                        </Flipper>
                     </ProjectWrapper>
                 </PortfolioWrapper>
 
