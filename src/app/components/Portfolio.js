@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Project from './Project';
 import ReactGA from 'react-ga';
 import styled from 'styled-components';
+import FlipMove from 'react-flip-move';
 // Project Images
 import reviewhub from '../assets/images/reviewhub.png';
 import padm from '../assets/images/padm.png';
@@ -248,7 +249,11 @@ class Portfolio extends Component {
                     <Filter>{this.renderFilterButtons()}</Filter>
                     <div className="clearfix" />
 
-                    <ProjectWrapper>{this.renderProjects()}</ProjectWrapper>
+                    <ProjectWrapper>
+                        <FlipMove typeName={null} appearAnimation="elevator">
+                            {this.renderProjects()}
+                        </FlipMove>
+                    </ProjectWrapper>
                 </PortfolioWrapper>
 
                 <Footer type="portfolio" />

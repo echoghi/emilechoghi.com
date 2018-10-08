@@ -142,31 +142,53 @@ const sendAnalytics = project => {
     }
 };
 
-const Project = ({ title, description, stack, link, color, image }) => (
-    <ListItem onClick={() => sendAnalytics(title)}>
-        <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
-            <PortfolioItem>
-                <ImageWrapper>
-                    <Image color={color}>
-                        <img src={image} alt={title} />
-                    </Image>
-                </ImageWrapper>
-                <Info>
-                    <Stack>
-                        {stack.map((label, index) => {
-                            return (
-                                <Label key={label}>
-                                    {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
-                                </Label>
-                            );
-                        })}
-                    </Stack>
-                    <Title>{title}</Title>
-                    <Text>{description}</Text>
-                </Info>
-            </PortfolioItem>
-        </PortfolioLink>
-    </ListItem>
-);
+class Project extends React.Component {
+    state = {
+        mounted: false
+    };
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ mounted: true });
+        }, 300);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.active !== this.props.active) {
+            this.setState({ mounted: this.props.active });
+        }
+    }
+
+    render() {
+        const { title, description, stack, link, color, image } = this.props;
+
+        return (
+            <ListItem onClick={() => sendAnalytics(title)}>
+                <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
+                    <PortfolioItem>
+                        <ImageWrapper>
+                            <Image color={color}>
+                                <img src={image} alt={title} />
+                            </Image>
+                        </ImageWrapper>
+                        <Info>
+                            <Stack>
+                                {stack.map((label, index) => {
+                                    return (
+                                        <Label key={label}>
+                                            {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                        </Label>
+                                    );
+                                })}
+                            </Stack>
+                            <Title>{title}</Title>
+                            <Text>{description}</Text>
+                        </Info>
+                    </PortfolioItem>
+                </PortfolioLink>
+            </ListItem>
+        );
+    }
+}
 
 export default Project;
