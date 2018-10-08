@@ -250,11 +250,7 @@ class Portfolio extends Component {
                     <div className="clearfix" />
 
                     <ProjectWrapper>
-                        <Flipper
-                            flipKey={this.renderProjects().length}
-                            className="staggered-list-content"
-                            spring="gentle"
-                        >
+                        <Flipper flipKey={this.renderProjects().length} spring="gentle">
                             {this.renderProjects()}
                         </Flipper>
                     </ProjectWrapper>

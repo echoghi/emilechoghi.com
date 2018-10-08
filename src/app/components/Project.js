@@ -143,55 +143,33 @@ const sendAnalytics = project => {
     }
 };
 
-class Project extends React.Component {
-    state = {
-        mounted: false
-    };
-
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({ mounted: true });
-        }, 300);
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.active !== this.props.active) {
-            this.setState({ mounted: this.props.active });
-        }
-    }
-
-    render() {
-        const { title, description, stack, link, color, image } = this.props;
-
-        return (
-            <Flipped flipId={title}>
-                <ListItem onClick={() => sendAnalytics(title)}>
-                    <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
-                        <PortfolioItem>
-                            <ImageWrapper>
-                                <Image color={color}>
-                                    <img src={image} alt={title} />
-                                </Image>
-                            </ImageWrapper>
-                            <Info>
-                                <Stack>
-                                    {stack.map((label, index) => {
-                                        return (
-                                            <Label key={label}>
-                                                {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
-                                            </Label>
-                                        );
-                                    })}
-                                </Stack>
-                                <Title>{title}</Title>
-                                <Text>{description}</Text>
-                            </Info>
-                        </PortfolioItem>
-                    </PortfolioLink>
-                </ListItem>
-            </Flipped>
-        );
-    }
-}
+const Project = ({ title, description, stack, link, color, image }) => (
+    <Flipped flipId={title}>
+        <ListItem onClick={() => sendAnalytics(title)}>
+            <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
+                <PortfolioItem>
+                    <ImageWrapper>
+                        <Image color={color}>
+                            <img src={image} alt={title} />
+                        </Image>
+                    </ImageWrapper>
+                    <Info>
+                        <Stack>
+                            {stack.map((label, index) => {
+                                return (
+                                    <Label key={label}>
+                                        {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
+                                    </Label>
+                                );
+                            })}
+                        </Stack>
+                        <Title>{title}</Title>
+                        <Text>{description}</Text>
+                    </Info>
+                </PortfolioItem>
+            </PortfolioLink>
+        </ListItem>
+    </Flipped>
+);
 
 export default Project;
