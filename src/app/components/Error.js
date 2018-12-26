@@ -29,11 +29,9 @@ const Button = styled.div`
 
 const Error = ({ close }) => (
     <Dialog open onClose={close}>
-        <DialogTitle>
-            Oops, your message wasn't sent <i className="icon-tongue" />
-        </DialogTitle>
+        <DialogTitle>Oops, your message wasn't sent 😅</DialogTitle>
         <DialogContent>
-            <DialogContentText>An error occurred, please try again</DialogContentText>
+            <DialogContentText>Something went wrong, please try again!</DialogContentText>
         </DialogContent>
         <DialogActions>
             <Button onClick={close}>Ok</Button>

@@ -19,7 +19,7 @@ const SocialLinks = Loadable({
 });
 
 const About = Loadable({
-    loader: () => import('./About'),
+    loader: () => import('./About/index'),
     loading: Loader
 });
 
@@ -29,7 +29,7 @@ const Portfolio = Loadable({
 });
 
 const Contact = Loadable({
-    loader: () => import('./Contact'),
+    loader: () => import('./Contact/index'),
     loading: Loader
 });
 
