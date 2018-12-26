@@ -1,7 +1,99 @@
-import React from 'react';
-import ReactGA from 'react-ga';
 import styled from 'styled-components';
-import { Flipped } from 'react-flip-toolkit';
+
+const PortfolioWrapper = styled.div`
+    padding-bottom: 120px;
+    font-family: 'Varela Round';
+    margin-top: 80px;
+    overflow: auto;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        height: auto;
+        padding: 0 30px 30px 30px;
+    }
+
+    @media (max-width: 1023px) {
+        height: auto;
+        padding: 0;
+        padding-bottom: 30px;
+    }
+`;
+
+const ProjectWrapper = styled.div`
+    text-align: center;
+    padding: 130px 85px 0;
+    margin: 0 auto;
+
+    @media (max-width: 1199px) and (min-width: 1024px) {
+        display: block;
+        padding: 50px 0;
+    }
+
+    @media (max-width: 1023px) {
+        display: block;
+        padding: 50px 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 0;
+    }
+`;
+
+const Filter = styled.div`
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 4;
+    position: fixed;
+    min-height: 65px;
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding: 16px 110px;
+
+    @media (max-width: 1025px) {
+        display: none;
+    }
+`;
+
+const FilterButton = styled.button`
+    font-size: 14px;
+    margin: 0 5px;
+    line-height: 18px;
+    letter-spacing: normal;
+    padding: 6px 12px;
+    color: rgb(72, 72, 72);
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: auto;
+    background: none;
+    border: 1px solid rgb(220, 224, 224);
+    border-image: initia;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.1s all ease;
+
+    &.active {
+        background: #269bda;
+        color: #fff;
+        border: 1px solid #269bda;
+
+        &:hover {
+            background: #269bda;
+            color: #fff;
+            border: 1px solid #269bda;
+            opacity: 0.8;
+        }
+    }
+
+    &:hover {
+        background: rgb(242, 242, 242);
+        border-color: rgb(242, 242, 242);
+    }
+
+    &:first-child {
+        margin-left: 0;
+    }
+`;
 
 const ListItem = styled.li`
     display: inline-block;
@@ -133,43 +225,19 @@ const Text = styled.div`
     font-family: 'Varela Round';
 `;
 
-const sendAnalytics = project => {
-    if (NODE_ENV === 'production') {
-        ReactGA.event({
-            category: 'Portfolio Item',
-            action: 'Project Click',
-            label: `Navigated to ${project}`
-        });
-    }
+export {
+    PortfolioWrapper,
+    ProjectWrapper,
+    Filter,
+    FilterButton,
+    ListItem,
+    PortfolioItem,
+    PortfolioLink,
+    Text,
+    Title,
+    Info,
+    Label,
+    Stack,
+    Image,
+    ImageWrapper
 };
-
-const Project = ({ title, description, stack, link, color, image }) => (
-    <Flipped flipId={title}>
-        <ListItem onClick={() => sendAnalytics(title)}>
-            <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
-                <PortfolioItem>
-                    <ImageWrapper>
-                        <Image color={color}>
-                            <img src={image} alt={title} />
-                        </Image>
-                    </ImageWrapper>
-                    <Info>
-                        <Stack>
-                            {stack.map((label, index) => {
-                                return (
-                                    <Label key={label}>
-                                        {label} {index + 1 === stack.length ? '' : <span>&#8226;</span>}
-                                    </Label>
-                                );
-                            })}
-                        </Stack>
-                        <Title>{title}</Title>
-                        <Text>{description}</Text>
-                    </Info>
-                </PortfolioItem>
-            </PortfolioLink>
-        </ListItem>
-    </Flipped>
-);
-
-export default Project;
