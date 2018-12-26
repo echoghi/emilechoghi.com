@@ -113,6 +113,7 @@ const Portfolio = () => {
         }
     }
 
+    // onMount logic
     useEffect(
         () => {
             if (!mounted) {
@@ -134,7 +135,6 @@ const Portfolio = () => {
         <Fragment>
             <PortfolioWrapper>
                 <Filter>{renderFilterButtons()}</Filter>
-                <div className="clearfix" />
 
                 <ProjectWrapper>
                     <Flipper flipKey={renderProjects().length} spring="gentle">

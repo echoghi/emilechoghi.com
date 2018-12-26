@@ -132,6 +132,7 @@ const Links = styled.ul`
         height: 100vh;
         width: 100vw;
         display: block;
+        border-left: 1px solid #ecf1f6;
         background: #fff;
         text-align: center;
         transform: ${props => (props.open ? 'scaleX(1)' : 'scaleX(0)')};

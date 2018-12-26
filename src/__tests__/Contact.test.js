@@ -1,4 +1,4 @@
-import Contact from '../app/components/Contact.js';
+import Contact from '../app/components/Contact';
 import 'jest-styled-components';
 import 'whatwg-fetch';
 

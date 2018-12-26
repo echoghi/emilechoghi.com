@@ -35,7 +35,6 @@ const About = () => {
 
     return (
         <AboutWrapper>
-            <div className="clearfix" />
             <Content>
                 <Tagline>
                     I'm <b>Emile Choghi</b>, a design-oriented front end software engineer focused

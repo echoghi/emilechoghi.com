@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import {
     TextArea,
     Input,
@@ -15,46 +15,49 @@ import {
 // Components
 import ReactGA from 'react-ga';
 import Footer from '../Footer';
-import Success from '../Success';
+import Success from './Success';
 import Loading from '../Loading';
-import Error from '../Error';
+import Error from './Error';
 
 // Email validation RegExp
 const validateEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-class Contact extends Component {
-    state = {
-        loading: false,
-        error: false,
-        success: false,
-        name: '',
-        email: '',
-        message: '',
-        validation: {
-            name: { dirty: false, valid: false },
-            email: { dirty: false, valid: false },
-            message: { dirty: false, valid: false }
-        }
-    };
+const Contact = () => {
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [mounted, onMount] = useState(false);
+    const [form, setFormValue] = useState({ name: '', email: '', message: '' });
+    const [validation, setValidation] = useState({
+        name: { dirty: false, valid: false },
+        email: { dirty: false, valid: false },
+        message: { dirty: false, valid: false }
+    });
 
-    componentDidMount() {
-        document.title = 'Contact Emile Choghi';
+    useEffect(
+        () => {
+            if (!mounted) {
+                document.title = 'Contact Emile Choghi';
 
-        if (NODE_ENV === 'production') {
-            ReactGA.ga('send', 'pageview', '/contact');
-        }
+                if (NODE_ENV === 'production') {
+                    ReactGA.ga('send', 'pageview', '/contact');
+                }
 
-        window.scrollTo(0, 0);
-    }
+                window.scrollTo(0, 0);
+                onMount(true);
+            }
+        },
+        [mounted]
+    );
 
-    renderLoading() {
-        if (this.state.loading) {
+    function renderLoading() {
+        if (loading) {
             return <Loading />;
         }
     }
 
-    renderError() {
-        if (this.state.error) {
+    function renderError() {
+        if (error) {
             if (NODE_ENV === 'production') {
                 ReactGA.event({
                     category: 'Form Error',
@@ -63,42 +66,30 @@ class Contact extends Component {
                 });
             }
 
-            return <Error close={() => this.setState({ error: false })} />;
+            return <Error close={() => setError(false)} />;
         }
     }
 
-    renderSuccess() {
-        const { success } = this.state;
-
+    function renderSuccess() {
         if (success) {
-            return <Success close={() => this.setState({ success: false })} />;
+            return <Success close={() => setSuccess(false)} />;
         }
     }
 
-    /**
-     * Reset Form Data
-     *
-     * @state - entire state
-     */
-    resetForm() {
-        let { validation } = this.state;
+    function resetForm() {
         // Reset Form Validation
         for (let type in validation) {
             validation[type] = { dirty: false, valid: false };
         }
 
-        this.setState({ name: '', email: '', message: '' });
+        setFormValue({ name: '', email: '', message: '' });
+        setValidation(validation);
     }
 
-    /**
-     * Validate Inputs
-     *
-     * @return valid - validation status
-     */
-    validateInputs() {
+    function validateInputs() {
         // Check for incompleted fields
-        for (let key in this.state.validation) {
-            if (!this.state.validation[key]['valid']) {
+        for (let key in validation) {
+            if (!validation[key]['valid']) {
                 return false;
             }
         }
@@ -106,49 +97,33 @@ class Contact extends Component {
         return true;
     }
 
-    /**
-     * Validate inputs as the user types
-     *
-     * @param event - DOM event info
-     * @state - Send validation status to state
-     */
-    onChange = event => {
+    const onChange = event => {
         const { name, value } = event.target;
-        // create a shallow copy of the state to mutate
-        let obj = Object.assign({}, this.state);
 
         // Set value in obj to eventually send to the state
-        obj[name] = value;
+        form[name] = value;
 
         // Validate inputs
         if (name === 'email') {
             // Validate email address
             if (validateEmail.test(value)) {
-                obj['validation'][name]['valid'] = true;
+                validation[name]['valid'] = true;
             } else {
-                obj['validation'][name]['valid'] = false;
+                validation[name]['valid'] = false;
             }
         } else {
             // If there is any value for non-email inputs, mark it valid
             if (value !== '') {
-                obj['validation'][name]['valid'] = true;
+                validation[name]['valid'] = true;
             } else {
-                obj['validation'][name]['valid'] = false;
+                validation[name]['valid'] = false;
             }
         }
 
-        this.setState(obj);
+        setFormValue(form);
     };
 
-    /**
-     * Handle Error classNames for each input
-     *
-     * @param name - Input name
-     * @return className - return class depending on validation status
-     */
-    handleErrorClass = name => {
-        const { validation } = this.state;
-
+    const handleErrorClass = name => {
         if (validation[name].valid) {
             return '';
         } else if (!validation[name].valid && validation[name].dirty) {
@@ -158,26 +133,21 @@ class Contact extends Component {
         }
     };
 
-    handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault();
 
-        if (this.validateInputs()) {
-            this.setState({ loading: true });
-
-            const callback = state => {
-                this.setState(state);
-            };
-
-            const { name, email, message } = this.state;
+        if (validateInputs()) {
+            setLoading(true);
 
             return fetch('/api/postForm', {
                 method: 'POST',
-                body: JSON.stringify({ name, email, message }),
+                body: JSON.stringify(form),
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
             })
                 .then(response => {
                     if (response.status === 200) {
-                        callback({ success: true, loading: false });
+                        setSuccess(true);
+                        setLoading(false);
 
                         if (NODE_ENV === 'production') {
                             ReactGA.event({
@@ -187,99 +157,93 @@ class Contact extends Component {
                             });
                         }
 
-                        this.resetForm();
+                        resetForm();
                     } else {
-                        callback({ error: true, loading: false });
+                        setError(true);
+                        setLoading(false);
                     }
                 })
                 .catch(error => {
-                    callback({ error: true, loading: false });
+                    setError(true);
+                    setLoading(false);
                     throw error;
                 });
         } else {
             // create a shallow copy of the state to mutate
-            let obj = Object.assign({}, this.state);
+            let obj = Object.assign({}, validation);
             // If there is an invalid input, mark all as dirty on submit to alert the user
-            for (let attr in this.state) {
-                if (obj['validation'][attr]) {
-                    obj['validation'][attr]['dirty'] = true;
+            for (let attr in form) {
+                if (obj[attr]) {
+                    obj[attr]['dirty'] = true;
                 }
             }
 
-            this.setState(obj);
+            setValidation(obj);
         }
     };
 
-    render() {
-        const { name, email, message } = this.state;
+    const { name, email, message } = form;
 
-        return (
-            <Fragment>
-                <Portfolio>
-                    <div className="clearfix" />
+    return (
+        <Fragment>
+            <Portfolio>
+                <div className="clearfix" />
 
-                    <Form id="contact-form" onSubmit={this.handleSubmit}>
-                        <FormHeader> Contact Me </FormHeader>
-                        <FormRow>
-                            <FormItem>
-                                <Label className={this.handleErrorClass('name')}>Name</Label>
-                                <Input
-                                    type="text"
-                                    name="name"
-                                    value={name}
-                                    maxLength="100"
-                                    onChange={this.onChange}
-                                    className={this.handleErrorClass('name')}
-                                />
-                                <ErrorLabel className={this.handleErrorClass('name')}>
-                                    required*
-                                </ErrorLabel>
-                            </FormItem>
-                            <FormItem>
-                                <Label className={this.handleErrorClass('email')}>
-                                    Email Address
-                                </Label>
-                                <Input
-                                    type="text"
-                                    name="email"
-                                    value={email}
-                                    maxLength="254"
-                                    onChange={this.onChange}
-                                    className={this.handleErrorClass('email')}
-                                />
-                                <ErrorLabel className={this.handleErrorClass('email')}>
-                                    invalid*
-                                </ErrorLabel>
-                            </FormItem>
-                        </FormRow>
-                        <FormRow>
-                            <FormItemLarge>
-                                <Label className={this.handleErrorClass('message')}>Message</Label>
-                                <TextArea
-                                    maxLength="6000"
-                                    name="message"
-                                    value={message}
-                                    onChange={this.onChange}
-                                    className={this.handleErrorClass('message')}
-                                />
-                                <ErrorLabel className={this.handleErrorClass('message')}>
-                                    required*
-                                </ErrorLabel>
-                            </FormItemLarge>
-                        </FormRow>
+                <Form id="contact-form" onSubmit={handleSubmit}>
+                    <FormHeader> Contact Me </FormHeader>
+                    <FormRow>
+                        <FormItem>
+                            <Label className={handleErrorClass('name')}>Name</Label>
+                            <Input
+                                type="text"
+                                name="name"
+                                value={name}
+                                maxLength="100"
+                                onChange={onChange}
+                                className={handleErrorClass('name')}
+                            />
+                            <ErrorLabel className={handleErrorClass('name')}>required*</ErrorLabel>
+                        </FormItem>
+                        <FormItem>
+                            <Label className={handleErrorClass('email')}>Email Address</Label>
+                            <Input
+                                type="text"
+                                name="email"
+                                value={email}
+                                maxLength="254"
+                                onChange={onChange}
+                                className={handleErrorClass('email')}
+                            />
+                            <ErrorLabel className={handleErrorClass('email')}>invalid*</ErrorLabel>
+                        </FormItem>
+                    </FormRow>
+                    <FormRow>
+                        <FormItemLarge>
+                            <Label className={handleErrorClass('message')}>Message</Label>
+                            <TextArea
+                                maxLength="6000"
+                                name="message"
+                                value={message}
+                                onChange={onChange}
+                                className={handleErrorClass('message')}
+                            />
+                            <ErrorLabel className={handleErrorClass('message')}>
+                                required*
+                            </ErrorLabel>
+                        </FormItemLarge>
+                    </FormRow>
 
-                        <FormButton type="submit">Send</FormButton>
-                    </Form>
+                    <FormButton type="submit">Send</FormButton>
+                </Form>
 
-                    {this.renderLoading()}
-                    {this.renderSuccess()}
-                    {this.renderError()}
-                </Portfolio>
+                {renderLoading()}
+                {renderSuccess()}
+                {renderError()}
+            </Portfolio>
 
-                <Footer fixed />
-            </Fragment>
-        );
-    }
-}
+            <Footer fixed />
+        </Fragment>
+    );
+};
 
 export default Contact;
