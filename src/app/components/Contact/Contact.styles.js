@@ -213,6 +213,33 @@ const FormButton = styled.button`
     }
 `;
 
+const SuccessContainer = styled.div`
+    height: 150px;
+    width: 150px;
+    margin: 30px auto 0;
+`;
+
+const Button = styled.div`
+    font-family: 'Varela Round', serif;
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 16px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+`;
+
 export {
     TextArea,
     Input,
@@ -224,5 +251,7 @@ export {
     FormRow,
     FormItemLarge,
     Portfolio,
-    FormButton
+    FormButton,
+    SuccessContainer,
+    Button
 };
