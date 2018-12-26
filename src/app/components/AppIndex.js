@@ -4,7 +4,7 @@ import Loadable from 'react-loadable';
 import Loading from './Loading';
 
 // Components
-import NavBar from './NavBar';
+import NavBar from './Nav';
 
 const Loader = ({ error }) => {
     if (error) {
