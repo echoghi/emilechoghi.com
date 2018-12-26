@@ -11,7 +11,7 @@ const Success = ({ close }) => (
         <DialogTitle>Thanks for reaching out! 👍</DialogTitle>
         <DialogContent>
             <DialogContentText>
-                You should hear back from me within a day unless I'm on holiday or super busy
+                You should hear back from me within a day unless I'm on holiday or super busy.
             </DialogContentText>
         </DialogContent>
         <DialogActions>

@@ -14,8 +14,8 @@ const Contact = React.lazy(() => import('./Contact'));
 
 const AppIndex = () => (
     <Fragment>
+        <NavBar />
         <Suspense fallback={<Loading />}>
-            <NavBar />
             <SocialLinks />
             <Fragment>
                 <Route exact path="/" render={() => <About />} />

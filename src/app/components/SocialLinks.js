@@ -22,7 +22,7 @@ const LinkWrapper = styled.div`
     background: rgb(255, 255, 255);
     border-color: transparent;
 
-    @media (max-width: 1025px) {
+    @media (max-width: 1023px) {
         display: none;
     }
 `;
