@@ -16,7 +16,7 @@ import 'whatwg-fetch';
 import ReactGA from 'react-ga';
 
 //components
-import AppIndex from './app/components/AppIndex';
+import AppIndex from './app/components';
 
 // Service Worker
 //import registerServiceWorker from './registerServiceWorker';
