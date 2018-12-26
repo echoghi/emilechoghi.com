@@ -35,9 +35,9 @@ module.exports = function(env, argv) {
                 template: 'index.html'
             }),
             // new CopyWebpackPlugin([{ from: 'pwa' }]),
-            new ManifestPlugin({
-                fileName: 'asset-manifest.json'
-            }),
+            // new ManifestPlugin({
+            //     fileName: 'asset-manifest.json'
+            // }),
             new CompressionPlugin({
                 asset: '[path].gz[query]',
                 algorithm: 'gzip',
