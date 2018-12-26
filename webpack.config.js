@@ -3,55 +3,32 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBar = require('webpackbar');
 //const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SystemBellPlugin = require('system-bell-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PACKAGE = require('./package.json');
 
 const sourcePath = path.join(__dirname, './src');
 const publicPath = path.join(__dirname, './build');
 
-module.exports = function(env) {
-    const nodeEnv = env && env.prod ? 'production' : 'development';
-    const isProd = nodeEnv === 'production';
+module.exports = function(env, argv) {
+    const isProd = argv.mode === 'production';
 
     const plugins = [
         new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(nodeEnv)
+            NODE_ENV: JSON.stringify(argv.mode)
         }),
-        new webpack.NamedModulesPlugin()
+        new WebpackBar({ name: 'portfolio', color: '#269bda' })
     ];
 
-    const optimization = {
-        minimizer: []
-    };
-
     if (isProd) {
-        optimization.minimizer.push(
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    compress: true,
-                    ecma: 6,
-                    output: {
-                        comments: false
-                    },
-                    compress: {
-                        dead_code: true,
-                        drop_console: true
-                    }
-                },
-                sourceMap: false
-            })
-        );
-
         plugins.push(
             new HtmlWebpackPlugin({
                 filename: 'index.html',
@@ -86,9 +63,6 @@ module.exports = function(env) {
             //     navigateFallback: '/index.html',
             //     staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
             // }),
-            new webpack.DefinePlugin({
-                'process.env.NODE_ENV': JSON.stringify('production')
-            }),
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
                 debug: false
@@ -115,9 +89,6 @@ module.exports = function(env) {
     } else {
         plugins.push(
             //new BundleAnalyzerPlugin(),
-            new webpack.DefinePlugin({
-                NODE_ENV: JSON.stringify(nodeEnv)
-            }),
             new webpack.HotModuleReplacementPlugin(),
             new BrowserSyncPlugin(
                 // BrowserSync options
@@ -129,9 +100,10 @@ module.exports = function(env) {
                     // (which should be serving on http://localhost:8080/)
                     // through BrowserSync
                     proxy: 'http://localhost:8080/',
-                    logPrefix: 'Portfolio - App'
+                    logPrefix: 'Portfolio'
                 },
-                // plugin options
+                // prevent BrowserSync from reloading the page
+                // and let Webpack Dev Server take care of this
                 {
                     reload: true
                 }
@@ -139,7 +111,6 @@ module.exports = function(env) {
             new CaseSensitivePathsPlugin(),
             new FriendlyErrorsWebpackPlugin(),
             new SystemBellPlugin(),
-            new ProgressBarPlugin(),
             new DuplicatePackageCheckerPlugin(),
             new StyleLintPlugin({
                 files: './app/assets/scss/*.scss'

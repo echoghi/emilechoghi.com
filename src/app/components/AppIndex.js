@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import Loading from './Loading';
-
 // Components
 import NavBar from './Nav';
+import Loading from './Loading';
 
 const Loader = ({ error }) => {
     if (error) {

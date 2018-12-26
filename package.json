@@ -3,8 +3,8 @@
     "version": "3.0.0",
     "description": "Portfolio Site",
     "scripts": {
-        "dev": "yarn install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\" --mode development",
-        "build": "yarn install && cross-env NODE_ENV=production webpack --env.prod=true --mode production",
+        "dev": "yarn install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
+        "build": "yarn install && webpack --mode production",
         "server": "node app",
         "test": "jest",
         "test:update": "jest -u",
@@ -79,7 +79,6 @@
         "node-sass": "4.9.0",
         "nodemon": "1.18.4",
         "path": "^0.12.7",
-        "progress-bar-webpack-plugin": "^1.11.0",
         "promise": "^8.0.2",
         "raw-loader": "^0.5.1",
         "react-addons-test-utils": "15.6.2",
@@ -97,6 +96,7 @@
         "webpack-bundle-analyzer": "^3.0.2",
         "webpack-cli": "^3.1.2",
         "webpack-dev-server": "^3.1.9",
-        "webpack-manifest-plugin": "^2.0.4"
+        "webpack-manifest-plugin": "^2.0.4",
+        "webpackbar": "^3.1.4"
     }
 }
