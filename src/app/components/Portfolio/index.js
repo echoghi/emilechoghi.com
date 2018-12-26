@@ -129,6 +129,7 @@ const Portfolio = () => {
         },
         [mounted]
     );
+
     return (
         <Fragment>
             <PortfolioWrapper className="portfolio">

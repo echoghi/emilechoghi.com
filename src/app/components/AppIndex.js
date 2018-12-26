@@ -1,47 +1,28 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Suspense } from 'react';
 import { Route } from 'react-router-dom';
-import Loadable from 'react-loadable';
 // Components
 import NavBar from './Nav';
 import Loading from './Loading';
 
-const Loader = ({ error }) => {
-    if (error) {
-        return 'Error! Please refresh the page.';
-    } else {
-        return <Loading />;
-    }
-};
+const SocialLinks = React.lazy(() => import('./SocialLinks'));
 
-const SocialLinks = Loadable({
-    loader: () => import('./SocialLinks'),
-    loading: Loader
-});
+const About = React.lazy(() => import('./About'));
 
-const About = Loadable({
-    loader: () => import('./About/index'),
-    loading: Loader
-});
+const Portfolio = React.lazy(() => import('./Portfolio'));
 
-const Portfolio = Loadable({
-    loader: () => import('./Portfolio'),
-    loading: Loader
-});
-
-const Contact = Loadable({
-    loader: () => import('./Contact/index'),
-    loading: Loader
-});
+const Contact = React.lazy(() => import('./Contact'));
 
 const AppIndex = () => (
     <Fragment>
-        <NavBar />
-        <SocialLinks />
-        <Fragment>
-            <Route exact path="/" component={About} />
-            <Route path="/portfolio" component={Portfolio} name="Portfolio" />
-            <Route path="/contact" component={Contact} name="Contact" />
-        </Fragment>
+        <Suspense fallback={<Loading />}>
+            <NavBar />
+            <SocialLinks />
+            <Fragment>
+                <Route exact path="/" render={() => <About />} />
+                <Route path="/portfolio" render={() => <Portfolio />} name="Portfolio" />
+                <Route path="/contact" render={() => <Contact />} name="Contact" />
+            </Fragment>
+        </Suspense>
     </Fragment>
 );
 
