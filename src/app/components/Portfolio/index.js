@@ -132,7 +132,7 @@ const Portfolio = () => {
 
     return (
         <Fragment>
-            <PortfolioWrapper className="portfolio">
+            <PortfolioWrapper>
                 <Filter>{renderFilterButtons()}</Filter>
                 <div className="clearfix" />
 

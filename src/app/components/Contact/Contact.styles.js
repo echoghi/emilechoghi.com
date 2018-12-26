@@ -173,6 +173,46 @@ const TextArea = styled.textarea`
     }
 `;
 
+const FormButton = styled.button`
+    display: block;
+    float: right;
+    width: 150px;
+    font-size: 22px;
+    border-radius: 2px;
+    background-color: #269bda;
+    border: 1px solid #269bda;
+    cursor: pointer;
+    box-shadow: 1px 1.7px 6px 0 rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 8px 16px;
+    min-width: 88px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    min-height: 36px;
+    box-sizing: border-box;
+    line-height: 1.4em;
+    outline: none;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 500;
+
+    &:before {
+        content: '';
+        clear: both;
+    }
+
+    &:hover {
+        background-color: #42a9e0;
+        border: 1px solid #42a9e0;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-top: 20px;
+    }
+`;
+
 export {
     TextArea,
     Input,
@@ -183,5 +223,6 @@ export {
     FormItem,
     FormRow,
     FormItemLarge,
-    Portfolio
+    Portfolio,
+    FormButton
 };

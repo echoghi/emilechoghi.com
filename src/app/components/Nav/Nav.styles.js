@@ -1,6 +1,27 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+const Nav = styled.div`
+    font-family: 'Varela Round', serif;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    width: 100%;
+    box-shadow: none;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    z-index: 99;
+
+    @media (max-width: 1023px) {
+        border-bottom: 0;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+`;
+
 const Container = styled.div`
     position: absolute;
     display: none;
@@ -102,33 +123,32 @@ const Link = styled(NavLink)`
 `;
 
 const Links = styled.ul`
-    display: block;
+    display: inline-flex;
     list-style: none;
-    float: right;
     padding: 10px 15px;
     font-weight: normal;
 
     @media (max-width: 767px) {
         height: 100vh;
-        float: none;
+        width: 100vw;
+        display: block;
         background: #fff;
         text-align: center;
-        transform: ${props => (props.open ? 'scaleY(1)' : 'scaleY(0)')};
+        transform: ${props => (props.open ? 'scaleX(1)' : 'scaleX(0)')};
         transition: ${props =>
             props.open
                 ? 'transform 0.3s cubic-bezier(0.01, 0.03, 0.29, 1.17), opacity 0.2s'
                 : 'transform 0.1s cubic-bezier(0.71, 0.02, 0.9, 0.23), opacity 0.1s'};
-        transform-origin: top;
+        transform-origin: right;
     }
 `;
 
 const NavBrand = styled.div`
-    position: absolute;
+    display: inline-flex;
     font-size: 50px;
     background: #269bda;
     color: #fff;
     width: 50px;
-    float: left;
     padding: 15px 30px;
 
     @media (max-width: 767px) {
@@ -138,4 +158,4 @@ const NavBrand = styled.div`
     }
 `;
 
-export { Link, Links, NavBrand, Line, Container };
+export { Link, Links, NavBrand, Line, Container, Nav };

@@ -9,7 +9,8 @@ import {
     FormItem,
     FormRow,
     FormItemLarge,
-    Portfolio
+    Portfolio,
+    FormButton
 } from './Contact.styles';
 // Components
 import ReactGA from 'react-ga';
@@ -267,9 +268,7 @@ class Contact extends Component {
                             </FormItemLarge>
                         </FormRow>
 
-                        <button type="submit" className="form-button">
-                            Send
-                        </button>
+                        <FormButton type="submit">Send</FormButton>
                     </Form>
 
                     {this.renderLoading()}

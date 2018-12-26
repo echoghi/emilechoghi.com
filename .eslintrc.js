@@ -30,5 +30,10 @@ module.exports = {
         'no-multi-spaces': [2],
         'react/prop-types': 0,
         'react/no-unescaped-entities': 0
+    },
+    settings: {
+        react: {
+            version: '16.7.0-alpha.0'
+        }
     }
 };
