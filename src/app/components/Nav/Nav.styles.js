@@ -160,6 +160,10 @@ const NavBrand = styled.div`
         padding: 15px 25px;
         width: 45px;
         z-index: 2;
+
+        i {
+            -webkit-tap-highlight-color: transparent;
+        }
     }
 `;
 
