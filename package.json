@@ -1,6 +1,6 @@
 {
     "name": "emilechoghi.com",
-    "version": "3.0.0",
+    "version": "2.0.0",
     "description": "Portfolio Site",
     "scripts": {
         "dev": "yarn install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
