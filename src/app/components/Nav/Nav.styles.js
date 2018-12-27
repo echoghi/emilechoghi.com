@@ -133,7 +133,9 @@ const Links = styled.ul`
         height: 100vh;
         width: 100vw;
         display: block;
-        border-left: 1px solid ${theme.colors.borderGrey};
+        margin: 0;
+        -webkit-tap-highlight-color: transparent;
+        box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
         background: ${theme.colors.white};
         text-align: center;
         transform: ${props => (props.open ? 'scaleX(1)' : 'scaleX(0)')};
