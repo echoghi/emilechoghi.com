@@ -33,6 +33,7 @@ const Container = styled.div`
 
     @media (max-width: 767px) {
         display: block;
+        -webkit-tap-highlight-color: transparent;
         z-index: 2;
     }
 
