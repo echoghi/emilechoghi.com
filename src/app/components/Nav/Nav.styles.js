@@ -61,7 +61,7 @@ const Line = styled.div`
     height: 3px;
     background: ${theme.colors.blue};
     border-radius: 5px;
-    transition: all 200ms ease-out;
+    transition: all 300ms ease-out;
 `;
 
 const Link = styled(NavLink)`
