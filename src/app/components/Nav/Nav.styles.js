@@ -134,7 +134,7 @@ const Links = styled.ul`
         width: 100vw;
         display: block;
         border-left: 1px solid ${theme.colors.borderGrey};
-        ${theme.colors.grey};
+        background: ${theme.colors.white};
         text-align: center;
         transform: ${props => (props.open ? 'scaleX(1)' : 'scaleX(0)')};
         transition: ${props =>

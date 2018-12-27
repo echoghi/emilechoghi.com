@@ -12,6 +12,9 @@ const theme = {
     },
     fonts: {
         primary: 'Varela Round, sans-serif, serif'
+    },
+    fontSizes: {
+        normal: '14px'
     }
 };
 
