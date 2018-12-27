@@ -4,7 +4,7 @@ The second iteration of my personal portfolio site built with [React](https://re
 
 ## 🚀 Quick start
 
-**Install Dependencies && Start the development server.**
+1.  **Install Dependencies && Start the development server.**
 
     ```sh
     yarn dev
