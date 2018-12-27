@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import theme from '../../theme';
 
 const PortfolioWrapper = styled.div`
     padding-bottom: 120px;
-    font-family: 'Varela Round';
+    font-family: ${theme.fonts.primary};
     margin-top: 80px;
     overflow: auto;
 
@@ -44,8 +45,8 @@ const Filter = styled.div`
     z-index: 4;
     position: fixed;
     min-height: 65px;
-    background: rgb(255, 255, 255);
-    border-bottom: 1px solid rgb(219, 219, 219);
+    background: ${theme.colors.white};
+    border-bottom: 1px solid ${theme.colors.borderGrey};
     padding: 16px 110px;
 
     @media (max-width: 1025px) {
@@ -59,35 +60,34 @@ const FilterButton = styled.button`
     line-height: 18px;
     letter-spacing: normal;
     padding: 6px 12px;
-    color: rgb(72, 72, 72);
+    color: ${theme.colors.black};
     cursor: pointer;
     display: inline-block;
     position: relative;
     text-align: center;
     width: auto;
     background: none;
-    border: 1px solid rgb(220, 224, 224);
-    border-image: initia;
+    border: 1px solid ${theme.colors.borderGrey};
     border-radius: 4px;
     text-decoration: none;
     transition: 0.1s all ease;
 
     &.active {
-        background: #269bda;
+        background: ${theme.colors.blue};
         color: #fff;
-        border: 1px solid #269bda;
+        border: 1px solid ${theme.colors.blue};
 
         &:hover {
-            background: #269bda;
-            color: #fff;
-            border: 1px solid #269bda;
+            background: ${theme.colors.blue};
+            color: ${theme.colors.white};
+            border: 1px solid ${theme.colors.blue};
             opacity: 0.8;
         }
     }
 
     &:hover {
-        background: rgb(242, 242, 242);
-        border-color: rgb(242, 242, 242);
+        background: ${theme.colors.hoverGreyAlt};
+        border-color: ${theme.colors.hoverGreyAlt};
     }
 
     &:first-child {
@@ -210,7 +210,7 @@ const Label = styled.span`
 const Info = styled.span`
     text-align: left;
     padding: 20px;
-    font-family: 'Varela Round';
+    font-family: ${theme.fonts.primary};
 `;
 
 const Title = styled.div`
@@ -222,7 +222,7 @@ const Title = styled.div`
 const Text = styled.div`
     text-align: left;
     padding: 5px 0;
-    font-family: 'Varela Round';
+    font-family: ${theme.fonts.primary};
 `;
 
 export {

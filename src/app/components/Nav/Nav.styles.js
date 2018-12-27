@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import theme from '../../theme';
 
 const Nav = styled.div`
-    font-family: 'Varela Round', serif;
-    background: #fff;
+    font-family: ${theme.fonts.primary};
+    background: ${theme.colors.white};
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -13,7 +14,7 @@ const Nav = styled.div`
     height: 80px;
     width: 100%;
     box-shadow: none;
-    border-bottom: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid ${theme.colors.borderGrey};
     z-index: 99;
 
     @media (max-width: 1023px) {
@@ -58,7 +59,7 @@ const Line = styled.div`
     position: relative;
     margin: 7px 0;
     height: 3px;
-    background: #269bda;
+    background: ${theme.colors.blue};
     border-radius: 5px;
     transition: all 200ms ease-out;
 `;
@@ -72,13 +73,13 @@ const Link = styled(NavLink)`
     text-decoration: none;
     border-radius: 2px;
     background-color: transparent;
-    -webkit-appearance: none;
+    appearance: none;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     outline: none;
 
     span {
-        font-family: 'Varela Round', serif;
+        font-family: ${theme.fonts.primary};
         text-transform: none;
     }
 
@@ -91,7 +92,7 @@ const Link = styled(NavLink)`
     }
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.08);
+        background-color: ${theme.colors.hoverGrey};
     }
 
     @media (max-width: 767px) {
@@ -108,7 +109,7 @@ const Link = styled(NavLink)`
         &:first-child {
             margin-top: 50px;
             padding: 30px 10px;
-            border-bottom: 1px solid #ecf1f6;
+            border-bottom: 1px solid ${theme.colors.grey};
         }
 
         &:nth-child(2) {
@@ -116,7 +117,7 @@ const Link = styled(NavLink)`
         }
 
         &:last-child {
-            border-bottom: 1px solid #ecf1f6;
+            border-bottom: 1px solid ${theme.colors.grey};
             padding-bottom: 30px;
         }
     }
@@ -132,8 +133,8 @@ const Links = styled.ul`
         height: 100vh;
         width: 100vw;
         display: block;
-        border-left: 1px solid #ecf1f6;
-        background: #fff;
+        border-left: 1px solid ${theme.colors.borderGrey};
+        ${theme.colors.grey};
         text-align: center;
         transform: ${props => (props.open ? 'scaleX(1)' : 'scaleX(0)')};
         transition: ${props =>
@@ -147,8 +148,8 @@ const Links = styled.ul`
 const NavBrand = styled.div`
     display: inline-flex;
     font-size: 50px;
-    background: #269bda;
-    color: #fff;
+    background: ${theme.colors.blue};
+    color: ${theme.colors.white};
     width: 50px;
     padding: 15px 30px;
 

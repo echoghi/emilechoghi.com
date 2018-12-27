@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import theme from '../../theme';
 
 const AboutWrapper = styled.div`
-    font-family: 'Varela Round';
+    font-family: ${theme.fonts.primary};
 `;
 
 const Tagline = styled.div`
@@ -65,7 +66,7 @@ const SectionTitle = styled.div`
     text-align: right;
     margin-right: 70px;
     font-size: 16px;
-    color: #269bda;
+    color: ${theme.colors.blue};
     width: 200px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -85,7 +86,7 @@ const SectionBody = styled.div`
         font-weight: 700;
 
         &:hover {
-            color: #269bda;
+            color: ${theme.colors.blue};
         }
     }
 
@@ -126,7 +127,7 @@ const Skill = styled.div`
 
 const SkillTitle = styled.div`
     font-weight: 700;
-    color: #36363c;
+    color: ${theme.colors.black};
     text-transform: uppercase;
 `;
 

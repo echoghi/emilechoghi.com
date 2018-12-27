@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../theme';
 
 const Portfolio = styled.div`
     height: calc(100vh - 80px);
@@ -36,7 +37,7 @@ const FormHeader = styled.h4`
 `;
 
 const Form = styled.form`
-    font-family: 'Varela Round';
+    font-family: ${theme.fonts.primary};
     background: none;
     margin: 0 auto;
     margin-top: 70px;
@@ -97,7 +98,7 @@ const FormItemLarge = styled.div`
 const ErrorLabel = styled.div`
     visibility: hidden;
     text-align: right;
-    color: #dd4b39;
+    color: ${theme.colors.error};
     letter-spacing: 0.3px;
     font-size: 12px;
     font-weight: bold;
@@ -113,19 +114,17 @@ const Label = styled.label`
     font-size: 18px;
 
     &.invalid {
-        color: #dd4b39;
+        color: ${theme.colors.error};
     }
 `;
 
 const Input = styled.input`
     font-family: 'Rubik', sans-serif;
     appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
     display: block;
     box-sizing: border-box;
-    background-color: #ecf1f6;
-    color: #3d575d;
+    background-color: ${theme.colors.grey};
+    color: ${theme.colors.black};
     border: none;
     width: 100%;
     margin: 5px 0;
@@ -137,7 +136,7 @@ const Input = styled.input`
     transition: opacity 0.2s;
 
     &.invalid {
-        border: 1px solid #dd4b39;
+        border: 1px solid ${theme.colors.error};
         border-radius: 0;
     }
 
@@ -151,8 +150,8 @@ const TextArea = styled.textarea`
     appearance: none;
     display: block;
     box-sizing: border-box;
-    background-color: #ecf1f6;
-    color: #3d575d;
+    background-color: ${theme.colors.grey};
+    color: ${theme.colors.black};
     border: none;
     width: 100%;
     margin: 5px 0;
@@ -164,7 +163,7 @@ const TextArea = styled.textarea`
     transition: opacity 0.2s;
 
     &.invalid {
-        border: 1px solid #dd4b39;
+        border: 1px solid ${theme.colors.error};
         border-radius: 0;
     }
 
@@ -179,11 +178,11 @@ const FormButton = styled.button`
     width: 150px;
     font-size: 22px;
     border-radius: 2px;
-    background-color: #269bda;
-    border: 1px solid #269bda;
+    background-color: ${theme.colors.blue};
+    border: 1px solid ${theme.colors.blue};
     cursor: pointer;
     box-shadow: 1px 1.7px 6px 0 rgba(0, 0, 0, 0.1);
-    color: #fff;
+    color: ${theme.colors.white};
     text-transform: uppercase;
     letter-spacing: 0.4px;
     padding: 8px 16px;
@@ -203,8 +202,8 @@ const FormButton = styled.button`
     }
 
     &:hover {
-        background-color: #42a9e0;
-        border: 1px solid #42a9e0;
+        background-color: ${theme.colors.lightBlue};
+        border: 1px solid ${theme.colors.lightBlue};
     }
 
     @media (max-width: 768px) {
@@ -220,7 +219,7 @@ const SuccessContainer = styled.div`
 `;
 
 const Button = styled.div`
-    font-family: 'Varela Round', serif;
+    font-family: ${theme.fonts.primary};
     display: inline-block;
     font-size: 16px;
     padding: 8px 16px;
@@ -229,7 +228,7 @@ const Button = styled.div`
     text-decoration: none;
     border-radius: 2px;
     background-color: transparent;
-    -webkit-appearance: none;
+    appearance: none;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     outline: none;

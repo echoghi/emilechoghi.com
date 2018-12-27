@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../theme';
 
 const IconListItem = styled.li`
     display: inline-block;
@@ -10,8 +11,8 @@ const IconListItem = styled.li`
 const Container = styled.div`
     display: none;
     position: ${props => (props.fixed ? 'fixed' : 'relative')};
-    background: #fff;
-    font-family: 'Varela Round', serif;
+    background: ${theme.colors.white};
+    font-family: ${theme.fonts.primary};
     height: 80px;
     width: 100%;
     bottom: 0;
