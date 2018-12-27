@@ -6,6 +6,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 //const CopyWebpackPlugin = require('copy-webpack-plugin');
+const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
@@ -84,7 +85,10 @@ module.exports = function(env, argv) {
                     `:` +
                     new Date().getMinutes()
             }),
-            new MiniCssExtractPlugin('styles.css')
+            new MiniCssExtractPlugin({
+                filename: 'styles.css',
+                chunkFilename: '[id].css'
+            })
         );
     } else {
         plugins.push(
@@ -119,15 +123,22 @@ module.exports = function(env, argv) {
     }
 
     return {
-        devtool: isProd ? 'hidden-source-map' : 'eval',
+        devtool: isProd ? 'hidden-source-map' : 'cheap-module-source-map',
         context: sourcePath,
         entry: {
-            js: 'app.js',
+            js: isProd
+                ? 'app.js'
+                : [require.resolve('react-dev-utils/webpackHotDevClient'), 'app.js'].filter(
+                      Boolean
+                  ),
             vendor: ['react']
         },
         output: {
             path: publicPath,
-            filename: '[name].bundle.js'
+            filename: '[name].bundle.js',
+            devtoolModuleFilenameTemplate: isProd
+                ? info => path.relative(sourcePath, info.absoluteResourcePath).replace(/\\/g, '/')
+                : info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
         },
         module: {
             rules: [
@@ -156,26 +167,44 @@ module.exports = function(env, argv) {
 
                 {
                     test: /\.(scss|css)$/,
-                    use: [
-                        {
-                            loader: 'style-loader',
-                            options: {
-                                sourceMap: false
-                            }
-                        },
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }
-                    ]
+                    use: isProd
+                        ? [
+                              {
+                                  loader: MiniCssExtractPlugin.loader
+                              },
+                              {
+                                  loader: 'css-loader',
+                                  options: {
+                                      sourceMap: true
+                                  }
+                              },
+                              {
+                                  loader: 'sass-loader',
+                                  options: {
+                                      sourceMap: true
+                                  }
+                              }
+                          ]
+                        : [
+                              {
+                                  loader: 'style-loader',
+                                  options: {
+                                      sourceMap: false
+                                  }
+                              },
+                              {
+                                  loader: 'css-loader',
+                                  options: {
+                                      sourceMap: true
+                                  }
+                              },
+                              {
+                                  loader: 'sass-loader',
+                                  options: {
+                                      sourceMap: true
+                                  }
+                              }
+                          ]
                 },
                 {
                     test: /\.(js|jsx)$/,
@@ -224,23 +253,9 @@ module.exports = function(env, argv) {
             inline: !isProd,
             hot: false,
             quiet: true,
-            overlay: {
-                errors: true,
-                warnings: true
-            },
-            stats: {
-                assets: true,
-                children: false,
-                chunks: false,
-                hash: false,
-                modules: false,
-                publicPath: false,
-                timings: true,
-                version: false,
-                warnings: true,
-                colors: {
-                    green: '\u001b[32m'
-                }
+            before: function(app) {
+                // This lets us open files from the runtime error overlay.
+                app.use(errorOverlayMiddleware());
             }
         }
     };

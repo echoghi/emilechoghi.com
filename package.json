@@ -81,6 +81,7 @@
         "promise": "^8.0.2",
         "raw-loader": "^0.5.1",
         "react-addons-test-utils": "15.6.2",
+        "react-dev-utils": "^7.0.0",
         "react-hot-loader": "^4.3.11",
         "react-test-renderer": "^16.5.2",
         "regenerator-runtime": "^0.12.1",
