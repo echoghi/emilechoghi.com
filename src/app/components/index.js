@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 // Components
 import NavBar from './Nav';
 import Loading from './Loading';
+import FourOhFour from './Error/404';
 import GlobalStyle from '../theme/GlobalStyle';
 
 const SocialLinks = React.lazy(() => import('./SocialLinks'));
@@ -25,6 +26,7 @@ const AppIndex = () => (
                 <Route exact path="/" render={() => <About />} />
                 <Route path="/portfolio" render={() => <Portfolio />} name="Portfolio" />
                 <Route path="/contact" render={() => <Contact />} name="Contact" />
+                <Route component={FourOhFour} name="404" />
             </Fragment>
         </Suspense>
     </Fragment>
