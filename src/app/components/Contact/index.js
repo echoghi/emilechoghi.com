@@ -193,16 +193,18 @@ const Contact = () => {
                     <FormHeader> Contact Me </FormHeader>
                     <FormRow>
                         <FormItem>
-                            <Label className={handleErrorClass('name')}>Name</Label>
-                            <Input
-                                type="text"
-                                name="name"
-                                value={name}
-                                maxLength="100"
-                                onChange={onChange}
-                                className={handleErrorClass('name')}
-                                data-testid="name"
-                            />
+                            <Label className={handleErrorClass('name')}>
+                                Name
+                                <Input
+                                    type="text"
+                                    name="name"
+                                    value={name}
+                                    maxLength="100"
+                                    onChange={onChange}
+                                    className={handleErrorClass('name')}
+                                    data-testid="name"
+                                />
+                            </Label>
                             <ErrorLabel
                                 className={handleErrorClass('name')}
                                 data-testid="name-label"
@@ -211,16 +213,18 @@ const Contact = () => {
                             </ErrorLabel>
                         </FormItem>
                         <FormItem>
-                            <Label className={handleErrorClass('email')}>Email Address</Label>
-                            <Input
-                                type="text"
-                                name="email"
-                                value={email}
-                                maxLength="254"
-                                onChange={onChange}
-                                className={handleErrorClass('email')}
-                                data-testid="email"
-                            />
+                            <Label className={handleErrorClass('email')}>
+                                Email Address
+                                <Input
+                                    type="text"
+                                    name="email"
+                                    value={email}
+                                    maxLength="254"
+                                    onChange={onChange}
+                                    className={handleErrorClass('email')}
+                                    data-testid="email"
+                                />
+                            </Label>
                             <ErrorLabel
                                 className={handleErrorClass('email')}
                                 data-testid="email-label"
@@ -231,15 +235,17 @@ const Contact = () => {
                     </FormRow>
                     <FormRow>
                         <FormItemLarge>
-                            <Label className={handleErrorClass('message')}>Message</Label>
-                            <TextArea
-                                maxLength="6000"
-                                name="message"
-                                value={message}
-                                onChange={onChange}
-                                className={handleErrorClass('message')}
-                                data-testid="message"
-                            />
+                            <Label className={handleErrorClass('message')}>
+                                Message
+                                <TextArea
+                                    maxLength="6000"
+                                    name="message"
+                                    value={message}
+                                    onChange={onChange}
+                                    className={handleErrorClass('message')}
+                                    data-testid="message"
+                                />
+                            </Label>
                             <ErrorLabel
                                 className={handleErrorClass('message')}
                                 data-testid="message-label"
