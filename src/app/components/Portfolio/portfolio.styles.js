@@ -160,6 +160,7 @@ const PortfolioItem = styled.div`
     width: auto;
     box-shadow: none;
     transition: all 0.3s;
+    background: ${theme.colors.white};
 
     &:hover {
         transition: all.3s;
