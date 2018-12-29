@@ -201,8 +201,14 @@ const Contact = () => {
                                 maxLength="100"
                                 onChange={onChange}
                                 className={handleErrorClass('name')}
+                                data-testid="name"
                             />
-                            <ErrorLabel className={handleErrorClass('name')}>required*</ErrorLabel>
+                            <ErrorLabel
+                                className={handleErrorClass('name')}
+                                data-testid="name-label"
+                            >
+                                required*
+                            </ErrorLabel>
                         </FormItem>
                         <FormItem>
                             <Label className={handleErrorClass('email')}>Email Address</Label>
@@ -213,8 +219,14 @@ const Contact = () => {
                                 maxLength="254"
                                 onChange={onChange}
                                 className={handleErrorClass('email')}
+                                data-testid="email"
                             />
-                            <ErrorLabel className={handleErrorClass('email')}>invalid*</ErrorLabel>
+                            <ErrorLabel
+                                className={handleErrorClass('email')}
+                                data-testid="email-label"
+                            >
+                                invalid*
+                            </ErrorLabel>
                         </FormItem>
                     </FormRow>
                     <FormRow>
@@ -226,14 +238,20 @@ const Contact = () => {
                                 value={message}
                                 onChange={onChange}
                                 className={handleErrorClass('message')}
+                                data-testid="message"
                             />
-                            <ErrorLabel className={handleErrorClass('message')}>
+                            <ErrorLabel
+                                className={handleErrorClass('message')}
+                                data-testid="message-label"
+                            >
                                 required*
                             </ErrorLabel>
                         </FormItemLarge>
                     </FormRow>
 
-                    <FormButton type="submit">Send</FormButton>
+                    <FormButton type="submit" data-testid="send">
+                        Send
+                    </FormButton>
                 </Form>
 
                 {renderLoading()}

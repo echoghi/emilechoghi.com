@@ -1,112 +1,82 @@
-import Contact from '../app/components/Contact';
-import 'jest-styled-components';
-import 'whatwg-fetch';
-
-configure({ adapter: new Adapter() });
-
-const mockFormPost = () => {
-    return fetch('http://localhost:3000/api/postForm', {
-        method: 'POST',
-        body: JSON.stringify({ name: 'test', email: 'test@jest.com', message: 'testing API' }),
-        headers: { 'Content-Type': 'application/json; charset=utf-8' }
-    })
-        .then(response => {
-            if (response.status === 200) {
-                return response.json();
-            } else {
-                console.log('POST test failed', response);
-            }
-        })
-        .catch(error => {
-            console.log('POST test failed', error);
-        });
-};
-
-const component = mount(<Contact />);
+import React from 'react';
+import Appindex from '../app/components';
+import { cleanup, fireEvent } from 'react-testing-library';
 
 describe('<Contact />', () => {
-    test('snapshot', () => {
-        expect(component).toMatchSnapshot();
-    });
+    afterEach(cleanup);
 
-    test('form renders correctly', () => {
-        // Test that component exists
-        expect(component).toBeDefined();
-        expect(component).toHaveLength(1);
+    test('snapshot', () => {
+        const { container } = renderWithRouter(<Appindex />, {
+            route: '/contact'
+        });
+
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     test('form should submit', () => {
+        const { getByTestId } = renderWithRouter(<Appindex />, {
+            route: '/contact'
+        });
+
         // enter name
-        const nameInput = component
-            .find('input')
-            .first()
-            .hostNodes()
-            .instance();
-        nameInput.value = 'Test';
+        fireEvent.change(getByTestId('name'), {
+            target: { value: 'Jest Test' }
+        });
 
         // enter email
-        const emailInput = component
-            .find('input')
-            .at(1)
-            .hostNodes()
-            .instance();
-        emailInput.value = 'test@jest.com';
+        fireEvent.change(getByTestId('email'), {
+            target: { value: 'test@jest.com' }
+        });
 
         // enter message
-        const messageInput = component
-            .find('textarea')
-            .first()
-            .hostNodes()
-            .instance();
-        messageInput.value = 'testing form';
+        fireEvent.change(getByTestId('message'), {
+            target: { value: '🚩 This is a test! 🚩' }
+        });
 
         // submit form
-        component.find('form').simulate('submit');
+        fireEvent.click(getByTestId('send'));
 
         // validation should pass
-        expect(component.find('input').first()).toHaveStyleRule('border', 'none');
-        expect(component.find('input').at(1)).toHaveStyleRule('border', 'none');
-        expect(component.find('textarea').first()).toHaveStyleRule('border', 'none');
+        expect(getByTestId('name-label').classList).not.toContain('invalid');
+        expect(getByTestId('email-label').classList).not.toContain('invalid');
+        expect(getByTestId('message-label').classList).not.toContain('invalid');
+
+        // payload should be sent
+        expect(fetch.mock.calls[0][1].body).toBe(
+            JSON.stringify({
+                name: 'Jest Test',
+                email: 'test@jest.com',
+                message: '🚩 This is a test! 🚩'
+            })
+        );
     });
 
     test('form validation should work', () => {
-        const component = mount(<Contact />);
-
-        // enter name
-        const nameInput = component.find('input').first();
-        nameInput.simulate('change', {
-            target: { value: 'test', name: 'name' }
+        const { getByTestId } = renderWithRouter(<Appindex />, {
+            route: '/contact'
         });
 
-        // enter email
-        const emailInput = component.find('input').at(1);
-        emailInput.simulate('change', {
-            target: { value: 'broken email', name: 'email' }
+        // enter name
+        fireEvent.change(getByTestId('name'), {
+            target: { value: 'Jest Test' }
+        });
+
+        // enter incorrect email
+        fireEvent.change(getByTestId('email'), {
+            target: { value: 'broken.email.com' }
         });
 
         // enter message
-        const messageInput = component.find('textarea').first();
-        messageInput.simulate('change', {
-            target: { value: 'test', name: 'message' }
+        fireEvent.change(getByTestId('message'), {
+            target: { value: '🚩 This is a test! 🚩' }
         });
 
         // submit form
-        component.find('form').simulate('submit');
+        fireEvent.click(getByTestId('send'));
 
-        // state should be updated
-        expect(component.state('name')).toEqual('test');
-        expect(component.state('email')).toEqual('broken email');
-        expect(component.state('message')).toEqual('test');
-        expect(component.state('validation')).toEqual({
-            email: { dirty: true, valid: false },
-            message: { dirty: true, valid: true },
-            name: { dirty: true, valid: true }
-        });
-    });
-
-    test('form should POST successfully', async function() {
-        const response = await mockFormPost();
-
-        expect(response.message).toBe('Email Sent');
+        // validation should pass
+        expect(getByTestId('name-label').classList).not.toContain('invalid');
+        expect(getByTestId('email-label').classList).toContain('invalid');
+        expect(getByTestId('message-label').classList).not.toContain('invalid');
     });
 });
