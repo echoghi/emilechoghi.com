@@ -127,10 +127,8 @@ module.exports = function(env, argv) {
         context: sourcePath,
         entry: {
             js: isProd
-                ? 'app.js'
-                : [require.resolve('react-dev-utils/webpackHotDevClient'), 'app.js'].filter(
-                      Boolean
-                  ),
+                ? ['app.js', 'whatwg-fetch'].filter(Boolean)
+                : ['app.js', 'react-dev-utils/webpackHotDevClient'].filter(Boolean),
             vendor: ['react']
         },
         output: {

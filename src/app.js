@@ -12,7 +12,6 @@ import Styles from './app/assets/scss/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import 'whatwg-fetch';
 import ReactGA from 'react-ga';
 
 //components
