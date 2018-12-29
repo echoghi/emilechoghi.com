@@ -161,7 +161,7 @@ const NavBrand = styled.div`
         width: 45px;
         z-index: 2;
 
-        i {
+        a {
             -webkit-tap-highlight-color: transparent;
         }
     }

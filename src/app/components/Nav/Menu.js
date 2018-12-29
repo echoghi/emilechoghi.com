@@ -5,7 +5,9 @@ import { Links, Link } from './Nav.styles';
 const handleActivePath = path => {
     if (window.location.pathname === path) {
         return 'active';
-    } else return null;
+    } else {
+        return null;
+    }
 };
 
 const Menu = ({ open, handleMenu }) => (
