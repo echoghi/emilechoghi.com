@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 //const CopyWebpackPlugin = require('copy-webpack-plugin');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
-const CompressionPlugin = require('compression-webpack-plugin');
+// const CompressionPlugin = require('compression-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SystemBellPlugin = require('system-bell-webpack-plugin');
@@ -39,13 +39,13 @@ module.exports = function(env, argv) {
             // new ManifestPlugin({
             //     fileName: 'asset-manifest.json'
             // }),
-            new CompressionPlugin({
-                asset: '[path].gz[query]',
-                algorithm: 'gzip',
-                test: /\.js$|\.css$/,
-                minRatio: 0.9,
-                deleteOriginalAssets: false
-            }),
+            // new CompressionPlugin({
+            //     asset: '[path].gz[query]',
+            //     algorithm: 'gzip',
+            //     test: /\.js$|\.css$/,
+            //     minRatio: 0.9,
+            //     deleteOriginalAssets: false
+            // }),
             // new SWPrecacheWebpackPlugin({
             //     // By default, a cache-busting query parameter is appended to requests
             //     // used to populate the caches, to ensure the responses are fresh.
