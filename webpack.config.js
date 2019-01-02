@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
-//const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 // const CompressionPlugin = require('compression-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -35,7 +35,7 @@ module.exports = function(env, argv) {
                 filename: 'index.html',
                 template: 'index.html'
             }),
-            // new CopyWebpackPlugin([{ from: 'pwa' }]),
+            new CopyWebpackPlugin([{ from: 'netlify' }]),
             // new ManifestPlugin({
             //     fileName: 'asset-manifest.json'
             // }),
