@@ -15,7 +15,7 @@ function sendAnalytics(site) {
 const Footer = ({ fixed, type }) => (
     <Container fixed={fixed} type={type}>
         <Wrapper>
-            <Text>© 2018 Emile Choghi</Text>
+            <Text>© {new Date().getFullYear()} Emile Choghi</Text>
             <Links>
                 <IconListItem>
                     <Link
