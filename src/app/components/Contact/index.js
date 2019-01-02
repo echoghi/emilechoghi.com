@@ -144,7 +144,6 @@ const Contact = () => {
                 body: JSON.stringify(form),
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
             })
-                .then(response => response.json())
                 .then(response => {
                     if (response.status === 200) {
                         setSuccess(true);
