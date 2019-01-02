@@ -139,7 +139,7 @@ const Contact = () => {
         if (validateInputs()) {
             setLoading(true);
 
-            return fetch('/functions/hello', {
+            return fetch('/functions/form', {
                 method: 'POST',
                 body: JSON.stringify(form),
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
