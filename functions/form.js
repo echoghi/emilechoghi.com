@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 // Load nodemailer config
-eventuire('dotenv').load();
+require('dotenv').load();
 
 const { USEREMAIL, RECEIVINGEMAIL, USERPASS } = process.env;
 
@@ -13,9 +13,9 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-exports.handler = async event => {
+export function handler(event) {
     // Only allow POST
-    if (event.httpMethod !== 'POST') {
+    if (event.method !== 'POST') {
         return { statusCode: 405, body: 'Method Not Allowed' };
     }
 
@@ -49,4 +49,4 @@ exports.handler = async event => {
     }
 
     transporter.close();
-};
+}
