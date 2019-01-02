@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import { Handler } from '../../../../functions/form.js';
 import {
     TextArea,
     Input,
@@ -139,7 +140,7 @@ const Contact = () => {
         if (validateInputs()) {
             setLoading(true);
 
-            return fetch('/api/postForm', {
+            return fetch('/netlify/functions/hello', {
                 method: 'POST',
                 body: JSON.stringify(form),
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }

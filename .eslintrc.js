@@ -7,7 +7,7 @@ module.exports = {
         jest: true
     },
 
-    plugins: ['react', 'jsx-a11y'],
+    plugins: ['react'],
 
     extends: ['plugin:react/recommended', 'prettier'],
 
