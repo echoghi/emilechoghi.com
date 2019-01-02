@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavBrand } from './Nav.styles';
+import { NavBrand } from './styles';
 
 const Brand = ({ handleMenu }) => (
     <NavBrand onClick={() => handleMenu(false)}>

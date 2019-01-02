@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import { IconListItem, Container, Wrapper, Links, Link, Text } from './Footer.styles';
+import { IconListItem, Container, Wrapper, Links, Link, Text } from './styles';
 
 function sendAnalytics(site) {
     if (NODE_ENV === 'production') {

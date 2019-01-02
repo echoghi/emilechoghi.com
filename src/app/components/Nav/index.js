@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Brand from './Brand';
 import Menu from './Menu';
-import { Nav } from './Nav.styles';
+import { Nav } from './styles';
 
 const NavBar = () => {
     const [open, handleMenu] = useState(false);

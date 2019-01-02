@@ -11,7 +11,7 @@ import {
     FormItemLarge,
     Portfolio,
     FormButton
-} from './Contact.styles';
+} from './styles';
 // Components
 import ReactGA from 'react-ga';
 import Footer from '../Footer';

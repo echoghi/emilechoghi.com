@@ -12,7 +12,7 @@ import {
     Stack,
     Image,
     ImageWrapper
-} from './Portfolio.styles';
+} from './styles';
 
 const sendAnalytics = project => {
     if (NODE_ENV === 'production') {

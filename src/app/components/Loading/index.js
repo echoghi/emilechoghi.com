@@ -1,6 +1,6 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { LoadingWrapper } from './Loading.styles';
+import { LoadingWrapper } from './styles';
 
 const Loading = () => (
     <LoadingWrapper>

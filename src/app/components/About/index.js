@@ -10,7 +10,7 @@ import {
     Content,
     Tagline,
     AboutWrapper
-} from './About.styles';
+} from './styles';
 // Components
 import Footer from '../Footer';
 

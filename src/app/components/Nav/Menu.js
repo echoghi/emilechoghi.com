@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Hamburger from './Hamburger';
-import { Links, Link } from './Nav.styles';
+import { Links, Link } from './styles';
 
 const handleActivePath = path => {
     if (window.location.pathname === path) {

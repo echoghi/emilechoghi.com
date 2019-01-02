@@ -4,7 +4,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
-import { Button } from './Contact.styles';
+import { Button } from './styles';
 
 const Error = ({ close }) => (
     <Dialog open onClose={close}>

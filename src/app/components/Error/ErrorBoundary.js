@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotFound } from './Error.styles';
+import { NotFound } from './styles';
 
 class ErrorBoundary extends React.Component {
     state = { hasError: false };

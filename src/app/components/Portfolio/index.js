@@ -9,7 +9,7 @@ import padm from '../../assets/images/padm.png';
 import doughboy from '../../assets/images/dashboard.png';
 import choghi from '../../assets/images/choghi.png';
 import { Flipper } from 'react-flip-toolkit';
-import { PortfolioWrapper, ProjectWrapper, Filter, FilterButton } from './Portfolio.styles';
+import { PortfolioWrapper, ProjectWrapper, Filter, FilterButton } from './styles';
 
 // prettier-ignore
 const projects = [
