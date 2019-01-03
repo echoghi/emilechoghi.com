@@ -3,18 +3,13 @@
  * Copyright (c) Emile Choghi 2018
  *
  */
-
-// SCSS
-/*eslint-disable*/
-import Styles from './app/assets/scss/style.scss';
-/*eslint-enable*/
-
+import './app/assets/scss/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
-//components
+// components
 import AppIndex from './app/components';
 
 // Service Worker

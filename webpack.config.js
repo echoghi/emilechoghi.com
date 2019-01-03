@@ -123,7 +123,7 @@ module.exports = function(env, argv) {
                 isProd && 'whatwg-fetch',
                 'app.js'
             ].filter(Boolean),
-            vendor: ['react']
+            vendor: ['react', 'react-dom']
         },
         output: {
             path: publicPath,
