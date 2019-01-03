@@ -22,4 +22,4 @@ The second iteration of my personal portfolio site built with [React](https://re
 
 3.  **💫 Deploy to Netlify**
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/echoghi/emilechoghi.com)
+    [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/echoghi/emilechoghi.com)
