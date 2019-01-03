@@ -47,7 +47,7 @@ module.exports = function(env, argv) {
                 // about it being stale, and the cache-busting can be skipped.
                 dontCacheBustUrlsMatching: /\.\w{8}\./,
                 filename: 'service-worker.js',
-                staticFileGlobs: ['/vendor.bundle.js'],
+                // staticFileGlobs: ['/vendor.bundle.js'],
                 logger(message) {
                     if (message.indexOf('Total precache size is') === 0) {
                         // This message occurs for every build and is a bit too noisy.
@@ -124,8 +124,11 @@ module.exports = function(env, argv) {
         context: sourcePath,
         entry: {
             js: [
+                // react-error-overlay
                 !isProd && 'react-dev-utils/webpackHotDevClient',
+                // fetch polyfill
                 isProd && 'whatwg-fetch',
+                // app entry
                 'app.js'
             ].filter(Boolean)
         },
@@ -229,7 +232,7 @@ module.exports = function(env, argv) {
         },
 
         plugins,
-
+        // split out vendor js into its own bundle
         optimization: {
             splitChunks: {
                 cacheGroups: {
