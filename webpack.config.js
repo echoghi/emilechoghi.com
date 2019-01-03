@@ -226,6 +226,18 @@ module.exports = function(env, argv) {
 
         plugins,
 
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    commons: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'vendor',
+                        chunks: 'initial'
+                    }
+                }
+            }
+        },
+
         performance: isProd && {
             maxAssetSize: 600000,
             maxEntrypointSize: 600000,
