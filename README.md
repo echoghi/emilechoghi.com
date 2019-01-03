@@ -10,7 +10,7 @@ The second iteration of my personal portfolio site built with [React](https://re
     yarn dev
     ```
 
-2.  **Create a .env file for email server setup**
+2.  **Create a .env file to hook up the contact form.**
 
     ```sh
     # email address to relay form submissions from
@@ -20,6 +20,6 @@ The second iteration of my personal portfolio site built with [React](https://re
     RECEIVINGEMAIL='destination@email.com'
     ```
 
-3.  **💫 Deploy to Netlify**
+3.  **Deploy to Netlify**
 
     [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/echoghi/emilechoghi.com)
