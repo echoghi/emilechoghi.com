@@ -122,8 +122,8 @@ module.exports = function(env, argv) {
                 !isProd && 'react-dev-utils/webpackHotDevClient',
                 isProd && 'whatwg-fetch',
                 'app.js'
-            ].filter(Boolean),
-            vendor: ['react', 'react-dom']
+            ].filter(Boolean)
+            // vendor: ['react', 'react-dom']
         },
         output: {
             path: publicPath,
