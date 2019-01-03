@@ -4,7 +4,7 @@
     "description": "Portfolio Site",
     "scripts": {
         "dev": "yarn install && nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
-        "build": "yarn install && webpack --mode production",
+        "build": "webpack --mode production",
         "server": "node app",
         "test": "jest --silent",
         "test:update": "jest -u",
@@ -56,6 +56,7 @@
         "eslint-loader": "2.1.1",
         "eslint-plugin-import": "^2.3.0",
         "eslint-plugin-react": "7.11.1",
+        "express-static-gzip": "^1.1.3",
         "file-loader": "2",
         "friendly-errors-webpack-plugin": "^1.7.0",
         "history": "^4.7.2",
