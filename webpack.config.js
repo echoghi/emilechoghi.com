@@ -11,7 +11,8 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SystemBellPlugin = require('system-bell-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PACKAGE = require('./package.json');
 
@@ -26,6 +27,7 @@ module.exports = function(env, argv) {
             NODE_ENV: JSON.stringify(argv.mode)
         }),
         new WebpackBar({ name: 'portfolio', color: '#269bda' })
+        //new BundleAnalyzerPlugin()
     ];
 
     if (isProd) {
@@ -34,28 +36,29 @@ module.exports = function(env, argv) {
                 filename: 'index.html',
                 template: 'index.html'
             }),
-            new CopyWebpackPlugin([{ from: 'netlify' }]),
-            // new ManifestPlugin({
-            //     fileName: 'asset-manifest.json'
-            // }),
-            // new SWPrecacheWebpackPlugin({
-            //     // By default, a cache-busting query parameter is appended to requests
-            //     // used to populate the caches, to ensure the responses are fresh.
-            //     // If a URL is already hashed by Webpack, then there is no concern
-            //     // about it being stale, and the cache-busting can be skipped.
-            //     dontCacheBustUrlsMatching: /\.\w{8}\./,
-            //     filename: 'service-worker.js',
-            //     logger(message) {
-            //         if (message.indexOf('Total precache size is') === 0) {
-            //             // This message occurs for every build and is a bit too noisy.
-            //             return;
-            //         }
-            //         console.log(message);
-            //     },
-            //     minify: true, // minify and uglify the script
-            //     navigateFallback: '/index.html',
-            //     staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
-            // }),
+            new CopyWebpackPlugin(['netlify', 'pwa']),
+            new ManifestPlugin({
+                fileName: 'asset-manifest.json'
+            }),
+            new SWPrecacheWebpackPlugin({
+                // By default, a cache-busting query parameter is appended to requests
+                // used to populate the caches, to ensure the responses are fresh.
+                // If a URL is already hashed by Webpack, then there is no concern
+                // about it being stale, and the cache-busting can be skipped.
+                dontCacheBustUrlsMatching: /\.\w{8}\./,
+                filename: 'service-worker.js',
+                staticFileGlobs: ['build/vendor.bundle.js'],
+                logger(message) {
+                    if (message.indexOf('Total precache size is') === 0) {
+                        // This message occurs for every build and is a bit too noisy.
+                        return;
+                    }
+                    console.log(message);
+                },
+                minify: true, // minify and uglify the script
+                navigateFallback: '/index.html',
+                staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
+            }),
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
                 debug: false
@@ -84,7 +87,6 @@ module.exports = function(env, argv) {
         );
     } else {
         plugins.push(
-            //new BundleAnalyzerPlugin(),
             new webpack.HotModuleReplacementPlugin(),
             new BrowserSyncPlugin(
                 // BrowserSync options

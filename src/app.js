@@ -13,7 +13,7 @@ import ReactGA from 'react-ga';
 import AppIndex from './app/components';
 
 // Service Worker
-//import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 
 if (NODE_ENV === 'production') {
     ReactGA.initialize('UA-75282883-2');
@@ -28,4 +28,4 @@ ReactDOM.render(
     document.getElementById('app')
 );
 
-//registerServiceWorker();
+registerServiceWorker();
