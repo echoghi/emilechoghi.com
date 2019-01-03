@@ -47,7 +47,7 @@ module.exports = function(env, argv) {
                 // about it being stale, and the cache-busting can be skipped.
                 dontCacheBustUrlsMatching: /\.\w{8}\./,
                 filename: 'service-worker.js',
-                staticFileGlobs: ['vendor.bundle.js'],
+                staticFileGlobs: ['/vendor.bundle.js'],
                 logger(message) {
                     if (message.indexOf('Total precache size is') === 0) {
                         // This message occurs for every build and is a bit too noisy.
@@ -55,8 +55,11 @@ module.exports = function(env, argv) {
                     }
                     console.log(message);
                 },
-                minify: true, // minify and uglify the script
+                // minify and uglify the script
+                minify: true,
+                // For unknown URLs, fallback to the index page
                 navigateFallback: '/index.html',
+                // Don't precache sourcemaps (they're large) and build asset manifest:
                 staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
             }),
             new webpack.LoaderOptionsPlugin({
@@ -125,7 +128,6 @@ module.exports = function(env, argv) {
                 isProd && 'whatwg-fetch',
                 'app.js'
             ].filter(Boolean)
-            // vendor: ['react', 'react-dom']
         },
         output: {
             path: publicPath,
