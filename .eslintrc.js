@@ -7,7 +7,7 @@ module.exports = {
         jest: true
     },
 
-    plugins: ['react'],
+    plugins: ['react', 'react-hooks'],
 
     extends: ['plugin:react/recommended', 'prettier'],
 
@@ -29,11 +29,12 @@ module.exports = {
         'no-multiple-empty-lines': [2, { max: 1 }],
         'no-multi-spaces': [2],
         'react/prop-types': 0,
-        'react/no-unescaped-entities': 0
+        'react/no-unescaped-entities': 0,
+        'react-hooks/rules-of-hooks': 'error'
     },
     settings: {
         react: {
-            version: '16.7.0-alpha.0'
+            version: '16.7.0-alpha.2'
         }
     }
 };
