@@ -59,11 +59,13 @@ module.exports = function(env, argv) {
                 minify: true,
                 // For unknown URLs, fallback to the index page
                 navigateFallback: '/index.html',
-                // Don't precache sourcemaps (they're large) and build asset manifest:
+                // Don't precache sourcemaps, build asset manifest,
+                // netlify redirects, or app js.
                 staticFileGlobsIgnorePatterns: [
                     /\.map$/,
-                    /asset-manifest\.json$/,
+                    /manifest.json$/,
                     /_redirects$/,
+                    /js.bundle.js$/,
                     /[0-9].bundle.js$/
                 ]
             }),
