@@ -126,9 +126,11 @@ module.exports = function(env, argv) {
         devtool: isProd ? 'hidden-source-map' : 'cheap-module-source-map',
         context: sourcePath,
         entry: {
-            js: isProd
-                ? ['app.js', 'whatwg-fetch'].filter(Boolean)
-                : ['app.js', 'react-dev-utils/webpackHotDevClient'].filter(Boolean),
+            js: [
+                !isProd && 'react-dev-utils/webpackHotDevClient',
+                isProd && 'whatwg-fetch',
+                'app.js'
+            ].filter(Boolean),
             vendor: ['react']
         },
         output: {
@@ -224,6 +226,7 @@ module.exports = function(env, argv) {
                 }
             ]
         },
+
         resolve: {
             extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
             modules: [path.resolve(__dirname, 'node_modules'), sourcePath]
