@@ -60,7 +60,12 @@ module.exports = function(env, argv) {
                 // For unknown URLs, fallback to the index page
                 navigateFallback: '/index.html',
                 // Don't precache sourcemaps (they're large) and build asset manifest:
-                staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/, /_redirects$/]
+                staticFileGlobsIgnorePatterns: [
+                    /\.map$/,
+                    /asset-manifest\.json$/,
+                    /_redirects$/,
+                    /[0-9].bundle.js$/
+                ]
             }),
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
