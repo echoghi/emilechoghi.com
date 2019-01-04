@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Hamburger from './Hamburger';
 import { Links, Link } from './styles';
 
@@ -10,29 +10,38 @@ const handleActivePath = path => {
     }
 };
 
-const Menu = ({ open, handleMenu }) => (
-    <Fragment>
-        <Hamburger open={open} onClick={() => handleMenu(!open)} />
-        <Links open={open} role="menu">
-            <Link onClick={() => handleMenu(false)} className={handleActivePath('/')} to="/" exact>
-                Home <i className="icon-home" />
-            </Link>
-            <Link
-                onClick={() => handleMenu(false)}
-                className={handleActivePath('/portfolio')}
-                to="/portfolio"
-            >
-                Portfolio <i className="icon-briefcase" />
-            </Link>
-            <Link
-                onClick={() => handleMenu(false)}
-                className={handleActivePath('/contact')}
-                to="/contact"
-            >
-                Contact <i className="icon-message-square" />
-            </Link>
-        </Links>
-    </Fragment>
-);
+const Menu = () => {
+    const [open, handleMenu] = useState(false);
+
+    return (
+        <Fragment>
+            <Hamburger open={open} onClick={() => handleMenu(!open)} />
+            <Links open={open} role="menu">
+                <Link
+                    onClick={() => handleMenu(false)}
+                    className={handleActivePath('/')}
+                    to="/"
+                    exact
+                >
+                    Home <i className="icon-home" />
+                </Link>
+                <Link
+                    onClick={() => handleMenu(false)}
+                    className={handleActivePath('/portfolio')}
+                    to="/portfolio"
+                >
+                    Portfolio <i className="icon-briefcase" />
+                </Link>
+                <Link
+                    onClick={() => handleMenu(false)}
+                    className={handleActivePath('/contact')}
+                    to="/contact"
+                >
+                    Contact <i className="icon-message-square" />
+                </Link>
+            </Links>
+        </Fragment>
+    );
+};
 
 export default Menu;

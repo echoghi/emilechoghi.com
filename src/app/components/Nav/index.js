@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Brand from './Brand';
 import Menu from './Menu';
 import { Nav } from './styles';
 
-const NavBar = () => {
-    const [open, handleMenu] = useState(false);
-
-    return (
-        <Nav>
-            <Brand handleMenu={handleMenu} />
-            <Menu open={open} handleMenu={handleMenu} />
-        </Nav>
-    );
-};
+const NavBar = () => (
+    <Nav>
+        <Brand />
+        <Menu />
+    </Nav>
+);
 
 export default NavBar;
