@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import NavBar from './Nav';
 import Loading from './Loading';
 import FourOhFour from './Error/404';
-import ErrorBoundary from './Error/ErrorBoundary';
+// import ErrorBoundary from './Error/ErrorBoundary';
 import GlobalStyle from '../theme/GlobalStyle';
 
 const SocialLinks = React.lazy(() => import('./SocialLinks'));
@@ -20,18 +20,16 @@ const AppIndex = () => (
         <NavBar />
         <GlobalStyle />
 
-        <ErrorBoundary>
-            <Suspense fallback={<Loading />}>
-                <SocialLinks />
+        <Suspense fallback={<Loading />}>
+            <SocialLinks />
 
-                <Switch>
-                    <Route exact path="/" render={() => <About />} />
-                    <Route path="/portfolio" render={() => <Portfolio />} name="Portfolio" />
-                    <Route path="/contact" render={() => <Contact />} name="Contact" />
-                    <Route component={FourOhFour} name="404" />
-                </Switch>
-            </Suspense>
-        </ErrorBoundary>
+            <Switch>
+                <Route exact path="/" render={() => <About />} />
+                <Route path="/portfolio" render={() => <Portfolio />} name="Portfolio" />
+                <Route path="/contact" render={() => <Contact />} name="Contact" />
+                <Route component={FourOhFour} name="404" />
+            </Switch>
+        </Suspense>
     </Fragment>
 );
 

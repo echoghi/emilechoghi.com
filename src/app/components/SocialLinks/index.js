@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import { LinkWrapper, IconListItem } from './SocialLinks.styles';
+import { LinkWrapper, IconListItem } from './styles';
 
 const sendAnalytics = site => {
     if (NODE_ENV === 'production') {

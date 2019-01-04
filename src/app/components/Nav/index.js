@@ -22,7 +22,9 @@ const NavBar = () => {
                     <i className="icon-brand" />
                 </NavLink>
             </NavBrand>
+
             <Hamburger open={open} onClick={() => handleMenu(!open)} />
+
             <Links open={open} role="menu">
                 <Link
                     onClick={() => handleMenu(false)}
