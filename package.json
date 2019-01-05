@@ -90,5 +90,15 @@
         "webpack-dev-server": "^3.1.9",
         "webpack-manifest-plugin": "^2.0.4",
         "webpackbar": "^3.1.4"
+    },
+    "jest": {
+        "verbose": false,
+        "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+        "globals": {
+            "NODE_ENV": "test"
+        },
+        "moduleNameMapper": {
+            "^styled-components": "<rootDir>/node_modules/styled-components"
+        }
     }
 }
