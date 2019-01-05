@@ -16,13 +16,13 @@ import AppIndex from './app/components';
 import registerServiceWorker from './registerServiceWorker';
 
 if (NODE_ENV === 'production') {
-    ReactGA.initialize('UA-75282883-2');
+    ReactGA.initialize(GA_ID);
 }
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route path={'/'} render={() => <AppIndex />} />
+            <Route path="/" render={() => <AppIndex />} />
         </Switch>
     </BrowserRouter>,
     document.getElementById('app')

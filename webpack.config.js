@@ -21,10 +21,11 @@ const publicPath = path.join(__dirname, './build');
 
 module.exports = function(env, argv) {
     const isProd = argv.mode === 'production';
-
+    console.log(process.env.GA_ID);
     const plugins = [
         new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(argv.mode)
+            NODE_ENV: JSON.stringify(argv.mode),
+            GA_ID: process.env.GA_ID
         }),
         new WebpackBar({ name: 'portfolio', color: '#269bda' })
         // new BundleAnalyzerPlugin()
