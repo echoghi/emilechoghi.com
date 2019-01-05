@@ -1,12 +1,10 @@
-import React from 'react';
-import Appindex from '../app/components';
 import { cleanup, fireEvent } from 'react-testing-library';
 
 describe('<Contact />', () => {
     afterEach(cleanup);
 
     test('snapshot', () => {
-        const { container } = renderWithRouter(<Appindex />, {
+        const { container } = renderApp({
             route: '/contact'
         });
 
@@ -14,7 +12,7 @@ describe('<Contact />', () => {
     });
 
     test('form should submit', () => {
-        const { getByTestId } = renderWithRouter(<Appindex />, {
+        const { getByTestId } = renderApp({
             route: '/contact'
         });
 
@@ -52,7 +50,7 @@ describe('<Contact />', () => {
     });
 
     test('form validation should work', () => {
-        const { getByTestId } = renderWithRouter(<Appindex />, {
+        const { getByTestId } = renderApp({
             route: '/contact'
         });
 
