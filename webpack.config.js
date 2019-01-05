@@ -36,7 +36,7 @@ module.exports = function(env, argv) {
                 filename: 'index.html',
                 template: 'index.html'
             }),
-            new CopyWebpackPlugin(['netlify', 'pwa']),
+            new CopyWebpackPlugin(['netlify', 'pwa', 'static']),
             new ManifestPlugin({
                 fileName: 'asset-manifest.json'
             }),
