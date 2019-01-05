@@ -4,8 +4,8 @@ import { NotFound } from './styles';
 class ErrorBoundary extends React.Component {
     state = { hasError: false };
 
-    static getDerivedStateFromError() {
-        return { hasError: true };
+    static getDerivedStateFromError(error) {
+        return { hasError: true, error };
     }
 
     render() {
