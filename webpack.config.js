@@ -27,7 +27,7 @@ module.exports = function(env, argv) {
             NODE_ENV: JSON.stringify(argv.mode)
         }),
         new WebpackBar({ name: 'portfolio', color: '#269bda' })
-        //new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ];
 
     if (isProd) {
