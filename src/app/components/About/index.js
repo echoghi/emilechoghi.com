@@ -17,21 +17,23 @@ import Footer from '../Footer';
 const About = memo(() => {
     const [mounted, onMount] = useState(false);
 
-    useEffect(
-        () => {
-            if (!mounted) {
-                document.title = 'Emile Choghi';
+    if (mounted) {
+        useEffect(
+            () => {
+                if (!mounted) {
+                    document.title = 'Emile Choghi';
 
-                if (NODE_ENV === 'production') {
-                    ReactGA.ga('send', 'pageview', '/');
+                    if (NODE_ENV === 'production') {
+                        ReactGA.ga('send', 'pageview', '/');
+                    }
+
+                    window.scrollTo(0, 0);
+                    onMount(true);
                 }
-
-                window.scrollTo(0, 0);
-                onMount(true);
-            }
-        },
-        [mounted]
-    );
+            },
+            [mounted]
+        );
+    }
 
     return (
         <AboutWrapper>

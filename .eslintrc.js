@@ -19,6 +19,7 @@ module.exports = {
             jsx: true
         }
     },
+
     rules: {
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
@@ -32,6 +33,7 @@ module.exports = {
         'react/no-unescaped-entities': 0,
         'react-hooks/rules-of-hooks': 'error'
     },
+
     settings: {
         react: {
             version: '16.7.0-alpha.2'
