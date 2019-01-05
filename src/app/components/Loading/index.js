@@ -1,10 +1,12 @@
 import React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { LoadingWrapper } from './styles';
+import { LoadingWrapper, CircleWrapper, OuterCircle, InnerCircle } from './styles';
 
 const Loading = () => (
     <LoadingWrapper>
-        <CircularProgress size={75} style={{ color: '#269bda', margin: '0 auto' }} />
+        <CircleWrapper viewBox="0 0 200 200">
+            <OuterCircle cx="100" cy="100" r="50" strokeWidth="5" />
+            <InnerCircle cx="100" cy="100" r="35" strokeWidth="5" />
+        </CircleWrapper>
     </LoadingWrapper>
 );
 

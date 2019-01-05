@@ -17,10 +17,8 @@ const Contact = React.lazy(() => import('./Contact'));
 
 const AppIndex = () => (
     <Fragment>
-        <ErrorBoundary>
-            <NavBar />
-            <GlobalStyle />
-        </ErrorBoundary>
+        <NavBar />
+        <GlobalStyle />
 
         <ErrorBoundary>
             <Suspense fallback={<Loading />}>
