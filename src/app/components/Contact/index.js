@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, memo } from 'react';
 import {
     TextArea,
     Input,
@@ -22,11 +22,11 @@ import Error from './Error';
 // Email validation RegExp
 const validateEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const Contact = () => {
+const Contact = memo(() => {
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    // const [mounted, onMount] = useState(false);
+    const [mounted, onMount] = useState(false);
     const [form, setFormValue] = useState({ name: '', email: '', message: '' });
     const [validation, setValidation] = useState({
         name: { dirty: false, valid: false },
@@ -34,21 +34,21 @@ const Contact = () => {
         message: { dirty: false, valid: false }
     });
 
-    // useEffect(
-    //     () => {
-    //         if (!mounted) {
-    //             document.title = 'Contact Emile Choghi';
+    useEffect(
+        () => {
+            if (!mounted) {
+                document.title = 'Contact Emile Choghi';
 
-    //             if (NODE_ENV === 'production') {
-    //                 ReactGA.ga('send', 'pageview', '/contact');
-    //             }
+                if (NODE_ENV === 'production') {
+                    ReactGA.ga('send', 'pageview', '/contact');
+                }
 
-    //             window.scrollTo(0, 0);
-    //             onMount(true);
-    //         }
-    //     },
-    //     [mounted]
-    // );
+                window.scrollTo(0, 0);
+                onMount(true);
+            }
+        },
+        [mounted]
+    );
 
     function renderLoading() {
         if (loading) {
@@ -268,6 +268,6 @@ const Contact = () => {
             <Footer fixed />
         </Fragment>
     );
-};
+});
 
 export default Contact;

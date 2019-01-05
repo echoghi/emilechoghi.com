@@ -74,7 +74,7 @@
         "path": "^0.12.7",
         "raw-loader": "1",
         "react-dev-utils": "^7.0.0",
-        "react-hot-loader": "^4.3.11",
+        "react-hot-loader": "4.6.3",
         "react-testing-library": "^5.4.2",
         "regenerator-runtime": "^0.12.1",
         "sass-loader": "7.1.0",

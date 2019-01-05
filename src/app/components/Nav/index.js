@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavBrand, Nav } from './styles';
 import Hamburger from './Hamburger';
@@ -12,7 +12,7 @@ const handleActivePath = path => {
     }
 };
 
-const NavBar = () => {
+const NavBar = memo(() => {
     const [open, handleMenu] = useState(false);
 
     return (
@@ -51,6 +51,6 @@ const NavBar = () => {
             </Links>
         </Nav>
     );
-};
+});
 
 export default NavBar;

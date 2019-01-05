@@ -1,5 +1,5 @@
-import React from 'react';
-// import ReactGA from 'react-ga';
+import React, { useState, useEffect, memo } from 'react';
+import ReactGA from 'react-ga';
 import {
     Skill,
     SkillTitle,
@@ -14,24 +14,24 @@ import {
 // Components
 import Footer from '../Footer';
 
-const About = () => {
-    // const [mounted, onMount] = useState(false);
+const About = memo(() => {
+    const [mounted, onMount] = useState(false);
 
-    // useEffect(
-    //     () => {
-    //         if (!mounted) {
-    //             document.title = 'Emile Choghi';
+    useEffect(
+        () => {
+            if (!mounted) {
+                document.title = 'Emile Choghi';
 
-    //             if (NODE_ENV === 'production') {
-    //                 ReactGA.ga('send', 'pageview', '/');
-    //             }
+                if (NODE_ENV === 'production') {
+                    ReactGA.ga('send', 'pageview', '/');
+                }
 
-    //             window.scrollTo(0, 0);
-    //             onMount(true);
-    //         }
-    //     },
-    //     [mounted]
-    // );
+                window.scrollTo(0, 0);
+                onMount(true);
+            }
+        },
+        [mounted]
+    );
 
     return (
         <AboutWrapper>
@@ -105,6 +105,6 @@ const About = () => {
             <Footer />
         </AboutWrapper>
     );
-};
+});
 
 export default About;

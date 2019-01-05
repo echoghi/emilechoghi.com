@@ -1,8 +1,8 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, memo } from 'react';
 // Components
 import Footer from '../Footer';
 import Project from './Project';
-// import ReactGA from 'react-ga';
+import ReactGA from 'react-ga';
 // Project Images
 import reviewhub from '../../assets/images/reviewhub.png';
 import padm from '../../assets/images/padm.png';
@@ -52,9 +52,9 @@ const projects = [
 
 const stack = ['All', 'Angular', 'React', 'Redux', 'Webpack', 'SCSS', 'Firebase', 'Node', 'PHP'];
 
-const Portfolio = () => {
+const Portfolio = memo(() => {
     const [filter, handleFilterClick] = useState('All');
-    // const [mounted, onMount] = useState(false);
+    const [mounted, onMount] = useState(false);
 
     function renderFilterButtons() {
         let buttons = [];
@@ -114,22 +114,22 @@ const Portfolio = () => {
     }
 
     // onMount logic
-    // useEffect(
-    //     () => {
-    //         if (!mounted) {
-    //             // prettier-ignore
-    //             document.title = 'Emile Choghi\'s Portfolio';
+    useEffect(
+        () => {
+            if (!mounted) {
+                // prettier-ignore
+                document.title = 'Emile Choghi\'s Portfolio';
 
-    //             if (NODE_ENV === 'production') {
-    //                 ReactGA.ga('send', 'pageview', '/portfolio');
-    //             }
+                if (NODE_ENV === 'production') {
+                    ReactGA.ga('send', 'pageview', '/portfolio');
+                }
 
-    //             window.scrollTo(0, 0);
-    //             onMount(true);
-    //         }
-    //     },
-    //     [mounted]
-    // );
+                window.scrollTo(0, 0);
+                onMount(true);
+            }
+        },
+        [mounted]
+    );
 
     return (
         <Fragment>
@@ -146,6 +146,6 @@ const Portfolio = () => {
             <Footer type="portfolio" />
         </Fragment>
     );
-};
+});
 
 export default Portfolio;
