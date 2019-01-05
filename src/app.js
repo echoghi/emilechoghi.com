@@ -22,7 +22,7 @@ if (NODE_ENV === 'production') {
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route path={'/'} component={AppIndex} />
+            <Route path={'/'} render={() => <AppIndex />} />
         </Switch>
     </BrowserRouter>,
     document.getElementById('app')
