@@ -15,17 +15,19 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PACKAGE = require('./package.json');
+// load .env settings
+require('dotenv').load();
 
 const sourcePath = path.join(__dirname, './src');
 const publicPath = path.join(__dirname, './build');
 
 module.exports = function(env, argv) {
     const isProd = argv.mode === 'production';
-    console.log(process.env.GA_ID);
+
     const plugins = [
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(argv.mode),
-            GA_ID: process.env.GA_ID
+            GA_ID: JSON.stringify(process.env.GA_ID)
         }),
         new WebpackBar({ name: 'portfolio', color: '#269bda' })
         // new BundleAnalyzerPlugin()
