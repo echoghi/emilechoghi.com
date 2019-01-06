@@ -15,8 +15,9 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PACKAGE = require('./package.json');
+const Settings = require('dotenv');
 // load .env settings
-require('dotenv').load();
+Settings.load();
 
 const sourcePath = path.join(__dirname, './src');
 const publicPath = path.join(__dirname, './build');
