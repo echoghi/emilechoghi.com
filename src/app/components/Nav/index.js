@@ -1,6 +1,6 @@
 import React, { useState, memo } from 'react';
-import { NavLink } from 'react-router-dom';
-import { NavBrand, Nav } from './styles';
+import { Nav } from './styles';
+import Brand from './Brand';
 import Hamburger from './Hamburger';
 import { Links, Link } from './styles';
 
@@ -17,11 +17,7 @@ const NavBar = memo(() => {
 
     return (
         <Nav>
-            <NavBrand onClick={() => handleMenu(false)}>
-                <NavLink to="/">
-                    <i className="icon-brand" />
-                </NavLink>
-            </NavBrand>
+            <Brand onClick={() => handleMenu(false)} />
 
             <Hamburger open={open} onClick={() => handleMenu(!open)} />
 
