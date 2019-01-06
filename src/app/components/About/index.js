@@ -14,7 +14,7 @@ import {
 // Components
 import Footer from '../Footer';
 
-const About = memo(() => {
+function About() {
     const [mounted, onMount] = useState(false);
 
     useEffect(
@@ -105,6 +105,6 @@ const About = memo(() => {
             <Footer />
         </AboutWrapper>
     );
-});
+}
 
-export default About;
+export default memo(About);
