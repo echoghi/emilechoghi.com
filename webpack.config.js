@@ -243,17 +243,17 @@ module.exports = function(env, argv) {
 
         plugins,
         // split out vendor js into its own bundle
-        optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    commons: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name: 'vendor',
-                        chunks: 'initial'
-                    }
-                }
-            }
-        },
+        // optimization: {
+        //     splitChunks: {
+        //         cacheGroups: {
+        //             commons: {
+        //                 test: /[\\/]node_modules[\\/]/,
+        //                 name: 'vendor',
+        //                 chunks: 'initial'
+        //             }
+        //         }
+        //     }
+        // },
 
         performance: isProd && {
             maxAssetSize: 600000,
