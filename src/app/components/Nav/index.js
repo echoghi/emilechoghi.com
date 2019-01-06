@@ -22,23 +22,21 @@ const NavBar = memo(() => {
             <Hamburger open={open} onClick={() => handleMenu(!open)} />
 
             <Links open={open} role="menu">
-                <Link onClick={() => handleMenu(false)} active={handleActivePath('/')} to="/" exact>
-                    Home <i className="icon-home" />
-                </Link>
-                <Link
-                    onClick={() => handleMenu(false)}
-                    active={handleActivePath('/portfolio')}
-                    to="/portfolio"
-                >
-                    Portfolio <i className="icon-briefcase" />
-                </Link>
-                <Link
-                    onClick={() => handleMenu(false)}
-                    active={handleActivePath('/contact')}
-                    to="/contact"
-                >
-                    Contact <i className="icon-message-square" />
-                </Link>
+                <div onClick={() => handleMenu(false)}>
+                    <Link active={handleActivePath('/')} to="/" exact>
+                        Home <i className="icon-home" />
+                    </Link>
+                </div>
+                <div onClick={() => handleMenu(false)}>
+                    <Link active={handleActivePath('/portfolio')} to="/portfolio">
+                        Portfolio <i className="icon-briefcase" />
+                    </Link>
+                </div>
+                <div onClick={() => handleMenu(false)}>
+                    <Link active={handleActivePath('/contact')} to="/contact">
+                        Contact <i className="icon-message-square" />
+                    </Link>
+                </div>
             </Links>
         </Nav>
     );
