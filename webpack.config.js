@@ -176,44 +176,29 @@ module.exports = function(env, argv) {
 
                 {
                     test: /\.(scss|css)$/,
-                    use: isProd
-                        ? [
-                              {
-                                  loader: MiniCssExtractPlugin.loader
-                              },
-                              {
-                                  loader: 'css-loader',
-                                  options: {
-                                      sourceMap: true
-                                  }
-                              },
-                              {
-                                  loader: 'sass-loader',
-                                  options: {
-                                      sourceMap: true
-                                  }
-                              }
-                          ]
-                        : [
-                              {
-                                  loader: 'style-loader',
-                                  options: {
-                                      sourceMap: false
-                                  }
-                              },
-                              {
-                                  loader: 'css-loader',
-                                  options: {
-                                      sourceMap: true
-                                  }
-                              },
-                              {
-                                  loader: 'sass-loader',
-                                  options: {
-                                      sourceMap: true
-                                  }
-                              }
-                          ]
+                    use: [
+                        isProd && {
+                            loader: MiniCssExtractPlugin.loader
+                        },
+                        !isProd && {
+                            loader: 'style-loader',
+                            options: {
+                                sourceMap: false
+                            }
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ].filter(Boolean)
                 },
                 {
                     test: /\.(js|jsx)$/,
