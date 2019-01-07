@@ -2,7 +2,7 @@ import React from 'react';
 import ReactGA from 'react-ga';
 import { LinkWrapper, IconListItem } from './styles';
 
-const sendAnalytics = site => {
+function sendAnalytics(site) {
     if (NODE_ENV === 'production') {
         ReactGA.event({
             category: 'Social Link Bar',
@@ -10,7 +10,7 @@ const sendAnalytics = site => {
             label: `Navigated to ${site} Profile`
         });
     }
-};
+}
 
 const SocialLinks = () => (
     <LinkWrapper>

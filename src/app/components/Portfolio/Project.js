@@ -14,7 +14,7 @@ import {
     ImageWrapper
 } from './styles';
 
-const sendAnalytics = project => {
+function sendAnalytics(project) {
     if (NODE_ENV === 'production') {
         ReactGA.event({
             category: 'Portfolio Item',
@@ -22,9 +22,9 @@ const sendAnalytics = project => {
             label: `Navigated to ${project}`
         });
     }
-};
+}
 
-const Project = memo(({ title, description, stack, link, color, image }) => (
+const Project = ({ title, description, stack, link, color, image }) => (
     <Flipped flipId={title}>
         <ListItem onClick={() => sendAnalytics(title)}>
             <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
@@ -52,6 +52,6 @@ const Project = memo(({ title, description, stack, link, color, image }) => (
             </PortfolioLink>
         </ListItem>
     </Flipped>
-));
+);
 
-export default Project;
+export default memo(Project);

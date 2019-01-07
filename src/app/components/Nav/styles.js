@@ -78,7 +78,6 @@ const Link = styled(NavLink)`
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     outline: none;
-    color: ${props => (props.active ? '#269bda' : 'inherit')};
 
     span {
         font-family: ${theme.fonts.primary};
@@ -91,6 +90,10 @@ const Link = styled(NavLink)`
 
     &:hover {
         background-color: ${theme.colors.hoverGrey};
+    }
+
+    &.active {
+        color: ${theme.colors.blue};
     }
 
     @media (max-width: 767px) {
