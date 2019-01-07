@@ -1,6 +1,6 @@
 /**
  * Personal Portfolio v2
- * Copyright (c) Emile Choghi 2018
+ * Copyright (c) Emile Choghi 2019
  *
  */
 import './app/assets/scss/style.scss';

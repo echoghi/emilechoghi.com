@@ -6,23 +6,23 @@ import { Links, Link } from './styles';
 
 function NavBar() {
     const [open, handleMenu] = useState(false);
-
+    // onClick={() => handleMenu(false)}
     return (
         <Nav>
-            <Brand onClick={() => handleMenu(false)} />
+            <Brand />
 
             <Hamburger open={open} onClick={() => handleMenu(!open)} />
 
             <Links open={open} role="menu">
-                <Link to="/" exact onClick={() => handleMenu(false)}>
+                <Link to="/" exact>
                     Home <i className="icon-home" />
                 </Link>
 
-                <Link to="/portfolio" onClick={() => handleMenu(false)}>
+                <Link to="/portfolio">
                     Portfolio <i className="icon-briefcase" />
                 </Link>
 
-                <Link to="/contact" onClick={() => handleMenu(false)}>
+                <Link to="/contact">
                     Contact <i className="icon-message-square" />
                 </Link>
             </Links>
