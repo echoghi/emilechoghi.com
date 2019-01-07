@@ -6,7 +6,7 @@ import { Links, Link } from './styles';
 
 function NavBar() {
     const [open, handleMenu] = useState(false);
-    // onClick={() => handleMenu(false)}
+
     return (
         <Nav>
             <Brand />
@@ -14,15 +14,15 @@ function NavBar() {
             <Hamburger open={open} onClick={() => handleMenu(!open)} />
 
             <Links open={open} role="menu">
-                <Link to="/" exact>
+                <Link onClick={() => handleMenu(false)} to="/" exact>
                     Home <i className="icon-home" />
                 </Link>
 
-                <Link to="/portfolio">
+                <Link onClick={() => handleMenu(false)} to="/portfolio">
                     Portfolio <i className="icon-briefcase" />
                 </Link>
 
-                <Link to="/contact">
+                <Link onClick={() => handleMenu(false)} to="/contact">
                     Contact <i className="icon-message-square" />
                 </Link>
             </Links>
