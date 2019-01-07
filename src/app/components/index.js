@@ -1,4 +1,4 @@
-import React, { Fragment, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 // Components
 import NavBar from './Nav';
@@ -16,23 +16,21 @@ const Portfolio = React.lazy(() => import('./Portfolio'));
 const Contact = React.lazy(() => import('./Contact'));
 
 const AppIndex = () => (
-    <Fragment>
+    <ErrorBoundary>
         <NavBar />
         <GlobalStyle />
 
-        <ErrorBoundary>
-            <Suspense fallback={<Loading />}>
-                <SocialLinks />
+        <Suspense fallback={<Loading />}>
+            <SocialLinks />
 
-                <Switch>
-                    <Route exact path="/" render={() => <About />} />
-                    <Route path="/portfolio" render={() => <Portfolio />} name="Portfolio" />
-                    <Route path="/contact" render={() => <Contact />} name="Contact" />
-                    <Route component={FourOhFour} name="404" />
-                </Switch>
-            </Suspense>
-        </ErrorBoundary>
-    </Fragment>
+            <Switch>
+                <Route exact path="/" render={() => <About />} />
+                <Route path="/portfolio" render={() => <Portfolio />} name="Portfolio" />
+                <Route path="/contact" render={() => <Contact />} name="Contact" />
+                <Route component={FourOhFour} name="404" />
+            </Switch>
+        </Suspense>
+    </ErrorBoundary>
 );
 
 export default AppIndex;
