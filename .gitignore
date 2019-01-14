@@ -4,5 +4,4 @@ npm-debug.log
 .env
 yarn-error.log
 ./vscode
-/build
 /node_modules
