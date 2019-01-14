@@ -1,8 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavBrand } from './styles';
 
-function Brand(props) {
+interface Brand {
+    onClick: () => void;
+}
+
+const Brand: React.FunctionComponent<Brand> = props => {
     return (
         <NavBrand {...props}>
             <NavLink to="/">
@@ -10,6 +14,6 @@ function Brand(props) {
             </NavLink>
         </NavBrand>
     );
-}
+};
 
 export default Brand;

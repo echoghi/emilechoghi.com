@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import theme from '../../theme';
 
+interface ContainerProps {
+    open: boolean;
+}
+
 const Nav = styled.div`
     font-family: ${theme.fonts.primary};
     background: ${theme.colors.white};
@@ -39,19 +43,20 @@ const Container = styled.div`
 
     div {
         &:first-child {
-            top: ${props => (props.open ? '10.5px' : null)};
-            transform: ${props => (props.open ? 'rotate(315deg)' : 'none')};
+            top: ${(props: ContainerProps) => (props.open ? '10.5px' : null)};
+            transform: ${(props: ContainerProps) => (props.open ? 'rotate(315deg)' : 'none')};
         }
 
         &:nth-child(2) {
-            display: ${props => (props.open ? 'none' : 'block')};
+            display: ${(props: ContainerProps) => (props.open ? 'none' : 'block')};
             width: 65%;
         }
 
         &:last-child {
-            top: ${props => (props.open ? '10.5px' : null)};
-            transform: ${props => (props.open ? 'rotate(-315deg) translateY(-14px)' : 'none')};
-            right: ${props => (props.open ? '10px' : null)};
+            top: ${(props: ContainerProps) => (props.open ? '10.5px' : null)};
+            transform: ${(props: ContainerProps) =>
+                props.open ? 'rotate(-315deg) translateY(-14px)' : 'none'};
+            right: ${(props: ContainerProps) => (props.open ? '10px' : null)};
         }
     }
 `;
@@ -139,8 +144,8 @@ const Links = styled.ul`
         box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
         background: ${theme.colors.white};
         text-align: center;
-        transform: ${props => (props.open ? 'scaleX(1)' : 'scaleX(0)')};
-        transition: ${props =>
+        transform: ${(props: ContainerProps) => (props.open ? 'scaleX(1)' : 'scaleX(0)')};
+        transition: ${(props: ContainerProps) =>
             props.open
                 ? 'transform 0.3s cubic-bezier(0.01, 0.03, 0.29, 1.17), opacity 0.2s'
                 : 'transform 0.1s cubic-bezier(0.71, 0.02, 0.9, 0.23), opacity 0.1s'};

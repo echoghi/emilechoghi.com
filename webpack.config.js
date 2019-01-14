@@ -12,6 +12,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const SystemBellPlugin = require('system-bell-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PACKAGE = require('./package.json');
@@ -25,111 +26,6 @@ const publicPath = path.join(__dirname, './build');
 module.exports = function(env, argv) {
     const isProd = argv.mode === 'production';
 
-    const plugins = [
-        new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(argv.mode),
-            GA_ID: JSON.stringify(process.env.GA_ID)
-        }),
-        new WebpackBar({ name: 'portfolio', color: '#269bda' })
-        // new BundleAnalyzerPlugin()
-    ];
-
-    if (isProd) {
-        plugins.push(
-            new HtmlWebpackPlugin({
-                filename: 'index.html',
-                template: 'index.html'
-            }),
-            new CopyWebpackPlugin(['netlify', 'pwa', 'static']),
-            new ManifestPlugin({
-                fileName: 'asset-manifest.json'
-            }),
-            new SWPrecacheWebpackPlugin({
-                // By default, a cache-busting query parameter is appended to requests
-                // used to populate the caches, to ensure the responses are fresh.
-                // If a URL is already hashed by Webpack, then there is no concern
-                // about it being stale, and the cache-busting can be skipped.
-                dontCacheBustUrlsMatching: /\.\w{8}\./,
-                filename: 'service-worker.js',
-                // staticFileGlobs: ['/vendor.bundle.js'],
-                logger(message) {
-                    if (message.indexOf('Total precache size is') === 0) {
-                        // This message occurs for every build and is a bit too noisy.
-                        return;
-                    }
-                    console.log(message);
-                },
-                // minify and uglify the script
-                minify: true,
-                // For unknown URLs, fallback to the index page
-                navigateFallback: '/index.html',
-                // Don't precache sourcemaps, build asset manifest,
-                // netlify redirects, or app js.
-                staticFileGlobsIgnorePatterns: [
-                    /\.map$/,
-                    /manifest.json$/,
-                    /_redirects$/,
-                    /js.bundle.js$/,
-                    /[0-9].bundle.js$/
-                ]
-            }),
-            new webpack.LoaderOptionsPlugin({
-                minimize: true,
-                debug: false
-            }),
-            new webpack.optimize.AggressiveMergingPlugin(),
-            new webpack.BannerPlugin({
-                banner:
-                    `Emile Choghi's Portfolio ` +
-                    `Version: ` +
-                    PACKAGE.version +
-                    ` Date: ` +
-                    parseInt(new Date().getMonth() + 1) +
-                    `/` +
-                    new Date().getDate() +
-                    `/` +
-                    new Date().getFullYear() +
-                    ` @ ` +
-                    new Date().getHours() +
-                    `:` +
-                    new Date().getMinutes()
-            }),
-            new MiniCssExtractPlugin({
-                filename: 'styles.css',
-                chunkFilename: '[id].css'
-            })
-        );
-    } else {
-        plugins.push(
-            new webpack.HotModuleReplacementPlugin(),
-            new BrowserSyncPlugin(
-                // BrowserSync options
-                {
-                    host: 'localhost',
-                    port: 8080,
-                    open: false,
-                    // proxy the Webpack Dev Server endpoint
-                    // (which should be serving on http://localhost:8080/)
-                    // through BrowserSync
-                    proxy: 'http://localhost:8080/',
-                    logPrefix: 'Portfolio'
-                },
-                // prevent BrowserSync from reloading the page
-                // and let Webpack Dev Server take care of this
-                {
-                    reload: true
-                }
-            ),
-            new CaseSensitivePathsPlugin(),
-            new FriendlyErrorsWebpackPlugin(),
-            new SystemBellPlugin(),
-            new DuplicatePackageCheckerPlugin(),
-            new StyleLintPlugin({
-                files: './app/assets/scss/*.scss'
-            })
-        );
-    }
-
     return {
         devtool: isProd ? 'hidden-source-map' : 'cheap-module-source-map',
         context: sourcePath,
@@ -140,7 +36,7 @@ module.exports = function(env, argv) {
                 // fetch polyfill
                 isProd && 'whatwg-fetch',
                 // app entry
-                'app.js'
+                'app.tsx'
             ].filter(Boolean)
         },
         output: {
@@ -161,12 +57,17 @@ module.exports = function(env, argv) {
                 },
 
                 {
-                    test: /\.js$/,
+                    test: /\.(js|ts|tsx)$/,
                     enforce: 'pre',
-                    loader: 'eslint-loader',
-                    options: {
-                        fix: false
-                    }
+                    use: [
+                        {
+                            loader: 'eslint-loader',
+                            options: { fix: false }
+                        },
+                        {
+                            loader: 'tslint-loader'
+                        }
+                    ]
                 },
 
                 {
@@ -201,6 +102,7 @@ module.exports = function(env, argv) {
                         }
                     ].filter(Boolean)
                 },
+
                 {
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
@@ -210,24 +112,147 @@ module.exports = function(env, argv) {
                         }
                     ]
                 },
+
                 {
-                    test: /\.(ttf|eot|svg|woff|woff2)(\?[a-z0-9]+)?$/,
-                    loader: 'file-loader'
+                    test: /\.(ts|tsx)?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/
                 },
+
+                { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+
                 {
-                    test: /\.(png|jpg)$/,
+                    test: /\.(png|jpg|ttf|eot|svg|woff|woff2)(\?[a-z0-9]+)?$/,
                     exclude: /node_modules/,
-                    use: ['file-loader']
+                    loader: 'file-loader'
                 }
             ]
         },
 
         resolve: {
-            extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+            extensions: [
+                '.webpack-loader.js',
+                '.web-loader.js',
+                '.loader.js',
+                '.jsx',
+                '.tsx',
+                '.js',
+                '.ts'
+            ],
             modules: [path.resolve(__dirname, 'node_modules'), sourcePath]
         },
 
-        plugins,
+        plugins: [
+            new webpack.DefinePlugin({
+                NODE_ENV: JSON.stringify(argv.mode),
+                GA_ID: JSON.stringify(process.env.GA_ID)
+            }),
+            new WebpackBar({ name: 'portfolio', color: '#269bda' }),
+            // Production
+            isProd &&
+                new HtmlWebpackPlugin({
+                    filename: 'index.html',
+                    template: 'index.html'
+                }),
+            new CopyWebpackPlugin(['netlify', 'pwa', 'static']),
+            new ManifestPlugin({
+                fileName: 'asset-manifest.json'
+            }),
+            isProd &&
+                new CompressionPlugin({
+                    asset: '[path].gz[query]',
+                    algorithm: 'gzip',
+                    test: /\.js$|\.css$/,
+                    minRatio: 0.9,
+                    deleteOriginalAssets: false
+                }),
+            new SWPrecacheWebpackPlugin({
+                // By default, a cache-busting query parameter is appended to requests
+                // used to populate the caches, to ensure the responses are fresh.
+                // If a URL is already hashed by Webpack, then there is no concern
+                // about it being stale, and the cache-busting can be skipped.
+                dontCacheBustUrlsMatching: /\.\w{8}\./,
+                filename: 'service-worker.js',
+                // staticFileGlobs: ['/vendor.bundle.js'],
+                logger(message) {
+                    if (message.indexOf('Total precache size is') === 0) {
+                        // This message occurs for every build and is a bit too noisy.
+                        return;
+                    }
+                    console.log(message);
+                },
+                // minify and uglify the script
+                minify: true,
+                // For unknown URLs, fallback to the index page
+                navigateFallback: '/index.html',
+                // Don't precache sourcemaps, build asset manifest,
+                // netlify redirects, or app js.
+                staticFileGlobsIgnorePatterns: [
+                    /\.map$/,
+                    /manifest.json$/,
+                    /_redirects$/,
+                    /js.bundle.js$/,
+                    /[0-9].bundle.js$/
+                ]
+            }),
+            isProd &&
+                new webpack.LoaderOptionsPlugin({
+                    minimize: true,
+                    debug: false
+                }),
+            isProd && new webpack.optimize.AggressiveMergingPlugin(),
+            isProd &&
+                new webpack.BannerPlugin({
+                    banner:
+                        `Emile Choghi's Portfolio ` +
+                        `Version: ` +
+                        PACKAGE.version +
+                        ` Date: ` +
+                        parseInt(new Date().getMonth() + 1) +
+                        `/` +
+                        new Date().getDate() +
+                        `/` +
+                        new Date().getFullYear() +
+                        ` @ ` +
+                        new Date().getHours() +
+                        `:` +
+                        new Date().getMinutes()
+                }),
+            isProd &&
+                new MiniCssExtractPlugin({
+                    filename: 'styles.css',
+                    chunkFilename: '[id].css'
+                }),
+            // Development
+            !isProd && new webpack.HotModuleReplacementPlugin(),
+            !isProd &&
+                new BrowserSyncPlugin(
+                    // BrowserSync options
+                    {
+                        host: 'localhost',
+                        port: 8080,
+                        open: false,
+                        // proxy the Webpack Dev Server endpoint
+                        // (which should be serving on http://localhost:8080/)
+                        // through BrowserSync
+                        proxy: 'http://localhost:8080/',
+                        logPrefix: 'Portfolio'
+                    },
+                    // prevent BrowserSync from reloading the page
+                    // and let Webpack Dev Server take care of this
+                    {
+                        reload: true
+                    }
+                ),
+            !isProd && new CaseSensitivePathsPlugin(),
+            !isProd && new FriendlyErrorsWebpackPlugin(),
+            !isProd && new SystemBellPlugin(),
+            !isProd && new DuplicatePackageCheckerPlugin(),
+            !isProd &&
+                new StyleLintPlugin({
+                    files: './app/assets/scss/*.scss'
+                })
+        ].filter(Boolean),
         // split out vendor js into its own bundle
         optimization: {
             splitChunks: {

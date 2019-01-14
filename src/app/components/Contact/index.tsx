@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment, memo } from 'react';
+import * as React from 'react';
 import {
     TextArea,
     Input,
@@ -13,33 +13,58 @@ import {
     FormButton
 } from './styles';
 // Components
-import ReactGA from 'react-ga';
+import * as ReactGA from 'react-ga';
 import Footer from '../Footer';
 import Success from './Success';
 import Loading from '../Loading';
 import Error from './Error';
 
+interface validationState {
+    name: { dirty: boolean; valid: boolean };
+    email: { dirty: boolean; valid: boolean };
+    message: { dirty: boolean; valid: boolean };
+    [key: string]: { dirty: boolean; valid: boolean };
+}
+
+interface formState {
+    name: string;
+    email: string;
+    message: string;
+    [key: string]: string;
+}
+
+// form validation
+const formValidation: validationState = {
+    name: { dirty: false, valid: false },
+    email: { dirty: false, valid: false },
+    message: { dirty: false, valid: false }
+};
+
+// form validation
+const formState: formState = {
+    name: '',
+    email: '',
+    message: ''
+};
+
 // Email validation RegExp
-const validateEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const validateEmail: RegExp = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const Contact = memo(() => {
-    const [success, setSuccess] = useState(false);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [mounted, onMount] = useState(false);
-    const [form, setFormValue] = useState({ name: '', email: '', message: '' });
-    const [validation, setValidation] = useState({
-        name: { dirty: false, valid: false },
-        email: { dirty: false, valid: false },
-        message: { dirty: false, valid: false }
-    });
+const Contact = React.memo(() => {
+    const [success, setSuccess] = React.useState(false);
+    const [error, setError] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
+    const [mounted, onMount] = React.useState(false);
+    const [form, setFormValue] = React.useState(formState);
+    const [validation, setValidation] = React.useState(formValidation);
 
-    useEffect(
+    React.useEffect(
         () => {
             if (!mounted) {
                 document.title = 'Contact Emile Choghi';
 
                 if (NODE_ENV === 'production') {
+                    // @ts-ignore
                     ReactGA.ga('send', 'pageview', '/contact');
                 }
 
@@ -76,17 +101,12 @@ const Contact = memo(() => {
         }
     }
 
-    function resetForm() {
-        // Reset Form Validation
-        for (let type in validation) {
-            validation[type] = { dirty: false, valid: false };
-        }
-
-        setFormValue({ name: '', email: '', message: '' });
-        setValidation(validation);
+    function resetForm(): void {
+        setFormValue(formState);
+        setValidation(formValidation);
     }
 
-    function validateInputs() {
+    function validateInputs(): boolean {
         // Check for incompleted fields
         for (let key in validation) {
             if (!validation[key]['valid']) {
@@ -97,7 +117,7 @@ const Contact = memo(() => {
         return true;
     }
 
-    const onChange = event => {
+    const onChange = (event: any) => {
         const { name, value } = event.target;
 
         // Set value in obj to eventually send to the state
@@ -123,7 +143,7 @@ const Contact = memo(() => {
         setFormValue(form);
     };
 
-    const handleErrorClass = name => {
+    const handleErrorClass = (name: string): string => {
         if (validation[name].valid) {
             return '';
         } else if (!validation[name].valid && validation[name].dirty) {
@@ -133,13 +153,13 @@ const Contact = memo(() => {
         }
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         if (validateInputs()) {
             setLoading(true);
 
-            return fetch('/functions/form', {
+            return fetch('/api/postForm', {
                 method: 'POST',
                 body: JSON.stringify(form),
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
@@ -185,7 +205,7 @@ const Contact = memo(() => {
     const { name, email, message } = form;
 
     return (
-        <Fragment>
+        <React.Fragment>
             <Portfolio>
                 <div className="clearfix" />
 
@@ -199,7 +219,7 @@ const Contact = memo(() => {
                                     type="text"
                                     name="name"
                                     value={name}
-                                    maxLength="100"
+                                    maxLength={100}
                                     onChange={onChange}
                                     className={handleErrorClass('name')}
                                     data-testid="name"
@@ -219,7 +239,7 @@ const Contact = memo(() => {
                                     type="text"
                                     name="email"
                                     value={email}
-                                    maxLength="254"
+                                    maxLength={254}
                                     onChange={onChange}
                                     className={handleErrorClass('email')}
                                     data-testid="email"
@@ -238,7 +258,7 @@ const Contact = memo(() => {
                             <Label className={handleErrorClass('message')}>
                                 Message
                                 <TextArea
-                                    maxLength="6000"
+                                    maxLength={500}
                                     name="message"
                                     value={message}
                                     onChange={onChange}
@@ -266,7 +286,7 @@ const Contact = memo(() => {
             </Portfolio>
 
             <Footer fixed />
-        </Fragment>
+        </React.Fragment>
     );
 });
 

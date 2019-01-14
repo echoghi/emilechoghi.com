@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactGA from 'react-ga';
+import * as React from 'react';
+import * as ReactGA from 'react-ga';
 import { IconListItem, Container, Wrapper, Links, Link, Text } from './styles';
 
-function sendAnalytics(site) {
+function sendAnalytics(site: string) {
     if (NODE_ENV === 'production') {
         ReactGA.event({
             category: 'Footer Link',
@@ -12,8 +12,12 @@ function sendAnalytics(site) {
     }
 }
 
-const Footer = ({ fixed, type }) => (
-    <Container fixed={fixed} type={type}>
+interface FooterProps {
+    fixed?: boolean;
+}
+
+const Footer: React.FunctionComponent<FooterProps> = ({ fixed }) => (
+    <Container fixed={fixed}>
         <Wrapper>
             <Text>© {new Date().getFullYear()} Emile Choghi</Text>
             <Links>

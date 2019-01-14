@@ -1,5 +1,5 @@
-import React, { useState, useEffect, memo } from 'react';
-import ReactGA from 'react-ga';
+import * as React from 'react';
+import * as ReactGA from 'react-ga';
 import {
     Skill,
     SkillTitle,
@@ -15,14 +15,15 @@ import {
 import Footer from '../Footer';
 
 function About() {
-    const [mounted, onMount] = useState(false);
+    const [mounted, onMount] = React.useState(false);
 
-    useEffect(
+    React.useEffect(
         () => {
             if (!mounted) {
                 document.title = 'Emile Choghi';
 
                 if (NODE_ENV === 'production') {
+                    // @ts-ignore
                     ReactGA.ga('send', 'pageview', '/');
                 }
 
@@ -107,4 +108,4 @@ function About() {
     );
 }
 
-export default memo(About);
+export default React.memo(About);

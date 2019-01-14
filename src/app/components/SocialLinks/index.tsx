@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactGA from 'react-ga';
+import * as React from 'react';
+import * as ReactGA from 'react-ga';
 import { LinkWrapper, IconListItem } from './styles';
 
-function sendAnalytics(site) {
+function sendAnalytics(site: string) {
     if (NODE_ENV === 'production') {
         ReactGA.event({
             category: 'Social Link Bar',

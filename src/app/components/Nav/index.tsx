@@ -1,15 +1,14 @@
-import React, { useState, memo } from 'react';
-import { Nav } from './styles';
+import * as React from 'react';
 import Brand from './Brand';
 import Hamburger from './Hamburger';
-import { Links, Link } from './styles';
+import { Nav, Links, Link } from './styles';
 
-function NavBar() {
-    const [open, handleMenu] = useState(false);
+const NavBar = () => {
+    const [open, handleMenu] = React.useState(false);
 
     return (
         <Nav>
-            <Brand />
+            <Brand onClick={() => handleMenu(false)} />
 
             <Hamburger open={open} onClick={() => handleMenu(!open)} />
 
@@ -28,6 +27,6 @@ function NavBar() {
             </Links>
         </Nav>
     );
-}
+};
 
-export default memo(NavBar);
+export default React.memo(NavBar);

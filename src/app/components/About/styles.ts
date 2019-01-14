@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import theme from '../../theme';
 
+interface SectionProps {
+    skills?: boolean;
+}
+
+interface SkillProps {
+    padding?: boolean;
+}
+
 const AboutWrapper = styled.div`
     font-family: ${theme.fonts.primary};
 `;
@@ -57,7 +65,7 @@ const Section = styled.section`
     }
 
     @media (max-width: 768px) {
-        padding: 50px 20px ${props => (props.skills ? '100px' : 0)};
+        padding: 50px 20px ${(props: SectionProps) => (props.skills ? '100px' : 0)};
         display: block;
     }
 `;
@@ -121,7 +129,7 @@ const Skill = styled.div`
         display: inline-block;
         vertical-align: text-top;
         width: 50%;
-        margin-top: ${props => (props.padding ? '10px' : 0)};
+        margin-top: ${(props: SkillProps) => (props.padding ? '10px' : 0)};
     }
 `;
 

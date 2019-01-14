@@ -1,8 +1,8 @@
-import React, { useState, useEffect, Fragment, memo } from 'react';
+import * as React from 'react';
 // Components
 import Footer from '../Footer';
 import Project from './Project';
-import ReactGA from 'react-ga';
+import * as ReactGA from 'react-ga';
 // Project Images
 import reviewhub from '../../assets/images/reviewhub.png';
 import padm from '../../assets/images/padm.png';
@@ -11,8 +11,17 @@ import choghi from '../../assets/images/choghi.png';
 import { Flipper } from 'react-flip-toolkit';
 import { PortfolioWrapper, ProjectWrapper, Filter, FilterButton } from './styles';
 
+interface ProjectProps {
+    title: string;
+    color: string;
+    text: string;
+    image: any;
+    link: string;
+    tech: string[];
+}
+
 // prettier-ignore
-const projects = [
+const projects: ProjectProps[] = [
     {
         title: 'Doctor.com ReviewHub',
         color: '#27BCBB',
@@ -50,11 +59,21 @@ const projects = [
     }
 ];
 
-const stack = ['All', 'Angular', 'React', 'Redux', 'Webpack', 'SCSS', 'Firebase', 'Node', 'PHP'];
+const stack: string[] = [
+    'All',
+    'Angular',
+    'React',
+    'Redux',
+    'Webpack',
+    'SCSS',
+    'Firebase',
+    'Node',
+    'PHP'
+];
 
-const Portfolio = memo(() => {
-    const [filter, handleFilterClick] = useState('All');
-    const [mounted, onMount] = useState(false);
+const Portfolio = React.memo(() => {
+    const [filter, handleFilterClick] = React.useState('All');
+    const [mounted, onMount] = React.useState(false);
 
     function renderFilterButtons() {
         let buttons = [];
@@ -77,7 +96,7 @@ const Portfolio = memo(() => {
     }
 
     function renderProjects() {
-        let portfolio = [];
+        let portfolio: any[] = [];
 
         projects.map(p => {
             if (filterByStack(p.tech)) {
@@ -90,7 +109,6 @@ const Portfolio = memo(() => {
                         description={p.text}
                         image={p.image}
                         link={p.link}
-                        active
                     />
                 );
             }
@@ -99,7 +117,7 @@ const Portfolio = memo(() => {
         return portfolio;
     }
 
-    function filterByStack(stack) {
+    function filterByStack(stack: string[]) {
         if (filter === 'All') {
             return true;
         } else {
@@ -107,20 +125,21 @@ const Portfolio = memo(() => {
         }
     }
 
-    function handleFilterClass(name) {
+    function handleFilterClass(name: string) {
         if (name === filter) {
             return 'active';
         }
     }
 
     // onMount logic
-    useEffect(
+    React.useEffect(
         () => {
             if (!mounted) {
                 // prettier-ignore
                 document.title = 'Emile Choghi\'s Portfolio';
 
                 if (NODE_ENV === 'production') {
+                    // @ts-ignore
                     ReactGA.ga('send', 'pageview', '/portfolio');
                 }
 
@@ -132,7 +151,7 @@ const Portfolio = memo(() => {
     );
 
     return (
-        <Fragment>
+        <React.Fragment>
             <PortfolioWrapper>
                 <Filter>{renderFilterButtons()}</Filter>
 
@@ -143,8 +162,8 @@ const Portfolio = memo(() => {
                 </ProjectWrapper>
             </PortfolioWrapper>
 
-            <Footer type="portfolio" />
-        </Fragment>
+            <Footer />
+        </React.Fragment>
     );
 });
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { LoadingWrapper, CircleWrapper, OuterCircle, InnerCircle } from './styles';
 
 const Loading = () => (
