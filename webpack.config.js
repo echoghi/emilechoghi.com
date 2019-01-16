@@ -159,14 +159,14 @@ module.exports = function(env, argv) {
             new ManifestPlugin({
                 fileName: 'asset-manifest.json'
             }),
-            // isProd &&
-            //     new CompressionPlugin({
-            //         asset: '[path].gz[query]',
-            //         algorithm: 'gzip',
-            //         test: /\.js$|\.css$/,
-            //         minRatio: 0.9,
-            //         deleteOriginalAssets: false
-            //     }),
+            isProd &&
+                new CompressionPlugin({
+                    asset: '[path].gz[query]',
+                    algorithm: 'gzip',
+                    test: /\.js$|\.css$/,
+                    minRatio: 0.9,
+                    deleteOriginalAssets: false
+                }),
             // isProd &&
             //     new SWPrecacheWebpackPlugin({
             //         // By default, a cache-busting query parameter is appended to requests
