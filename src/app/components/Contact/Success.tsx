@@ -4,14 +4,14 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import { Button } from './Contact.styles';
+import { Button } from './styles';
 
-const Success = ({ close }) => (
-    <Dialog open onClose={close}>
+const Success = ({ close }: { close: () => void }) => (
+    <Dialog open={true} onClose={close}>
         <DialogTitle>Thanks for reaching out! 👍</DialogTitle>
         <DialogContent>
             <DialogContentText>
-                You should hear back from me within a day unless I'm on holiday or super busy.
+                You should hear back from me within a day unless I'm on holiday or really busy.
             </DialogContentText>
         </DialogContent>
         <DialogActions>

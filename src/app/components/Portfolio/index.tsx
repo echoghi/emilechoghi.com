@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React from 'react';
 // Components
 import Footer from '../Footer';
 import Project from './Project';
@@ -9,66 +9,81 @@ import padm from '../../assets/images/padm.png';
 import doughboy from '../../assets/images/dashboard.png';
 import choghi from '../../assets/images/choghi.png';
 import { Flipper } from 'react-flip-toolkit';
-import { PortfolioWrapper, ProjectWrapper, Filter, FilterButton } from './Portfolio.styles';
+import { PortfolioWrapper, ProjectWrapper, Filter, FilterButton } from './styles';
+
+interface Project {
+    title: string;
+    color: string;
+    text: string;
+    image: any;
+    link: string;
+    tech: string[];
+}
 
 // prettier-ignore
-const projects = [
+const projects: Project[] = [
     {
-        title: 'Doctor.com ReviewHub',
         color: '#27BCBB',
-        text:
-            'A kiosk application designed to run on a chromebook in the waiting room of a healthcare provider\'s office for patients to review their doctor post-appointment. This single page app features functionality to intercept reviews made offline, store them in the browser\'s Local Storage and send them in bulk upon resuming internet connectivity.',
         image: reviewhub,
         link: 'https://www.doctor.com/solutions/reviewhub',
-        tech: ['Angular', 'SCSS', 'PHP']
+        tech: ['Angular', 'SCSS', 'PHP'],
+        text:
+        'A kiosk application designed to run on a chromebook in the waiting room of a healthcare provider\'s office for patients to review their doctor post-appointment. This single page app features functionality to intercept reviews made offline, store them in the browser\'s Local Storage and send them in bulk upon resuming internet connectivity.',
+        title: 'Doctor.com ReviewHub'
     },
     {
-        title: 'Doughboy.io',
         color: '#ed5454',
-        text:
-            'A health app that enables you to log your daily meals, exercises, and observations all in one convenient dashboard. Your nutritional intake is measured against your estimated caloric expenditure each day to help you identify trends in your diet, mood, and overall well being.',
         image: doughboy,
         link: 'https://doughboy.io',
-        tech: ['React', 'Redux', 'Webpack', 'Firebase']
+        tech: ['React', 'Redux', 'Webpack', 'Firebase'],
+        text:
+        'A health app that enables you to log your daily meals, exercises, and observations all in one convenient dashboard. Your nutritional intake is measured against your estimated caloric expenditure each day to help you identify trends in your diet, mood, and overall well being.',
+        title: 'Doughboy.io'
     },
     {
-        title: 'Doctor.com Provider Admin',
         color: '#364343',
-        text:
-            'An administrative dashboard where healthcare providers can track their listings, reviews, appointments, and overall reputation.',
         image: padm,
         link: 'https://www.doctor.com/solutions/universal-scheduling',
-        tech: ['React', 'Redux', 'Webpack']
+        tech: ['React', 'Redux', 'Webpack'],
+        text:
+        'An administrative dashboard where healthcare providers can track their listings, reviews, appointments, and overall reputation.',
+        title: 'Doctor.com Provider Admin'
     },
     {
-        title: 'emilechoghi.com',
         color: '#269bda',
-        text: 'This website, which runs on a modest node server and relays messages to my email.',
         image: choghi,
         link: 'https://github.com/echoghi/emilechoghi.com',
-        tech: ['React', 'Webpack', 'Node']
+        tech: ['React', 'Webpack', 'Node'],
+        text: 'This website, which runs on a modest node server and relays messages to my email.',
+        title: 'emilechoghi.com'
     }
 ];
 
-const stack = ['All', 'Angular', 'React', 'Redux', 'Webpack', 'SCSS', 'Firebase', 'Node', 'PHP'];
+const techStack: string[] = [
+    'All',
+    'Angular',
+    'React',
+    'Redux',
+    'Webpack',
+    'SCSS',
+    'Firebase',
+    'Node',
+    'PHP'
+];
 
-const Portfolio = () => {
-    const [filter, handleFilterClick] = useState('All');
-    const [mounted, onMount] = useState(false);
+const Portfolio = React.memo(() => {
+    const [filter, handleFilterClick] = React.useState('All');
+    const [mounted, onMount] = React.useState(false);
 
     function renderFilterButtons() {
-        let buttons = [];
+        const buttons = [];
 
-        for (let i in stack) {
-            const button = stack[i];
+        for (const tech of techStack) {
+            const clickHandler = () => handleFilterClick(tech);
 
             buttons.push(
-                <FilterButton
-                    onClick={() => handleFilterClick(button)}
-                    className={handleFilterClass(button)}
-                    key={button}
-                >
-                    {button}
+                <FilterButton onClick={clickHandler} className={handleFilterClass(tech)} key={tech}>
+                    {tech}
                 </FilterButton>
             );
         }
@@ -77,20 +92,19 @@ const Portfolio = () => {
     }
 
     function renderProjects() {
-        let portfolio = [];
+        const portfolio: JSX.Element[] = [];
 
         projects.map(p => {
             if (filterByStack(p.tech)) {
                 portfolio.push(
                     <Project
+                        color={p.color}
                         key={p.title}
                         title={p.title}
                         stack={p.tech}
-                        color={p.color}
                         description={p.text}
                         image={p.image}
                         link={p.link}
-                        active
                     />
                 );
             }
@@ -99,7 +113,7 @@ const Portfolio = () => {
         return portfolio;
     }
 
-    function filterByStack(stack) {
+    function filterByStack(stack: string[]) {
         if (filter === 'All') {
             return true;
         } else {
@@ -107,20 +121,21 @@ const Portfolio = () => {
         }
     }
 
-    function handleFilterClass(name) {
+    function handleFilterClass(name: string) {
         if (name === filter) {
             return 'active';
         }
     }
 
     // onMount logic
-    useEffect(
+    React.useEffect(
         () => {
             if (!mounted) {
                 // prettier-ignore
                 document.title = 'Emile Choghi\'s Portfolio';
 
                 if (NODE_ENV === 'production') {
+                    // @ts-ignore
                     ReactGA.ga('send', 'pageview', '/portfolio');
                 }
 
@@ -132,7 +147,7 @@ const Portfolio = () => {
     );
 
     return (
-        <Fragment>
+        <React.Fragment>
             <PortfolioWrapper>
                 <Filter>{renderFilterButtons()}</Filter>
 
@@ -143,9 +158,9 @@ const Portfolio = () => {
                 </ProjectWrapper>
             </PortfolioWrapper>
 
-            <Footer type="portfolio" />
-        </Fragment>
+            <Footer />
+        </React.Fragment>
     );
-};
+});
 
 export default Portfolio;

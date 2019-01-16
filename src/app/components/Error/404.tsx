@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NotFound } from './Error.styles';
+import { NotFound } from './styles';
 
 const FourOhFour = () => (
     <NotFound>

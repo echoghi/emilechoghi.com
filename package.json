@@ -18,7 +18,7 @@
     "license": "MIT",
     "dependencies": {
         "@material-ui/core": "3.7.1",
-        "nodemailer": "^4.6.8",
+        "nodemailer": "^5.1.1",
         "react": "^16.7.0-alpha.0",
         "react-dom": "^16.7.0-alpha.0",
         "react-flip-toolkit": "6.3.1",
@@ -26,6 +26,7 @@
         "react-router": "4.3.1",
         "react-router-dom": "4.3.1",
         "styled-components": "4.1.3",
+        "typescript": "^3.2.2",
         "whatwg-fetch": "3.0.0"
     },
     "devDependencies": {
@@ -36,16 +37,26 @@
         "@babel/plugin-transform-runtime": "^7.0.0",
         "@babel/preset-env": "^7.1.0",
         "@babel/preset-react": "^7.0.0",
+        "@babel/preset-typescript": "^7.1.0",
         "@babel/register": "^7.0.0",
+        "@types/jest": "^23.3.12",
+        "@types/material-ui": "^0.21.5",
+        "@types/node": "^10.12.18",
+        "@types/react": "^16.7.18",
+        "@types/react-dom": "^16.0.11",
+        "@types/react-router-dom": "^4.3.1",
+        "@types/styled-components": "^4.1.5",
         "babel-core": "7.0.0-bridge.0",
         "babel-eslint": "^9.0.0",
         "babel-jest": "^23.6.0",
         "babel-loader": "8.0.2",
         "babel-plugin-transform-dynamic-import": "^2.1.0",
         "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+        "body-parser": "^1.18.3",
         "browser-sync": "2.24.7",
         "browser-sync-webpack-plugin": "2.2.2",
         "case-sensitive-paths-webpack-plugin": "^2.0.0",
+        "chalk": "^2.4.2",
         "compression-webpack-plugin": "^1.0.1",
         "copy-webpack-plugin": "^4.5.2",
         "css-loader": "1",
@@ -56,12 +67,15 @@
         "eslint-loader": "2.1.1",
         "eslint-plugin-import": "^2.3.0",
         "eslint-plugin-react": "7.11.1",
+        "express": "^4.16.4",
+        "express-static-gzip": "^1.1.3",
         "file-loader": "2",
         "friendly-errors-webpack-plugin": "^1.7.0",
         "history": "^4.7.2",
         "html-loader": "^0.5.5",
         "html-webpack-plugin": "3.2.0",
         "html-webpack-template": "^6.2.0",
+        "http": "^0.0.0",
         "image-webpack-loader": "^4.3.1",
         "jest": "^23.6.0",
         "jest-dom": "^3.0.0",
@@ -81,10 +95,17 @@
         "react-testing-library": "^5.4.2",
         "regenerator-runtime": "^0.12.1",
         "sass-loader": "7.1.0",
+        "source-map-loader": "^0.2.4",
         "style-loader": "^0.23.0",
         "stylelint": "^9.6.0",
         "stylelint-webpack-plugin": "0.10.5",
+        "sw-precache-webpack-plugin": "^0.11.5",
         "system-bell-webpack-plugin": "^1.0.0",
+        "ts-loader": "^5.3.3",
+        "tslint": "^5.12.1",
+        "tslint-config-prettier": "^1.17.0",
+        "tslint-loader": "^3.5.4",
+        "tslint-react": "^3.6.0",
         "uglifyjs-webpack-plugin": "^2.0.1",
         "url-loader": "1.1.1",
         "webpack": "^4.20.2",
@@ -93,5 +114,15 @@
         "webpack-dev-server": "^3.1.9",
         "webpack-manifest-plugin": "^2.0.4",
         "webpackbar": "^3.1.4"
+    },
+    "jest": {
+        "verbose": false,
+        "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+        "globals": {
+            "NODE_ENV": "test"
+        },
+        "moduleNameMapper": {
+            "^styled-components": "<rootDir>/node_modules/styled-components"
+        }
     }
 }

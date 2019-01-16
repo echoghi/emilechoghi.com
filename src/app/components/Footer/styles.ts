@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import theme from '../../theme';
 
+interface ContainerProps {
+    fixed?: boolean;
+}
+
 const IconListItem = styled.li`
     display: inline-block;
     list-style: none;
@@ -10,7 +14,7 @@ const IconListItem = styled.li`
 
 const Container = styled.div`
     display: none;
-    position: ${props => (props.fixed ? 'fixed' : 'relative')};
+    position: ${(props: ContainerProps) => (props.fixed ? 'fixed' : 'relative')};
     background: ${theme.colors.white};
     font-family: ${theme.fonts.primary};
     height: 80px;

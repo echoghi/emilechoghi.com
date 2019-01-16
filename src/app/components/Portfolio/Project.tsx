@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactGA from 'react-ga';
+import * as React from 'react';
+import * as ReactGA from 'react-ga';
 import { Flipped } from 'react-flip-toolkit';
 import {
     ListItem,
@@ -12,21 +12,38 @@ import {
     Stack,
     Image,
     ImageWrapper
-} from './Portfolio.styles';
+} from './styles';
 
-const sendAnalytics = project => {
+function sendAnalytics(project: string) {
     if (NODE_ENV === 'production') {
-        ReactGA.event({
-            category: 'Portfolio Item',
-            action: 'Project Click',
-            label: `Navigated to ${project}`
-        });
+        return () =>
+            ReactGA.event({
+                action: 'Project Click',
+                category: 'Portfolio Item',
+                label: `Navigated to ${project}`
+            });
     }
-};
+}
 
-const Project = ({ title, description, stack, link, color, image }) => (
+interface Project {
+    title: string;
+    description: string;
+    stack: string[];
+    link: string;
+    color: string;
+    image: string;
+}
+
+const Project: React.FunctionComponent<Project> = ({
+    title,
+    description,
+    stack,
+    link,
+    color,
+    image
+}) => (
     <Flipped flipId={title}>
-        <ListItem onClick={() => sendAnalytics(title)}>
+        <ListItem onClick={sendAnalytics(title)}>
             <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
                 <PortfolioItem>
                     <ImageWrapper>
@@ -54,4 +71,4 @@ const Project = ({ title, description, stack, link, color, image }) => (
     </Flipped>
 );
 
-export default Project;
+export default React.memo(Project);

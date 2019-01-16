@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import { LinkWrapper, IconListItem } from './SocialLinks.styles';
+import { LinkWrapper, IconListItem } from './styles';
 
-const sendAnalytics = site => {
+function sendAnalytics(site: string) {
     if (NODE_ENV === 'production') {
-        ReactGA.event({
-            category: 'Social Link Bar',
-            action: 'Social Media Link Click',
-            label: `Navigated to ${site} Profile`
-        });
+        return () =>
+            ReactGA.event({
+                action: 'Social Media Link Click',
+                category: 'Social Link Bar',
+                label: `Navigated to ${site} Profile`
+            });
     }
-};
+}
 
 const SocialLinks = () => (
     <LinkWrapper>
@@ -21,7 +22,7 @@ const SocialLinks = () => (
                 href="https://github.com/echoghi"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => sendAnalytics('Github')}
+                onClick={sendAnalytics('Github')}
             >
                 <i className="icon-github" />
             </a>
@@ -33,7 +34,7 @@ const SocialLinks = () => (
                 href="https://www.linkedin.com/in/emile-choghi-a6b60ba1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => sendAnalytics('LinkedIn')}
+                onClick={sendAnalytics('LinkedIn')}
             >
                 <i className="icon-linkedin" />
             </a>
@@ -45,7 +46,7 @@ const SocialLinks = () => (
                 href="https://angel.co/emile-choghi"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => sendAnalytics('Angellist')}
+                onClick={sendAnalytics('Angellist')}
             >
                 <i className="icon-angel" />
             </a>

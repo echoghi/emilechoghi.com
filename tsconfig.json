@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "outDir": "./build",
+        "noImplicitAny": true,
+        "lib": ["es5", "es6", "es7", "es2017", "dom"],
+        "sourceMap": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "rootDir": "./src/",
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules",
+        "build",
+        "webpack.config.js",
+        "functions",
+        "app.js",
+        "coverage",
+        "server.js",
+        "jest.setup.js",
+        "src/__tests__",
+        "src/netlify",
+        "src/pwa",
+        "src/static",
+        "src/registerServiceWorker.js"
+    ]
+}

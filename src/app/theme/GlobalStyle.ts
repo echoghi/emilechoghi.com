@@ -6,9 +6,9 @@ const GlobalStyle = createGlobalStyle`
 html,
 body {
     position: relative;
+    color: ${colors.black};
     font-size: ${fontSizes.normal};
     font-family: ${fonts.primary};
-    color: ${colors.black};
     width: 100%;
     padding: 0;
     margin: 0;
