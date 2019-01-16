@@ -58,7 +58,7 @@ function About() {
                         beach.
                     </SectionBody>
                 </Section>
-                <Section skills>
+                <Section skills={true}>
                     <SectionTitle>Skills</SectionTitle>
                     <SectionBody>
                         <Skills>
@@ -80,7 +80,7 @@ function About() {
                                     <li>Node & Express</li>
                                 </ul>
                             </Skill>
-                            <Skill padding>
+                            <Skill padding={true}>
                                 <SkillTitle>Tools</SkillTitle>
                                 <ul>
                                     <li>Git & Github</li>
@@ -90,7 +90,7 @@ function About() {
                                     <li>PHP Storm</li>
                                 </ul>
                             </Skill>
-                            <Skill padding>
+                            <Skill padding={true}>
                                 <SkillTitle>Design</SkillTitle>
                                 <ul>
                                     <li>Adobe Photoshop</li>

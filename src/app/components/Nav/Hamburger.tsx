@@ -1,12 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { Container, Line } from './styles';
 
-interface Hamburger {
-    open: boolean;
-    onClick: () => void;
-}
-
-const Hamburger: React.FunctionComponent<Hamburger> = ({ open, ...props }) => (
+const Hamburger = ({ open, ...props }: { open: boolean; onClick: () => void }) => (
     <Container aria-expanded={open} role="button" aria-haspopup="true" open={open} {...props}>
         <Line />
         <Line />

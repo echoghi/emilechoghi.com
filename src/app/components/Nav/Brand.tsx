@@ -1,12 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavBrand } from './styles';
 
-interface Brand {
-    onClick: () => void;
-}
-
-const Brand: React.FunctionComponent<Brand> = props => {
+const Brand = (props: { onClick: () => void }) => {
     return (
         <NavBrand {...props}>
             <NavLink to="/">

@@ -16,24 +16,25 @@ import {
 
 function sendAnalytics(project: string) {
     if (NODE_ENV === 'production') {
-        ReactGA.event({
-            category: 'Portfolio Item',
-            action: 'Project Click',
-            label: `Navigated to ${project}`
-        });
+        return () =>
+            ReactGA.event({
+                action: 'Project Click',
+                category: 'Portfolio Item',
+                label: `Navigated to ${project}`
+            });
     }
 }
 
-interface ProjectProps {
+interface Project {
     title: string;
     description: string;
-    stack: Array<string>;
+    stack: string[];
     link: string;
     color: string;
     image: string;
 }
 
-const Project: React.FunctionComponent<ProjectProps> = ({
+const Project: React.FunctionComponent<Project> = ({
     title,
     description,
     stack,
@@ -42,7 +43,7 @@ const Project: React.FunctionComponent<ProjectProps> = ({
     image
 }) => (
     <Flipped flipId={title}>
-        <ListItem onClick={() => sendAnalytics(title)}>
+        <ListItem onClick={sendAnalytics(title)}>
             <PortfolioLink href={link} target="_blank" rel="noopener noreferrer">
                 <PortfolioItem>
                     <ImageWrapper>

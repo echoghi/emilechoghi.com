@@ -1,12 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import { NotFound } from './styles';
 
 class ErrorBoundary extends React.Component {
-    state = { hasError: false };
-
     static getDerivedStateFromError(error: Error) {
         return { hasError: true, error };
     }
+
+    state: { hasError: boolean } = { hasError: false };
 
     render() {
         if (this.state.hasError) {

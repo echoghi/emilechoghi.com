@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {
     TextArea,
     Input,
@@ -13,38 +13,38 @@ import {
     FormButton
 } from './styles';
 // Components
-import * as ReactGA from 'react-ga';
+import ReactGA from 'react-ga';
 import Footer from '../Footer';
 import Success from './Success';
 import Loading from '../Loading';
 import Error from './Error';
 
-interface validationState {
-    name: { dirty: boolean; valid: boolean };
+interface ValidationState {
     email: { dirty: boolean; valid: boolean };
     message: { dirty: boolean; valid: boolean };
+    name: { dirty: boolean; valid: boolean };
     [key: string]: { dirty: boolean; valid: boolean };
 }
 
-interface formState {
-    name: string;
+interface FormState {
     email: string;
     message: string;
+    name: string;
     [key: string]: string;
 }
 
 // form validation
-const formValidation: validationState = {
-    name: { dirty: false, valid: false },
+const formValidation: ValidationState = {
     email: { dirty: false, valid: false },
-    message: { dirty: false, valid: false }
+    message: { dirty: false, valid: false },
+    name: { dirty: false, valid: false }
 };
 
 // form validation
-const formState: formState = {
-    name: '',
+const formState: FormState = {
     email: '',
-    message: ''
+    message: '',
+    name: ''
 };
 
 // Email validation RegExp
@@ -85,19 +85,23 @@ const Contact = React.memo(() => {
         if (error) {
             if (NODE_ENV === 'production') {
                 ReactGA.event({
-                    category: 'Form Error',
                     action: 'Form Submission Error',
+                    category: 'Form Error',
                     label: 'Error Modal'
                 });
             }
 
-            return <Error close={() => setError(false)} />;
+            const clearError = () => setError(false);
+
+            return <Error close={clearError} />;
         }
     }
 
     function renderSuccess() {
         if (success) {
-            return <Success close={() => setSuccess(false)} />;
+            const resetSuccess = () => setSuccess(false);
+
+            return <Success close={resetSuccess} />;
         }
     }
 
@@ -108,8 +112,8 @@ const Contact = React.memo(() => {
 
     function validateInputs(): boolean {
         // Check for incompleted fields
-        for (let key in validation) {
-            if (!validation[key]['valid']) {
+        for (const key in validation) {
+            if (!validation[key].valid) {
                 return false;
             }
         }
@@ -118,37 +122,34 @@ const Contact = React.memo(() => {
     }
 
     const onChange = (event: any) => {
-        const { name, value } = event.target;
+        const { value } = event.target;
+        const formField = event.target.name;
 
         // Set value in obj to eventually send to the state
-        form[name] = value;
+        form[formField] = value;
 
         // Validate inputs
-        if (name === 'email') {
+        if (formField === 'email') {
             // Validate email address
-            if (validateEmail.test(value)) {
-                validation[name]['valid'] = true;
-            } else {
-                validation[name]['valid'] = false;
-            }
+            validation[formField].valid = validateEmail.test(value);
         } else {
             // If there is any value for non-email inputs, mark it valid
             if (value !== '') {
-                validation[name]['valid'] = true;
+                validation[formField].valid = true;
             } else {
-                validation[name]['valid'] = false;
+                validation[formField].valid = false;
             }
         }
 
         setFormValue(form);
     };
 
-    const handleErrorClass = (name: string): string => {
-        if (validation[name].valid) {
+    const handleErrorClass = (inputName: string): string => {
+        if (validation[inputName].valid) {
             return '';
-        } else if (!validation[name].valid && validation[name].dirty) {
+        } else if (!validation[inputName].valid && validation[inputName].dirty) {
             return 'invalid';
-        } else if (!validation[name].valid && !validation[name].dirty) {
+        } else if (!validation[inputName].valid && !validation[inputName].dirty) {
             return '';
         }
     };
@@ -160,9 +161,9 @@ const Contact = React.memo(() => {
             setLoading(true);
 
             return fetch('/api/postForm', {
-                method: 'POST',
                 body: JSON.stringify(form),
-                headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                method: 'POST'
             })
                 .then(response => {
                     if (response.status === 200) {
@@ -171,8 +172,8 @@ const Contact = React.memo(() => {
 
                         if (NODE_ENV === 'production') {
                             ReactGA.event({
-                                category: 'Form Success',
                                 action: 'Message Submitted',
+                                category: 'Form Success',
                                 label: 'Success Notification'
                             });
                         }
@@ -183,18 +184,18 @@ const Contact = React.memo(() => {
                         setLoading(false);
                     }
                 })
-                .catch(error => {
+                .catch(err => {
                     setError(true);
                     setLoading(false);
-                    throw error;
+                    throw err;
                 });
         } else {
             // create a shallow copy of the state to mutate
-            let obj = Object.assign({}, validation);
+            const obj = { ...validation };
             // If there is an invalid input, mark all as dirty on submit to alert the user
-            for (let attr in form) {
+            for (const attr in form) {
                 if (obj[attr]) {
-                    obj[attr]['dirty'] = true;
+                    obj[attr].dirty = true;
                 }
             }
 
@@ -285,7 +286,7 @@ const Contact = React.memo(() => {
                 {renderError()}
             </Portfolio>
 
-            <Footer fixed />
+            <Footer fixed={true} />
         </React.Fragment>
     );
 });

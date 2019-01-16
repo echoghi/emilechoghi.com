@@ -66,6 +66,9 @@ module.exports = function(env, argv) {
                         },
                         {
                             loader: 'tslint-loader'
+                        },
+                        {
+                            loader: 'source-map-loader'
                         }
                     ]
                 },
@@ -119,8 +122,6 @@ module.exports = function(env, argv) {
                     exclude: /node_modules/
                 },
 
-                { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
-
                 {
                     test: /\.(png|jpg|ttf|eot|svg|woff|woff2)(\?[a-z0-9]+)?$/,
                     exclude: /node_modules/,
@@ -154,7 +155,7 @@ module.exports = function(env, argv) {
                     filename: 'index.html',
                     template: 'index.html'
                 }),
-            new CopyWebpackPlugin(['netlify', 'pwa', 'static']),
+            new CopyWebpackPlugin(['pwa', 'static']),
             new ManifestPlugin({
                 fileName: 'asset-manifest.json'
             }),

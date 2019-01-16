@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Components
 import NavBar from './Nav';
@@ -7,15 +7,21 @@ import FourOhFour from './Error/404';
 import ErrorBoundary from './Error/ErrorBoundary';
 import GlobalStyle from '../theme/GlobalStyle';
 
-const SocialLinks = React.lazy(() => import('./SocialLinks'));
+// no lambda
+const SocialLinksImport = () => import('./SocialLinks');
+const AboutImport = () => import('./About');
+const PortfolioImport = () => import('./Portfolio');
+const ContactImport = () => import('./Contact');
 
-const About = React.lazy(() => import('./About'));
+// components
+const SocialLinks = React.lazy(SocialLinksImport);
 
-const Portfolio = React.lazy(() => import('./Portfolio'));
+// pages
+const About = React.lazy(AboutImport);
+const Portfolio = React.lazy(PortfolioImport);
+const Contact = React.lazy(ContactImport);
 
-const Contact = React.lazy(() => import('./Contact'));
-
-const AppIndex: React.FunctionComponent = () => (
+const AppIndex = () => (
     <BrowserRouter>
         <ErrorBoundary>
             <NavBar />
@@ -25,9 +31,9 @@ const AppIndex: React.FunctionComponent = () => (
                 <SocialLinks />
 
                 <Switch>
-                    <Route exact path="/" render={() => <About />} name="Home" />
-                    <Route path="/portfolio" render={() => <Portfolio />} name="Portfolio" />
-                    <Route path="/contact" render={() => <Contact />} name="Contact" />
+                    <Route exact={true} path="/" component={About} name="Home" />
+                    <Route path="/portfolio" component={Portfolio} name="Portfolio" />
+                    <Route path="/contact" component={Contact} name="Contact" />
                     <Route component={FourOhFour} name="404" />
                 </Switch>
             </React.Suspense>

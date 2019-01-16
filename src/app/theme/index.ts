@@ -1,20 +1,20 @@
 const theme = {
     colors: {
-        blue: '#269bda',
-        lightBlue: '#42a9e0',
-        white: '#ffffff',
         black: '#36363c',
+        blue: '#269bda',
+        borderGrey: 'rgb(219, 219, 219)',
         error: '#dd4b39',
         grey: '#ecf1f6',
-        borderGrey: 'rgb(219, 219, 219)',
         hoverGrey: 'rgba(0, 0, 0, 0.08)',
-        hoverGreyAlt: 'rgb(242, 242, 242)'
-    },
-    fonts: {
-        primary: 'Varela Round, sans-serif, serif'
+        hoverGreyAlt: 'rgb(242, 242, 242)',
+        lightBlue: '#42a9e0',
+        white: '#ffffff'
     },
     fontSizes: {
         normal: '14px'
+    },
+    fonts: {
+        primary: 'Varela Round, sans-serif, serif'
     }
 };
 
