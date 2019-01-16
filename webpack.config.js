@@ -155,7 +155,7 @@ module.exports = function(env, argv) {
                     filename: 'index.html',
                     template: 'index.html'
                 }),
-            new CopyWebpackPlugin(['pwa', 'static']),
+            new CopyWebpackPlugin(['static']),
             new ManifestPlugin({
                 fileName: 'asset-manifest.json'
             }),

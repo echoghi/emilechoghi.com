@@ -4,9 +4,9 @@
  *
  */
 import './app/assets/scss/style.scss';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import * as ReactGA from 'react-ga';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
 // components
 import AppIndex from './app/components';
 // Service Worker
