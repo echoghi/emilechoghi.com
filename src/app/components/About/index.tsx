@@ -1,5 +1,6 @@
-import * as React from 'react';
-import * as ReactGA from 'react-ga';
+import React from 'react';
+import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 import {
     Skill,
     SkillTitle,
@@ -20,8 +21,6 @@ function About() {
     React.useEffect(
         () => {
             if (!mounted) {
-                document.title = 'Emile Choghi';
-
                 if (NODE_ENV === 'production') {
                     // @ts-ignore
                     ReactGA.ga('send', 'pageview', '/');
@@ -36,10 +35,27 @@ function About() {
 
     return (
         <AboutWrapper>
+            <Helmet
+                title="Emile Choghi"
+                meta={[
+                    {
+                        content:
+                            'Frontend software engineer based in Los Angeles who specializes in developing high-quality web sites and applications.',
+                        name: 'description'
+                    }
+                ]}
+                link={[
+                    {
+                        href: 'https://emilechoghi.com/',
+                        rel: 'canonical'
+                    }
+                ]}
+            />
+
             <Content>
                 <Tagline>
-                    I'm <b>Emile Choghi</b>, a design-oriented front end software engineer focused
-                    on building beautiful interfaces & experiences
+                    I'm <b>Emile Choghi</b>, a front end engineer focused on building beautiful
+                    interfaces & experiences
                 </Tagline>
                 <Section>
                     <SectionTitle>Background</SectionTitle>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import {
     TextArea,
     Input,
@@ -61,8 +62,6 @@ const Contact = React.memo(() => {
     React.useEffect(
         () => {
             if (!mounted) {
-                document.title = 'Contact Emile Choghi';
-
                 if (NODE_ENV === 'production') {
                     // @ts-ignore
                     ReactGA.ga('send', 'pageview', '/contact');
@@ -207,6 +206,22 @@ const Contact = React.memo(() => {
 
     return (
         <React.Fragment>
+            <Helmet
+                title="Contact Emile Choghi"
+                meta={[
+                    {
+                        content: 'Questions, recruiters, and advice welcome.',
+                        name: 'description'
+                    }
+                ]}
+                link={[
+                    {
+                        href: 'https://emilechoghi.com/contact',
+                        rel: 'canonical'
+                    }
+                ]}
+            />
+
             <Portfolio>
                 <div className="clearfix" />
 

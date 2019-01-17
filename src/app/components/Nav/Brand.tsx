@@ -5,7 +5,7 @@ import { NavBrand } from './styles';
 const Brand = (props: { onClick: () => void }) => {
     return (
         <NavBrand {...props}>
-            <NavLink to="/">
+            <NavLink to="/" aria-label="Navigate to Homepage">
                 <i className="icon-brand" />
             </NavLink>
         </NavBrand>

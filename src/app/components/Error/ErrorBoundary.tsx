@@ -1,7 +1,11 @@
 import React from 'react';
 import { NotFound } from './styles';
 
-class ErrorBoundary extends React.Component {
+interface Props {
+    children: React.ReactNode;
+}
+
+class ErrorBoundary extends React.Component<Props> {
     static getDerivedStateFromError(error: Error) {
         return { hasError: true, error };
     }

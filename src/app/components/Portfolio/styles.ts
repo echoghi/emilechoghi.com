@@ -19,7 +19,7 @@ const PortfolioWrapper = styled.div`
     }
 `;
 
-const ProjectWrapper = styled.div`
+const ProjectWrapper = styled.ul`
     text-align: center;
     padding: 130px 85px 0;
     margin: 0 auto;

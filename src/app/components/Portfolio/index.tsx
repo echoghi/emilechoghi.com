@@ -3,6 +3,7 @@ import React from 'react';
 import Footer from '../Footer';
 import Project from './Project';
 import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 // Project Images
 import reviewhub from '../../assets/images/reviewhub.png';
 import padm from '../../assets/images/padm.png';
@@ -131,9 +132,6 @@ const Portfolio = React.memo(() => {
     React.useEffect(
         () => {
             if (!mounted) {
-                // prettier-ignore
-                document.title = 'Emile Choghi\'s Portfolio';
-
                 if (NODE_ENV === 'production') {
                     // @ts-ignore
                     ReactGA.ga('send', 'pageview', '/portfolio');
@@ -148,6 +146,22 @@ const Portfolio = React.memo(() => {
 
     return (
         <React.Fragment>
+            <Helmet
+                title="Emile Choghi's Portfolio"
+                meta={[
+                    {
+                        content: 'Professional and side projects from the past year.',
+                        name: 'description'
+                    }
+                ]}
+                link={[
+                    {
+                        href: 'https://emilechoghi.com/portfolio',
+                        rel: 'canonical'
+                    }
+                ]}
+            />
+
             <PortfolioWrapper>
                 <Filter>{renderFilterButtons()}</Filter>
 

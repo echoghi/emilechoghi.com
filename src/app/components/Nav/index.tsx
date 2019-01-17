@@ -23,7 +23,13 @@ const NavBar = () => {
             <Hamburger open={open} onClick={toggleMenu} />
 
             <Links open={open} role="menu">
-                <Link onClick={closeMenu} to="/" exact={true} className={handleActivePath('/')}>
+                <Link
+                    onClick={closeMenu}
+                    to="/"
+                    exact={true}
+                    className={handleActivePath('/')}
+                    role="menuitem"
+                >
                     Home <i className="icon-home" />
                 </Link>
 
@@ -31,11 +37,17 @@ const NavBar = () => {
                     onClick={closeMenu}
                     to="/portfolio"
                     className={handleActivePath('/portfolio')}
+                    role="menuitem"
                 >
                     Portfolio <i className="icon-briefcase" />
                 </Link>
 
-                <Link onClick={closeMenu} to="/contact" className={handleActivePath('/contact')}>
+                <Link
+                    onClick={closeMenu}
+                    to="/contact"
+                    className={handleActivePath('/contact')}
+                    role="menuitem"
+                >
                     Contact <i className="icon-message-square" />
                 </Link>
             </Links>
