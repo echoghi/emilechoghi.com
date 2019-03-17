@@ -83,6 +83,7 @@ const Link = styled(NavLink)`
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     outline: none;
+    line-height: 1;
 
     span {
         font-family: ${theme.fonts.primary};
@@ -142,6 +143,7 @@ const ExternalLink = styled.a`
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     outline: none;
+    line-height: 1;
 
     span {
         font-family: ${theme.fonts.primary};

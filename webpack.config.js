@@ -173,7 +173,7 @@ module.exports = function(env, argv) {
             isProd &&
                 new HtmlWebpackPlugin({
                     filename: 'index.html',
-                    template: 'template.html'
+                    template: 'index.html'
                 }),
             new CopyWebpackPlugin(['static', 'netlify']),
             new ManifestPlugin({
