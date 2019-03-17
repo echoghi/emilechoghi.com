@@ -1,4 +1,0 @@
-# emilechoghi.com
-
-User-agent: * 
-Disallow:
