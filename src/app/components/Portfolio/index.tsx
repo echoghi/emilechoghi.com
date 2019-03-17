@@ -24,6 +24,24 @@ interface Project {
 // prettier-ignore
 const projects: Project[] = [
     {
+        color: '#ed5454',
+        image: doughboy,
+        link: 'https://doughboy.io',
+        tech: ['React', 'Redux', 'TypeScript', 'Webpack', 'Firebase'],
+        text:
+        'A health app that enables you to log your daily meals, exercises, and observations all in one convenient dashboard. Your nutritional intake is measured against your estimated caloric expenditure each day to help you identify trends in your diet, mood, and overall well being.',
+        title: 'Doughboy.io'
+    },
+    {
+        color: '#364343',
+        image: padm,
+        link: 'https://www.doctor.com/solutions/universal-scheduling',
+        tech: ['React', 'Redux', 'TypeScript', 'Webpack'],
+        text:
+        'An administrative dashboard where healthcare providers can track their listings, reviews, appointments, and overall reputation.',
+        title: 'Doctor.com Provider Admin'
+    },
+    {
         color: '#27BCBB',
         image: reviewhub,
         link: 'https://www.doctor.com/solutions/reviewhub',
@@ -33,28 +51,10 @@ const projects: Project[] = [
         title: 'Doctor.com ReviewHub'
     },
     {
-        color: '#ed5454',
-        image: doughboy,
-        link: 'https://doughboy.io',
-        tech: ['React', 'Redux', 'Webpack', 'Firebase'],
-        text:
-        'A health app that enables you to log your daily meals, exercises, and observations all in one convenient dashboard. Your nutritional intake is measured against your estimated caloric expenditure each day to help you identify trends in your diet, mood, and overall well being.',
-        title: 'Doughboy.io'
-    },
-    {
-        color: '#364343',
-        image: padm,
-        link: 'https://www.doctor.com/solutions/universal-scheduling',
-        tech: ['React', 'Redux', 'Webpack'],
-        text:
-        'An administrative dashboard where healthcare providers can track their listings, reviews, appointments, and overall reputation.',
-        title: 'Doctor.com Provider Admin'
-    },
-    {
         color: '#269bda',
         image: choghi,
         link: 'https://github.com/echoghi/emilechoghi.com',
-        tech: ['React', 'Webpack', 'Node'],
+        tech: ['React', 'TypeScript', 'Webpack'],
         text: 'This website, which runs on a modest node server and relays messages to my email.',
         title: 'emilechoghi.com'
     }
@@ -68,6 +68,7 @@ const techStack: string[] = [
     'Webpack',
     'SCSS',
     'Firebase',
+    'TypeScript',
     'Node',
     'PHP'
 ];
@@ -129,20 +130,17 @@ const Portfolio = React.memo(() => {
     }
 
     // onMount logic
-    React.useEffect(
-        () => {
-            if (!mounted) {
-                if (NODE_ENV === 'production') {
-                    // @ts-ignore
-                    ReactGA.ga('send', 'pageview', '/portfolio');
-                }
-
-                window.scrollTo(0, 0);
-                onMount(true);
+    React.useEffect(() => {
+        if (!mounted) {
+            if (NODE_ENV === 'production') {
+                // @ts-ignore
+                ReactGA.ga('send', 'pageview', '/portfolio');
             }
-        },
-        [mounted]
-    );
+
+            window.scrollTo(0, 0);
+            onMount(true);
+        }
+    }, [mounted]);
 
     return (
         <React.Fragment>

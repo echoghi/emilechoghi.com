@@ -18,20 +18,17 @@ import Footer from '../Footer';
 function About() {
     const [mounted, onMount] = React.useState(false);
 
-    React.useEffect(
-        () => {
-            if (!mounted) {
-                if (NODE_ENV === 'production') {
-                    // @ts-ignore
-                    ReactGA.ga('send', 'pageview', '/');
-                }
-
-                window.scrollTo(0, 0);
-                onMount(true);
+    React.useEffect(() => {
+        if (!mounted) {
+            if (NODE_ENV === 'production') {
+                // @ts-ignore
+                ReactGA.ga('send', 'pageview', '/');
             }
-        },
-        [mounted]
-    );
+
+            window.scrollTo(0, 0);
+            onMount(true);
+        }
+    }, [mounted]);
 
     return (
         <AboutWrapper>
@@ -81,7 +78,8 @@ function About() {
                             <Skill>
                                 <SkillTitle>Languages</SkillTitle>
                                 <ul>
-                                    <li>Javascript (ES6)</li>
+                                    <li>JavaScript (ES6)</li>
+                                    <li>TypeScript</li>
                                     <li>HTML</li>
                                     <li>CSS</li>
                                 </ul>
@@ -101,9 +99,9 @@ function About() {
                                 <ul>
                                     <li>Git & Github</li>
                                     <li>Webpack</li>
-                                    <li>Gulp</li>
+                                    <li>ESLint</li>
+                                    <li>Prettier</li>
                                     <li>VS Code</li>
-                                    <li>PHP Storm</li>
                                 </ul>
                             </Skill>
                             <Skill padding={true}>
