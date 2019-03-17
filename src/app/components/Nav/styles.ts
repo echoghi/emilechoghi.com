@@ -129,6 +129,65 @@ const Link = styled(NavLink)`
     }
 `;
 
+const ExternalLink = styled.a`
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 16px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: transparent;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    outline: none;
+
+    span {
+        font-family: ${theme.fonts.primary};
+        text-transform: none;
+    }
+
+    i {
+        display: none;
+    }
+
+    &:hover {
+        background-color: ${theme.colors.hoverGrey};
+    }
+
+    &.active {
+        color: ${theme.colors.blue};
+    }
+
+    @media (max-width: 767px) {
+        display: block;
+        padding: 20px 10px;
+        text-align: left;
+
+        i {
+            display: block;
+            float: right;
+            font-size: 25px;
+        }
+
+        &:first-child {
+            margin-top: 50px;
+            padding: 30px 10px;
+            border-bottom: 1px solid ${theme.colors.grey};
+        }
+
+        &:nth-child(2) {
+            padding-top: 30px;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid ${theme.colors.grey};
+            padding-bottom: 30px;
+        }
+    }
+`;
+
 const Links = styled.ul`
     display: inline-flex;
     list-style: none;
@@ -172,4 +231,4 @@ const NavBrand = styled.div`
     }
 `;
 
-export { Link, Links, NavBrand, Line, Container, Nav };
+export { Link, Links, NavBrand, Line, Container, Nav, ExternalLink };

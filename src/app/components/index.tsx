@@ -11,7 +11,6 @@ import GlobalStyle from '../theme/GlobalStyle';
 const SocialLinksImport = () => import('./SocialLinks');
 const AboutImport = () => import('./About');
 const PortfolioImport = () => import('./Portfolio');
-const ContactImport = () => import('./Contact');
 
 // components
 const SocialLinks = React.lazy(SocialLinksImport);
@@ -19,7 +18,6 @@ const SocialLinks = React.lazy(SocialLinksImport);
 // pages
 const About = React.lazy(AboutImport);
 const Portfolio = React.lazy(PortfolioImport);
-const Contact = React.lazy(ContactImport);
 
 const AppIndex = () => (
     <BrowserRouter>
@@ -33,7 +31,6 @@ const AppIndex = () => (
                 <Switch>
                     <Route exact={true} path="/" component={About} name="Home" />
                     <Route path="/portfolio" component={Portfolio} name="Portfolio" />
-                    <Route path="/contact" component={Contact} name="Contact" />
                     <Route component={FourOhFour} name="404" />
                 </Switch>
             </React.Suspense>

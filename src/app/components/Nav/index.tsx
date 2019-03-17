@@ -1,7 +1,7 @@
 import React from 'react';
 import Brand from './Brand';
 import Hamburger from './Hamburger';
-import { Nav, Links, Link } from './styles';
+import { Nav, Links, Link, ExternalLink } from './styles';
 
 const handleActivePath = (path: string) => {
     if (window.location.pathname === path) {
@@ -42,14 +42,16 @@ const NavBar = () => {
                     Portfolio <i className="icon-briefcase" />
                 </Link>
 
-                <Link
+                <ExternalLink
                     onClick={closeMenu}
-                    to="/contact"
+                    href="https://emilechoghiblog.netlify.com/"
                     className={handleActivePath('/contact')}
                     role="menuitem"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
-                    Contact <i className="icon-message-square" />
-                </Link>
+                    Blog <i className="icon-message-square" />
+                </ExternalLink>
             </Links>
         </Nav>
     );

@@ -3,18 +3,21 @@
     "rules": {
         "max-line-length": false,
         "quotemark": false,
+        "no-console": false,
         "trailing-comma": [false],
         "arrow-parens": false,
         "ordered-imports": false,
         "interface-name": [true, "never-prefix"],
         "no-submodule-imports": false,
-        "member-access": [true, "no-public"]
+        "member-access": [true, "no-public"],
+        "no-namespace": false
     },
     "jsRules": {
-        "no-empty": true
+        "no-empty": true,
+        "no-console": false
     },
     "linterOptions": {
-        "exclude": ["node_modules/**"]
+        "exclude": ["node_modules/**", "**/*.js", "**/*.jsx"]
     },
-    "defaultSeverity": "error"
+    "defaultSeverity": "warning"
 }

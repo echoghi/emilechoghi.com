@@ -13,6 +13,7 @@ const SystemBellPlugin = require('system-bell-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const PACKAGE = require('./package.json');
@@ -56,8 +57,23 @@ module.exports = function(env, argv) {
                     }
                 },
 
+                // eslint for JS
                 {
-                    test: /\.(js|ts|tsx)$/,
+                    test: /\.(js|jsx)$/,
+                    include: sourcePath,
+                    enforce: 'pre',
+                    use: [
+                        {
+                            loader: 'eslint-loader',
+                            options: { fix: false }
+                        }
+                    ]
+                },
+
+                // tslint + eslint for TS
+                {
+                    test: /\.(ts|tsx)$/,
+                    include: sourcePath,
                     enforce: 'pre',
                     use: [
                         {
@@ -107,19 +123,20 @@ module.exports = function(env, argv) {
                 },
 
                 {
-                    test: /\.(js|jsx)$/,
+                    test: /\.(t|j)sx?$/,
                     exclude: /node_modules/,
+                    include: sourcePath,
                     use: [
+                        {
+                            loader: 'ts-loader',
+                            options: {
+                                transpileOnly: true
+                            }
+                        },
                         {
                             loader: 'babel-loader'
                         }
                     ]
-                },
-
-                {
-                    test: /\.(ts|tsx)?$/,
-                    use: 'ts-loader',
-                    exclude: /node_modules/
                 },
 
                 {
@@ -149,13 +166,13 @@ module.exports = function(env, argv) {
                 GA_ID: JSON.stringify(process.env.GA_ID)
             }),
             new WebpackBar({ name: 'portfolio', color: '#269bda' }),
-            // Production
+            // PRODUCTION
             isProd &&
                 new HtmlWebpackPlugin({
                     filename: 'index.html',
                     template: 'index.html'
                 }),
-            new CopyWebpackPlugin(['static']),
+            new CopyWebpackPlugin(['static', 'netlify']),
             new ManifestPlugin({
                 fileName: 'asset-manifest.json'
             }),
@@ -225,7 +242,13 @@ module.exports = function(env, argv) {
                     filename: 'styles.css',
                     chunkFilename: '[id].css'
                 }),
-            // Development
+            // DEVELOPMENT
+            !isProd &&
+                new ForkTsCheckerWebpackPlugin({
+                    tslint: path.join(__dirname, './tslint.json'),
+                    tsconfig: path.join(__dirname, './tsconfig.json'),
+                    async: false
+                }),
             !isProd && new webpack.HotModuleReplacementPlugin(),
             !isProd &&
                 new BrowserSyncPlugin(
@@ -255,6 +278,7 @@ module.exports = function(env, argv) {
                     files: './app/assets/scss/*.scss'
                 })
         ].filter(Boolean),
+
         // split out vendor js into its own bundle
         optimization: {
             splitChunks: {
