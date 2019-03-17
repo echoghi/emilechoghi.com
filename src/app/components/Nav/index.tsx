@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Brand from './Brand';
 import Hamburger from './Hamburger';
 import { Nav, Links, Link, ExternalLink } from './styles';
+import { withRouter, RouteComponentProps } from 'react-router';
 
-const handleActivePath = (path: string) => {
-    if (window.location.pathname === path) {
-        return 'active';
-    } else {
-        return null;
-    }
-};
-
-const NavBar = () => {
-    const [open, handleMenu] = React.useState(false);
+const NavBar = ({ history }: RouteComponentProps) => {
+    const [open, handleMenu] = useState(false);
     const closeMenu = () => handleMenu(false);
     const toggleMenu = () => handleMenu(!open);
+
+    const handleActivePath = (path: string) => {
+        if (history.location.pathname === path) {
+            return 'active';
+        } else {
+            return null;
+        }
+    };
 
     return (
         <Nav>
@@ -45,7 +46,6 @@ const NavBar = () => {
                 <ExternalLink
                     onClick={closeMenu}
                     href="https://blog.emilechoghi.com/"
-                    className={handleActivePath('/contact')}
                     role="menuitem"
                 >
                     Blog <i className="icon-message-square" />
@@ -55,4 +55,4 @@ const NavBar = () => {
     );
 };
 
-export default React.memo(NavBar);
+export default withRouter(NavBar);
