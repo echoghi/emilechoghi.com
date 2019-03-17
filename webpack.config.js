@@ -148,6 +148,9 @@ module.exports = function(env, argv) {
         },
 
         resolve: {
+            alias: {
+                react: path.resolve('./node_modules/react')
+            },
             extensions: [
                 '.webpack-loader.js',
                 '.web-loader.js',
