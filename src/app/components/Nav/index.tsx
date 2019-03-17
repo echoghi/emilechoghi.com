@@ -44,11 +44,9 @@ const NavBar = () => {
 
                 <ExternalLink
                     onClick={closeMenu}
-                    href="https://emilechoghiblog.netlify.com/"
+                    href="https://blog.emilechoghi.com/"
                     className={handleActivePath('/contact')}
                     role="menuitem"
-                    target="_blank"
-                    rel="noopener noreferrer"
                 >
                     Blog <i className="icon-message-square" />
                 </ExternalLink>
