@@ -43,12 +43,8 @@ const NavBar = ({ history }: RouteComponentProps) => {
                     Portfolio <i className="icon-briefcase" />
                 </Link>
 
-                <ExternalLink
-                    onClick={closeMenu}
-                    href="https://blog.emilechoghi.com/"
-                    role="menuitem"
-                >
-                    Blog <i className="icon-message-square" />
+                <ExternalLink onClick={closeMenu} href="https://emilechoghi.com/" role="menuitem">
+                    v3 <i className="icon-message-square" />
                 </ExternalLink>
             </Links>
         </Nav>
