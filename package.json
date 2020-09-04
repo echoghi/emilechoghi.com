@@ -84,7 +84,7 @@
         "json-loader": "^0.5.4",
         "loader-utils": "^1.1.0",
         "mini-css-extract-plugin": "^0.4.3",
-        "node-sass": "4.9.0",
+        "node-sass": "4.13.1",
         "nodemon": "1.18.4",
         "path": "^0.12.7",
         "raw-loader": "1",
