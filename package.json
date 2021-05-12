@@ -18,7 +18,7 @@
     "license": "MIT",
     "dependencies": {
         "@material-ui/core": "3.8.3",
-        "nodemailer": "^5.0.1",
+        "nodemailer": "^6.4.16",
         "react": "^16.8.0-alpha.0",
         "react-dom": "^16.8.0-alpha.0",
         "react-flip-toolkit": "6.3.1",
